@@ -4,11 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "1edf10818ffa7521",
+        "id": "0848f8dee1f567e8",
         "type": "tabs",
         "children": [
           {
-            "id": "4b4bf6419af86eab",
+            "id": "0d94f804b694ba34",
             "type": "leaf",
             "state": {
               "type": "empty",
@@ -44,7 +44,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "",
+                "query": "background",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -52,20 +52,12 @@
                 "sortOrder": "alphabetical"
               }
             }
-          },
-          {
-            "id": "1c57de6a04088079",
-            "type": "leaf",
-            "state": {
-              "type": "starred",
-              "state": {}
-            }
           }
         ]
       }
     ],
     "direction": "horizontal",
-    "width": 348.5
+    "width": 455.5
   },
   "right": {
     "id": "75bad08b258c7b53",
@@ -109,7 +101,7 @@
               "type": "tag",
               "state": {
                 "sortOrder": "frequency",
-                "useHierarchy": true
+                "useHierarchy": false
               }
             }
           },
@@ -126,22 +118,19 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 266.5
   },
-  "ribbon": {
-    "mostRecentAction": ""
-  },
-  "active": "4b4bf6419af86eab",
+  "active": "0d94f804b694ba34",
   "lastOpenFiles": [
-    "HTML/Chapter3.HTML常用标签/Chapter3_04_表单Fotmular.md",
-    "HTML/Chapter3.HTML常用标签/Chapter3_01_HTML常用标签.md",
-    "HTML/Chapter1.HTML简介/Chapter1.004-005.HTML简介.md",
-    "HTML/Chapter3.HTML常用标签/Chapter3_Image/Chapter3_001_特殊字符.png",
-    "HTML/Chapter3.HTML常用标签/Chapter3_02_HTML图像标签和超链接标签.md",
-    "content.md",
-    "001_视频教学内容.png",
-    "2022-10-18.md",
-    "CSS/Chapter2_选择器_字体文本属性/Chapter2_02_字体文本属性.md",
-    "CSS/Chapter2_选择器_字体文本属性/Chapter2_01_基础选择器.md"
+    "HTML/HTML5/HTML5.md",
+    "CSS/Chapter7_CSS3新特性/Chapter7_CSS3新特性.md",
+    "CSS/Chapter7_CSS3新特性/image/Chapter7_CSS3新特性_总结 1.png",
+    "CSS/Chapter2_选择器_字体文本属性/Chapter2_04_伪类选择器和伪元素选择器_Pseudo-classes and pseudo-elements.md",
+    "CSS/Chapter2_元素显示模式blockInline_背景/Chapter2_05_CSS背景.md",
+    "CSS/Chapter4_盒子模型/Chapter4_盒子模型_01.md",
+    "CSS/Chapter4_盒子模型/Chapter4_盒子模型_02_CSS5中新增的特性.md",
+    "CSS/Chapter5_页面布局_标准流_浮动_定位/Chapter5_css_页面布局_01_传统页面布局方式.md",
+    "CSS/Chapter2_选择器_字体文本属性/Chapter2_03_复合选择器_Grouping selectors and Combinators.md",
+    "CSS/Chapter2_选择器_字体文本属性/Chapter2_01_基础选择器_basisSelector.md"
   ]
 }

@@ -1,4 +1,4 @@
-# 选择器的作用
+# 1 选择器的作用
 
 选择器就是根据不同需求把不同标签选择出来。
 
@@ -6,14 +6,14 @@
 
 css中一共有哪些选择器:  https://www.w3school.com.cn/cssref/css_selectors.asp
 
-# 选择器分类
+# 2 选择器分类
 
 选择器分为基础选择器和复合选择器两大类。
 
 - 基础选择器由单个选择器组成
 - 基础选择器包括：标签选择器、类选择器、id 选择器和通配符选择器、
 
-# 基础选择器总结
+# 3 基础选择器总结
 
 | 基础选择器  |                    | 作用                                                  | 特点                 | 使用情况       | 用法                        |
 | ------ | ------------------ | --------------------------------------------------- | ------------------ | ---------- | ------------------------- |
@@ -21,12 +21,12 @@ css中一共有哪些选择器:  https://www.w3school.com.cn/cssref/css_selector
 | 类选择器   | class Selector     | 选出一个或多个标签                                           | 可以根据需求选择           | 较多         | `.nav {color: red;}`      |
 | id 选择器 | id Selector        | 一次只能选出一个标签                                          | 一个 id 属性在页面中只能出现一次 | 一般配合 js 使用 | `#nav {color: red;}`      |
 | 通配符选择器 | Universal Selector | 选择所有标签元素                                            | 选择的太多，有部分不需要       | 特殊情况使用     | `* {color: red; }`        |
-| 属性线则气  | Attribute Selevtor | Selects all elements that have the given attribute. |                    |            | `[title] {color: red;  }` |
+| 属性选择器  | Attribute Selevtor | Selects all elements that have the given attribute. |                    |            | `[title] {color: red;  }` |
 
 - 每个选择器都有自己的使用场景，都要掌握。
 - 如果是修改样式，类选择器是使用最多的。
 
-# 团队约定
+# 4 团队约定
 
 1. 尽量少用通配符选择器 `*`。
 
@@ -46,7 +46,7 @@ p{}
 div{}   因为div 没有语义，我们尽量少用
 ```
 
-# 标签选择器 Type selector
+# 5 标签选择器 Type selector
 
 直接用 HTML 标签名作为选择器，按标签名称分类，**为页面某一类标签指定统一的 CSS 样式。**
 
@@ -68,11 +68,11 @@ div{}   因为div 没有语义，我们尽量少用
 
 ![](.\image\Chapter_css_简单选择器_001_标签选择器_例子.png)
 
-# 类选择器 class selector
+# 6 类选择器 class selector
 
 差异化选择不同标签，单独选一个或者某个标签。
 
-## 语法
+## 6.1 语法
 
 记忆口诀：样式点定义，结构类调用
 
@@ -88,7 +88,7 @@ div{}   因为div 没有语义，我们尽量少用
 }
 ```
 
-## 注意
+## 6.2 注意
 
 记忆口诀：样式点定义，结构类调用
 
@@ -114,7 +114,7 @@ div{}   因为div 没有语义，我们尽量少用
 
 5. 类选择器在 HTML 中以 class 属性表示，在CSS中，类选择器以一个点 . 号表示
 
-## 类选择器-单类名
+## 6.3 类选择器-单类名
 
 ```css
 // 定义一个class， 这个class将所有拥有red类HTML元素均设置为红色
@@ -129,7 +129,7 @@ div{}   因为div 没有语义，我们尽量少用
 <li class='red'>来生缘</li>
 ```
 
-## 类选择器-多类名
+## 6.4 类选择器-多类名
 
 - 一个标签， 在标签的 class 属性中， 写多个类名
 - 多个类名中间必须用空格分开
@@ -141,7 +141,7 @@ div{}   因为div 没有语义，我们尽量少用
 
 ![](.\image\Chapter_css_简单选择器_003_标签选择器_一个标签多类名.png)
 
-## 多类名开发中使用场景
+## 6.5 多类名开发中使用场景
 
 1. 可以把一些标签元素相同的样式(公共的部分)放到一个类里面
 2. 这些标签都可以调用这个公共的类，然后再调用自己独有的类
@@ -151,7 +151,7 @@ div{}   因为div 没有语义，我们尽量少用
 
 ![](.\image\Chapter_css_简单选择器_002_标签选择器_例子2.png)
 
-# id 选择器
+# 7 id 选择器
 
 id 选择器可以为标有特定 id 的 HTML 元素指定特定的样式。
 
@@ -175,11 +175,11 @@ id 选择器可以为标有特定 id 的 HTML 元素指定特定的样式。
 <div id="pink">woshishui</div>  // 同一个id只能调用一次， 所以这里再次出现pink是不正确的
 ```
 
-## 例子
+## 7.1 例子
 
 ![](.\image\Chapter_css_简单选择器_004_id选择器_例子.png)
 
-## id 选择器与类选择器的区别
+## 7.2 id 选择器与类选择器的区别
 
 1. 类选择器（class）好比人的名字，一个人可以有多个名字，同时一个名字也可以被多个人使用
 
@@ -189,7 +189,7 @@ id 选择器可以为标有特定 id 的 HTML 元素指定特定的样式。
 
 4. 类选择器在修改样式中用的最多，id 选择器一般用于页面唯一性的元素上，经常和 JavaScript 搭配使用。
 
-# 通配符选择器 Univeral Selector
+# 8 通配符选择器 Univeral Selector
 
 - 用 `*` 定义通配符选择器，选取页面中所有标签。对所有的标签都起作用， 不管这个标签的名字叫啥
 - 通配符选择器不需要调用，自动就给所有的元素使用样式
@@ -218,19 +218,44 @@ id 选择器可以为标有特定 id 的 HTML 元素指定特定的样式。
 
   ![](.\image\Chapter_css_简单选择器_005_通配符选择器_例子.png)
 
-# 属性选择器 Attribute Selector
+# 9 属性选择器 Attribute Selector (css3 新特性)
 
 Selects all elements that have the given attribute.
 
-Syntax: [attr] [attr=value] [attr~=value] [attr|=value] [attr^=value] [attr$=value] [attr*=value]
+属性选择器可以根据元素特定属性的来选择元素。这样就可以不用借助于类或者id选择器。
 
-Example: [autoplay] will match all elements that have the autoplay attribute set (to any value).
+|简介| 选择|
+|-|-| 
+|`E[att]`|选择具有att属性的E元素| 
+|`E[att:val`|选择具有att属性且属性值等于val的E元素| 
+|`E[att^=val]`|匹配具有att属性且值以val开头的E元素| 
+|`E[att$=val]`|匹配具有att属性且值以val结尾的E元素| 
+|`E[att*=val]`|匹配具有att属性且值中含有val的E元素|
 
-## 例子
+## 9.1 Syntax: 
+[attr] [attr=value] [attr~=value] [attr|=value] [attr^=value] [attr$=value] [attr*=value]
+
+## 9.2 Example: 
+```css
+[autoplay] will match all elements that have the autoplay attribute set (to any value).
+
+=====
+input[type=text] {
+    color: green;
+}
+
+===
+<input type="password"> 
+<input type="text">
+```
+
+
+
+## 9.3 例子
 
 更多例子见 [Attribute selectors - CSS&colon; Cascading Style Sheets | MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/Attribute_selectors)
 
-例子1
+### 9.3.1 例子1
 
 ```css
 a {
@@ -270,6 +295,83 @@ a[href^="https"][href$=".org"] {
 }
 ```
 
+### 9.3.2 例子：利用属性选择器就可以不借助于类或者id选择器
 ```html
+<head>
+<style>
+        input[value] {
+            color: pink;
+        }
+    </style>
+</head>
+
+
+<body>
+    <!-- 1.利用属性选择器可以不借助类或者id选择器 -->
+    <input type="text" value="请输入用户名">
+    <input type="text">
+</body>
+
+```
+
+### 9.3.3 例子：**属性选择器还可以选择 属性 = 值的某些元素**
+```html
+<head>
+<style>
+        input[type=text] {
+            color: pink;
+        }
+    </style>
+</head>
+
+
+<body>
+    <!-- 2.属性选择器还可以选择 属性=值的某些元素 -->
+    <input type="text" name="" id="">
+    <input type="password" name="" id="">
+
+</body>
+
+```
+
+### 9.3.4 例子 **属性选择器可以选择属性值开头的某些元素**
+```css
+<head>        /* 选择首先是div，然后具有class属性，并且是icon开头的值 */
+    <style>    
+        div[class^=icon] {
+            color: pink;
+        }
+    </style>
+</head>
+
+
+<body>
+    <!-- 3.属性选择器可以选择属性值开头的某些元素 -->
+    <div class="icon1">小图标1</div>
+    <div class="icon2">小图标2</div>
+    <div class="icon3">小图标3</div>
+    <div class="icon4">小图标4</div>
+
+</body>
+
+```
+
+### 9.3.5 例子： **属性选择器可以选择属性值结尾的某些元素**
+```html
+<head>
+   <style>
+        section[class$=data] {
+            color: pink;
+        }
+    </style>
+</head>
+
+
+<body>
+    <!-- 4.属性选择器可以选择属性值结尾的某些元素 -->
+    <section class="icon1-data">1</section>
+    <section class="icon2-data">2</section>
+    <section class="icon3-data">3</section>
+</body>
 
 ```
