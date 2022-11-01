@@ -23,8 +23,8 @@
 # 3 内盒尺寸 width,height,padding,border
 ## 3.1 盒子尺寸计算(元素实际大小)
 
-- 宽度：Element Height = content height (元素名为 height， 不含有边框的高度)+ padding + border  （height 为 content 的高度）
-- 高度：Element  Width = content width (元素名为 width 内容宽度, 不含有边框的宽度) + padding + border （Width为内容宽度）
+- 宽度：Element Height = content height (元素名为 height 内容高度， 不含有边框的高度)+ 2* padding + 2* border  （height 为 content 的高度）
+- 高度：Element  Width = content width (元素名为 width 内容宽度, 不含有边框的宽度) + 2*  padding + 2*  border （Width为内容宽度）
 - 盒子的实际大小：**内容的宽度和高度 +  内边距   +  边框**
 - <mark> margin 不考虑在盒子的尺寸内， margin 不会撑大盒子的尺寸 </mark>
 
@@ -220,23 +220,31 @@ p继承 div 的 height 和 width。
 
 # 6 box-sizing 属性解决方案
 
+## 6.1 引子
 - 在设置了一个盒子的 `width/height` 后，再设置其 `border/padding` 会影响盒子实际大小。当进行响应式布局时，这个尤其烦人。
 - 若盒子没有指定 `width/height` 属性，则此时 `padding` 不会撑开盒子大小。
 
+## 6.2 box-sizing 被写在哪个位置
+- Das box-sizing sollte für alle Elemente gleich sein und wird deshalb im <mark>Universal Selektor </mark> notiert. 
+- So kann es später auch für einzelne Elemente überschrieben werden.
 
-
+## 6.3 box-sizing 的属性
 CSS 中的 `box-sizing` 属性定义了 `user agent` 应该如何计算一个元素的总宽度和总高度。
 box-sizing 属性可以被用来调整这些表现。
 
-### 6.1.1 content-box
+### 6.3.1 content-box
 `content-box` 是默认值。
 在 设置了 box-sizing: content-box; 情况下， 如果你设置一个元素的宽为`100px`，那么这个元素的内容区会有 `100px` 宽，并且任何边框和内边距的宽度都会被增加到最后绘制出来的元素宽度中。
   
   ```
   box-sizing: content-box;
   ```
+  
+  尺寸计算公式： 
+  - tatsächliche Breite = width （内容的宽度） + 2 * margin + 2 * border + 2 * padding
+  - tatsächliche height = height (内容的宽度） + 2 * margin + 2 * border + 2 * padding
 
-### 6.1.2 border-box
+### 6.3.2 border-box
 `border-box` 告诉浏览器：你想要设置的边框和内边距的值是包含在 `width` 内的。
 也就是说，如果你将一个元素的 `width` 设为 `100px`，那么这 100px 会包含它的 `border` 和 `padding`，内容区的实际宽度是 `width` 减去 `(border + padding)` 的值。
 大多数情况下，这使得我们更容易地设定一个元素的宽高。
@@ -245,10 +253,8 @@ box-sizing 属性可以被用来调整这些表现。
   box-sizing: border-box;
   ```
   
-  尺寸计算公式： 
-  - `width = border + padding + 内容的宽度` 
-  - `height = border + padding + 内容的高度`
-
+  - tatsächliche Breite = width + 2 * margin
+  - tatsächliche height = Height + 2 * margin
 
 
 # 7 外边距 margin

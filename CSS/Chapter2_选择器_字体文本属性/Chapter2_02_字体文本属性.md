@@ -1,38 +1,6 @@
-# 1 css属性书写的先后顺序
+# 1 CSS字体属性
 
-1.位置属性(position, top, right, z-index, display, float等)
-2.大小(width, height, padding, margin)
-3.背景(background, border等)
-4.文字系列(font, line-height, letter-spacing, color- text-align等)
-5.其他(animation, transition等css3属性)
-
-符合规范的顺序
-
-```css
-.div2{
-       z-index: 2;
-       position: absolute;
-       right: 20px;
-       bottom:40px ;
-       width: 350px;
-       height: 260px;
-       margin-left: 20px;
-       padding: 20px 30px;
-       background: #e2f4fc;
-       border: 20px solid #E6CAFF;
-       line-height: 20px;
-       text-align: center;
-       font-weight: bold;
-       font-size: 16px;
-       color: #464646;
-       /* css3属性 */
-       box-sizing: border-box;
-}
-```
-
-# 2 CSS字体属性
-
-## 2.1 字体属性总结
+## 1.1 字体属性总结
 
 | 字体属性        | 表示   | 注意                                                                |
 | ----------- | ---- | ----------------------------------------------------------------- |
@@ -42,7 +10,7 @@
 | font-style  | 字体样式 | italic，normal，常用 normal. 记住倾斜是 italic，不倾斜是 normal，实际开发最常用 normal  |
 | font        | 属性连写 | 顺序不能变，字体和字号属性必须有                                                  |
 
-## 2.2 字体系列 font-family
+## 1.2 字体系列 font-family
 
 CSS 使用 `font-family` 属性定义文本字体系列。
 
@@ -73,7 +41,7 @@ h2 {
 </style>
 ```
 
-## 2.3 字体大小 font-size
+## 1.3 字体大小 font-size
 
 CSS 使用 `font-size` 属性定义字体大小。
 
@@ -89,7 +57,7 @@ p {
 }
 ```
 
-### 2.3.1 字体大小单位
+### 1.3.1 字体大小单位
 
 ![](.\image\Chapter2_css_文字属性_001_字体大小单位.png)
 
@@ -100,9 +68,9 @@ p {
 | relativ: zum html also zum root-Element                      | rem: rem表示“Root EM”,字面上指的是根元素的em大小。                                                                                                                                      |
 | <br/>在Web文档的上下文中，根元素就是你的html元素。 如果没有重置，html默认font-size:16px。 |                                                                                                                                                                          |
 | relativ: im grid                                             | fr                                                                                                                                                                       |
-| relativ: zum viewport                                        | vw, vh, vmin, vmax                                                                                                                                                       |
+| relativ: zum viewport. Sie sind von der Bildschirmgröße abhängig.                                      | vw(viewport width), vh (viewport height), vmin, vmax                                                                                                                                                       |
 
-### 2.3.2 em 和 rem比较
+### 1.3.2 em 和 rem比较
 
 | 单位  | 特点                                                                                 |
 | --- | ---------------------------------------------------------------------------------- |
@@ -118,7 +86,7 @@ em 缺点
 
 rem 使用小技巧： body选择器中声明Font-size=62.5%; 。 将你的原来的px数值除以10，然后换上rem作为单位；
 
-### 2.3.3 例子
+### 1.3.3 例子
 
 ```css
 body{
@@ -137,7 +105,7 @@ h2的margin属性则是相对于本元素字体大小： 15px * 0.5 = 7.5px
 
 ![](.\image\Chapter2_css_文字属性_004_fontSize属性_例子.png)
 
-### 2.3.4 CSS Unicode字体
+### 1.3.4 CSS Unicode字体
 
 - 在 CSS 中设置字体名称，直接写中文是可以的。但是在文件编码（GB2312、UTF-8 等）不匹配时会产生乱码的错误。
 
@@ -147,7 +115,7 @@ h2的margin属性则是相对于本元素字体大小： 15px * 0.5 = 7.5px
 
 `font-family: "\5FAE\8F6F\96C5\9ED1";   表示设置字体为“微软雅黑”。`   
 
-## 2.4 字体粗细 font-weight
+## 1.4 字体粗细 font-weight
 
 CSS 使用 `font-weight` 属性设置字体粗细
 
@@ -171,7 +139,7 @@ p {
 
 实际开发中，更常用数字来表示加粗或变细。`400`为`normal`，`700` 为 `bold`。 |属性值|描述| |-|-| |normal|默认值| |bold|定义粗体| |100-900|400 等价于 normal，700 等价于 bold，无单位|
 
-## 2.5 文字样式 font-style
+## 1.5 文字样式 font-style
 
 CSS 使用 `font-style` 属性设置文本风格。
 
@@ -194,7 +162,7 @@ em{
 }
 ```
 
-## 2.6 字体复合属性写法 font
+## 1.6 字体复合属性写法 font
 
 将各种字体属性写在同一选择器下，节约代码。
 
@@ -227,11 +195,11 @@ body {
 }
 ```
 
-# 3 CSS文本属性
+# 2 CSS文本属性
 
 CSS Text（文本）属性定义文本外观，比如颜色、对齐、装饰、缩进、行间距等。
 
-## 3.1 文本属性总结
+## 2.1 文本属性总结
 
 | 属性              | 表示   | 注意                     |
 | --------------- | ---- | ---------------------- |
@@ -241,7 +209,7 @@ CSS Text（文本）属性定义文本外观，比如颜色、对齐、装饰、
 | text-decoration | 文本装饰 | 记住下划线和去除下划线            |
 | line-height     | 行高   |                        |
 
-## 3.2 文本颜色 color
+## 2.2 文本颜色 color
 
 `color` 属性定义文本颜色。
 
@@ -258,10 +226,11 @@ color: rgb(255，0，0);
 | 表示      | 属性值                          |
 | ------- | ---------------------------- |
 | 预定义的颜色值 | red，green，blue，pink等         |
-| 十六进制    | #FF0000, #FF6600，#29D794     |
+| 十六进制 Hexadezimal    | #FF0000, #FF6600，#29D794     |
 | RGB代码   | rgb(255，0，) 或rgb(100%，0%，0%) |
+|HSL| hsl(0, 100%, 50%) |
 
-## 3.3 对齐文本 text-align
+## 2.3 对齐文本 text-align
 
 `text-align` 属性用于设置元素文本内容的对齐方式。相当于html中的align对齐属性。
 
@@ -283,7 +252,7 @@ div {
 
 ![](.\image\Chapter2_css_文字属性_003_文字对齐_例子.png)
 
-## 3.4 装饰文本 text-decoration
+## 2.4 装饰文本 text-decoration
 
 `text-decoration` 属性规定添加到文本的修饰。可以给文本添加下划线、删除线、上划线等。
 
@@ -302,7 +271,7 @@ div {
 | overline     | 上划线。（几乎不用）                    |
 | line-through | 删除线。（不常用）                     |
 
-## 3.5 文本缩进 text-indent
+## 2.5 文本缩进 text-indent
 
 `text-indent`定义段落首行缩进。通常是将段落的首行缩进
 
@@ -333,7 +302,7 @@ p {
  }
 ```
 
-## 3.6 行间距/行高 line-height
+## 2.6 行间距/行高 line-height
 
 `line-height` 设置行间的距离，行间距=文本高度+上间距+下间距
 
@@ -345,7 +314,7 @@ line-height常用的属性值单位有三种，分别为像素px，相对值em�
 
 ![](.\image\Chapter2_css_文字属性_001_文字行间距.png)
 
-### 3.6.1 行高检测
+### 2.6.1 行高检测
 
 `行高测量方法`行高我们利用最多的一个地方是：可以让单行文本在盒子中垂直居中对齐。
 
@@ -355,7 +324,7 @@ line-height常用的属性值单位有三种，分别为像素px，相对值em�
 
 ![](.\image\Chapter2_css_文字属性_002_文字行间距_行高检测2.png)
 
-### 3.6.2 行高与高度的三种关系
+### 2.6.2 行高与高度的三种关系
 
 - 如果 行高 等 高度  文字会 垂直居中
 
@@ -377,4 +346,54 @@ line-height常用的属性值单位有三种，分别为像素px，相对值em�
 display: flex;
 align-items: center;     /* 侧轴对齐方式*/
 justify-content: center; /* 主轴对齐方式 */
+```
+# 3 自定义variable/ Custom Properties
+CSS Variablen heißen Custom Properties.
+- Sie werden wie folgt vereinbart： `--variablen-bezeichner: wert`
+- Der Aufruf erfolgt über eine Funktion.: `var(--variablen-bezeichner)`
+
+说明
+- 自定义variablet通常定义为 globale Variablen， die  im :root vereinbart werden.
+- Sollen die Variablen mit anderen Dateien (z.B. js) später verändert werden, dann müssen Custom Properties verwendet werden 
+- keine Sass Variablen.
+
+例子: 
+```css
+:root{
+
+    /* Deklaration*/
+    --main-hue: 240;
+
+    /* Deklaration und Aufruf.
+    Verändern Sie den Wert für --main-hue und schauen Sie, was passiert.
+    Der hue kann einen Wert zwischen 0 und 360, jeweils inklusive annehmen.
+    Der Variablenaufruf erfolgt über die Funktion var()
+    In der Parameterliste werden dann die Werte, oder
+    wie folgt auch Variablen angegeben.
+
+    */
+
+    --main-color: hsl(var(--main-hue),100%,50%);
+    --secondary-color: hsl(var(--main-hue), 100%, 20%);
+    --tertiary-color: hsl(var(--main-hue), 100%, 90%);
+
+}
+
+  
+
+h1,
+h2,
+h3{
+
+    /* Aufruf */
+    color: var(--secondary-color);
+    background-color: var(--tertiary-color);
+
+}
+
+  
+article{
+    background-color: var(--secondary-color);
+    color: var(--tertiary-color);
+}
 ```

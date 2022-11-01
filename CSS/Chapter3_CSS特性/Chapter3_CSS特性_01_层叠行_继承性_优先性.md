@@ -49,7 +49,7 @@ p:
 ![](image/Chapter_css特性_继承性_003_行高的继承性_02.png)
 ul>li:
 ![](image/Chapter_css特性_继承性_004_行高的继承性_03.png)
-# 3 优先级 Specitify
+# 3 优先级/权重 SelectorWeight/Specificity
 
 概念： 当一个元素指定多个选择器时，就会有有优先级的产生。
 -   选择器相同，则执行层叠性

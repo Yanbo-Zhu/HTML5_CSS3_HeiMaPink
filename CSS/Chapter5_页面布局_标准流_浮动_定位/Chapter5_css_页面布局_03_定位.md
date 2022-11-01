@@ -64,6 +64,7 @@
     - `left` 和 `right` 不要同时使用。
 
 ## 3.1 静态定位 static (了解)
+Dieser Wert ist der default. Das Element befindet sich wie im HTML-Dokument aufgelistet im Textfluß, alle anderen Elemente respektieren seinen Platz und seine Position.
 
 - 静态定位是元素的默认定位方式，无定位的意思。
 - 静态定位按照标准流特性摆放位置，它没有边偏移
@@ -80,6 +81,10 @@
 ## 3.2 相对定位 relative（重要）
 
 相对定位是元素在移动位置的时候，是相对于它原来的位置来说的（自恋型）。
+Das Element befindet sich im Textfluß und kann zusätzlich mit den Properties top, right, bottom und/oder left verschoben werden. Die Verschiebung nimmt als Bezug die Ausgangsposition und der ursprüngliche Platz wird reserviert und freigehalten.
+
+Das property wird oft verwendet, um als Bezugspunkt für absolute positionierte Elemente zu dienen. Dann sind i.d.R. top, right, bottom und left überflüssig.
+
 ![](image/Chapter5_css_定位_002_定位模式_相对定位.png)
 
 语法：
@@ -89,6 +94,9 @@
   position: relative;
 }
 ```
+
+Properties: 
+ top, right, bottom , left 
 
 **相对定位的特点：（务必记住）**
 
@@ -101,6 +109,12 @@
 ## 3.3 绝对定位 absolute （重要）
 
 绝对定位是元素在移动位置的时候，是相对于它祖先元素来说的（拼爹型）。
+Das Element wird aus dem Textfluß entfernt und von Folgeelementen und Elternelementen ignoriert, die seinen Platz einnehmen. 
+Zusätzlich schrumpft 收缩 es auf seine tatsächliche Größe. 
+Es wird zum Block-Element und kann deshalb eine width zugewiesen bekommen.
+
+Das Element kann mit den Properties top, right, bottom und/oder left verschoben werden. 
+Bezugspunkt für die Verschiebung ist hier der nächste Vorfahre (祖先), der selbst positioniert ist, also nicht static.
 
 语法：
 
@@ -141,6 +155,7 @@
 弄清楚这个口诀，就明白了绝对定位和相对定位的使用场景。
 
 这个“子绝父相”太重要了，是我们学习定位的口诀，是定位中最常用的一种方式这句话的意思是：子级是绝对定位的话，父级要用相对定位
+总结： 因为父级需要占有位置，因此是相对定位，子盒子不需要占有位置，则是绝对定位
 
 - 子级绝对定位，不会占有位置，可以放到父盒子里面的任何一个地方，不会影响其他的兄弟盒子。
 
@@ -150,13 +165,14 @@
   
   这就是子绝父相的由来，所以相对定位经常用来作为绝对定位的父级。 
   
-  总结：
-  因为父级需要占有位置，因此是相对定位，子盒子不需要占有位置，则是绝对定位
+
 
 ## 3.5 固定定位 fixed （绝对定位的一种特殊形式）
 
 固定定位是元素固定于浏览器可视区的位置。
 主要使用场景：可以在浏览器页面滚动时元素的位置不会改变。
+Das Element verhält sich wie ein absolute positioniertes Element, lediglich der Bezug für eine Verschiebung ist jetzt immer der viewport.
+Das Element bleibt fixiert an einer Stelle im viewport, die mit top, right, bottom und left festgelegt ist.
 
 语法：
 
@@ -194,6 +210,8 @@
 ## 3.6 粘性定位 sticky (了解)
 
 粘性定位可以被认为是相对定位和固定定位的混合。
+Das Element verhält sich relative, bis zu einem gegebenen offset, dann verhält es sich wie fixed.
+
 Sticky 粘性的 语法：
 
 ```

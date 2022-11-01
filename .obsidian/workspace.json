@@ -4,15 +4,19 @@
     "type": "split",
     "children": [
       {
-        "id": "7b754aa5bbec106e",
+        "id": "ccb0f642cba7a915",
         "type": "tabs",
         "children": [
           {
-            "id": "a08735b9a8da2efd",
+            "id": "3b377fc5eacc3790",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {}
+              "type": "markdown",
+              "state": {
+                "file": "CSS/Chapter3_CSS特性/Chapter3_CSS特性_01_层叠行_继承性_优先性.md",
+                "mode": "source",
+                "source": true
+              }
             }
           }
         ]
@@ -73,6 +77,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "CSS/Chapter3_CSS特性/Chapter3_CSS特性_01_层叠行_继承性_优先性.md",
                 "collapseAll": true,
                 "extraContext": true,
                 "sortOrder": "alphabetical",
@@ -89,6 +94,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
+                "file": "CSS/Chapter3_CSS特性/Chapter3_CSS特性_01_层叠行_继承性_优先性.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -110,7 +116,9 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {}
+              "state": {
+                "file": "CSS/Chapter3_CSS特性/Chapter3_CSS特性_01_层叠行_继承性_优先性.md"
+              }
             }
           }
         ],
@@ -120,17 +128,17 @@
     "direction": "horizontal",
     "width": 266.5
   },
-  "active": "a08735b9a8da2efd",
+  "active": "3b377fc5eacc3790",
   "lastOpenFiles": [
+    "CSS/Chapter3_CSS特性/Chapter3_CSS特性_02_选择器的优先级_SelectorWeight_Specificity.md",
+    "CSS/Chapter3_CSS特性/Chapter3_CSS特性_01_层叠行_继承性_优先性.md",
+    "CSS/Chapter5_页面布局_标准流_浮动_定位/Chapter5_css_页面布局_03_定位.md",
+    "CSS/Chapter5_页面布局_标准流_浮动_定位/Chapter5_css_页面布局_02_浮动.md",
     "CSS/Chapter4_盒子模型/Chapter4_盒子模型_01.md",
-    "CSS/Chapter4_盒子模型/image/Chapter4_css_盒子模型_margin_002_嵌套块元素垂直外边距的塌陷_02.png",
-    "CSS/黑马视频内容.md",
-    "Note.md",
-    "HTML/001_视频教学内容.png",
-    "HTML/content.md",
-    "CSS/Chapter4_盒子模型/image/Chapter4_css_盒子模型_padding_001_例子导航栏.png",
-    "CSS/Chapter4_盒子模型/image/Chapter4_css_盒子模型_margin_002_嵌套块元素垂直外边距的塌陷_01.png",
-    "别人的资料.md",
-    "CSS/Chapter3_CSS特性/Chapter3_CSS特性_02_选择器的优先级_SelectorWeight_Specificity.md"
+    "CSS/Chapter2_选择器_字体文本属性/Chapter2_04_伪类选择器和伪元素选择器_Pseudo-classes and pseudo-elements.md",
+    "CSS/Chapter4_元素显示模式blockInline_背景/Chapter4_04_元素显示模式_BlockAndInline.md",
+    "CSS/Chapter2_选择器_字体文本属性/Chapter2_02_字体文本属性.md",
+    "CSS/Chapter1_简介/Chapter1_简介.md",
+    "CSS/Chapter1_简介/Chapter1_书写顺序_selectors在Stylesheet文件中的.md"
   ]
 }
