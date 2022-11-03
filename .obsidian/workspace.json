@@ -4,16 +4,16 @@
     "type": "split",
     "children": [
       {
-        "id": "ccb0f642cba7a915",
+        "id": "7c54b99435193fb0",
         "type": "tabs",
         "children": [
           {
-            "id": "3b377fc5eacc3790",
+            "id": "6b7e30f1f76c23a7",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "CSS/Chapter3_CSS特性/Chapter3_CSS特性_01_层叠行_继承性_优先性.md",
+                "file": "CSS/Chapter5_页面布局_标准流_浮动_定位/Chapter5_css_页面布局_03_定位.md",
                 "mode": "source",
                 "source": true
               }
@@ -48,7 +48,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "background",
+                "query": "auto",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -77,7 +77,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "CSS/Chapter3_CSS特性/Chapter3_CSS特性_01_层叠行_继承性_优先性.md",
+                "file": "CSS/Chapter5_页面布局_标准流_浮动_定位/Chapter5_css_页面布局_03_定位.md",
                 "collapseAll": true,
                 "extraContext": true,
                 "sortOrder": "alphabetical",
@@ -94,7 +94,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "CSS/Chapter3_CSS特性/Chapter3_CSS特性_01_层叠行_继承性_优先性.md",
+                "file": "CSS/Chapter5_页面布局_标准流_浮动_定位/Chapter5_css_页面布局_03_定位.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -117,7 +117,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "CSS/Chapter3_CSS特性/Chapter3_CSS特性_01_层叠行_继承性_优先性.md"
+                "file": "CSS/Chapter5_页面布局_标准流_浮动_定位/Chapter5_css_页面布局_03_定位.md"
               }
             }
           }
@@ -128,17 +128,17 @@
     "direction": "horizontal",
     "width": 266.5
   },
-  "active": "3b377fc5eacc3790",
+  "active": "6b7e30f1f76c23a7",
   "lastOpenFiles": [
-    "CSS/Chapter3_CSS特性/Chapter3_CSS特性_02_选择器的优先级_SelectorWeight_Specificity.md",
-    "CSS/Chapter3_CSS特性/Chapter3_CSS特性_01_层叠行_继承性_优先性.md",
-    "CSS/Chapter5_页面布局_标准流_浮动_定位/Chapter5_css_页面布局_03_定位.md",
-    "CSS/Chapter5_页面布局_标准流_浮动_定位/Chapter5_css_页面布局_02_浮动.md",
-    "CSS/Chapter4_盒子模型/Chapter4_盒子模型_01.md",
-    "CSS/Chapter2_选择器_字体文本属性/Chapter2_04_伪类选择器和伪元素选择器_Pseudo-classes and pseudo-elements.md",
     "CSS/Chapter4_元素显示模式blockInline_背景/Chapter4_04_元素显示模式_BlockAndInline.md",
-    "CSS/Chapter2_选择器_字体文本属性/Chapter2_02_字体文本属性.md",
-    "CSS/Chapter1_简介/Chapter1_简介.md",
-    "CSS/Chapter1_简介/Chapter1_书写顺序_selectors在Stylesheet文件中的.md"
+    "CSS/Chapter5_页面布局_标准流_浮动_定位/Chapter5_css_页面布局_03_定位.md",
+    "CSS/Chapter4_盒子模型/Chapter4_盒子模型_01.md",
+    "CSS/Chapter5_页面布局_标准流_浮动_定位/Chapter5_css_页面布局_02_浮动.md",
+    "CSS/Chapter5_页面布局_标准流_浮动_定位/Chapter5_css_页面布局_01_传统页面布局方式.md",
+    "CSS/Chapter4_盒子模型/Chapter4_盒子模型_02_CSS5中新增的特性.md",
+    "CSS/Chapter3_CSS特性/Chapter3_CSS特性_01_层叠行_继承性_优先性.md",
+    "CSS/Chapter3_CSS特性/Chapter3_CSS特性_02_选择器的优先级_SelectorWeight_Specificity.md",
+    "CSS/Chapter2_选择器_字体文本属性/Chapter2_04_伪类选择器和伪元素选择器_Pseudo-classes and pseudo-elements.md",
+    "CSS/Chapter2_选择器_字体文本属性/Chapter2_02_字体文本属性.md"
   ]
 }
