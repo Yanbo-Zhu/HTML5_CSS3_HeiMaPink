@@ -84,13 +84,11 @@ HTML 元素分为<mark>块元素和行内元素</mark>。 也称 <mark>块标签
               }
           </style>
       </head>
-      
       <body>
       <input type="text">
       <input type="text">
       </body>
-      ```
-
+    ```
 
 
 # 6 元素模式转换

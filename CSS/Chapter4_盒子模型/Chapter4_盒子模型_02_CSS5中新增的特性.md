@@ -1,4 +1,4 @@
-# box-sizing
+# 1 box-sizing
 
  CSS3中可以通过 box-sizing 来指定盒模型，有2个值：即可指定为 content-box，border-box ，这样我们计算盒子大小的方式就发生了改变。
 
@@ -7,7 +7,7 @@
 1. `box-sizing：content-box` 盒子大小为 width + padding + border （以前默认的）
 2. `box-sizing: border-box` 盒子大小为 width 如果盒子模型我们改为了 box-sizing： border-box ，那padding 和 border就不会撑大盒子了（前提 padding 和 border 不会超过 width 宽度）
 
-## content-box
+## 1.1 content-box
 
 ```css
 box-sizing: content-box;
@@ -17,7 +17,7 @@ box-sizing: content-box;
 
 - 此种情况盒子大小为 宽度 + 内边距 + 边框，这也是我们之前写盒子所默认的
 
-## border-box
+## 1.2 border-box
 
 box-sizing: border-box;
 
@@ -36,7 +36,7 @@ box-sizing: border-box;
 }
 ```
 
-# 1 圆角边框
+# 2 圆角边框
 
 CSS3 新增 **圆角边框** 属性，盒子可以变成圆角。
 
