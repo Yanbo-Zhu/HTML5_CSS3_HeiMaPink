@@ -227,15 +227,19 @@ Selects all elements that have the given attribute.
 |简介| 选择|
 |-|-| 
 |`E[att]`|选择具有att属性的E元素| 
-|`E[att:val`|选择具有att属性且属性值等于val的E元素| 
-|`E[att^=val]`|匹配具有att属性且值以val开头的E元素| 
-|`E[att$=val]`|匹配具有att属性且值以val结尾的E元素| 
-|`E[att*=val]`|匹配具有att属性且值中含有val的E元素|
+|`E[att:val`|选择具有att属性,且属性值等于val的E元素| 
+|`E[att=val`|选择具有att属性,且属性值等于val的E元素| 
+|`E[att^=val]`|匹配具有att属性,且值以val开头的E元素| 
+|`E[att$=val]`|匹配具有att属性,且值以val结尾的E元素| 
+|`E[att*=val]`|匹配具有att属性,且值中含有val的E元素|
 
 ## 9.1 Syntax: 
 [attr] [attr=value] [attr~=value] [attr|=value] [attr^=value] [attr$=value] [attr*=value]
 
-## 9.2 Example: 
+## 9.2 例子
+
+更多例子见 [Attribute selectors - CSS&colon; Cascading Style Sheets | MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/Attribute_selectors)
+
 ```css
 [autoplay] will match all elements that have the autoplay attribute set (to any value).
 
@@ -249,13 +253,31 @@ input[type=text] {
 <input type="text">
 ```
 
+```css
+  button {
+    cursor: pointer;
+  }
+  button[disabled] {
+    cursor: default;
+  }
 
+  input[type=search] {
+    color: skyblue;
+  }
 
-## 9.3 例子
+  span[class^=black] {
+    color: lightgreen;
+  }
 
-更多例子见 [Attribute selectors - CSS&colon; Cascading Style Sheets | MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/Attribute_selectors)
+  span[class$=black] {
+    color: lightsalmon;
+  }
 
-### 9.3.1 例子1
+  span[class*=black] {
+    color: lightseagreen;
+  }
+```
+### 9.2.1 例子1
 
 ```css
 a {
@@ -295,7 +317,7 @@ a[href^="https"][href$=".org"] {
 }
 ```
 
-### 9.3.2 例子：利用属性选择器就可以不借助于类或者id选择器
+### 9.2.2 例子：利用属性选择器就可以不借助于类或者id选择器
 ```html
 <head>
 <style>
@@ -314,7 +336,7 @@ a[href^="https"][href$=".org"] {
 
 ```
 
-### 9.3.3 例子：**属性选择器还可以选择 属性 = 值的某些元素**
+### 9.2.3 例子：**属性选择器还可以选择 属性 = 值的某些元素**
 ```html
 <head>
 <style>
@@ -334,7 +356,7 @@ a[href^="https"][href$=".org"] {
 
 ```
 
-### 9.3.4 例子 **属性选择器可以选择属性值开头的某些元素**
+### 9.2.4 例子 **属性选择器可以选择属性值开头的某些元素**
 ```css
 <head>        /* 选择首先是div，然后具有class属性，并且是icon开头的值 */
     <style>    
@@ -356,7 +378,7 @@ a[href^="https"][href$=".org"] {
 
 ```
 
-### 9.3.5 例子： **属性选择器可以选择属性值结尾的某些元素**
+### 9.2.5 例子： **属性选择器可以选择属性值结尾的某些元素**
 ```html
 <head>
    <style>

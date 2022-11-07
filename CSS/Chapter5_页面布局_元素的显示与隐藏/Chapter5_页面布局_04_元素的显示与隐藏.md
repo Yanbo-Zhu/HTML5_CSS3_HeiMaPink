@@ -22,7 +22,7 @@
 后面应用及其广泛，搭配 JS 可以做很多的网页特效。
 实际开发场景：配合后面js做特效，比如下拉菜单，原先没有，鼠标经过，显示下拉菜单， 应用极为广泛
 
-![](image/Chapter6_css高级_元素的显示与隐藏_display属性.png)
+![](image/Chapter5_页面布局_元素的显示与隐藏_display属性.png)
 
 # 4 visibility 可见性
 
@@ -34,7 +34,7 @@ visibility 属性用于指定一个元素应可见还是隐藏。
   - 隐藏元素后，继续占有原来的位置
   - 如果隐藏元素想要原来位置，就用 `visibility ： hidden` 
 
-![](image/Chapter6_css高级_元素的显示与隐藏_visibility可见性.png)
+![](image/Chapter5_页面布局_元素的显示与隐藏_visibility可见性.png)
 
 # 5 overflow 溢出
 
@@ -54,4 +54,4 @@ overflow 属性指定了如果内容溢出一个元素的框（超过其指定�
 一般情况下，我们都不想让溢出的内容显示出来，因为溢出的部分会影响布局。
 但是如果有定位的盒子，请慎用`overflowhidden` 因为它会隐藏多余的部分。
 
-![](image/Chapter6_css高级_元素的显示与隐藏_overflow溢出.png)
+![](image/Chapter5_页面布局_元素的显示与隐藏_overflow溢出.png)

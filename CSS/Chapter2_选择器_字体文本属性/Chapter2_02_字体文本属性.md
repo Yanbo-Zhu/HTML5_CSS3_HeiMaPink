@@ -358,39 +358,6 @@ align-items: center;     /* 侧轴对齐方式*/
 justify-content: center; /* 主轴对齐方式 */
 ```
 
-## 3.3 vertical-align
-
-### 3.3.1 vertical-align: middle
-
-
-vertical-align：middle的作用机制就是对齐基线，这里之所以要设置line-height（最关键的）就是要让首行匿名元素（空白节点）处于父容器基线左右的位置，然后内联元素设置了vertical-align:middle才会对齐这个节点，否则是无效的！！！！
-
-您可以狠狠地点击这里：[CSS3 width:fill-available下的垂直居中demo](https://www.zhangxinxu.com/study/201605/width-fill-available.html)
-
-![块状元素尺寸表现内联元素垂直居中行为](https://image.zhangxinxu.com/image/blog/201605/2016-05-20_004332.png)
-
-
-完整关键CSS代码如下：
-```css
-.box {
-    height: 200px; 
-    /* 行高控制垂直居中 */
-    line-height: 200px;
-}
-.fill-available {
-    /* 元素内联，响应行高和vertical-align控制 */
-    display: inline-block;
-    vertical-align: middle;
-    
-    /* 宽度如块状元素般表现 */
-    width: -webkit-fill-available;
-    width: -moz-fill-available;
-    width: -moz-available;    /* FireFox目前这个生效 */
-    width: fill-available;
-}
-```
-
-
 
 # 4 文本属性: 宽度 
 
@@ -564,9 +531,8 @@ OK，然后，有小伙伴会疑问，既然跟很多CSS声明有一样的表现
 
 ![收缩表现下margin:auto居中效果](https://image.zhangxinxu.com/image/blog/201801/2018-01-10_005451.png)
 
-## 4.2 horizontal-align 
 
-# 5 自定义variable/ Custom Properties
+# 6 自定义variable/ Custom Properties
 CSS Variablen heißen Custom Properties.
 - Sie werden wie folgt vereinbart： `--variablen-bezeichner: wert`
 - Der Aufruf erfolgt über eine Funktion.: `var(--variablen-bezeichner)`

@@ -4,8 +4,11 @@
 
 可以分成两种情况：
 
-1. `box-sizing：content-box` 盒子大小为 width + padding + border （以前默认的）
-2. `box-sizing: border-box` 盒子大小为 width 如果盒子模型我们改为了 box-sizing： border-box ，那padding 和 border就不会撑大盒子了（前提 padding 和 border 不会超过 width 宽度）
+1. 传统模式宽度计算: `box-sizing：content-box` 
+    1. 盒子大小为  CSS中设置的 width + padding + border （以前默认的）
+2. CSS3盒子模型: `box-sizing: border-box` 
+    1. 盒子大小为 CSS中设置的宽度width，里面包含了 border 和 padding
+    2. 如果盒子模型我们改为了 box-sizing： border-box ，那padding 和 border就不会撑大盒子了（前提 padding 和 border 不会超过 width 宽度）
 
 ## 1.1 content-box
 
