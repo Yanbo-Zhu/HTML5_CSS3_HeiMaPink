@@ -36,12 +36,13 @@
 ## 2.2 边偏移 left
 
 边偏移就是定位的盒子移动到最终位置。有 top， bottom， left 和 right 4 个属性
+<mark>对于任何 posotion形式, 脱离 position 这个标签 , 使用 有 top， bottom， left 和 right 4 个属性, 则这个4个属性的给入, 一点作用都没有 </mark>
 
 | 边偏移属性  | 示例             | 描述                       |
 | ------ | -------------- | ------------------------ |
-| top    | `top:80px`     | 顶端偏移量，定义元素相对于其父元素上边线的距离。 |
-| bottom | `bottom: 80px`,  `bottom: 5%`, `bottom: 5` | 底部偏移量，定义元素相对于其父元素下边线的距离。 |
-| left   | `left： 80px`   | 左侧偏移量，定义元素相对于其父元素左边线的距离。 |
+| top    | `top:80px`     | 顶端偏移量，定义元素相对于其父元素上边线的距离。 这里给出的如果是正值的话, 元素会向下移动|
+| bottom | `bottom: 80px`,  `bottom: 5%`, `bottom: 5` | 底部偏移量，定义元素相对于其父元素下边线的距离。这里给出的如果是正值的话, 元素会向上移动 |
+| left   | `left： 80px`   | 左侧偏移量，定义元素相对于其父元素左边线的距离。这里给出的如果是正值的话, 元素会右偏移 |
 | right  | `right: 80px`  | 右侧偏移量，定义元素相对于其父元素右边线的距离。 |
 
 # 3 定位模式总结
@@ -92,6 +93,8 @@ Das property wird oft verwendet, um als Bezugspunkt für absolute positionierte 
 ```
 选择器 {
   position: relative;
+  top: 5em;
+  left: 7em;  
 }
 ```
 
@@ -125,14 +128,15 @@ Bezugspunkt für die Verschiebung ist hier der nächste Vorfahre (祖先), der s
 ```
 
 绝对定位的特点： （务必记住）
-
-1. 绝对定位是元素以带有定位的父级元素来移动位置
-    1. 如果 **没有祖先元素** 或者 **祖先元素没有定位**，则以 **浏览器** 为准定位（ Document 文档）。
-        1. ![](image/Chapter5_css_定位_003_定位模式_绝对定位_01.png)
-    2. 如果祖先元素有定位（相对、绝对、固定定位） ，则以最近一级的<mark>有定位的祖先元素</mark>为参考点移动位置。没有定位的祖先元素不考虑
-        1. ![](image/Chapter5_css_定位_004_定位模式_绝对定位_02.png)
-2. 绝对定位不再占有原先的位置。（脱标）
+1. 绝对定位不再占有原先的位置。（脱标）
     1. 所以绝对定位是脱离标准流的
+2. 绝对定位是元素以带有定位的父级元素来移动位置
+    1. 如果 **没有祖先元素** 或者 **祖先元素没有定位**，则以 **浏览器整个界面** 为准定位（ Document 文档）。
+        1. ![](image/Chapter5_css_定位_003_定位模式_绝对定位_01.png)
+    2. 如果祖先元素有定位（相对、绝对、固定定位） ，则以最近一级的<mark>有定位的祖先元素</mark>为参考点 (bezugspunkt) 移动位置。没有定位的祖先元素不考虑
+        1. xx richt sich nach Vorfahre aus : 以 Vorfahre为 基准点 移动
+        2. ![](image/Chapter5_css_定位_004_定位模式_绝对定位_02.png)
+
    
    ### 3.3.1 绝对定位盒子水平居中
 - 加了绝对定位的盒子不能通过`margin: 0 auto`水平居中
@@ -171,7 +175,9 @@ Bezugspunkt für die Verschiebung ist hier der nächste Vorfahre (祖先), der s
 
 ## 3.5 固定定位 fixed （绝对定位的一种特殊形式）
 
-固定定位是元素固定于浏览器可视区的位置。
+固定定位是元素固定于浏览器可视区的位置。 <mark> 以阅览器的viewport 为基准, 不以某个元素为基准 </mark>
+<mark>注意这里说的是 可视窗口, 不是整个页面内容全部的窗口. 当 页面向下滚动, 有些内容就不可视了, 就不在可视窗口中了</mark>
+ 
 主要使用场景：可以在浏览器页面滚动时元素的位置不会改变。
 Das Element verhält sich wie ein absolute positioniertes Element, lediglich der Bezug für eine Verschiebung ist jetzt immer der viewport.
 Das Element bleibt fixiert an einer Stelle im viewport, die mit top, right, bottom und left festgelegt ist.
@@ -192,7 +198,7 @@ Das Element bleibt fixiert an einer Stelle im viewport, die mit top, right, bott
 2. 完全脱标： 固定定位不 占有原先的位置。
    1. 固定定位也可以看做是一种特殊的绝对定位。
 
-固定定位小技巧：固定在版心右侧位置。
+### 3.5.1 固定定位小技巧：固定在版心右侧位置。
 
 1. 让固定定位的盒子 left： 50%，走到浏览器可视区（也可以看做版心）的一半位置。
 2. 让固定定位的盒子 margin—left）板心宽度的一半距离。多走版心宽度的一半位置就可以让固定定位的盒子贴着版心右侧对弃了
@@ -209,26 +215,136 @@ Das Element bleibt fixiert an einer Stelle im viewport, die mit top, right, bott
 }
 ```
 
+### 3.5.2 例子2
+![](image/Chapter5_css_定位_002_fixed定位方式的例子1.png)
+
 ## 3.6 粘性定位 sticky (了解)
 
-粘性定位可以被认为是相对定位和固定定位的混合。
 Das Element verhält sich relative, bis zu einem gegebenen offset, dann verhält es sich wie fixed.
+基本上，可以看出是position:relative和position:fixed的结合体
+当元素在屏幕内，表现为relative. 随着页面的滚动，当导航距离上边缘0距离的时候，黏在了上边缘，表现如同position:fixed。
 
-Sticky 粘性的 语法：
+### 3.6.1 粘性定位的特点：
+
+1. 以浏览器的可视窗口为参照点移动元素（固定定位特点）
+    1. 注意这里说的是 可视窗口, 不是整个页面内容全部的窗口. 当 页面向下滚动, 有些内容就不可视了, 就不在可视窗口中了 
+2. 但sticky元素效果完全受制于父级元素
+    1. 一般html 来说 , 阅览器中可视的内容 都是从 body 标签中的内容开始的
+    2. 但如果这个sticky 元素的父元素不是 body 标签, 而是某个 body 标签的的后代便签.  
+    3.  sticky元素是 有占有相对位置的, 相对于父标签(如果这个父标签 有 position 属性)
+    4.   sticky元素虽然能够固定在 viewport 的某处一时. 但是则随着 页面的上下移动, 父标签 逐渐不在浏览器的可视窗口被显示, 则sticky元素 也不会一直 能够固定在 viewport 的某处. 
+    5. 会随着 鼠标的上下移动,   父亲标签 在 可视窗口 中 显示 height 一点点减少的同时, 若小于 sticky元素的 总的 height. 则sticky元素一点点减少的 显示在 可视范围内. 直到完全不显示在可视范围内, (因为父元素也因为鼠标的上下移动, 不显示在可视范围内了  ) 
+3. 粘性定位占有原先的位置（相对定位特点）
+    1. 是相对于父元素的 左上面 作为其 bezugpunkt 
+    
+4. 必须添加 top， left， right， bottom 其中一个才有效
+5. 跟页面滚动搭配使用。兼容性较差， IE 不支持。
+
+### 3.6.2 Sticky 粘性的 语法：
 
 ```
 选择器 {
-  position: sticky;
+  position: sticky; 
   top: 10px;
 }
 ```
 
-粘性定位的特点：
+### 3.6.3 sticky元素效果完全受制于父级元素
+https://www.zhangxinxu.com/wordpress/2018/12/css-position-sticky/
 
-1. 以浏览器的可视窗口为参照点移动元素（固定定位特点）
-2. 粘性定位占有原先的位置（相对定位特点）
-3. 必须添加 top， left， right， bottom 其中一个才有效
-4. 跟页面滚动搭配使用。兼容性较差， IE 不支持。
+sticky效果 和`position:fixed`定位有着根本性的不同. fixed元素直抵页面根元素，其他父元素对 fixed元素 的left/top定位无法限制。
+
+根据我简单的测试，发现了sticky元素以下一些特性表现：
+
+1.  父级元素不能有任何`overflow:visible`以外的overflow设置，否则没有粘滞效果。因为改变了滚动容器（即使没有出现滚动条）。因此，如果你的`position:sticky`无效，看看是不是某一个祖先元素设置了`overflow:hidden`，移除之即可。
+2.  `2019-05-22新增`  
+    父级元素设置和粘性定位元素等高的固定的`height`高度值，或者高度计算值和粘性定位元素高度一样，也没有粘滞效果。我专门写了篇文章深入讲解了粘性效果无效的原因，可以[点击这里查看](https://www.zhangxinxu.com/wordpress/2020/03/position-sticky-rules/)。
+3.  同一个父容器中的sticky元素，如果定位值相等，则会重叠；如果属于不同父元素，且这些父元素正好紧密相连，则会鸠占鹊巢，挤开原来的元素，形成依次占位的效果。至于原因需要理解粘性定位的计算规则，同样[点击这里查看](https://www.zhangxinxu.com/wordpress/2020/03/position-sticky-rules/)。
+4.  sticky定位，不仅可以设置`top`，基于滚动容器上边缘定位；还可以设置`bottom`，也就是相对底部粘滞。如果是水平滚动，也可以设置`left`和`right`值。
+
+
+### 3.6.4 例子1  (重要)
+![](image/Chapter5_css_定位_007_定位模式_Sticky.png)
+层级结构: body > nav> ul 
+sticky 属性 赋给nav
+向下滚动的时候, nav 这一部分一直都不动, 有点类似浮在上面, 但是都会随着页面动起来 
+nav 这部分被固定在可视窗口中, 所以他页面下滚的时候, nav tag 中的内容总是 可视的, 可以出现的. 
+
+### 3.6.5 例子2  (重要)
+层级结构: body > nav> ul 
+sticky 属性赋给ul
+
+效果:  ul元素 会随着 鼠标的上下移动,   父亲标签 在 可视窗口 中 显示 height 一点点减少的同时, 若小于 sticky元素的 总的 height. 则sticky元素一点点减少的 显示在 可视范围内. 直到完全不显示在可视范围内, (因为父元素也因为鼠标的上下移动, 不显示在可视范围内了  ) 
+解释: 本页中的 3.6.1 粘性定位的特点 的 点2 
+
+### 3.6.6 例子2 (很重要 )
+
+见 https://www.zhangxinxu.com/wordpress/2018/12/css-position-sticky/
+
+由于每一段短新闻都在section标签中，属于不同的父元素，因此，滚动的时候，后面的新闻标题才能把前面已经sticky定位的新闻标题推开，这是sticky定位天然的特性，无需任何JavaScript的帮助。
+```html
+<article>
+    <section>
+        <h4>网曝王宝强殴打马蓉</h4>
+        <content>
+            <p>12月2日，有网友爆料称...</p>
+        </content>
+        <footer>网友评论：...</footer>
+    </section>
+    <section>
+        <h4>知情人爆料称马蓉闯入王宝强家拿剪刀对峙</h4>
+        <content>
+            <p>...</p>
+        </content>
+        <footer>网友评论：...</footer>
+    </section>
+    ...
+</article>
+```
+
+```css
+article h4, 
+h4 {
+    position: sticky;
+    top: 0;
+    z-index: 1;
+}
+content {
+    position: relative;
+}
+footer {
+    position: sticky;
+    bottom: 50vh;
+    z-index: -1;
+}
+```
+
+如果，我们这里的HTML结构做调整，标题都是平级的，如下：
+则最终效果是所有sticky定位的新闻标题都会重叠在一起，这并不是我们想要的效果。所以，记住了，position:sticky布局的时候，使用合适的HTML结构很重要。
+```html
+<article>
+    <section>
+        <h4>网曝王宝强殴打马蓉</h4>
+        <content>
+            <p>12月2日，有网友爆料称...</p>
+        </content>
+        <footer>网友评论：...</footer>
+        <!-- 下一个短新闻 -->
+        <h4>知情人爆料称马蓉闯入王宝强家拿剪刀对峙</h4>
+        <content>
+            <p>...</p>
+        </content>
+        <footer>网友评论：...</footer>
+    </section>
+    ...
+</article>
+```
+
+效果中，网友评论从后面钻出来的效果又是如何实现的呢？
+两个关键点：
+
+1.  定位用的`bottom`，效果和`top`正好是对立的。设置`top`粘滞的元素随着往下滚动，是先滚动后固定；而设置`bottom`粘滞的元素则是先固定，后滚动；
+2.  `z-index:-1`让网友评论footer元素藏在了content的后面，于是才有了“犹抱琵琶半遮面”的效果。
 
 # 4 定位叠放次序 z-index
 
@@ -244,7 +360,8 @@ Sticky 粘性的 语法：
 ```
 
 z-index的特性如下:
-- 数值可以是正整数、负整数或 0，默认是 auto ，数值越大，盒子越靠上
+- 数值可以是正整数、负整数或 0. 默认是 auto , 就是为0
+- 数值越大，盒子越靠上
 - 如果属性值相同，则按照书写顺序，后来居上
 - 数字后面不能加单位
 - 只有定位的盒子才有 z-index 属性

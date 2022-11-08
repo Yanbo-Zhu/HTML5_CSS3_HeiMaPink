@@ -55,3 +55,31 @@ overflow 属性指定了如果内容溢出一个元素的框（超过其指定�
 但是如果有定位的盒子，请慎用`overflowhidden` 因为它会隐藏多余的部分。
 
 ![](image/Chapter5_页面布局_元素的显示与隐藏_overflow溢出.png)
+
+# 6 Opacity 半透明效果
+
+## 6.1 Opacity
+Opacity wirkt sich auf das Element selbst und <mark>alle Kinderelemente</mark> aus. 
+
+1 代表没有半透明效果
+0 代表完全透明的效果
+
+```css
+#fixed{
+    position: fixed;
+    top:0;
+    width: 50% ; 
+    opacity: 0.5; // 也可以携程 .5
+}
+```
+![](image/Chapter5_页面布局_元素的显示与隐藏_opacity半透明效果.png)
+
+## 6.2 background
+background 标签中也可以给出 半透明效果
+background 中给出只作用域自己, 不作用与子元素和孙子元素wirkt sich nur auf das Element selbst und <mark> nicht nur auf alle Kinderelemente</mark> aus. 
+
+```css
+#fixed{
+    background: hsla(0, 100%, 50%, .5) // 最后一个就是 opcatity效果
+}
+```

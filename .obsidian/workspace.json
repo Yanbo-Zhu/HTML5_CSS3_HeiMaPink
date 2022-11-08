@@ -4,11 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "285f56d5fc0e7f42",
+        "id": "5420cc75ad97b9f5",
         "type": "tabs",
         "children": [
           {
-            "id": "0c7f878b91f092a4",
+            "id": "40b551bc5b818cd9",
             "type": "leaf",
             "state": {
               "type": "empty",
@@ -44,7 +44,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "text-align",
+                "query": "max-width",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -120,17 +120,17 @@
     "direction": "horizontal",
     "width": 266.5
   },
-  "active": "0c7f878b91f092a4",
+  "active": "40b551bc5b818cd9",
   "lastOpenFiles": [
-    "CSS/Chapter8_移动端web开发/Chapter8_移动端web开发_02_移动端常见布局.md",
-    "CSS/Chapter8_移动端web开发/Chapter8_移动端web开发_03_less.md",
-    "CSS/Chapter8_移动端web开发/Chapter8_移动端web开发_01_移动Web开发.md",
-    "CSS/Chapter4_盒子模型/Chapter4_盒子模型_02_CSS5中新增的特性.md",
-    "Note.md",
-    "CSS/Chapter6_CSS高级/Chapter6_CSS高级_03_其他.md",
-    "CSS/Chapter6_CSS高级/Chapter6_CSS高级_02_用户界面样式_align_溢出文字省略显示_界面布局技巧.md",
-    "CSS/Chapter6_CSS高级/Chapter6_CSS高级_01_精灵图_字体图标.md",
-    "CSS/Chapter2_选择器_字体文本属性/Chapter2_02_字体文本属性.md",
-    "CSS/Chapter7_CSS3新特性/Chapter7_CSS3新特性.md"
+    "CSS/Chapter4_元素显示模式blockInline_背景_文字文本属性/Chapter2_02_字体文本属性_高度和宽度.md",
+    "CSS/Chapter4_元素显示模式blockInline_背景_文字文本属性/Chapter4_04_元素显示模式_BlockAndInline.md",
+    "CSS/Chapter5_页面布局_标准流_浮动_定位/Chapter5_css_页面布局_03_定位.md",
+    "CSS/Chapter2_选择器/Chapter2_03_复合选择器_Grouping selectors and Combinators.md",
+    "CSS/Chapter2_选择器/Chapter2_01_基础选择器_basisSelector.md",
+    "CSS/Chapter5_页面布局_标准流_浮动_定位/Chapter5_css_页面布局_02_浮动.md",
+    "CSS/Chapter4_元素显示模式blockInline_背景_文字文本属性/Chapter2_02_字体文本属性.md",
+    "CSS/Chapter4_元素显示模式blockInline_背景_文字文本属性/image/Chapter2_css_文字属性_width_003_max-content1.png",
+    "CSS/Chapter4_元素显示模式blockInline_背景_文字文本属性/image/Pasted image 20221107152413.png",
+    "CSS/Chapter6_CSS高级/Chapter6_CSS高级_03_其他.md"
   ]
 }

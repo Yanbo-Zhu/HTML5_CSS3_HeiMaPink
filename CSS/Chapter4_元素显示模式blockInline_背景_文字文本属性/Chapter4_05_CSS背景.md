@@ -30,6 +30,11 @@ background-color: 颜色值;
 
 一般而言，颜色默认值是 `transparent`（透明），我们也可以指定背景颜色为透明色或其他色。
 
+```css
+background-color: hsl(182, 25%, 70% )
+background-color: hsla(182, 25%, 70%, 1 )
+```
+
 # 4 背景图片 background-image
 
 `background-image` 属性描述了元素的背景图像，实际开发用于 logo 或者一些装饰性开发的小图片或者是超大的背景图片，优点是便于控制位置。（也用于精灵图）

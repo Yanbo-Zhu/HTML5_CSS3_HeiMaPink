@@ -76,7 +76,7 @@ p继承 div 的 height 和 width。
 ![](image/Chapter4_css_盒子模型_padding_002_例子1.png)
 ![](image/Chapter4_css_盒子模型_padding_003_例子2.png)
 
-# 2 box-sizing 属性解决方案
+# 2 box-sizing 属性 (css3新属性)
 
 ## 2.1 引子
 - 在设置了一个盒子的 `width/height` 后，再设置其 `border/padding` 会影响盒子实际大小。当进行响应式布局时，这个尤其烦人。
@@ -87,22 +87,52 @@ p继承 div 的 height 和 width。
 - So kann es später auch für einzelne Elemente überschrieben werden.
 
 ## 2.3 box-sizing 的属性
-CSS 中的 `box-sizing` 属性定义了 `user agent` 应该如何计算一个元素的总宽度和总高度。
-box-sizing 属性可以被用来调整这些表现。
+CSS 中的 `box-sizing` 属性定义了 `user agent` 应该如何计算一个元素的总宽度和总高度。 box-sizing 属性可以被用来调整这些表现。
+CSS3中可以通过 box-sizing 来指定盒模型，有2个值：即可指定为 content-box，border-box ，这样我们计算盒子大小的方式就发生了改变。
 
-### 2.3.1 content-box
+可以分成两种情况：
+
+1.  传统模式宽度计算: `box-sizing：content-box` 
+    1.  盒子大小为  CSS中设置的 width + padding + border （以前默认的）
+2.  CSS3盒子模型: `box-sizing: border-box` 
+    1.  盒子大小为 CSS中设置的宽度width，里面包含了 border 和 padding
+    2.  如果盒子模型我们改为了 box-sizing： border-box ，那padding 和 border就不会撑大盒子了（前提 padding 和 border 不会超过 width 宽度）
+
+
+
+### 2.3.1 content-box (默认的, 传统的)
 `content-box` 是默认值。
+
+```css
+box-sizing: content-box;
+```
+
+-   第一种情况是 CSS 的盒子模型，盒子大小为 width + padding + border
+-   此种情况盒子大小为 宽度 + 内边距 + 边框，这也是我们之前写盒子所默认的
+
 在 设置了 box-sizing: content-box; 情况下， 如果你设置一个元素的宽为`100px`，那么这个元素的内容区会有 `100px` 宽，并且任何边框和内边距的宽度都会被增加到最后绘制出来的元素宽度中。
   
-  ```
-  box-sizing: content-box;
-  ```
   
   尺寸计算公式： 
   - tatsächliche Breite = width （内容的宽度） + 2 * margin + 2 * border + 2 * padding
   - tatsächliche height = height (内容的宽度） + 2 * margin + 2 * border + 2 * padding
 
-### 2.3.2 border-box
+### 2.3.2 border-box (css3 新特性)
+
+-   第二种情况是 CSS3 的盒子模型，盒子大小为 width
+-   此种情况盒子大小为 宽度，不包括内边距和边框，这样 padding 和 border 就不会撑大盒子了(前提是 padding 和 border 不会超过 width 宽度)
+-   我们可以在以后的 css 通配符中添加 CSS3 盒子模型
+    
+
+```css
+* {
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+   /*  这样的话padding和border就不会撑大盒子了 */
+}
+```
+
 `border-box` 告诉浏览器：你想要设置的边框和内边距的值是包含在 `width` 内的。
 也就是说，如果你将一个元素的 `width` 设为 `100px`，那么这 100px 会包含它的 `border` 和 `padding`，内容区的实际宽度是 `width` 减去 `(border + padding)` 的值。
 大多数情况下，这使得我们更容易地设定一个元素的宽高。

@@ -3,8 +3,18 @@
 在 CSS 中，width 和 height 指的是内容区域的宽度和高度。
 增加内边距、边框和外边距不会影响内容区域的尺寸，但是会增加元素框的总尺寸。
 
+可以分成两种情况：
 
-# 3 边框 border
+1.  传统模式宽度计算: `box-sizing：content-box` 
+    1.  盒子大小为  CSS中设置的 width + padding + border （以前默认的）
+2.  CSS3盒子模型: `box-sizing: border-box` 
+    1.  盒子大小为 CSS中设置的宽度width，里面包含了 border 和 padding
+    2.  如果盒子模型我们改为了 box-sizing： border-box ，那padding 和 border就不会撑大盒子了（前提 padding 和 border 不会超过 width 宽度）
+
+详细见: 
+obsidian://open?vault=HTML5_CSS3_HeiMaPink_YZHNote&file=CSS%2FChapter2_%E9%80%89%E6%8B%A9%E5%99%A8_%E5%AD%97%E4%BD%93%E6%96%87%E6%9C%AC%E5%B1%9E%E6%80%A7%2FChapter2_02_%E5%AD%97%E4%BD%93%E6%96%87%E6%9C%AC%E5%B1%9E%E6%80%A7_%E9%AB%98%E5%BA%A6%E5%92%8C%E5%AE%BD%E5%BA%A6
+
+# 2 边框 border
 
 border 可以设置元素边框。边框有三个组成：border-width、border-style、border-color
 
@@ -21,7 +31,7 @@ border: border-width || border-style || border-color;
 | border-style | 边框样式         |
 | border-color | 边框颜色         |
 
-## 3.1 border-style
+## 2.1 border-style
 none：没有边框即忽略所有边框的宽度（默认值）
 solid：边框为单实线(最为常用的)
 dashed：边框为虚线
@@ -29,9 +39,9 @@ dotted：边框为点线
 
 ![](image/Chapter4_css_盒子模型_边框_style.png)
 
-## 3.2 边框属性简写和分写
+## 2.2 边框属性简写和分写
 
-### 3.2.1 边框属性简写
+### 2.2.1 边框属性简写
 
 ```
 顺序无所谓
@@ -39,7 +49,7 @@ dotted：边框为点线
 border: 5px solid pink;
 ```
 
-### 3.2.2 边框属性分写
+### 2.2.2 边框属性分写
 
 ```
 /*注意层叠性*/
@@ -58,10 +68,10 @@ border-right
 | border-top-color:颜色; | border- bottom-color:颜色; | border-left-color:颜色; | border-right-color:颜色; |
 | border-top:宽度 样式 颜色; | border-bottom:宽度 样式 颜色;  | border-left:宽度 样式 颜色; | border-right:宽度 样式 颜色; |
 
-### 3.2.3 注意就近原则， 下面定义的会覆盖掉上面定义的
+### 2.2.3 注意就近原则， 下面定义的会覆盖掉上面定义的
 ![](image/Chapter4_css_盒子模型_边框_简写_重叠性.png)
 
-## 3.3 表格的细线边框 (合并相邻的边框)
+## 2.3 表格的细线边框 (合并相邻的边框)
 
 border-collapse 属性控制浏览器绘制表格边框的方式。它控制相邻单元格的边框。
 
