@@ -434,6 +434,102 @@ nth-child(n)选择某个父级元素的一个或多个特定的子元素（重�
 
 `:not()` 用来匹配不符合一组选择器的元素。由于它的作用是防止特定的元素被选中，它也被称为反选伪类（negation pseudo-class）
 
+### 2.6.2 :target (location pseudo-class)
+0 原本的样子
+![](image/Chapter2_css_伪类选择器_LocaionPerusdiClass_tagert_001.png)
+
+
+1 
+-   :target dient zur Identifikation eines Ankers, also für die Verlinkung innerhalb eines HTML-Dokumentes
+-   Beim Anklicken des [Links](http://127.0.0.1:3000/%E8%AF%BE%E7%A8%8B%E6%9D%90%E6%96%99/2022.11.12_CSS_target/target.html#wrapper) verändert sich die url.
+-   Der Klasse kann dann auch ein style zugefügt werden
+
+![](image/Chapter2_css_伪类选择器_LocaionPerusdiClass_tagert_002.png)
+
+2
+-   [Untergeordnete Elemente](http://127.0.0.1:3000/%E8%AF%BE%E7%A8%8B%E6%9D%90%E6%96%99/2022.11.12_CSS_target/target.html#main) können dann mit den Nachfahren-Seelektoren angesprochen werden.
+
+![](image/Chapter2_css_伪类选择器_LocaionPerusdiClass_tagert_003.png)
+
+3  
+`<section id=„oben“> … </section>   ... <a href=„#oben“>nach oben </a>   #oben:target{…}`
+Diese Regel wird dann auf das Element mit der id "oben" angewandt.
+
+
+4 
+Wenn eine id nicht existiert, dann wird der [Ursprungszustand](http://127.0.0.1:3000/%E8%AF%BE%E7%A8%8B%E6%9D%90%E6%96%99/2022.11.12_CSS_target/target.html#) wiederhergestellt.
+
+![](image/Chapter2_css_伪类选择器_LocaionPerusdiClass_tagert_004.png)
+
+```html
+<!DOCTYPE html>
+<html lang="de">
+	<head>
+		<meta charset="utf-8">
+		<title>Pseudo-Klasse :target</title>
+		<link rel="stylesheet" href="target.css">
+	</head>
+	<body id="wrapper">
+		<h1>:target</h1>
+		<main id="main">
+			<h2>Eine Pseudoklasse mit Nebenwirkungen</h2>
+			<ul>
+				<li>:target dient zur Identifikation eines Ankers, also für die Verlinkung innerhalb eines HTML-Dokumentes </li>
+				<li>Beim Anklicken des <a href="#wrapper">Links</a> verändert sich die url.</li>
+				<li>Der Klasse kann dann auch ein style zugefügt werden</li>
+				<li><a href="#main">Untergeordnete Elemente</a> können dann mit den Nachfahren-Seelektoren angesprochen werden.</li>
+			</ul>
+			<code>
+				&lt;section id=„oben“&gt; … &lt;/section&gt;				<br>
+				...
+				&lt;a href=„#oben“&gt;nach oben &lt;/a&gt;<br>
+				#oben:target{…}
+			</code>
+			<p>Diese Regel wird dann auf das Element mit der id "oben" angewandt.</p>
+			<p>Wenn eine id nicht existiert, dann wird der <a href="#">Ursprungszustand</a> wiederhergestellt.</p>
+		</main>
+	</body>
+</html>
+```
+
+```css
+*,
+*::after,
+*::before{
+    box-sizing: border-box;
+}
+
+html,
+body{
+    font-family: sans-serif;
+    font-size: 1rem;
+    background-color: hsla(0,0%,80%,1);
+    width: 80%;
+    margin: auto;
+}
+
+/* body selektiert, weil die id im body steht */
+#wrapper:target{
+    background-color: hsla(0,100%,50%,1);
+}
+
+#wrapper:target a[href="#wrapper"]{
+    background-color: hsla(10,90%,90%,1);
+}
+
+#main:target{
+    background-color: hsla(210,90%,50%,1);
+}
+
+#main:target code{
+    display: block;
+    margin: 0 5%;
+    border: 1px solid gold;
+    font-size: 1.5rem;
+    background-color: hsla(0,0%,100%,1);
+}
+```
+
 ## 2.7 伪类的种类
 
 ### 2.7.1 Element display state pseudo-classes

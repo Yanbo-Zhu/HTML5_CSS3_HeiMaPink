@@ -133,22 +133,64 @@ flex 是 flexible Box 的缩写，意为"弹性布局"，用来为盒状模型�
 
 总结 flex 布局原理：就是通过给父盒子添加 flex 属性，来控制子盒子的位置和排列方式。
 
-## 2.3 flex布局常见父项属性
+## 2.3 转变为 flex-container
+- 使用 `display: flex` (行为像 block 元素), 作者 使用 `display: flex | inline-flex`  (行为像 inline 元素)
+- it makes all direct children to flex-items.  所有儿子 会被转变为 flex-items . 孙子就不会被转变. 
+- Flex-items can than be arranged in column or in row.
+
+
+## 2.4 flex-Container 的属性 ( 父项属性)
+flex-Container 指的是 父项
 
 以下有 6 个属性是对父元素设置的
 
-- flex-direction：设置主轴的方向
-- justify-content：设置主轴上的子元素排列方式
-- flex-wrap：设置子元素是否换行
-- align-content：设置侧轴上的子元素的排列方式（多行）
-- align-items：设置侧轴上的子元素排列方式（单行）
-- flex-flow：复合属性，相当于同时设置了 flex-direction 和 flex-wrap
+|properties |description |
+|--|---|
+|display| sets the flex-container, which can be block (flex) or inline (inline-flex).|
+|flex-direction|设置主轴的方向. sets the axes. The value row is default and sets the main-axis horizontal and the cross-axis vertical.|
+|flex-wrap|设置子元素是否换行. lets the flex-items wrap, if there is not enough room, or will fit them all in one line without wrapping them. <br> 其他方法: You can make single-line-containers or multi-lined with `wrap`.|
+|flex-flow|复合属性，相当于同时设置了 flex-direction 和 flex-wrap. It combines flex-direction and flex-wrap.|
+| justify-content|设置主轴上的子元素排列方式. it aligns all flex-items along the main-axis.|
+|align-items|设置侧轴上的子元素排列方式（单行）. it aligns them along the cross-axis, over a single line.|
+|align-content|设置侧轴上的子元素的排列方式（多行）. it aligns the flex-items along the cross axis, but only in multi-lined containers with enough space along the cross-axis.|
+|gap|applies space between items. <br> You can specify further <code>row-gap</code> or <code>column-gap</code> |
 
-### 2.3.1 flex-direction设置主轴方向
+例子: 
+![](image/Chapter8_Flexbox_FlexContainer就是父元素_001_例子.png)
 
-#### 2.3.1.1 主轴和侧轴
+```html
+    <article id="expContainer">
+        <h2>Examples for container properties</h2>
+        <p>The example uses div-containers, but the properties can be applied to all elements.</p>
+        <div>
+            <div>item 1</div>
+            <div>item 2</div>
+            <div>item 3</div>
+            <div>item 4</div>
+            <div>item 5</div>
+            <div>item 6</div>
+            <div>item 7</div>
+        </div>
+    </article>
+```
 
-主轴和侧轴：在 flex 布局中，是分为主轴和侧轴两个方向，同样的叫法有：行和列、x轴和y轴
+```css
+#expContainer > div,
+#expItem > div{
+    background-color: hsla(240,0%,80%,1);
+    border: 1px solid;
+    height: 40vh;
+}
+```
+
+### 2.4.1 flex-direction设置主轴方向
+
+#### 2.4.1.1 主轴和侧轴 main-axis and the cross-axis.
+
+主轴和侧轴：在 flex 布局中，是分为主轴和侧轴两个方向，就是 main-axis and the cross-axis.
+The axes are important for setting all directions properties, because they are not assigned horizontally or vertically but to main- and cross-axis.
+
+同样的叫法有：行和列、x轴和y轴
 
 - 默认主轴方向就是 x 轴方向，水平向右
 - 默认侧轴方向就是 y 轴方向，水平向下
@@ -194,7 +236,7 @@ flex 是 flexible Box 的缩写，意为"弹性布局"，用来为盒状模型�
 
 ![在这里插入图片描述](https://img-blog.csdnimg.cn/d77b23b3162348598cb07449b128c21a.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA55Sf5ZG95piv5pyJ5YWJ55qE,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center)
 
-#### 2.3.1.2 flex-direction 属性决定主轴的方向
+#### 2.4.1.2 flex-direction 属性决定主轴的方向
 
 - flex-direction 属性决定主轴的方向（即项目的排列方向）
 - 注意： 主轴和侧轴是会变化的，就看 flex-direction 设置谁为主轴，剩下的就是侧轴。而我们的子元素是跟着主轴来排列的
@@ -206,7 +248,7 @@ flex 是 flexible Box 的缩写，意为"弹性布局"，用来为盒状模型�
 | **column**     | **从上到下**    |
 | column-reverse | 从下到上        |
 
-### 2.3.2 justify-content 设置主轴上的子元素排列方式
+### 2.4.2 justify-content 设置主轴上的子元素排列方式
 
 - justify-content 属性定义了项目在主轴上的对齐方式
 - **注意： 使用这个属性之前一定要确定好主轴是哪个**
@@ -219,7 +261,7 @@ flex 是 flexible Box 的缩写，意为"弹性布局"，用来为盒状模型�
 | **space-around**  | **平分剩余空间**                  |
 | **space-between** | **先两边贴边，再平分剩余空间🔥**         |
 
-#### 2.3.2.1 主轴为x轴
+#### 2.4.2.1 主轴为x轴
 
 ```html
 <head>
@@ -271,11 +313,11 @@ flex 是 flexible Box 的缩写，意为"弹性布局"，用来为盒状模型�
 
 ![在这里插入图片描述](https://img-blog.csdnimg.cn/4b70488588e54aa18ea44c39a0c0d074.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA55Sf5ZG95piv5pyJ5YWJ55qE,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center)
 
-#### 2.3.2.2 主轴为y轴
+#### 2.4.2.2 主轴为y轴
 
 ![在这里插入图片描述](https://img-blog.csdnimg.cn/eba632281ba14898b7b20f9592d34047.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA55Sf5ZG95piv5pyJ5YWJ55qE,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center)
 
-### 2.3.3 flex-wrap 设置子元素是否换行
+### 2.4.3 flex-wrap 设置子元素是否换行
 
 默认情况下，项目都排在一条线（又称”轴线”）上。flex-wrap属性定义，flex布局中默认是不换行的。
 意思就是如果按照我们设置的盒子大小，一行只能装 3 个盒子，但是我们有 5 个盒子，那么 flex 布局默认会给我们塞上去，自动缩小盒子大小。
@@ -325,7 +367,7 @@ flex 是 flexible Box 的缩写，意为"弹性布局"，用来为盒状模型�
 
 ![在这里插入图片描述](https://img-blog.csdnimg.cn/4837b51525eb48ebad097946d7a3d03c.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA55Sf5ZG95piv5pyJ5YWJ55qE,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center)
 
-### 2.3.4 align-items 设置侧轴上的子元素排列方式(单行)
+### 2.4.4 align-items 设置侧轴上的子元素排列方式(单行)
 
 该属性是控制子项在侧轴（默认是y轴）上的排列方式 在子项为单项（**单行**）的时候使用
 
@@ -378,7 +420,7 @@ flex 是 flexible Box 的缩写，意为"弹性布局"，用来为盒状模型�
 
 ![在这里插入图片描述](https://img-blog.csdnimg.cn/06f471dc501c4557ac69e9f0679c1f73.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA55Sf5ZG95piv5pyJ5YWJ55qE,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center)
 
-### 2.3.5 align-content 设置侧轴上的子元素的排列方式(多行)
+### 2.4.5 align-content 设置侧轴上的子元素的排列方式(多行)
 
 设置子项在侧轴上的排列方式 并且只能用于子项出现 换行 的情况（多行），在单行下是没有效果的。
 
@@ -438,16 +480,16 @@ flex 是 flexible Box 的缩写，意为"弹性布局"，用来为盒状模型�
 
 ![在这里插入图片描述](https://img-blog.csdnimg.cn/27eee5f656584ac9afc8cbaf1c7021d0.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA55Sf5ZG95piv5pyJ5YWJ55qE,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center)
 
-### 2.3.6 align-content 和 align-items 区别
+### 2.4.6 align-content 和 align-items 区别
 
 - align-items 适用于单行情况下， 只有上对齐、下对齐、居中和 拉伸
 
 - align-content 适应于换行（多行）的情况下（单行情况下无效）， 可以设置 上对齐、 下对齐、居中、拉伸以及平均分配剩余空间等属性值。
 
-- 总结就是单行找 align-items 多行找 align-content
+- 总结就是单行找 align-items, 多行找 align-content
   ![在这里插入图片描述](https://img-blog.csdnimg.cn/480258f6f7254d57ad0de8720a68705c.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA55Sf5ZG95piv5pyJ5YWJ55qE,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center)
 
-## 2.4 flex-flow
+## 2.5 flex-flow
 
 flex-flow 属性是 flex-direction 和 flex-wrap 属性的复合属性
 
@@ -455,12 +497,6 @@ flex-flow 属性是 flex-direction 和 flex-wrap 属性的复合属性
 flex-flow: row wrap;
 ```
 
-- flex-direction：设置主轴的方向
-- justify-content：设置主轴上的子元素排列方式
-- flex-wrap：设置子元素是否换行
-- align-content：设置侧轴上的子元素的排列方式（多行）
-- align-items：设置侧轴上的子元素排列方式（单行）
-- flex-flow：复合属性，相当于同时设置了 flex-direction 和 flex-wrap
 
 ```html
 <head>
@@ -499,11 +535,18 @@ flex-flow: row wrap;
 </body>
 ```
 
-# 3 flex布局子项常见属性
+# 3 flex-item (子项) 的 常见属性
+使用这些属性是的 flex-item 区别于其他的 flex-item. With these properties you can align each flex-item itself and different from the other flex-items.
 
-- flex 子项目占的份数
-- align-self 控制子项自己在侧轴的排列方式
-- order属性定义子项的排列顺序（前后顺序）
+
+|properties |description |
+|--|---|
+|flex-grow| allows the flex-item grow bigger along the main-axis, if there is space. The values are positive integers and they can be used as proportions.|
+|flex-shrink|allows the flex-item to shrink, analog to flex-grow.|
+|flex-basis|sets the initial size of the flex-item.|
+|flex| 控制子项目占的分量. combines flex-grow, flex-shrink and flex-basis. <br> Allways use the shorthand, 就是 flex 这项.  so you have control over all three values <br> Default values are flex: 0 1 auto. |
+|align-self |控制子项自己在侧轴的排列方式. <br> allows a separate alignment for individual items. The value overrides the `align-items` value for all flex-items.|
+| order属性|定义子项的排列顺序（前后顺序）. allows for a different order than the given from the HTML document. <br>The default value is 0. <br>Each item can be assigned a number. The lowest number is put to the beginning of the main-axis. <br>If several items have the same value, they are put into source order. |
 
 ## 3.1 flex属性
 
@@ -758,16 +801,19 @@ flex 属性定义子项目分配剩余空间，用flex来表示占多少份数�
 
 ![在这里插入图片描述](https://img-blog.csdnimg.cn/f6708feda7904832b76d87995ad02bd3.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA55Sf5ZG95piv5pyJ5YWJ55qE,size_18,color_FFFFFF,t_70,g_se,x_16#pic_center)
 
-## 5.2 媒体查询
+## 5.2 媒体查询 Media Query
 
 媒体查询（Media Query）是CSS3新语法。
+With media queries we can ask for certain types of output and additional features. Depending on those we can change styles for these features.
+<mark>Media Queries are stylesheets within stylesheets.</mark>
 
 - 使用 @media 查询，可以针对不同的媒体类型定义不同的样式
 - @media 可以针对不同的屏幕尺寸设置不同的样式
 - 当你重置浏览器大小的过程中，页面也会根据浏览器的宽度和高度重新渲染页面
 - 目前针对很多苹果手机、Android手机，平板等设备都用得到多媒体查询
 
-语法如下：
+
+### 5.2.1 语法
 
 @media mediatype and|not|only(media feature){
     CSS-code
@@ -806,11 +852,11 @@ flex 属性定义子项目分配剩余空间，用flex来表示占多少份数�
 </head>
 ```
 
-### 5.2.1 mediatype查询类型
+### 5.2.2 mediatype/媒体类型
 
 将不同的终端设备划分成不同的类型，称为媒体类型
 
-### 5.2.2 关键字
+### 5.2.3 关键字
 
 关键字将媒体类型或多个媒体特性连接到一起做为媒体查询的条件。
 
@@ -818,7 +864,7 @@ flex 属性定义子项目分配剩余空间，用flex来表示占多少份数�
 - not：排除某个媒体类型，相当于“非”的意思，可以省略。
 - only：指定某个特定的媒体类型，可以省略。
 
-### 5.2.3 媒体特性
+### 5.2.4 媒体特性
 
 每种媒体类型都具体各自不同的特性，根据不同媒体类型的媒体特性设置不同的展示风格。我们暂且了解三个。注意他们要加小括号包含。
 
