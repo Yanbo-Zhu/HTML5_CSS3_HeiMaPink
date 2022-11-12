@@ -4,19 +4,15 @@
     "type": "split",
     "children": [
       {
-        "id": "7c55fe391f7218e3",
+        "id": "2a6c1ba9531dc6d4",
         "type": "tabs",
         "children": [
           {
-            "id": "cccad7984e13d3c8",
+            "id": "17fb7b17d4a10abb",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "CSS/Chapter8_移动端web开发/Chapter8_移动端web开发_02_移动端常见布局.md",
-                "mode": "source",
-                "source": true
-              }
+              "type": "empty",
+              "state": {}
             }
           }
         ]
@@ -61,7 +57,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 416
+    "width": 392.5
   },
   "right": {
     "id": "75bad08b258c7b53",
@@ -77,7 +73,6 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "CSS/Chapter8_移动端web开发/Chapter8_移动端web开发_02_移动端常见布局.md",
                 "collapseAll": true,
                 "extraContext": true,
                 "sortOrder": "alphabetical",
@@ -94,7 +89,6 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "CSS/Chapter8_移动端web开发/Chapter8_移动端web开发_02_移动端常见布局.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -116,9 +110,7 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {
-                "file": "CSS/Chapter8_移动端web开发/Chapter8_移动端web开发_02_移动端常见布局.md"
-              }
+              "state": {}
             }
           }
         ],
@@ -128,17 +120,17 @@
     "direction": "horizontal",
     "width": 266.5
   },
-  "active": "cccad7984e13d3c8",
+  "active": "17fb7b17d4a10abb",
   "lastOpenFiles": [
-    "CSS/Chapter8_移动端web开发/Chapter8_移动端web开发_03_less.md",
     "CSS/Chapter8_移动端web开发/Chapter8_移动端web开发_02_移动端常见布局.md",
+    "CSS/Chapter8_移动端web开发/Chapter8_移动端web开发_04_Media.md",
+    "CSS/Chapter8_移动端web开发/Chapter8_移动端web开发_03_less.md",
     "CSS/Chapter2_选择器/Chapter2_04_伪类选择器和伪元素选择器_Pseudo-classes and pseudo-elements.md",
     "CSS/Chapter2_选择器/Chapter2_03_复合选择器_Grouping selectors and Combinators.md",
     "CSS/Chapter8_移动端web开发/image/Chapter8_Flexbox_FlexContainer就是父元素_001_例子.png",
     "CSS/Chapter4_元素显示模式blockInline_背景_文字文本属性/Chapter2_02_字体文本属性.md",
     "CSS/Chapter8_移动端web开发/Chapter8_移动端web开发_01_移动Web开发.md",
     "CSS/Chapter4_元素显示模式blockInline_背景_文字文本属性/Chapter2_02_字体文本属性_高度和宽度.md",
-    "CSS/Chapter4_元素显示模式blockInline_背景_文字文本属性/Chapter4_04_元素显示模式_BlockAndInline.md",
-    "CSS/Chapter5_页面布局_标准流_浮动_定位/Chapter5_css_页面布局_03_定位.md"
+    "CSS/Chapter4_元素显示模式blockInline_背景_文字文本属性/Chapter4_04_元素显示模式_BlockAndInline.md"
   ]
 }

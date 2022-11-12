@@ -150,10 +150,10 @@ flex-Container 指的是 父项
 |flex-direction|设置主轴的方向. sets the axes. The value row is default and sets the main-axis horizontal and the cross-axis vertical.|
 |flex-wrap|设置子元素是否换行. lets the flex-items wrap, if there is not enough room, or will fit them all in one line without wrapping them. <br> 其他方法: You can make single-line-containers or multi-lined with `wrap`.|
 |flex-flow|复合属性，相当于同时设置了 flex-direction 和 flex-wrap. It combines flex-direction and flex-wrap.|
-| justify-content|设置主轴上的子元素排列方式. it aligns all flex-items along the main-axis.|
-|align-items|设置侧轴上的子元素排列方式（单行）. it aligns them along the cross-axis, over a single line.|
-|align-content|设置侧轴上的子元素的排列方式（多行）. it aligns the flex-items along the cross axis, but only in multi-lined containers with enough space along the cross-axis.|
-|gap|applies space between items. <br> You can specify further <code>row-gap</code> or <code>column-gap</code> |
+| justify-content|设置主轴(hauptachse)上的子元素排列方式. it aligns all flex-items along the main-axis.|
+|align-items|设置侧轴(Kreuzachse, cross achx)上的子元素排列方式（单行）. 当转行是的时候, 显示出来的两行之间有间隔 <br> it aligns them along the cross-axis, over a single line.|
+|align-content|设置侧轴上的子元素的排列方式（多行）.  当转行是的时候, 显示出来的两行之间无间隔 间隔. 有umbruch ja oder nein <br>it aligns the flex-items along the cross axis, but only in multi-lined containers with enough space along the cross-axis.|
+|gap|applies space between items. item 之间的间隙， 这样就会显示出间隙.  <br> You can specify further <code>row-gap</code> or <code>column-gap</code> |
 
 例子: 
 ![](image/Chapter8_Flexbox_FlexContainer就是父元素_001_例子.png)
@@ -260,6 +260,7 @@ The axes are important for setting all directions properties, because they are n
 | **center**        | **在主轴居中对齐(如果主轴是 x 轴则水平居中)** |
 | **space-around**  | **平分剩余空间**                  |
 | **space-between** | **先两边贴边，再平分剩余空间🔥**         |
+|space-evenly||
 
 #### 2.4.2.1 主轴为x轴
 
@@ -320,7 +321,8 @@ The axes are important for setting all directions properties, because they are n
 ### 2.4.3 flex-wrap 设置子元素是否换行
 
 默认情况下，项目都排在一条线（又称”轴线”）上。flex-wrap属性定义，flex布局中默认是不换行的。
-意思就是如果按照我们设置的盒子大小，一行只能装 3 个盒子，但是我们有 5 个盒子，那么 flex 布局默认会给我们塞上去，自动缩小盒子大小。
+为 nowrap 的时候： 意思就是如果按照我们设置的盒子大小，一行只能装 3 个盒子，但是我们有 5 个盒子，那么 flex 布局默认会给我们塞上去，会越出盒子显示。
+
 
 | 属性值      | 说明      |
 | -------- | ------- |
@@ -535,21 +537,35 @@ flex-flow: row wrap;
 </body>
 ```
 
-# 3 flex-item (子项) 的 常见属性
+# 3 flex-item (子项) 
+Flex-item 也可以作为 其他的元素的 flex-container , 只要 Flex-item 中给入了 `display: flex`
+
+
+## 3.1 常见属性
 使用这些属性是的 flex-item 区别于其他的 flex-item. With these properties you can align each flex-item itself and different from the other flex-items.
+<mark> 当父元素不是 flex-container 的时候, 无法使用 flex-item 的特性 </mark>
 
 
 |properties |description |
 |--|---|
-|flex-grow| allows the flex-item grow bigger along the main-axis, if there is space. The values are positive integers and they can be used as proportions.|
+|flex-grow| 根据 窗口的大虾, item 的宽度随时变大变小<br>allows the flex-item grow bigger along the main-axis, if there is space. The values are positive integers and they can be used as proportions.|
 |flex-shrink|allows the flex-item to shrink, analog to flex-grow.|
-|flex-basis|sets the initial size of the flex-item.|
-|flex| 控制子项目占的分量. combines flex-grow, flex-shrink and flex-basis. <br> Allways use the shorthand, 就是 flex 这项.  so you have control over all three values <br> Default values are flex: 0 1 auto. |
+|flex-basis|sets the initial size of the flex-item.  是主轴方向的 intial size, 不是固定于 水平方向 或者 垂直方向|
+|flex| 控制子项目占的分量. 这个项可以代替 在父元素中写入 `display: flex` <br>combines flex-grow, flex-shrink and flex-basis. <br> Allways use the shorthand, 就是 flex 这项.  so you have control over all three values <br> Default values are flex: 0 1 auto. |
 |align-self |控制子项自己在侧轴的排列方式. <br> allows a separate alignment for individual items. The value overrides the `align-items` value for all flex-items.|
 | order属性|定义子项的排列顺序（前后顺序）. allows for a different order than the given from the HTML document. <br>The default value is 0. <br>Each item can be assigned a number. The lowest number is put to the beginning of the main-axis. <br>If several items have the same value, they are put into source order. |
 
-## 3.1 flex属性
+## 3.2 flex属性
 
+Flex: flex-grow, flex-shrink ,  flex-basis.
+默认值为 1 0 auto
+
+### 3.2.1 flex-grow, flex-shrink 的值 
+能是 2,3,4,5,...x, 1 或者 0 , nur ganz Zahl , 正值 或者 0
+给入 负值, 不会报错, 但是完全没有效果 , 
+给入2 的话, 其 在主轴方向的宽度, 是 给入1 的 item 的2倍. 
+
+### 3.2.2 例子
 flex 属性定义子项目分配剩余空间，用flex来表示占多少份数。
 ![在这里插入图片描述](https://img-blog.csdnimg.cn/dc679b96741d476e97bb3cb7f7f41d68.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA55Sf5ZG95piv5pyJ5YWJ55qE,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center)
 
@@ -621,7 +637,7 @@ flex 属性定义子项目分配剩余空间，用flex来表示占多少份数�
 
 ![在这里插入图片描述](https://img-blog.csdnimg.cn/0760011e9c554d779ee3fa7d4eb53dfe.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA55Sf5ZG95piv5pyJ5YWJ55qE,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center)
 
-## 3.2 align-self 控制子项自己在侧轴上的排列方式
+## 3.3 align-self 控制子项自己在侧轴上的排列方式
 
 - align-self 属性允许单个项目有与其他项目不一样的对齐方式，可覆盖 align-items 属性。
 - 默认值为 auto，表示继承父元素的 align-items 属性，如果没有父元素，则等同于 stretch。
@@ -667,9 +683,12 @@ flex 属性定义子项目分配剩余空间，用flex来表示占多少份数�
 
 ![在这里插入图片描述](https://img-blog.csdnimg.cn/963925250d4d41149666f567b550821e.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA55Sf5ZG95piv5pyJ5YWJ55qE,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center)
 
-## 3.3 order属性定义项目的排列顺序
+## 3.4 order属性定义项目的排列顺序
 
-数值越小，排列越靠前，默认为0。
+数值越小，排列越靠前 (或者越靠近左右 )，默认为0。
+通过这个 可以改变 item 的位置
+order 只对 有flex 属性的元素生效. 
+
 注意：和 z-index 不一样。
 
 ```html
@@ -718,7 +737,7 @@ flex 属性定义子项目分配剩余空间，用flex来表示占多少份数�
 
 ![在这里插入图片描述](https://img-blog.csdnimg.cn/7a36164244a646cdae65f5ef6f58efba.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA55Sf5ZG95piv5pyJ5YWJ55qE,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center)
 
-# 4 背景颜色渐变
+# 4 背景颜色渐变 (-webkit-linear-gradient)
 
 ```html
 <head>
@@ -746,177 +765,7 @@ flex 属性定义子项目分配剩余空间，用flex来表示占多少份数�
 ![在这里插入图片描述](https://img-blog.csdnimg.cn/974fa15e13cb47f0bc7a265d59f2b33c.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA55Sf5ZG95piv5pyJ5YWJ55qE,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center)
 
 
-# 5 媒体查询 Media Query
-
-媒体查询（Media Query）是CSS3新语法。
-With media queries we can ask for certain types of output and additional features. Depending on those we can change styles for these features.
-<mark>Media Queries are stylesheets within stylesheets.</mark>
-<mark>_KorrigierenNachLehrerFeedback</mark>
-
-- 使用 @media 查询，可以针对不同的媒体类型定义不同的样式
-- @media 可以针对不同的屏幕尺寸设置不同的样式
-- 当你重置浏览器大小的过程中，页面也会根据浏览器的宽度和高度重新渲染页面
-- 目前针对很多苹果手机、Android手机，平板等设备都用得到多媒体查询
-
-## 5.1 Using device pixels
-
-出现的问题: 
-Pixels are relative!  Compare the resolution of your desktop and your phone. 
-CSS-pixels are rendered on your device. If you develop on your desktop and make your viewport smaller or larger. it's still on your desktop! It won't work on a handheld device.
-
-解决方式 使用 meta-tag 获得 相对的 width 
-Use your meta-tag to set the CSS-width equal to the device-width.
-```css
-meta name="viewport" content="width=device-width"
-```
-
-## 5.2 Organizing media queries within a stylesheet
-There is no right or wrong way to organize media queries.
-Be consistent! You can write all rules within one media query or you can write a media query just after each separate rule that needs one.
-可以all rules 都写在 一个 media query, 或者每个 rule 都写着再单独的一个 media query
-
-## 5.3 语法
-
-@media mediatype and|not|only( mediaFeature ){
-    CSS-code /*rules for thes features*/
-}
-
-- 用 @media 开头 注意@符号
-- mediatype 媒体类型
-- 关键字 and, not, only
-- media feature 媒体特性 必须有小括号包含
-
-下面代码的意思是在我们屏幕上页面处于 500px-800px 之间，页面背景颜色显示为 pink 色。页面小于 500px，背景颜色显示为 purple 色
-
-```html
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-    <style>
-        /* 这句话的意思就是： 在我们屏幕上 并且 最大的宽度是 800像素 设置我们想要的样式 */
-        /* max-width 小于等于800 */
-        /* 媒体查询可以根据不同的屏幕尺寸在改变不同的样式 */
-
-        @media screen and (max-width: 800px) {
-            body {
-                background-color: pink;
-            }
-        }
-
-        @media screen and (max-width: 500px) {
-            body {
-                background-color: purple;
-            }
-        }
-    </style>
-</head>
-```
-
-### 5.3.1 使用的时候注意点
-- 不指定 mediatype 作用于全部mediatype.  If you don't include a type it will target to all types (screen, print, ...)
-  
-## 5.4 mediatype/媒体类型
-
-将不同的终端设备划分成不同的类型，称为媒体类型
-
-## 5.5 关键字 (and, not ,only)
-
-关键字将媒体类型或多个媒体特性连接到一起做为媒体查询的条件。
-
-- and：可以将多个媒体特性连接到一起，相当于“且”的意思。
-- not：排除某个媒体类型，相当于“非”的意思，可以省略。
-- only：指定某个特定的媒体类型，可以省略。
-
-## 5.6 媒体特性/ mediaFeature
-
-每种媒体类型都具体各自不同的特性，根据不同媒体类型的媒体特性设置不同的展示风格。
-
-注意他们要加小括号包含。
-
-| 值         | 解释                |
-|---------|-----------------|
-| width     | 定义输出设备中页面可见区域的宽度. the viewport width  |
-| min-width | 定义输出设备中页面最小可见区域宽度.  |
-| max-width | 定义输出设备中页面最大可见区域宽度. |
-| height | the viewport height |
-| device-width | the viewport width of the specific device. it will be deprecated in Media Queries Level 4 |
-| device-height | the viewport height of the specific device. it will be deprecated in Media Queries Level 4 |
-| orientation | landscape or portrait orientation of the device |
-| aspect-ratio | the ration of width to height |
-
-### 5.6.1 min-width 和 max-width的比较 
-- min-width means from this width and larger, so it's for a large(r) screen. 
-- max-width works the other way around. 
-- You can also work within a range between min-width and max-width.
-<br>
-Working with <code>min-width</code> means you are working desktop-first.
-
-<br>
-The order of media queries is important! 
-- If you work with <code>min-width</code>, you work from the smallest to the biggest.
-- 
-<br>
-<em>Try the whole stylesheet mobile-first!</em></p>
-
-### 5.6.2 例子 (width, min-width, max-width )
-注意： 为了防止混乱，媒体查询我们要按照从小到大或者从大到小的顺序来写,但是我们最喜欢的还是从小到大来写，这样代码更简洁
-
-```html
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-    <style>
-        /* 1. 媒体查询一般按照从大到小或者 从小到大的顺序来 */
-        /* 2. 小于540px 页面的背景颜色变为蓝色 */
-
-        @media screen and (max-width: 539px) {
-            body {
-                background-color: blue;
-            }
-        }
-        /* 3. 540 ~ 970 我们的页面颜色改为 绿色 */
-        /* @media screen and (min-width: 540px) and (max-width: 969px) {
-            body {
-                background-color: green;
-            }
-        } */
-
-        @media screen and (min-width: 540px) {
-            body {
-                background-color: green;
-            }
-        }
-        /* 4. 大于等于970 我们页面的颜色改为 红色 */
-
-        @media screen and (min-width: 970px) {
-            body {
-                background-color: red;
-            }
-        }
-        /* 5. screen 还有 and 必须带上不能省略的 */
-        /* 6. 我们的数字后面必须跟单位  970px   这个 px 不能省略的 */
-    </style>
-</head>
-```
-
-![在这里插入图片描述](https://img-blog.csdnimg.cn/9ebceb16c2f04d2da6d4425202bf1b86.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA55Sf5ZG95piv5pyJ5YWJ55qE,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center)
-
-
-## 5.7 Breakpoints
-
-Breakpoints are the width at which we want to change the design.
-Don't use standard breakpoints. Better, look at the screen and decide at what point does the layout look wrong. It depends on your design. Try different breakpoints.
-Don't target specific devices, because there are just too many.
-
-For maintainability keep the breakpoints to a minimum. 
-- The more breakpoints you have, the more adjustments you have to make, if you are making changes to on breakpoint.
-
-
-# 6 rem适配布局
+# 5 rem适配布局
 
 我们来看几个问题：
 
@@ -924,7 +773,7 @@ For maintainability keep the breakpoints to a minimum.
 2. 流式布局和flex布局主要针对于宽度布局，那高度如何设置？
 3. 怎么样让屏幕发生变化的时候元素高度和宽度等比例缩放？
 
-## 6.1 rem基础
+## 5.1 rem基础
 
 - rem (root em)是一个相对单位，类似于em，em是父元素字体大小。
 - 不同的是rem的基准是相对于html元素的字体大小。
@@ -974,7 +823,7 @@ For maintainability keep the breakpoints to a minimum.
 
 
 
-## 6.2 媒体查询+rem实现元素动态大小变化
+## 5.2 媒体查询+rem实现元素动态大小变化
 -   rem单位是跟着html来走的，有了rem页面元素可以设置不同大小尺寸
 -   媒体查询可以根据不同设备宽度来修改样式
 -   媒体查询+rem 就可以实现不同设备宽度，实现页面元素大小的动态变化
@@ -1024,7 +873,7 @@ For maintainability keep the breakpoints to a minimum.
 
 ```
 
-## 6.3 引入资源
+## 5.3 引入资源
 
 -   当样式比较繁多的时候，我们可以针对不同的媒体使用不同 stylesheets（样式表）。
 -   原理，就是直接在link中判断设备的尺寸，然后引用不同的css文件。
@@ -1037,7 +886,7 @@ For maintainability keep the breakpoints to a minimum.
 
 
 
-## 6.4 rem适配方案
+## 5.4 rem适配方案
 1. 让一些不能等比自适应的元素，达到当设备尺寸发生改变的时候，等比例适配当前设备。
 2. 使用媒体查询根据不同设备按比例设置html的字体大小，然后页面元素使用rem做尺寸单位，当html字体大小变化元素尺寸也会发生变化，从而达到等比缩放的适配。
 
@@ -1049,13 +898,13 @@ For maintainability keep the breakpoints to a minimum.
 rem 适配方案技术使用
 ![在这里插入图片描述](https://img-blog.csdnimg.cn/a0b6ea5dab89442096a4d3595c121dc7.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA55Sf5ZG95piv5pyJ5YWJ55qE,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center)
 
-### 6.4.1 rem实际开发适配方案一
+### 5.4.1 rem实际开发适配方案一
 
 rem + 媒体查询 + less 技术
 ![在这里插入图片描述](https://img-blog.csdnimg.cn/2f0494ce7c554a6985ac4f0d0db421e4.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA55Sf5ZG95piv5pyJ5YWJ55qE,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center)
 一般情况下，我们以一套或两套效果图适应大部分的屏幕，放弃极端屏或对其优雅降级，牺牲一些效果。现在基本以750为准。
 
-#### 6.4.1.1 动态设置 html 标签 font-size 大小
+#### 5.4.1.1 动态设置 html 标签 font-size 大小
 1. 假设设计稿是750px
 2. 假设我们把整个屏幕划分为15等份（划分标准不一可以是20份也可以是10等份）
 3. 每一份作为html字体大小，这里就是50px
@@ -1066,7 +915,7 @@ rem + 媒体查询 + less 技术
 8. 320屏幕下， html 字体大小为 21.33 则 2rem = 42.66px 此时宽和高都是 42.66 但是 宽和高的比例还是 1比1
 9. 但是已经能实现不同屏幕下 页面元素盒子等比例缩放的效果
 
-#### 6.4.1.2 元素大小取值方法
+#### 5.4.1.2 元素大小取值方法
 - 最后的公式： 页面元素的rem值 = 页面元素值（px） / （屏幕宽度 / 划分的份数）
 - 屏幕宽度/划分的份数 就是 html font-size 的大小
 - 或者： 页面元素的rem值 = 页面元素值（px） / html font-size 字体大小
