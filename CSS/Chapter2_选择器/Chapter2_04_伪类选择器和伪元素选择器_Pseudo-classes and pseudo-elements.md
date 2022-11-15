@@ -176,9 +176,26 @@ ul li:nth-child(5) {
 
 6. 类选择器，属性选择器，伪类选择器，权重为10
 
-### 2.5.2 :first-child 和E:last-child
+## 2.6 一个重点的错误
+https://stackoverflow.com/questions/2717480/css-selector-for-first-element-with-class
 
-`:first-child` 是 CSS 伪类，表示父元素的第一个子元素。
+```css
+#flexContainer>.flexitem:first-of-type{
+    border-style: solid;
+     flex: 1 1 auto;
+     
+}
+
+#flexContainer>.flexitem:last-of-type{
+    border-style: dotted;
+    flex: 2 1 auto; 
+} 
+```
+
+### 2.6.1 E:first-child 和 E:last-child
+
+`:first-child` 是 CSS 伪类，表示匹配的是某父元素的第一个子元素，可以说是结构上的第一个子元素
+`:last-child` CSS 伪类 代表父元素的最后一个子元素。
 
 ```css
 <head>
@@ -210,49 +227,8 @@ ul li:nth-child(5) {
     </ul>
 ```
 
-### 2.5.3 :last-child
 
-`:last-child` CSS 伪类 代表父元素的最后一个子元素。
-
-### 2.5.4 E:first-of-type和E:last-of-type
-
-| E:first-of-type | 指定类型E的第一个  |
-| --------------- | ---------- |
-| E:last-of-type  | 指定类型E的最后一个 |
-
-```html
-<head>
-    <style>
-        ul li:first-of-type {
-            background-color: pink;
-        }
-
-        ul li:last-of-type {
-            background-color: pink;
-        }
-
-        ul li:nth-last-child(2) {
-            background-color: pink;
-        }
-    </style>
-</head>
-
-
-<body>
-    <ul>
-        <li>我是第1个孩子</li>
-        <li>我是第2个孩子</li>
-        <li>我是第3个孩子</li>
-        <li>我是第4个孩子</li>
-        <li>我是第5个孩子</li>
-        <li>我是第6个孩子</li>
-        <li>我是第7个孩子</li>
-        <li>我是第8个孩子</li>
-    </ul>
-</body>
-```
-
-### 2.5.5 :nth-child(n)
+### 2.6.2 E:nth-child(n)
 
 nth-child(n)选择某个父级元素的一个或多个特定的子元素（重点）
 
@@ -271,7 +247,7 @@ nth-child(n)选择某个父级元素的一个或多个特定的子元素（重�
 | n+   | 5 6 7 8 ... |
 | -n+5 | 前五个         |
 
-#### 2.5.5.1 例子
+#### 2.6.2.1 例子
 
 ```html
 <head>
@@ -397,7 +373,84 @@ nth-child(n)选择某个父级元素的一个或多个特定的子元素（重�
 </body>
 ```
 
-### 2.5.6 关于 `nth-of-type` 与 `nth-of-child`
+
+### 2.6.3 E:first-of-type和E:last-of-type
+
+| E:first-of-type | 指定类型E的第一个  |
+| --------------- | ---------- |
+| E:last-of-type  | 指定类型E的最后一个 |
+
+E:first-of-type: 
+- 首先，该选择符要匹配的是类型为E的子元素，这意味着E元素必须作为某个元素的子元素存在（E元素的父元素最高是html，也就是说E元素本身最高只能是body，这表示任何非html的元素都符合这个约束，因为html元素是根元素. 
+- 其次，该选择符要匹配的是父元素第一个类型为E的子元素，这意味着被命中的元素不一定是父元素的第一个子元素（因为排在父元素首位的不一定是E元素，E元素可能在子元素列表中的任何位置）。
+- 如果不给出E, 则匹配所有
+
+```html
+<head>
+    <style>
+        ul li:first-of-type {
+            background-color: pink;
+        }
+
+        ul li:last-of-type {
+            background-color: pink;
+        }
+
+        ul li:nth-last-child(2) {
+            background-color: pink;
+        }
+    </style>
+</head>
+
+
+<body>
+    <ul>
+        <li>我是第1个孩子</li>
+        <li>我是第2个孩子</li>
+        <li>我是第3个孩子</li>
+        <li>我是第4个孩子</li>
+        <li>我是第5个孩子</li>
+        <li>我是第6个孩子</li>
+        <li>我是第7个孩子</li>
+        <li>我是第8个孩子</li>
+    </ul>
+</body>
+```
+
+
+
+### 2.6.4 E:nth-of-type
+
+
+### 2.6.5 差异
+
+#### 2.6.5.1 关于 `:first-of-type` 与 `firs-child`
+https://www.cnblogs.com/2050/p/3569509.html
+https://blog.csdn.net/qq_29207823/article/details/82019910
+
+1
+:first-child选择器是css2中定义的选择器，从字面意思上来看也很好理解，就是第一个子元素。
+比如有段代码：
+[![QQ截图20140210135428](https://images0.cnblogs.com/blog/130623/201402/261609103381767.png "QQ截图20140210135428")](https://images0.cnblogs.com/blog/130623/201402/261609099832424.png)
+
+- p:first-child  匹配到的是p元素,因为p元素是div的第一个子元素；
+- h1:first-child  匹配不到任何元素，因为在这里h1是div的第二个子元素，而不是第一个；
+- span:first-child  匹配不到任何元素，因为在这里两个span元素都不是div的第一个子元素；
+
+2
+在css3中又定义了:first-of-type这个选择器
+- p:first-of-type  匹配到的是p元素,因为p是div的所有类型为p的子元素中的第一个；
+- h1:first-of-type  匹配到的是h1元素，因为h1是div的所有类型为h1的子元素中的第一个；
+- span:first-of-type  匹配到的是第三个子元素span。这里div有两个为span的子元素，匹配到的是它们中的第一个。
+
+3 
+所以，通过以上两个例子可以得出结论：
+- :first-child 匹配的是某父元素的第一个子元素，可以说是结构上的第一个子元素。
+- :first-of-type 匹配的是某父元素下相同类型子元素中的第一个，比如 p:first-of-type，就是指所有类型为p的子元素中的第一个。这里不再限制是第一个子元素了，只要是该类型元素的第一个就行了。
+
+同样类型的选择器 :last-child  和 :last-of-type、:nth-child(n)  和  :nth-of-type(n) 也可以这样去理解。
+
+#### 2.6.5.2 关于 `nth-of-type` 与 `nth-of-child`
 
 1. `div: nth-child` 会把所有的盒子都排列序号 执行的时候首先看 `:nth-child(1)` 之后回去看 前面 `div`
 2. `div: nth-of-type` 会把指定元素的盒子排列序号 执行的时候首先看 div指定的元素 之后回去看 `:nth-of-type(1)` 第几个孩子
@@ -428,13 +481,15 @@ nth-child(n)选择某个父级元素的一个或多个特定的子元素（重�
 </style>
 ```
 
-## 2.6 其他的伪类
 
-### 2.6.1 :not(p)
+
+## 2.7 其他的伪类
+
+### 2.7.1 :not(p)
 
 `:not()` 用来匹配不符合一组选择器的元素。由于它的作用是防止特定的元素被选中，它也被称为反选伪类（negation pseudo-class）
 
-### 2.6.2 :target (location pseudo-class)
+### 2.7.2 :target (location pseudo-class)
 当 目前的 url 是 我之前的 url 的时候, 这个结果生效  
 
 0 原本的样子
@@ -532,9 +587,9 @@ body{
 }
 ```
 
-## 2.7 伪类的种类
+## 2.8 伪类的种类
 
-### 2.7.1 Element display state pseudo-classes
+### 2.8.1 Element display state pseudo-classes
 
 These pseudo-classes enable the selection of elements based on their display states.
 
@@ -544,7 +599,7 @@ These pseudo-classes enable the selection of elements based on their display sta
 
 `:picture-in-picture`： Matches an element that is currently in picture-in-picture mode.
 
-### 2.7.2 Input pseudo-classes
+### 2.8.2 Input pseudo-classes
 
 These pseudo-classes relate to form elements, and enable selecting elements based on HTML attributes and the state that the field is in before and after interaction.
 
@@ -602,7 +657,7 @@ Matches when a form element is optional.
 
 Represents an element with incorrect input, but only when the user has interacted with it.
 
-### 2.7.3 Linguistic pseudo-classes
+### 2.8.3 Linguistic pseudo-classes
 
 These pseudo-classes reflect the document language and enable the selection of elements based on language or script direction.
 
@@ -614,7 +669,7 @@ The directionality pseudo-class selects an element based on its directionality a
 
 Select an element based on its content language.
 
-### 2.7.4 Location pseudo-classes
+### 2.8.4 Location pseudo-classes
 
 These pseudo-classes relate to links, and to targeted elements within the current document.
 
@@ -646,7 +701,7 @@ Matches elements which are the target of the document URL, but also elements whi
 
 Represents elements that are a reference point for selectors to match against.
 
-### 2.7.5 Resource state pseudo-classes
+### 2.8.5 Resource state pseudo-classes
 
 These pseudo-classes apply to media that is capable of being in a state where it would be described as playing, such as a video.
 
@@ -658,7 +713,7 @@ Represents a media element that is capable of playing when that element is playi
 
 Represents a media element that is capable of playing when that element is paused.
 
-### 2.7.6 Time-dimensional pseudo-classes
+### 2.8.6 Time-dimensional pseudo-classes
 
 These pseudo-classes apply when viewing something which has timing, such as a [WebVTT](https://developer.mozilla.org/en-US/docs/Web/API/WebVTT_API) caption track.
 
@@ -674,7 +729,7 @@ Represents an element that occurs entirely before the [`:current`](https://deve
 
 Represents an element that occurs entirely after the [`:current`](https://developer.mozilla.org/en-US/docs/Web/API/WebVTT_API) element.
 
-### 2.7.7 Tree-structural pseudo-classes
+### 2.8.7 Tree-structural pseudo-classes
 
 These pseudo-classes relate to the location of an element within the document tree.
 
@@ -726,7 +781,7 @@ Matches an element that is the last of its siblings, and also matches a certain 
 
 Matches an element that has no siblings of the chosen type selector.
 
-### 2.7.8 User action pseudo-classes
+### 2.8.8 User action pseudo-classes
 
 These pseudo-classes require some interaction by the user in order for them to apply, such as holding a mouse pointer over an element.
 
@@ -750,7 +805,7 @@ Matches when an element has focus and the user agent identifies that the element
 
 Matches an element to which [`:focus`](https://developer.mozilla.org/en-US/docs/Web/CSS/:focus) applies, plus any element that has a descendant to which [`:focus`](https://developer.mozilla.org/en-US/docs/Web/CSS/:focus) applies.
 
-### 2.7.9 Functional pseudo-classes
+### 2.8.9 Functional pseudo-classes
 
 These pseudo-classes accept a [forgiving selector list](https://developer.mozilla.org/en-US/docs/Web/CSS/Selector_list#forgiving_selector_list) as a parameter.
 

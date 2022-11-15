@@ -313,3 +313,42 @@ ul{
 
 none 代表 列表左边的的 点 或者 数字, 不再被显示了
 ![](image/Chapter2_css_列表属性_001_list-style.png)
+
+## 3.2 例子: 列表去掉左边的点 和 左边的空间
+
+```html
+        <nav>
+            <ul>
+                <li><a href="#aufbau">Aufbau</a></li>
+                <li><a href="#farben">Farben</a></li>
+                <li><a href="#variablen">Variablen</a></li>
+                <li><a href="#schrift-aufbau">Schriftaufbau</a></li>
+                <li><a href="#block-inline">Block vs Inline</a></li>
+                <li><a href="#bsp-block-inline">Beispiel für Block- und Inline Elemente</a></li>
+                <li><a href="#margPad">Margins und Paddings</a></li>
+                <li><a href="#box-sizing">box-sizing</a></li>
+            </ul>
+        </nav>
+```
+
+```css
+p{
+    max-width: 60ch;
+}
+
+nav ul{
+    list-style: none;
+    padding: 0;
+}
+
+nav li{
+    background-color: hsla(182,0%,80%,1);
+    margin: 1% 0;
+    text-align: center;
+}
+
+  
+nav a{
+    display: block;
+}
+```
