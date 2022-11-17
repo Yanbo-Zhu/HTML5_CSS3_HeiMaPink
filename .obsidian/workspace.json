@@ -30,9 +30,21 @@
                 "source": true
               }
             }
+          },
+          {
+            "id": "bf2fced4e8ae8702",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "CSS/Chapter8_移动端web开发/Chapter8_移动端web开发_06_Grid布局.md",
+                "mode": "source",
+                "source": true
+              }
+            }
           }
         ],
-        "currentTab": 1
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -61,7 +73,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "ist-style",
+                "query": "grid-area",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -70,7 +82,8 @@
               }
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "horizontal",
@@ -90,7 +103,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "别人的资料.md",
+                "file": "CSS/Chapter8_移动端web开发/Chapter8_移动端web开发_06_Grid布局.md",
                 "collapseAll": true,
                 "extraContext": true,
                 "sortOrder": "alphabetical",
@@ -107,7 +120,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "别人的资料.md",
+                "file": "CSS/Chapter8_移动端web开发/Chapter8_移动端web开发_06_Grid布局.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -130,7 +143,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "别人的资料.md"
+                "file": "CSS/Chapter8_移动端web开发/Chapter8_移动端web开发_06_Grid布局.md"
               }
             }
           }
@@ -141,10 +154,10 @@
     "direction": "horizontal",
     "width": 266.5
   },
-  "active": "89273ef25b95d4fc",
+  "active": "5b55ae76f41d082c",
   "lastOpenFiles": [
-    "Note.md",
     "别人的资料.md",
+    "Note.md",
     "CSS/Chapter4_盒子模型/Chapter4_盒子模型_04_Padding_margin_boxSizing.md",
     "CSS/Chapter8_移动端web开发/Chapter8_移动端web开发_02_流式布局_Flexbox.md",
     "CSS/Chapter4_盒子模型/Chapter4_盒子模型_03_width_height_border.md",
