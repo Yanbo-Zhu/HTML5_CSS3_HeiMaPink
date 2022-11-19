@@ -8,43 +8,18 @@
         "type": "tabs",
         "children": [
           {
-            "id": "c3de60d4a3169fa8",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "CSS/Chapter8_移动端web开发/Chapter8_移动端web开发_02_流式布局_Flexbox.md",
-                "mode": "preview",
-                "source": true
-              }
-            }
-          },
-          {
             "id": "89273ef25b95d4fc",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "别人的资料.md",
-                "mode": "preview",
-                "source": true
-              }
-            }
-          },
-          {
-            "id": "bf2fced4e8ae8702",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "CSS/Chapter8_移动端web开发/Chapter8_移动端web开发_06_Grid布局.md",
+                "file": "CSS/Chapter2_选择器/Chapter2_04_伪类选择器_Pseudo-class.md",
                 "mode": "source",
                 "source": true
               }
             }
           }
-        ],
-        "currentTab": 2
+        ]
       }
     ],
     "direction": "vertical"
@@ -82,8 +57,7 @@
               }
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "horizontal",
@@ -103,7 +77,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "CSS/Chapter8_移动端web开发/Chapter8_移动端web开发_06_Grid布局.md",
+                "file": "CSS/Chapter2_选择器/Chapter2_04_伪类选择器_Pseudo-class.md",
                 "collapseAll": true,
                 "extraContext": true,
                 "sortOrder": "alphabetical",
@@ -120,7 +94,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "CSS/Chapter8_移动端web开发/Chapter8_移动端web开发_06_Grid布局.md",
+                "file": "CSS/Chapter2_选择器/Chapter2_04_伪类选择器_Pseudo-class.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -143,7 +117,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "CSS/Chapter8_移动端web开发/Chapter8_移动端web开发_06_Grid布局.md"
+                "file": "CSS/Chapter2_选择器/Chapter2_04_伪类选择器_Pseudo-class.md"
               }
             }
           }
@@ -154,17 +128,17 @@
     "direction": "horizontal",
     "width": 266.5
   },
-  "active": "5b55ae76f41d082c",
+  "active": "89273ef25b95d4fc",
   "lastOpenFiles": [
+    "CSS/Chapter8_移动端web开发/Chapter8_移动端web开发_03_media.md",
+    "CSS/Chapter2_选择器/Chapter2_01_基础选择器_basisSelector.md",
+    "CSS/Chapter2_选择器/Chapter2_04_伪类选择器_Pseudo-class.md",
+    "CSS/Chapter2_选择器/Chapter2_05_伪元素选择器_pseudo-elements.md",
     "别人的资料.md",
+    "CSS/Chapter8_移动端web开发/Chapter8_移动端web开发_04_背景颜色_rem布局.md",
+    "CSS/Chapter8_移动端web开发/Chapter8_移动端web开发_02_流式布局_Flexbox.md",
     "Note.md",
     "CSS/Chapter4_盒子模型/Chapter4_盒子模型_04_Padding_margin_boxSizing.md",
-    "CSS/Chapter8_移动端web开发/Chapter8_移动端web开发_02_流式布局_Flexbox.md",
-    "CSS/Chapter4_盒子模型/Chapter4_盒子模型_03_width_height_border.md",
-    "CSS/Chapter4_盒子模型/Chapter4_盒子模型_02_CSS5中新增的特性.md",
-    "CSS/Chapter4_盒子模型/Chapter4_css_盒子模型_总览.md",
-    "CSS/Chapter2_选择器/Chapter2_04_伪类选择器和伪元素选择器_Pseudo-classes and pseudo-elements.md",
-    "CSS/Chapter4_元素显示模式blockInline_背景_文字文本属性/Chapter2_02_字体文本属性.md",
-    "CSS/Chapter5_页面布局_标准流_浮动_定位/Chapter5_css_页面布局_03_定位.md"
+    "CSS/Chapter4_盒子模型/Chapter4_盒子模型_03_width_height_border.md"
   ]
 }

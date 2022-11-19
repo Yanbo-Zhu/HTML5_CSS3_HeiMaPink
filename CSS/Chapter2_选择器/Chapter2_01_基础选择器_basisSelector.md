@@ -141,6 +141,48 @@ div{}   因为div 没有语义，我们尽量少用
 
 ![](.\image\Chapter_css_简单选择器_003_标签选择器_一个标签多类名.png)
 
+
+例子2
+https://developer.mozilla.org/zh-CN/docs/Web/CSS/@media/prefers-color-scheme
+[HTML](https://developer.mozilla.org/zh-CN/docs/Web/CSS/@media/prefers-color-scheme#html)
+
+```css
+<div class="day">Day (initial)</div>
+<div class="day light-scheme">Day (changes in light scheme)</div>
+<div class="day dark-scheme">Day (changes in dark scheme)</div> <br>
+
+<div class="night">Night (initial)</div>
+<div class="night light-scheme">Night (changes in light scheme)</div>
+<div class="night dark-scheme">Night (changes in dark scheme)</div>
+```
+
+[CSS](https://developer.mozilla.org/zh-CN/docs/Web/CSS/@media/prefers-color-scheme#css)
+
+```html
+.day   { background: #eee; color: black; }
+.night { background: #333; color: white; }
+
+@media (prefers-color-scheme: dark) {
+  .day.dark-scheme   { background:  #333; color: white; }
+  .night.dark-scheme { background: black; color:  #ddd; }
+}
+
+@media (prefers-color-scheme: light) {
+  .day.light-scheme   { background: white; color:  #555; }
+  .night.light-scheme { background:  #eee; color: black; }
+}
+
+.day, .night {
+  display: inline-block;
+  padding: 1em;
+  width: 7em;
+  height: 2em;
+  vertical-align: middle;
+}
+```
+
+[结果](https://developer.mozilla.org/zh-CN/docs/Web/CSS/@media/prefers-color-scheme#%E7%BB%93%E6%9E%9C)
+
 ## 6.5 多类名开发中使用场景
 
 1. 可以把一些标签元素相同的样式(公共的部分)放到一个类里面

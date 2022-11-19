@@ -1,15 +1,13 @@
-# 1 Pseudo-classes and pseudo-elements
+伪类选择器和伪元素选择器为 css3的新特性
 
-1. 结构伪类选择器和伪元素选择器为 css3的新特性
+# 1 伪类选择器 Pseudo-class
 
 | 选择器          | 作用        | 特征    | 使用情况 | 隔开符号及用法                             |
 | ------------ | --------- | ----- | ---- | ----------------------------------- |
 | 链接 伪类选择器     | 选择不同状态的链接 | 跟链接相关 | 较多   | 重点记住`a{}`和`a:hover{}`， 因为这是实际开发中的写法 |
 | :focus 伪类选择器 | 选择获得光标的表单 | 跟表单相关 | 较少   | 记住`input:focus`用法                   |
 
-# 2 伪类选择器 Pseudo-classes
-
-## 2.1 简介
+# 2 简介
 
 - **伪类选择器**用于向某些选择器添加特殊的效果
   - 比如给链接添加特殊效果，
@@ -33,7 +31,7 @@ A pseudo-class consists of a colon (:) followed by the pseudo-class name (e.g., 
 
 Pseudo-classes let you apply a style to an element not only in relation to the content of the document tree, but also in relation to external factors like the history of the navigator (:visited, for example), the status of its content (like :checked on certain form elements), or the position of the mouse (like :hover, which lets you know if the mouse is over an element or not).
 
-## 2.2 Syntax
+# 3 Syntax
 
 Like regular classes, you can chain together as many pseudo-classes as you want in a selector.
 
@@ -43,7 +41,7 @@ selector:pseudo-class {
 }
 ```
 
-## 2.3 链接伪类
+# 4 链接伪类
 
 用于向某些选择器添加特殊的效果。写的时候，他们的顺序尽量不要颠倒,按照lvha的顺序。否则可能引起错误。
 
@@ -111,7 +109,7 @@ a :hover {
 
 ![](.\image\Chapter_css_复杂选择器_链接伪类选择器_001.png)
 
-## 2.4 focus 伪类
+# 5 focus 伪类
 
 `:focus` 伪类选择器用于获取焦点的表单元素。 
 
@@ -135,11 +133,11 @@ input:focus {
 
 ![](.\image\Chapter_css_复杂选择器_focus伪类选择器_002.png)
 
-## 2.5 结构伪类选择器
+# 6 结构伪类选择器
 
 见 [Pseudo-classes - CSS&colon; Cascading Style Sheets | MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-classes?retiredLocale=de) 
 
-### 2.5.1 总结
+## 6.1 总结
 
 结构伪类选择器主要根据文档结构来选择器元素，常用于根据父级选择器里面的子元素。
 
@@ -176,7 +174,7 @@ ul li:nth-child(5) {
 
 6. 类选择器，属性选择器，伪类选择器，权重为10
 
-## 2.6 一个重点的错误
+## 6.2 一个重点的错误
 https://stackoverflow.com/questions/2717480/css-selector-for-first-element-with-class
 
 ```css
@@ -192,7 +190,7 @@ https://stackoverflow.com/questions/2717480/css-selector-for-first-element-with-
 } 
 ```
 
-### 2.6.1 E:first-child 和 E:last-child
+## 6.3 E:first-child 和 E:last-child
 
 `:first-child` 是 CSS 伪类，表示匹配的是某父元素的第一个子元素，可以说是结构上的第一个子元素
 `:last-child` CSS 伪类 代表父元素的最后一个子元素。
@@ -228,7 +226,7 @@ https://stackoverflow.com/questions/2717480/css-selector-for-first-element-with-
 ```
 
 
-### 2.6.2 E:nth-child(n)
+## 6.4 E:nth-child(n)
 
 nth-child(n)选择某个父级元素的一个或多个特定的子元素（重点）
 
@@ -247,7 +245,7 @@ nth-child(n)选择某个父级元素的一个或多个特定的子元素（重�
 | n+   | 5 6 7 8 ... |
 | -n+5 | 前五个         |
 
-#### 2.6.2.1 例子
+### 6.4.1 例子
 
 ```html
 <head>
@@ -374,7 +372,7 @@ nth-child(n)选择某个父级元素的一个或多个特定的子元素（重�
 ```
 
 
-### 2.6.3 E:first-of-type和E:last-of-type
+## 6.5 E:first-of-type和E:last-of-type
 
 | E:first-of-type | 指定类型E的第一个  |
 | --------------- | ---------- |
@@ -419,12 +417,12 @@ E:first-of-type:
 
 
 
-### 2.6.4 E:nth-of-type
+## 6.6 E:nth-of-type
 
 
-### 2.6.5 差异
+## 6.7 差异
 
-#### 2.6.5.1 关于 `:first-of-type` 与 `firs-child`
+### 6.7.1 关于 `:first-of-type` 与 `firs-child`
 https://www.cnblogs.com/2050/p/3569509.html
 https://blog.csdn.net/qq_29207823/article/details/82019910
 
@@ -450,7 +448,7 @@ https://blog.csdn.net/qq_29207823/article/details/82019910
 
 同样类型的选择器 :last-child  和 :last-of-type、:nth-child(n)  和  :nth-of-type(n) 也可以这样去理解。
 
-#### 2.6.5.2 关于 `nth-of-type` 与 `nth-of-child`
+### 6.7.2 关于 `nth-of-type` 与 `nth-of-child`
 
 1. `div: nth-child` 会把所有的盒子都排列序号 执行的时候首先看 `:nth-child(1)` 之后回去看 前面 `div`
 2. `div: nth-of-type` 会把指定元素的盒子排列序号 执行的时候首先看 div指定的元素 之后回去看 `:nth-of-type(1)` 第几个孩子
@@ -483,40 +481,18 @@ https://blog.csdn.net/qq_29207823/article/details/82019910
 
 
 
-## 2.7 其他的伪类
+# 7 其他的伪类
 
-### 2.7.1 :not(p)
+## 7.1 :not(p)
 
 `:not()` 用来匹配不符合一组选择器的元素。由于它的作用是防止特定的元素被选中，它也被称为反选伪类（negation pseudo-class）
 
-### 2.7.2 :target (location pseudo-class)
-当 目前的 url 是 我之前的 url 的时候, 这个结果生效  
+## 7.2 :target (location pseudo-class)
 
-0 原本的样子
-![](image/Chapter2_css_伪类选择器_LocaionPerusdiClass_tagert_001.png)
+:target dient zur Identifikation eines Ankers, also für die Verlinkung innerhalb eines HTML-Dokumentes
+在 htmL 中Ankers是用  a selector 来定义的, 比如 `<a href="#main">Untergeordnete Elemente</a>` . 在文本 Untergeordnete Elemente 上面 按下鼠标左键, 会跳转到 html 中 id=main 处
 
-
-1 
--   :target dient zur Identifikation eines Ankers, also für die Verlinkung innerhalb eines HTML-Dokumentes
--   Beim Anklicken des [Links](http://127.0.0.1:3000/%E8%AF%BE%E7%A8%8B%E6%9D%90%E6%96%99/2022.11.12_CSS_target/target.html#wrapper) verändert sich die url.
--   Der Klasse kann dann auch ein style zugefügt werden
-
-![](image/Chapter2_css_伪类选择器_LocaionPerusdiClass_tagert_002.png)
-
-2
--   [Untergeordnete Elemente](http://127.0.0.1:3000/%E8%AF%BE%E7%A8%8B%E6%9D%90%E6%96%99/2022.11.12_CSS_target/target.html#main) können dann mit den Nachfahren-Seelektoren angesprochen werden.
-
-![](image/Chapter2_css_伪类选择器_LocaionPerusdiClass_tagert_003.png)
-
-3  
-`<section id=„oben“> … </section>   ... <a href=„#oben“>nach oben </a>   #oben:target{…}`
-Diese Regel wird dann auf das Element mit der id "oben" angewandt.
-
-
-4 
-Wenn eine id nicht existiert, dann wird der [Ursprungszustand](http://127.0.0.1:3000/%E8%AF%BE%E7%A8%8B%E6%9D%90%E6%96%99/2022.11.12_CSS_target/target.html#) wiederhergestellt.
-
-![](image/Chapter2_css_伪类选择器_LocaionPerusdiClass_tagert_004.png)
+### 7.2.1 例子
 
 ```html
 <!DOCTYPE html>
@@ -587,9 +563,61 @@ body{
 }
 ```
 
-## 2.8 伪类的种类
 
-### 2.8.1 Element display state pseudo-classes
+解释 
+
+0 原本的样子
+![](image/Chapter2_css_伪类选择器_LocaionPerusdiClass_tagert_001.png)
+
+
+1 
+-   Beim Anklicken des [Links](http://127.0.0.1:3000/%E8%AF%BE%E7%A8%8B%E6%9D%90%E6%96%99/2022.11.12_CSS_target/target.html#wrapper) verändert sich die url.
+![](image/Chapter2_css_伪类选择器_LocaionPerusdiClass_tagert_002.png)
+
+解释: 
+- 因为 `<a href="#wrapper">Links</a> ` , 所以点击 links 后, 跳到 html 文件中 id=wrapper 处
+- 因为为点击跳转效果,迎合了 :target ,  所以 `wrapper:target{ } `  块中的定义生效,  而且只对 id = wrapper 的块, 以及他的后代块生效 
+- 同理, 因为为点击跳转, 迎合了 :target, 所以 `#wrapper:target a[href="#wrapper"] {} `  块中的定义生效,  而且只对 父代中 有 `#wrapper:target ` 的  `a[href="#wrapper"]` 块, 以及 这个 `a[href="#wrapper"]` 的后代块生效 .  
+    - `a[href="#wrapper"] `  为   `#wrapper:target ` 的后代元素.  
+
+2
+-   [Untergeordnete Elemente](http://127.0.0.1:3000/%E8%AF%BE%E7%A8%8B%E6%9D%90%E6%96%99/2022.11.12_CSS_target/target.html#main) können dann mit den Nachfahren-Seelektoren angesprochen werden.
+![](image/Chapter2_css_伪类选择器_LocaionPerusdiClass_tagert_003.png)
+
+- 因为 `<a href="#main">Untergeordnete Elemente</a> ` , 所以点击 Untergeordnete Elemente 后, 跳到 html 文件中 id=main 处
+- 因为为点击跳转效果,迎合了 :target , 所以 `#main:target{ } `  块中的定义生效,  而且只对 id = main 的块, 以及他的后代块生效 
+- 同理, 因为为点击跳转, 迎合了 :target, 所以 `#main:target code{} `  块中的定义生效,  而且只对 父代中有 `#main:target` 的 `code ` 块,  以及这个 `code `的后代块生效 . 
+
+
+3 
+Wenn eine id nicht existiert, dann wird der [Ursprungszustand](http://127.0.0.1:3000/%E8%AF%BE%E7%A8%8B%E6%9D%90%E6%96%99/2022.11.12_CSS_target/target.html#) wiederhergestellt.
+
+![](image/Chapter2_css_伪类选择器_LocaionPerusdiClass_tagert_004.png)
+
+-  `<a href="#">Ursprungszustand</a>`  , 可以看见 Ursprungszustand处,  # 后边没有后面没有给出任何信息, 
+    - 所以 id nicht existiert
+- 在这种情况下,  界面的显示让回到原始状态, 就是下面的内容
+```css
+*,
+*::after,
+*::before{
+    box-sizing: border-box;
+}
+
+html,
+body{
+    font-family: sans-serif;
+    font-size: 1rem;
+    background-color: hsla(0,0%,80%,1);
+    width: 80%;
+    margin: auto;
+}
+
+```
+
+# 8 伪类的种类
+
+## 8.1 Element display state pseudo-classes
 
 These pseudo-classes enable the selection of elements based on their display states.
 
@@ -599,7 +627,7 @@ These pseudo-classes enable the selection of elements based on their display sta
 
 `:picture-in-picture`： Matches an element that is currently in picture-in-picture mode.
 
-### 2.8.2 Input pseudo-classes
+## 8.2 Input pseudo-classes
 
 These pseudo-classes relate to form elements, and enable selecting elements based on HTML attributes and the state that the field is in before and after interaction.
 
@@ -657,7 +685,7 @@ Matches when a form element is optional.
 
 Represents an element with incorrect input, but only when the user has interacted with it.
 
-### 2.8.3 Linguistic pseudo-classes
+## 8.3 Linguistic pseudo-classes
 
 These pseudo-classes reflect the document language and enable the selection of elements based on language or script direction.
 
@@ -669,7 +697,7 @@ The directionality pseudo-class selects an element based on its directionality a
 
 Select an element based on its content language.
 
-### 2.8.4 Location pseudo-classes
+## 8.4 Location pseudo-classes
 
 These pseudo-classes relate to links, and to targeted elements within the current document.
 
@@ -701,7 +729,7 @@ Matches elements which are the target of the document URL, but also elements whi
 
 Represents elements that are a reference point for selectors to match against.
 
-### 2.8.5 Resource state pseudo-classes
+## 8.5 Resource state pseudo-classes
 
 These pseudo-classes apply to media that is capable of being in a state where it would be described as playing, such as a video.
 
@@ -713,7 +741,7 @@ Represents a media element that is capable of playing when that element is playi
 
 Represents a media element that is capable of playing when that element is paused.
 
-### 2.8.6 Time-dimensional pseudo-classes
+## 8.6 Time-dimensional pseudo-classes
 
 These pseudo-classes apply when viewing something which has timing, such as a [WebVTT](https://developer.mozilla.org/en-US/docs/Web/API/WebVTT_API) caption track.
 
@@ -729,7 +757,7 @@ Represents an element that occurs entirely before the [`:current`](https://deve
 
 Represents an element that occurs entirely after the [`:current`](https://developer.mozilla.org/en-US/docs/Web/API/WebVTT_API) element.
 
-### 2.8.7 Tree-structural pseudo-classes
+## 8.7 Tree-structural pseudo-classes
 
 These pseudo-classes relate to the location of an element within the document tree.
 
@@ -781,7 +809,7 @@ Matches an element that is the last of its siblings, and also matches a certain 
 
 Matches an element that has no siblings of the chosen type selector.
 
-### 2.8.8 User action pseudo-classes
+## 8.8 User action pseudo-classes
 
 These pseudo-classes require some interaction by the user in order for them to apply, such as holding a mouse pointer over an element.
 
@@ -805,7 +833,7 @@ Matches when an element has focus and the user agent identifies that the element
 
 Matches an element to which [`:focus`](https://developer.mozilla.org/en-US/docs/Web/CSS/:focus) applies, plus any element that has a descendant to which [`:focus`](https://developer.mozilla.org/en-US/docs/Web/CSS/:focus) applies.
 
-### 2.8.9 Functional pseudo-classes
+## 8.9 Functional pseudo-classes
 
 These pseudo-classes accept a [forgiving selector list](https://developer.mozilla.org/en-US/docs/Web/CSS/Selector_list#forgiving_selector_list) as a parameter.
 
@@ -825,270 +853,3 @@ The specificity-adjustment pseudo-class matches any element that matches any of 
 
 The relational pseudo-class represents an element if any of the relative selectors match when anchored against the attached element.
 
-# 3 伪元素 Pseudo-elements ( selector::pseudo-element )
-
-[Pseudo-elements - CSS&colon; Cascading Style Sheets | MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-elements?retiredLocale=de)
-
-A CSS pseudo-element is a keyword added to a selector that lets you style a specific part of the selected element(s). 
-
-伪元素选择器可以帮助我们利用CSS创建新标签元素，而不需要HTML标签，从而简化HTML结构。
-
-## 3.1 注意事项
-
-You can use<mark> only one</mark> pseudo-element in a selector. 
-
-It must appear <mark>after the simple selectors</mark> in the statement.
-
-## 3.2 syntax
-
-```css
-selector::pseudo-element {
-  property: value;
-}
-```
-
-For example, ::first-line can be used to change the font of the first line of a paragraph.
-
-```css
-/* The first line of every <p> element. */
-p::first-line {
-  color: blue;
-  text-transform: uppercase;
-}
-```
-
-## 3.3 有哪些伪元素
-
-### 3.3.1 总览
-
-A
-
-- [`::after`](https://developer.mozilla.org/en-US/docs/Web/CSS/::after)
-
-B
-
-- [`::backdrop`](https://developer.mozilla.org/en-US/docs/Web/CSS/::backdrop)
-- [`::before`](https://developer.mozilla.org/en-US/docs/Web/CSS/::before)
-
-C
-
-- [`::cue`](https://developer.mozilla.org/en-US/docs/Web/CSS/::cue)
-- [`::cue-region`](https://developer.mozilla.org/en-US/docs/Web/CSS/::cue-region)
-
-F
-
-- [`::first-letter`](https://developer.mozilla.org/en-US/docs/Web/CSS/::first-letter)
-- [`::first-line`](https://developer.mozilla.org/en-US/docs/Web/CSS/::first-line)
-- [`::file-selector-button`](https://developer.mozilla.org/en-US/docs/Web/CSS/::file-selector-button)
-
-G
-
-- [`::grammar-error`](https://developer.mozilla.org/en-US/docs/Web/CSS/::grammar-error) Experimental
-
-M
-
-- [`::marker`](https://developer.mozilla.org/en-US/docs/Web/CSS/::marker)
-
-P
-
-- [`::part()`](https://developer.mozilla.org/en-US/docs/Web/CSS/::part)
-- [`::placeholder`](https://developer.mozilla.org/en-US/docs/Web/CSS/::placeholder)
-
-S
-
-- [`::selection`](https://developer.mozilla.org/en-US/docs/Web/CSS/::selection)
-- [`::slotted()`](https://developer.mozilla.org/en-US/docs/Web/CSS/::slotted)
-- [`::spelling-error`](https://developer.mozilla.org/en-US/docs/Web/CSS/::spelling-error) Experimental
-
-T
-
-- [`::target-text`](https://developer.mozilla.org/en-US/docs/Web/CSS/::target-text) Experimental
-
-### 3.3.2 `::before` 和 `::after`
-
-| 选择符        | 简介           |
-| ---------- | ------------ |
-| `::before` | 在元素内部的前面插入内容 |
-| `::after`  | 在元素内部的后面插入内容 |
-
-注意：
-
-- before 和 after 创建一个元素，但是属于行内元素
-  - before和after 都是一个盒子，都作为父元素的孩子
-- 新创建的这个元素在文档树中是找不到的，所以我们称为伪元素
-- 语法：`element：before{}`
-- before 和 after 必须有 content 属性
-- 伪元素选择器和标签选择器一样，权重为 1
-- before是放在内容的前面，after是放在了内容的后面
-- before 在父元素内容的前面创建元素， after 在父元素内容的后面插入元素
-  
-```html
-    <head>
-        <style>
-            div {
-                width: 200px;
-                height: 200px;
-                background-color: pink;
-            }
-            /* div::before 权重是2 */
-            div::before {
-                /* 这个content是必须要写的 */
-                content: '我';
-            }
-    
-            div::after {
-                content: '小猪佩奇';
-            }
-        </style>
-    </head>
-    
-    <body>
-        <div>
-            是
-        </div>
-```
-
-#### 3.3.2.1 ::after 
-
-CSS 伪元素 `::after` 用来创建一个伪元素，作为已选中元素的最后一个子元素。
-通常会配合 `content` 属性来为该元素添加装饰内容。
-这个虚拟元素默认是行内元素。
-
-```
-.exciting-text::after {
-  content: " 让人兴兴兴奋!";
-  color: green;
-}
-```
-
-我们几乎可以用想要的任何方法给 `content` 属性里的文字和图片的加上样式.
-
-#### 3.3.2.2 ::before 
-
-CSS 中，`::before` 创建一个伪元素，其将成为匹配选中的元素的第一个子元素。
-常通过 `content` 属性来为一个元素添加修饰性的内容。
-此元素默认为行内元素。 
-使用 `::before` 伪元素的一个简单示例就是用于加入引号。
-
-HTML
-
-```html
-<q>一些引用</q>, 他说, <q>比没有好。</q>.
-```
-
-CSS
-
-```css
-q::before {
-  content: "«";
-  color: blue;
-}
-q::after {
-  content: "»";
-  color: red;
-}
-```
-
-### 3.3.3 例子
-#### 3.3.3.1 例子杂
-```css
-<style>  
-    div {  
-      width: 100px;  
-      height: 100px;  
-      border: 1px solid lightcoral;  
-    }  
-  
-    div::after,  
-    div::before {  
-      width: 20px;  
-      height: 50px;  
-      text-align: center;  
-      display: inline-block;  
-    }  
-    div::after {  
-      content: '德';  
-      background-color: lightskyblue;  
-    }  
-  
-    div::before {  
-      content: '道';  
-      background-color: mediumaquamarine;  
-    }  
-  </style>
-```
-
-#### 3.3.3.2 伪元素字体图标
-
-```css
-p {  
-   position: relative;  
-   width: 220px;  
-   height: 22px;  
-   border: 1px solid lightseagreen;  
-   margin: 60px;  
-  
-}  
-p::after {  
-  content: '\ea50';  
-  font-family: 'icomoon';  
-  position: absolute;  
-  top: -1px;  
-  right: 10px;  
-}
-```
-
-#### 3.3.3.3 案例一：伪元素字体图标
-
-```css
- div::after {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    font-family: 'icomoon';
-    content: '\e91b';
-    color: red;
-    font-size: 18px;
-}
-```
-
-#### 3.3.3.4 案例二：伪元素遮罩层
-
-```css
-.tudou::before {
-    content: '';
-    display: none;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, .3) url(images/arr.png) no-repeat center;
-}
-```
-
-#### 3.3.3.5 案例三：伪元素清除浮动
-
-单伪元素清除浮动
-
-```css
-.clearfix::after {
-    content: '';
-    display: block; 
-    height: 0;
-    clear: both;
-    visibility: hidden;
-}
-```
-
-双伪元素清除浮动
-
-```css
-.clearfix::before,.clearfix::after {
-    content: '';
-    display: block;
-}
-.clearfix::after {
-    clear: both;
-}
-```
