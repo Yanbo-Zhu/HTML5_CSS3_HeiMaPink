@@ -419,10 +419,7 @@ E:first-of-type:
 
 ## 6.6 E:nth-of-type
 
-
-## 6.7 差异
-
-### 6.7.1 关于 `:first-of-type` 与 `firs-child`
+## 6.7  `:first-of-type` 与 `firs-child` 的差异
 https://www.cnblogs.com/2050/p/3569509.html
 https://blog.csdn.net/qq_29207823/article/details/82019910
 
@@ -448,17 +445,204 @@ https://blog.csdn.net/qq_29207823/article/details/82019910
 
 同样类型的选择器 :last-child  和 :last-of-type、:nth-child(n)  和  :nth-of-type(n) 也可以这样去理解。
 
-### 6.7.2 关于 `nth-of-type` 与 `nth-of-child`
 
-1. `div: nth-child` 会把所有的盒子都排列序号 执行的时候首先看 `:nth-child(1)` 之后回去看 前面 `div`
+### 6.7.1 `first-type` 与 `first-of-child` 和 其他条件连用 组成 compound selector
+https://stackoverflow.com/questions/2717480/css-selector-for-first-element-with-class
+
+- `first-of-type` 会考虑到 other conditions or attributes in compound selector
+- `first-child` 不会 考虑到 other conditions or attributes in compound selector;
+    - `first-child` won't work, though, if you've nested your tags under different parent tags, or if your tags of class `red` aren't the first tags under the parent.
+
+#### 6.7.1.1 为什么 `first-child` 不会 考虑到 other conditions or attributes in compound selector
+
+
+解释: 
+- as with :first-child, it does not look at any other conditions or attributes. In HTML, the element type is represented by the tag name. In the question, that type is p.   
+    - - 就是说 ` :first-child` 只看 p, 根本就不看 class 到底指定的是哪个
+- `first-child` won't work, though, if you've nested your tags under different parent tags, or if your tags of class `red` aren't the first tags under the parent.
+- 根本就不存在  `:first-of-class` :   there is no similar `:first-of-class` pseudo-class for matching the first child element of a given class.
+
+例子1 
+出现的问题 I have a bunch of elements with a class name red, but I can't seem to select the first element with the class="red" using the following CSS rule: 
+```css
+.home .red:first-child {
+    border: 1px solid red;
+}
+```
+
+```html
+<div class="home">
+    <span>blah</span>
+    <p class="red">first</p>
+    <p class="red">second</p>
+    <p class="red">third</p>
+    <p class="red">fourth</p>
+</div>
+```
+
+例子2: parent tags 多次出现 
+Notice also that this doesn't only apply to the first such tag in the whole document, but every time a new parent is wrapped around it, like:
+
+```xml
+<div>
+    <p class="red">first</p>
+    <div class="red">second</div>
+</div>
+<div>
+    <p class="red">third</p>
+    <div class="red">fourth</div>
+</div>
+```
+
+`first` and `third` will be red then.
+
+##### 6.7.1.1.1 workaround
+针对上面例子 有一个 workaround
+
+```css
+/* 
+ * Select all .red children of .home, including the first one,
+ * and give them a border.
+ */
+.home > .red {
+    border: 1px solid red;
+}
+```
+
+... then "undo" the styles for elements with the class that come after the first one, using the general sibling combinator ~ in an overriding rule:
+```css
+/* 
+ * Select all but the first .red child of .home,
+ * and remove the border from the previous rule.
+ */
+.home > .red ~ .red {
+    border: none;
+}
+```
+
+Now only the first element with class="red" will have a border.
+
+Here's an illustration of how the rules are applied:
+```css
+.home > .red {
+    border: 1px solid red;
+}
+
+.home > .red ~ .red {
+    border: none;
+}
+```
+
+```html
+<div class="home">
+  <span>blah</span>         <!-- [1] -->
+  <p class="red">first</p>  <!-- [2] -->
+  <p class="red">second</p> <!-- [3] -->
+  <p class="red">third</p>  <!-- [3] -->
+  <p class="red">fourth</p> <!-- [3] -->
+</div>
+```
+
+
+1. No rules are applied; no border is rendered.
+    1. This element does not have the class red, so it's skipped.
+2. Only the first rule is applied; a red border is rendered.
+    1. This element has the class red, but it's not preceded by any elements with the class red in its parent. Thus the second rule is not applied, only the first, and the element keeps its border.
+3. Both rules are applied; no border is rendered.
+    1. This element has the class red. It is also preceded by at least one other element with the class red. Thus both rules are applied, and the second border declaration overrides the first, thereby "undoing" it, so to speak.
+
+#### 6.7.1.2 为什么 `first-of-type` 会考虑到 other conditions or attributes in  compound selector
+
+Although the `.red:nth-of-type(1)` solution in the original accepted answer by [Philip Daubmeier](https://stackoverflow.com/questions/2717480/css-selector-for-first-element-with-class/2717515#2717515) works (which was originally written by [Martyn](https://stackoverflow.com/users/264276/martyn) but deleted since), it does not behave the way you'd expect it to.
+
+For example, if you only wanted to select the `p` here:
+```css
+.red:nth-of-type(1) {
+    border: 1px solid red;
+}
+
+或者 
+.red:first-of-type {
+    border: 1px solid red;
+}
+
+上面两者等效 
+```
+
+```xml
+<p class="red"></p>
+<div class="red"></div>
+```
+
+then you can't use `.red:first-of-type` (equivalent to `.red:nth-of-type(1)`), because each element is the first (and only) one of its type (`p` and `div` respectively), so both will be matched by the selector.
+When the first element of a certain class is also the first of its type, the pseudo-class will work, but **this happens only by coincidence**. This behavior is demonstrated in Philip's answer. 
+The moment you stick in an element of the same type before this element, the selector will fail. 
+
+Taking the markup from the question:
+
+```xml
+<div class="home">
+  <span>blah</span>
+  <p class="red">first</p>
+  <p class="red">second</p>
+  <p class="red">third</p>
+  <p class="red">fourth</p>
+</div>
+```
+
+Applying a rule with `.red:first-of-type` will work, but once you add another `p` without the class:
+
+```xml
+<div class="home">
+  <span>blah</span>
+  <p>dummy</p>
+  <p class="red">first</p>
+  <p class="red">second</p>
+  <p class="red">third</p>
+  <p class="red">fourth</p>
+</div>
+```
+
+the selector will immediately fail, because 
+1.  the first `.red` element is now the second `p` element. 
+2. <mark> `:first-of-type` 这个 pesudo-class 还是依附于 某个 tag type of html 的  的, 并不是依附于 class  selector </mark>
+3. 如果 first  `p` element 中有  `.red` element. ,  则 `.red:first-of-type {} ` 中的定义就会对他生效 
+4. 如果 first  `p` element 中没有  `.red` element. , 而是 scond `p` element 中有  `.red` element. .  则 `.red:first-of-type {} ` 中的定义就会对 second p element 不生效 
+
+## 6.8  `nth-of-type` 与 `nth-of-child` 的差异
+https://stackoverflow.com/questions/5545649/can-i-combine-nth-child-or-nth-of-type-with-an-arbitrary-selector/5546296#5546296
+
+1. `div: nth-child` 会把所有的盒子都排列序号 执行的时候首先看 `:nth-child(1)`, 之后回去看 前面的 `div`
+    1. the :nth-child() pseudo-class counts elements among all of their siblings under the same parent. It does not count only the siblings that match the rest of the selector.
 2. `div: nth-of-type` 会把指定元素的盒子排列序号 执行的时候首先看 div指定的元素 之后回去看 `:nth-of-type(1)` 第几个孩子
+    1.  :nth-of-type() pseudo-class counts siblings sharing the same element type, which refers to the tag name in HTML (就是 element type), and not the rest of the selector.
 
 区别：
 
 1. nth-child对父元素里面所有孩子排序选择（序号是固定的）先找到第n个孩子，然后看看是否和E匹配
 2. nth-of-type对父元素里面指定子元素进行排序选择。先去匹配E ，然后再根据E找第n个孩子
 
-例子: 
+
+什么时候这两个有一样的效果: 
+
+1. This also means that if all the children of the same parent are of the same element type, 
+2. for example in the case of a table body whose only children are tr elements or a list element whose only children are li elements, then :nth-child() and :nth-of-type() will behave identically, 
+    1. i.e. for every value of An+B, :nth-child(An+B) and :nth-of-type(An+B) will match the same set of elements.
+
+```css
+<table class="myClass">
+  <tr>
+    <td>Row
+  <tr class="row"> <!-- I want this -->
+    <td>Row
+  <tr class="row">
+    <td>Row
+  <tr class="row"> <!-- And this -->
+    <td>Row
+</table>
+```
+
+### 6.8.1 例子
 ```css
 <style>  
   div :nth-child(1) {  
@@ -479,7 +663,29 @@ https://blog.csdn.net/qq_29207823/article/details/82019910
 </style>
 ```
 
+### 6.8.2 `nth-of-type` 与 `nth-of-child` 和 其他条件连用 组成 compound selector
 
+1 
+`nth-of-type` 与 `nth-of-child` 都会考虑到 other conditions or attributes in  compound selector
+
+
+2
+here is no notion of order among simple selectors within each individual compound selector1, which means for example the following two selectors are equivalent:
+`table.myClass tr.row:nth-child(odd)`
+`table.myClass tr:nth-child(odd).row`
+
+Translated to English, they both mean:
+Select any `tr` element that matches all of the following independent conditions: 
+-   it is an odd-numbered child of its parent;
+-   it has the class "row"; and
+-   it is a descendant of a `table` element that has the class "myClass".
+
+3
+ `:nth-child(An+B of S)`
+ 
+ Selectors level 4 seeks to rectify this limitation by allowing `:nth-child(An+B of S)` to accept an arbitrary selector argument S, again due to how selectors operate independently of one another in a compound selector as dictated by the existing selector syntax. 
+ So in your case, it would look like this:
+`table.myClass tr:nth-child(odd of .row)`
 
 # 7 其他的伪类
 

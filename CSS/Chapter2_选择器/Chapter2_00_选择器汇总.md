@@ -120,9 +120,11 @@ https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Selectors?retiredLocale=de#
 
 ## 3.1 Simple selector
 
-A selector with a single component, such as a single id selector or type selector, that's not used in combination with or contains any other selector component or combinator. A given element is said to match a simple selector when that simple selector accurately describes the element. All [basic selectors](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Selectors?retiredLocale=de#basic_selectors), attributes, and single [pseudo-classes and pseudo-elements](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Selectors?retiredLocale=de#pseudo-classes_and_pseudo-elements) are simple selectors.
+A selector with a single component, such as a single id selector or type selector, that's not used in combination with or contains any other selector component or combinator. A given element is said to match a simple selector when that simple selector accurately describes the element. 
 
-## 3.2 Compound selector
+All [basic selectors](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Selectors?retiredLocale=de#basic_selectors), attributes, and single [pseudo-classes and pseudo-elements](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Selectors?retiredLocale=de#pseudo-classes_and_pseudo-elements) are simple selectors.
+
+## 3.2 Compound selector 复合选择器
 
 A sequence of [simple selectors](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Selectors?retiredLocale=de#simple_selector) that are not separated by a [combinator](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Selectors?retiredLocale=de#combinators). A compound selector represents a set of simultaneous conditions on a single element. A given element is said to match a compound selector when the element matches all the simple selectors in the compound selector.
 
@@ -142,7 +144,7 @@ A selector that represents an element relative to one or more [anchor elements]
 
 **Examples:** `+ div#topic > #reference {...}`, `> .icon {...}`
 
-## 3.5 Selector list
+## 3.5 Selector list 
 
 A comma-separated list of [simple](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Selectors?retiredLocale=de#simple_selector), [compound](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Selectors?retiredLocale=de#compound_selector), or [complex](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Selectors?retiredLocale=de#complex_selector) selectors. If the constituent selector type of a selector list is important but unspecified, it is called a *complex selector list*. A given element is said to match a selector list when the element matches any (at least one) of the selectors in that selector list. Read more about when a selector list is deemed [invalid](https://developer.mozilla.org/en-US/docs/Web/CSS/Selector_list#invalid_selector_list) and how to construct a [forgiving selector list](https://developer.mozilla.org/en-US/docs/Web/CSS/Selector_list#forgiving_selector_list).
 

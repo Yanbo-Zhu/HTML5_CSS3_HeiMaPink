@@ -48,7 +48,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "grid-area",
+                "query": ":nth-match()",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -130,15 +130,15 @@
   },
   "active": "89273ef25b95d4fc",
   "lastOpenFiles": [
+    "CSS/Chapter2_选择器/Chapter2_05_伪元素选择器_pseudo-elements.md",
+    "CSS/Chapter2_选择器/Chapter2_00_选择器汇总.md",
+    "CSS/Chapter2_选择器/Chapter2_04_伪类选择器_Pseudo-class.md",
+    "CSS/Chapter2_选择器/Chapter2_03_复合选择器_Grouping selectors and Combinators.md",
     "CSS/Chapter8_移动端web开发/Chapter8_移动端web开发_03_media.md",
     "CSS/Chapter2_选择器/Chapter2_01_基础选择器_basisSelector.md",
-    "CSS/Chapter2_选择器/Chapter2_04_伪类选择器_Pseudo-class.md",
-    "CSS/Chapter2_选择器/Chapter2_05_伪元素选择器_pseudo-elements.md",
     "别人的资料.md",
     "CSS/Chapter8_移动端web开发/Chapter8_移动端web开发_04_背景颜色_rem布局.md",
     "CSS/Chapter8_移动端web开发/Chapter8_移动端web开发_02_流式布局_Flexbox.md",
-    "Note.md",
-    "CSS/Chapter4_盒子模型/Chapter4_盒子模型_04_Padding_margin_boxSizing.md",
-    "CSS/Chapter4_盒子模型/Chapter4_盒子模型_03_width_height_border.md"
+    "Note.md"
   ]
 }
