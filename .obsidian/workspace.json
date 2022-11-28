@@ -4,16 +4,16 @@
     "type": "split",
     "children": [
       {
-        "id": "cf9963e8d41b00a5",
+        "id": "41947c6a4625f36e",
         "type": "tabs",
         "children": [
           {
-            "id": "89273ef25b95d4fc",
+            "id": "39195e30db8c51c7",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "CSS/Chapter2_选择器/Chapter2_04_伪类选择器_Pseudo-class.md",
+                "file": "CSS/Chapter8_移动端web开发/Chapter8_移动端web开发_06_Grid布局.md",
                 "mode": "source",
                 "source": true
               }
@@ -48,7 +48,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": ":nth-match()",
+                "query": "grid-column-start",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -77,7 +77,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "CSS/Chapter2_选择器/Chapter2_04_伪类选择器_Pseudo-class.md",
+                "file": "CSS/Chapter8_移动端web开发/Chapter8_移动端web开发_06_Grid布局.md",
                 "collapseAll": true,
                 "extraContext": true,
                 "sortOrder": "alphabetical",
@@ -94,7 +94,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "CSS/Chapter2_选择器/Chapter2_04_伪类选择器_Pseudo-class.md",
+                "file": "CSS/Chapter8_移动端web开发/Chapter8_移动端web开发_06_Grid布局.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -117,7 +117,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "CSS/Chapter2_选择器/Chapter2_04_伪类选择器_Pseudo-class.md"
+                "file": "CSS/Chapter8_移动端web开发/Chapter8_移动端web开发_06_Grid布局.md"
               }
             }
           }
@@ -128,17 +128,17 @@
     "direction": "horizontal",
     "width": 266.5
   },
-  "active": "89273ef25b95d4fc",
+  "active": "39195e30db8c51c7",
   "lastOpenFiles": [
+    "CSS/Chapter8_移动端web开发/Chapter8_移动端web开发_06_Grid布局.md",
+    "CSS/Chapter8_移动端web开发/Chapter8_移动端web开发_05_less.md",
+    "CSS/Chapter2_选择器/Chapter2_04_伪类选择器_Pseudo-class.md",
     "CSS/Chapter2_选择器/Chapter2_05_伪元素选择器_pseudo-elements.md",
     "CSS/Chapter2_选择器/Chapter2_00_选择器汇总.md",
-    "CSS/Chapter2_选择器/Chapter2_04_伪类选择器_Pseudo-class.md",
     "CSS/Chapter2_选择器/Chapter2_03_复合选择器_Grouping selectors and Combinators.md",
     "CSS/Chapter8_移动端web开发/Chapter8_移动端web开发_03_media.md",
     "CSS/Chapter2_选择器/Chapter2_01_基础选择器_basisSelector.md",
     "别人的资料.md",
-    "CSS/Chapter8_移动端web开发/Chapter8_移动端web开发_04_背景颜色_rem布局.md",
-    "CSS/Chapter8_移动端web开发/Chapter8_移动端web开发_02_流式布局_Flexbox.md",
-    "Note.md"
+    "CSS/Chapter8_移动端web开发/Chapter8_移动端web开发_04_背景颜色_rem布局.md"
   ]
 }
