@@ -679,6 +679,9 @@ footer{
 
 
 ### 6.2.8 x-items: Ausrichtung von items im grid 
+
+单元格 (grid-item) 内的文本 在本本身单元格内的状态
+
 |Properties|解释|
 |---|--|
 |justify-items|Richtet die items an row aus. Gilt für alle items zusammen.| 
@@ -759,6 +762,9 @@ place-items属性是align-items属性和justify-items属性的合并简写形式
 
 
 ### 6.2.9 x-content: Ausrichtung von ceontent im grid 
+
+所有单元格 (grid-item)  在本本身容器 (grid-container) 内的状态
+
 justify-content 属性、align-content 属性以及 place-content 属性
 
 [justify-content 属性、align-content 属性演示地址](https://link.juejin.cn?target=https%3A%2F%2Fcodepen.io%2Fgpingfeng%2Fpen%2FqBbwBZx%3Feditors%3D1100 "https://codepen.io/gpingfeng/pen/qBbwBZx?editors=1100")
