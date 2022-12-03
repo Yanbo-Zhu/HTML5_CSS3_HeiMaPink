@@ -821,6 +821,74 @@ body{
 
 ```
 
+## 7.3 :valid and :invalid
+
+:valid :
+Matches an element with valid contents. 
+For example, an input element with the type 'email' that contains a validly formed email address or an empty value if the control is not required.
+就是说, 当这个 feld 填入的信息是 一个符合规则的信息的时候,  会使用 在 :valid{} 中定义的格式  去渲染这个 tag中的内容
+
+
+:invalid: 
+Matches an element with invalid contents. 
+For example, an input element with type 'email' with a name entered.
+
+就是说, 当这个 feld 填入的信息是 一个不符合规则的信息的时候,  会采取 在 :invalid{} 中定义的格式, 去渲染这个 tag中的内容
+
+
+### 7.3.1 例子
+
+![](image/Chapte2_css_伪类选择器_valid选择器_01.png)
+
+```css
+input:invalid{
+	border: 1px solid hsla(0,100%,50%,1);
+}
+
+
+input:valid:not([type=submit]){
+	border: 1px solid hsla(134,100%,50%,1);
+}
+
+```
+
+```html
+<fieldset>
+    <legend>Persönliche Daten</legend>
+    <div>
+        <label	for="ln">Nachname</label>
+        <input	id="ln"
+                name="lastname"
+                type="text" 
+                required 
+                minlength="3" 
+                pattern="[a-z,A-Z, ,-]{3,25}">
+    </div>
+    <div>
+        <label	for="fn">Vorname</label>
+        <input	id="fn" 
+                name="firstname" 
+                type="text" 
+                required 
+                minlength="3" 
+                maxlength="50">
+    </div>
+    <div>
+        <label	for="age">Alter</label>
+        <input	id="age"
+                name="age" 
+                type="number" 
+                min="16" 
+                required>
+    </div>
+    <div>
+        <input type="submit">
+        <input type="reset">
+    </div>
+</fieldset>
+
+```
+
 # 8 伪类的种类
 
 ## 8.1 Element display state pseudo-classes
