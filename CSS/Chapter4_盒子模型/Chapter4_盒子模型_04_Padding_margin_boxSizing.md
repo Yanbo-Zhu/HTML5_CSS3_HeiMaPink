@@ -255,7 +255,7 @@ margin-left:auto; 自动占据了包含块的可用空间，即 500 - 100px = 40
 
 ### 3.4.3 margin: auto 在 垂直方面的作用 
 
-不论是 margin: auto; 还是 margin: 0 auto; 效果都是一样的，都是让 #demo 水平居中了，但纵向并没有任何变化。
+不论是 margin: auto; 还是 margin: 0 auto; 效果都是一样的，都是让 #demo 水平居中了，<mark>但纵向并没有任何变化。</mark>
 - margin: auto; 其实相当于 margin: auto auto auto auto;
 - margin: 0 auto;相当于margin: 0 auto 0 auto;，四个值分别对应上右下左。至于CSS中的上、右、下、左顺序就不做赘述了。
 - 还可拆分为：margin-left:auto;  margin-right: auto;  margin-top: 0;   margin-bottom: 0;
@@ -293,8 +293,11 @@ margin-left:auto; 自动占据了包含块的可用空间，即 500 - 100px = 40
 - 总结: 对于一个绝对元件被垂直居中，其top，height和bottom值不应该auto。我们所要做的就是在绝对定位的元素中赋予它们一些价值。left并且right应该具有相同的值以实现完美的居中。
 
 
-#### 3.4.4.1 例子:  magin:auto配合绝对定位实现水平和垂直方向居中
-例子1
+#### 3.4.4.1 块级元素水平垂直居中的技巧
+
+5 种技巧 https://blog.csdn.net/qq_34295211/article/details/105929606 
+
+###### 3.4.4.1.1.1 magin:auto配合绝对定位实现水平和垂直方向居中
 ```css
 .father {
       width: 300px;
@@ -305,7 +308,7 @@ margin-left:auto; 自动占据了包含块的可用空间，即 500 - 100px = 40
 
     .son {
       position: absolute;
-      top: 0;
+      top: 0;  // 必须给出 top, right, bottum. left 的值, 否则无效 
       right: 0;
       bottom: 0;
       left: 0;

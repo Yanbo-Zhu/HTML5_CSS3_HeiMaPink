@@ -889,6 +889,9 @@ input:valid:not([type=submit]){
 
 ```
 
+效果
+![](image/Chapter2_css_伪类选择器_validity_01.png)
+
 # 8 伪类的种类
 
 ## 8.1 Element display state pseudo-classes
