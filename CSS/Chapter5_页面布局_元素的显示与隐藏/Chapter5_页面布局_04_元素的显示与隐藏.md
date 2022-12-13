@@ -83,3 +83,41 @@ background 中给出只作用域自己, 不作用与子元素和孙子元素wirk
     background: hsla(0, 100%, 50%, .5) // 最后一个就是 opcatity效果
 }
 ```
+
+
+# 7 Filter Funtion
+https://developer.mozilla.org/en-US/docs/Web/CSS/filter-function
+
+The `<filter-function>` data type is specified using one of the filter functions listed below. Each function requires an argument which, if invalid, results in no filter being applied.
+
+blur()
+Blurs the image.
+
+brightness()
+Makes the image brighter or darker.
+
+contrast()
+Increases or decreases the image's contrast.
+
+drop-shadow()
+Applies a drop shadow behind the image.
+
+grayscale()
+Converts the image to grayscale.
+
+hue-rotate()
+Changes the overall hue of the image.
+
+invert()
+Inverts the colors of the image. 变色 
+https://developer.mozilla.org/en-US/docs/Web/CSS/filter-function/invert
+
+opacity()
+Makes the image transparent.
+
+saturate()
+Super-saturates or desaturates the input image.
+
+sepia()
+Converts the image to sepia.
+

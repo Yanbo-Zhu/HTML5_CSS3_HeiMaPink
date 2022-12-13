@@ -317,6 +317,14 @@ type 属性设置为 password 是密码框
 
 ![image-20221017233800621](./Chapter3_Image/Chapter3_027_表单_Input_color.png)
 
+
+##### 3.1.2.1.13 date
+
+Use HTMLInputElement.prototype.valueAsDate:
+```js
+document.getElementById('datePicker').valueAsDate = new Date();
+```
+
 ### 3.1.3 input标签的其他属性 (除了 type 属性外)
 
 | 属性        | 属性值     | 描述                     |
@@ -325,6 +333,12 @@ type 属性设置为 password 是密码框
 | value     | 自定义     | 规定 input 元素的值          |
 | checked   | checked | 规定此 input 元素首次加载时应当被选中 |
 | maxlength | 正整数     | 规定输入字段字符的最大长度          |
+|minlength|||
+|size||The input size attribute specifies the visible width, in characters, of an input field. The default value for size is 20. |
+|id|||
+|title||Use the global title attribute to describe the pattern to help the user.|
+|pattern||The pattern attribute works with the following input types: text, date, search, url, tel, email, and password. <br> pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"|
+
 
 #### 3.1.3.1 注意
 
@@ -375,7 +389,7 @@ name 是表单元素的名字，要求 单选框和复选框要有相同的name
 
 `<input type="radio" name="sex" />女`
 
-#### 3.1.3.3 checked和maxlength
+#### 3.1.3.3 checked和maxlength/minlength
 
 - checked 属性主要针对于单选框和复选框，主要作用是一打开页面，就可以默认状态下，就已经选中某个表单元素
 
@@ -440,6 +454,12 @@ name 是表单元素的名字，要求 单选框和复选框要有相同的name
 ```html
 <input type="text" name="username" required>
 ```
+
+
+required is a Boolean attribute which, if present, indicates that the user must specify a value for the input before the owning form can be submitted. 
+
+The required attribute is supported by text, search, url, tel, email, date, month, week, time, datetime-local, number, password, checkbox, radio, and file inputs.
+当 type 属性是 hidden、image 或者按钮类型（submit、reset 这两个 button）时不可使用。
 
 #### 3.1.3.8 pattern 正则表达式
 
@@ -550,7 +570,13 @@ name 是表单元素的名字，要求 单选框和复选框要有相同的name
 
 ![](.\Chapter3_Image\Chapter3_015_表单_003_Select下拉列表.png)
 
-#### 3.2.1.1 例子2
+#### 3.2.1.1 Attribute
+
+|x|x|
+|---|---|
+|size |The number of visible options in the drop-down list. Default value is 1. If the multiple attribute is present, the default value is 4|
+
+#### 3.2.1.2 例子
 
 ![](.\Chapter3_Image\Chapter3_025_表单_select.png)
 
@@ -614,3 +640,54 @@ cols = “每行中的字符数” ， rows = “显示的函数”，我们在�
 | ----------------- | --- | -------- | ---------------- | ---------- |
 | input type="text" | 文本框 | 只能显示一行文本 | 单标签，通过value显示默认值 | 用户名、昵称、密码等 |
 | textarea          | 文本域 | 可以显示多行文本 | 双标签，默认值写到标签中间    | 留言板        |
+
+
+# 4 Form表单提交且不刷新页面
+
+form表单在点击提交后会刷新整个页面，有时会影响网页功能和效果
+使之不刷新的解决思路：给form表单指定一个隐藏的iframe，这样提交表单后刷新的就是那个iframe而不是整个页面了
+action为要执行的动作，target为要跳转的页面，这时如果发生错误信息就会跳转到隐藏的iframe页面，没有错误信息会跳转到正确的页面。
+
+```html
+iframe：
+<iframe name="hidden" style="display:none;"></iframe>
+
+
+form：
+<form name="form" method="post" target="hidden">
+    表单内容
+</form>
+
+
+2 
+<form name='form' id='form' action='xxx.action' method='post'>
+　　<input type="submit" id="btnSubmit" name="btnSubmit" value="保存" />
+</form>
+
+在FORM表单后添加一个iframe
+<iframe id="rfFrame" name="rfFrame" src="about:blank" style="display:none;"></iframe>
+
+
+3
+<html>
+<body>
+ 
+<form action="user" method="post" target="iframe">
+	<input type="text" " name="usernamet" />
+	<input type="password" " name="password" />
+	<input type="submit"  name="submt" value="提交" />
+</form>
+ 
+<iframe id="iframe" name="iframe" style="display:none;"></iframe>
+ 
+</body>
+</html>
+
+```
+
+```js
+// 这样即提交了FORM保存了数据,页面也不会跳转.
+$("#btnSubmit").click(function(){
+   $("#form").attr("target","rfFrame");
+});  
+```
