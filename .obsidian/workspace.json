@@ -13,8 +13,8 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "CSS/Chapter4_元素显示模式blockInline_背景_文字文本属性/Chapter2_02_字体文本属性.md",
-                "mode": "preview",
+                "file": "HTML/Chapter3.HTML常用标签/Chapter3_04_表单Fotmular.md",
+                "mode": "source",
                 "source": true
               }
             }
@@ -48,7 +48,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "斜体",
+                "query": "",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -57,8 +57,7 @@
               }
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "horizontal",
@@ -78,7 +77,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "CSS/Chapter4_元素显示模式blockInline_背景_文字文本属性/Chapter2_02_字体文本属性.md",
+                "file": "HTML/Chapter3.HTML常用标签/Chapter3_04_表单Fotmular.md",
                 "collapseAll": true,
                 "extraContext": true,
                 "sortOrder": "alphabetical",
@@ -95,7 +94,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "CSS/Chapter4_元素显示模式blockInline_背景_文字文本属性/Chapter2_02_字体文本属性.md",
+                "file": "HTML/Chapter3.HTML常用标签/Chapter3_04_表单Fotmular.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -118,7 +117,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "CSS/Chapter4_元素显示模式blockInline_背景_文字文本属性/Chapter2_02_字体文本属性.md"
+                "file": "HTML/Chapter3.HTML常用标签/Chapter3_04_表单Fotmular.md"
               }
             }
           }
@@ -129,13 +128,24 @@
     "direction": "horizontal",
     "width": 390.5
   },
-  "active": "5b55ae76f41d082c",
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:打开快速切换": false,
+      "graph:查看关系图谱": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:打开/创建今天的日记": false,
+      "templates:插入模板": false,
+      "command-palette:打开命令面板": false,
+      "workspaces:管理工作区布局": false
+    }
+  },
+  "active": "ad802057cf37ad64",
   "lastOpenFiles": [
+    "CSS/Chapter4_元素显示模式blockInline_背景_文字文本属性/Chapter2_02_字体文本属性.md",
     "CSS/Chapter1_简介/Chapter1_书写顺序_selectors在Stylesheet文件中的.md",
     "HTML/Chapter3.HTML常用标签/Chapter3_04_表单Fotmular.md",
     "HTML/Chapter3.HTML常用标签/Chapter3_03_表格标签和列表标签.md",
     "CSS/Chapter2_选择器/Chapter2_03_复合选择器_Grouping selectors and Combinators.md",
-    "CSS/Chapter4_元素显示模式blockInline_背景_文字文本属性/Chapter2_02_字体文本属性.md",
     "CSS/Chapter5_页面布局_元素的显示与隐藏/Chapter5_页面布局_04_元素的显示与隐藏.md",
     "CSS/Chapter4_盒子模型/Chapter4_盒子模型_04_Padding_margin_boxSizing.md",
     "CSS/Chapter4_盒子模型/Chapter4_css_盒子模型_总览.md",

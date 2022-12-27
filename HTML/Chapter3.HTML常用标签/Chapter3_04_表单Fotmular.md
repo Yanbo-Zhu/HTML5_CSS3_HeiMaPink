@@ -368,7 +368,7 @@ name 是表单元素的名字，要求 单选框和复选框要有相同的name
 </form>
 ```
 
-##### 3.1.3.2.1 value属性
+##### 3.1.3.2.1 value属性(就是默认值)
 
 - value 默认的文本值。有些表单想刚打开页面就<mark>默认显示几个文字</mark>，就可以通过这个value 来设置。
 - `用户名:<input type="text"  name="username" value="请输入用户名"> `
