@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "HTML/Chapter3.HTML常用标签/Chapter3_04_表单Fotmular.md",
+                "file": "CSS/Chapter8_移动端web开发/Chapter8_移动端web开发_03_media.md",
                 "mode": "source",
                 "source": true
               }
@@ -48,7 +48,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "",
+                "query": "max-width",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -57,7 +57,8 @@
               }
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "horizontal",
@@ -77,7 +78,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "HTML/Chapter3.HTML常用标签/Chapter3_04_表单Fotmular.md",
+                "file": "CSS/Chapter8_移动端web开发/Chapter8_移动端web开发_03_media.md",
                 "collapseAll": true,
                 "extraContext": true,
                 "sortOrder": "alphabetical",
@@ -94,7 +95,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "HTML/Chapter3.HTML常用标签/Chapter3_04_表单Fotmular.md",
+                "file": "CSS/Chapter8_移动端web开发/Chapter8_移动端web开发_03_media.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -117,7 +118,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "HTML/Chapter3.HTML常用标签/Chapter3_04_表单Fotmular.md"
+                "file": "CSS/Chapter8_移动端web开发/Chapter8_移动端web开发_03_media.md"
               }
             }
           }
@@ -142,14 +143,14 @@
   "active": "ad802057cf37ad64",
   "lastOpenFiles": [
     "CSS/Chapter4_元素显示模式blockInline_背景_文字文本属性/Chapter2_02_字体文本属性.md",
-    "CSS/Chapter1_简介/Chapter1_书写顺序_selectors在Stylesheet文件中的.md",
-    "HTML/Chapter3.HTML常用标签/Chapter3_04_表单Fotmular.md",
-    "HTML/Chapter3.HTML常用标签/Chapter3_03_表格标签和列表标签.md",
+    "CSS/Chapter7_CSS3新特性/Chapter7_CSS3新特性.md",
     "CSS/Chapter2_选择器/Chapter2_03_复合选择器_Grouping selectors and Combinators.md",
+    "CSS/Chapter2_选择器/Chapter2_01_基础选择器_basisSelector.md",
+    "HTML/Chapter3.HTML常用标签/Chapter3_04_表单Fotmular.md",
+    "CSS/Chapter1_简介/Chapter1_书写顺序_selectors在Stylesheet文件中的.md",
+    "HTML/Chapter3.HTML常用标签/Chapter3_03_表格标签和列表标签.md",
     "CSS/Chapter5_页面布局_元素的显示与隐藏/Chapter5_页面布局_04_元素的显示与隐藏.md",
     "CSS/Chapter4_盒子模型/Chapter4_盒子模型_04_Padding_margin_boxSizing.md",
-    "CSS/Chapter4_盒子模型/Chapter4_css_盒子模型_总览.md",
-    "CSS/Chapter4_盒子模型/Chapter4_盒子模型_03_width_height_border.md",
-    "CSS/Chapter2_选择器/Chapter2_04_伪类选择器_Pseudo-class.md"
+    "CSS/Chapter4_盒子模型/Chapter4_css_盒子模型_总览.md"
   ]
 }

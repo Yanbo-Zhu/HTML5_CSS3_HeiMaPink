@@ -551,7 +551,7 @@ transform:scale(0.5, 0.5): 缩小
 1. 定义动画 (动画序列 `%α`)
 2. 使用/调用动画
 
-### 6.1.1 用keyframs定义动画
+### 6.1.1 用keyframs定义一个动画
 
 ```css
  /* 1. 定义动画 */
@@ -582,7 +582,7 @@ div {
 }
 ```
 
-### 6.1.3 动画序列
+## 6.2 动画序列 (@keyframes 规则)
 
 - 0% 是动画的开始，100% 是动画的完成。这样的规则就是动画序列。
 - 在 @keyframes 中规定某项 CSS 样式，就能创建由当前样式逐渐改为新样式的动画效果。
@@ -594,6 +594,52 @@ div {
 1. 可以做多个状态的变化 `keyframes` 关键帧
 2. 百分比必须是整数
 3. 百分比是总时间 `animation-duration` 的划分
+
+@keyframes 规则用来定义动画各个阶段的属性值，类似于 flash 动画中的关键帧，语法格式如下：
+语法说明如下：
+animationName：表示动画的名称；
+from：定义动画的开头，相当于 0%；
+percentage：定义动画的各个阶段，为百分比值，可以添加多个；
+to：定义动画的结尾，相当于 100%；
+properties：不同的样式属性名称，例如 color、left、width 等等。
+
+```css
+@keyframes animationName {
+    from {
+        properties: value;
+    }
+    percentage {
+        properties: value;
+    }
+    to {
+        properties: value;
+    }
+}
+// 或者
+@keyframes animationName {
+    0% {
+        properties: value;
+    }
+    percentage {
+        properties: value;
+    }
+    100% {
+        properties: value;
+    }
+}
+```
+
+```css
+下面我们来看一个简单的 @keyframes 规则示例：
+
+@keyframes ball {
+    0% { top: 0px; left: 0px;}
+    25% { top: 0px; left: 350px;}
+    50% { top: 200px; left: 350px;}
+    75% { top: 200px; left: 0px;}
+    100% { top: 0px; left: 0px;} 
+}
+```
 
 ```css
 <style>  
@@ -616,7 +662,250 @@ div {
   </style>
 ```
 
-### 6.1.4 整体示例
+## 6.3 动画常用属性
+http://c.biancheng.net/css3/animation.html
+
+| 属性                          | 描述                                        |
+| --------------------------- | ----------------------------------------- |
+| `keyframes`                 | 规定动画。                                     |
+| `animation`                 | 所有动画属性的简写属性,除了animation-play-state属性。     |
+| `animation-name`            | (必须的) 规定@keyframes动画的名称. . animation-duration 属性的默认值为 0, 无动画效果. 要绑定到 HTML 元素的动画名称，可以同时绑定多个动画，动画名称之间使用逗号进行分隔.  none 表示表示无动画效果 |
+| `animation-duration`        | (必须的) 规定动画完成一个周期所花费的秒或毫秒，默认是0。        |
+| `animation-timing-function` | 规定动画的速度曲线，默认是“ease” .                     |
+| `animation-delay`           | 规定动画何时开始，默认是0.                            |
+| `animation-iteration-count` | 规定动画被播放的次数，默认是1，还有infinite                |
+| `animation-direction`       | 规定动画是否在下一周期逆向播放，默认是 "normal",alternate逆播放 |
+| `animation-play-state`      | 设置动画是否正在运行或暂停。默认是"running",还有"paused".    |
+| `animation-fill-mode`       | 规定动画结束后状态,保持forwards回到起始backwards         |
+
+```css
+div {  
+  width: 100px;  
+  height: 100px;  
+  background-color: aquamarine;  
+  /* 动画名称 */  
+  animation-name: move;  
+  /* 动画花费时长 */  
+  animation-duration: 2s;  
+  /* 动画速度曲线 */  
+  animation-timing-function: ease-in-out;  
+  /* 动画等待多长时间执行 */  
+  animation-delay: 2s;  
+  /* 规定动画播放次数 infinite: 无限循环 */  
+  animation-iteration-count: infinite;  
+  /* 是否逆行播放 */  
+  animation-direction: alternate;  
+  /* 动画结束之后的状态 */  
+  animation-fill-mode: forwards;  
+}  
+  
+div:hover {  
+  /* 规定动画是否暂停或者播放 */  
+  animation-play-state: paused;  
+}
+```
+
+### 6.3.1 动画简写属性
+
+```css
+animation: animation-name animation-duration animation-timing-function animation-delay animation-iteration-count animation-direction animation-fill-mode animation-play-state;
+animation: 动画名称 持续时间 运动曲线 何时开始 播放次数 是否反方向 动画起始或者结束的状态;
+animation: myfirst 5s linear 2s infinite alternate;
+```
+
+知识要点
+- 简写属性里面不包含 `animation-play-state`
+- 暂停动画: `animation-play-state: puased;`
+- 经常和鼠标经过等其他配合使用想要动画走回来，而不是直接跳回来: `animation-direction: alternate`
+- 盒子动画结束后，停在结束位置:  `animation-fill-mode: forwards`
+
+
+
+### 6.3.2 速度曲线细节 animation-timing-function
+
+`animation-timing-function`：规定动画的速度曲线，默认是“ease”. 用来设置动画播放的速度曲线，通过速度曲线的设置可以使动画播放的更为平滑
+
+| **值**       | **描述**                  |
+| ----------- | ----------------------- |
+| linear      | 动画从头到尾的速度是相同的。匀速        |
+| ease        | 默认。动画以低速开始，然后加快，在结束前变慢。 |
+| ease-in     | 动画以低速开始。                |
+| ease-out    | 动画以低速结束。                |
+| ease-in-out | 动画以低速开始和结束。             |
+| steps()     | 指定了时间函数中的间隔数量（步长）       |
+|cubic-bezier(n, n, n, n)	| 使用 cubic-bezier() 函数来定义动画的播放速度，参数的取值范围为 0 到 1 之间的数值 |
+
+```css
+/*打字机效果*/  
+div {  
+  width: 0px;  
+  height: 50px;  
+  line-height: 50px;  
+  white-space: nowrap;  
+  overflow: hidden;  
+  background-color: aquamarine;  
+  animation: move 4s steps(24) forwards;  
+}  
+  
+@keyframes move {  
+  0% {  
+    width: 0px;  
+  }  
+  
+  100% {  
+    width: 480px;  
+  }  
+}
+```
+
+```html
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        @keyframes ball {
+            0% {left: 0px;}
+            50% {left: 350px;}
+            100% {left: 0px;}
+        }
+        div {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            border: 3px solid black;
+            text-align: center;
+            line-height: 100px;
+            position: relative;
+            animation-name: ball;
+            animation-duration: 2s;
+        }
+        .one {
+            animation-timing-function: ease;
+        }
+        .two {
+            animation-timing-function: ease-in;
+        }
+        .three {
+            animation-timing-function: ease-out;
+        }
+        .four {
+            animation-timing-function: ease-in-out;
+        }
+    </style>
+</head>
+<body>
+    <div class="one">ease</div>
+    <div class="two">ease-in</div>
+    <div class="three">ease-out</div>
+    <div class="four">ease-in-out</div>
+</body>
+</html>
+```
+
+运行结果如下图所示：  
+![animation-timing-function 属性演示](http://c.biancheng.net/uploads/allimg/210810/110H04454-1.gif)
+
+
+### 6.3.3 animation-fill-mode
+animation-fill-mode 属性用来设置当动画不播放时（开始播放之前或播放结束之后）动画的状态（样式），属性的可选值如下：
+
+|值	|描述|
+|---|---|
+|none	|不改变动画的默认行为|
+|forwards	|当动画播放完成后，保持动画最后一个关键帧中的样式|
+|backwards	|在 animation-delay 所指定的时间段内，应用动画第一个关键帧中的样式|
+|both|	同时遵循 forwards 和 backwards 的规则|
+
+```html
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        @keyframes box {
+            0% {transform: rotate(0);}
+            50% {transform: rotate(0.5turn);}
+            100% {transform: rotate(1turn);}
+        }
+        div {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            float: left;
+            border: 3px solid black;
+            text-align: center;
+            line-height: 100px;
+            position: relative;
+            animation-name: box;
+            animation-duration: 2s;
+            animation-iteration-count: 1;
+            animation-fill-mode: forwards;
+        }
+    </style>
+</head>
+<body>
+    <div>forwards</div>
+</body>
+</html>
+```
+
+### 6.3.4 animation-delay
+
+animation-delay 属性用来定义动画开始播放前的延迟时间，单位为秒或者毫秒，属性的语法格式如下：
+animation-delay: time;
+
+其中参数 time 就是动画播放前的延迟时间，参数 time 既可以为正值也可以为负值。参数值为正时，表示延迟指定时间开始播放；参数为负时，表示跳过指定时间，并立即播放动画。
+
+```html
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        @keyframes ball {
+            0% {left: 0px;}
+            50% {left: 350px;}
+            100% {left: 0px;}
+        }
+        div {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            border: 3px solid black;
+            text-align: center;
+            line-height: 100px;
+            position: relative;
+            animation-name: ball;
+            animation-duration: 2s;
+        }
+        .one {
+            animation-delay: 0.5s;
+        }
+        .two {
+            animation-delay: -0.5s;
+        }
+    </style>
+</head>
+<body>
+    <div class="one">0.5s</div>
+    <div class="two">-0.5s</div>
+</body>
+</html>
+```
+
+![animation-delay 属性演示](http://c.biancheng.net/uploads/allimg/210810/110H05S4-2.gif)
+
+### 6.3.5 animation-direction
+animation-direction 属性用来设置是否轮流反向播放动画，属性的可选值如下：
+
+|值	|描述|
+|---|---|
+|normal	|以正常的方式播放动画|
+|reverse	|以相反的方向播放动画|
+|alternate	|播放动画时，奇数次（1、3、5 等）正常播放，偶数次（2、4、6 等）反向播放|
+|alternate-reverse	|播放动画时，奇数次（1、3、5 等）反向播放，偶数次（2、4、6 等）正常播放|
+
+![animation-direction 属性演示](http://c.biancheng.net/uploads/allimg/210810/110H055P-4.gif)
+
+## 6.4 整体示例
 
 需求：我们想页面一打开，一个盒子就从左边走到右边
 
@@ -688,96 +977,6 @@ from to 语法
 </body>
 ```
 
-## 6.2 动画常用属性
-
-| 属性                          | 描述                                        |
-| --------------------------- | ----------------------------------------- |
-| `keyframes`                 | 规定动画。                                     |
-| `animation`                 | 所有动画属性的简写属性,除了animation-play-state属性。     |
-| `animation-name`            | 规定@keyframes动画的名称。(必须的)                   |
-| `animation-duration`        | 规定动画完成一个周期所花费的秒或毫秒，默认是0。（必须的)             |
-| `animation-timing-function` | 规定动画的速度曲线，默认是“ease” .                     |
-| `animation-delay`           | 规定动画何时开始，默认是0.                            |
-| `animation-iteration-count` | 规定动画被播放的次数，默认是1，还有infinite                |
-| `animation-direction`       | 规定动画是否在下一周期逆向播放，默认是 "normal",alternate逆播放 |
-| `animation-play-state`      | 规定动画是否正在运行或暂停。默认是"running",还有"paused".    |
-| `animation-fill-mode`       | 规定动画结束后状态,保持forwards回到起始backwards         |
-
-```css
-div {  
-  width: 100px;  
-  height: 100px;  
-  background-color: aquamarine;  
-  /* 动画名称 */  
-  animation-name: move;  
-  /* 动画花费时长 */  
-  animation-duration: 2s;  
-  /* 动画速度曲线 */  
-  animation-timing-function: ease-in-out;  
-  /* 动画等待多长时间执行 */  
-  animation-delay: 2s;  
-  /* 规定动画播放次数 infinite: 无限循环 */  
-  animation-iteration-count: infinite;  
-  /* 是否逆行播放 */  
-  animation-direction: alternate;  
-  /* 动画结束之后的状态 */  
-  animation-fill-mode: forwards;  
-}  
-  
-div:hover {  
-  /* 规定动画是否暂停或者播放 */  
-  animation-play-state: paused;  
-}
-```
-
-### 6.2.1 动画简写属性
-
-```css
-animation: 动画名称 持续时间 运动曲线 何时开始 播放次数 是否反方向 动画起始或者结束的状态;
-animation: myfirst 5s linear 2s infinite alternate;
-```
-
-知识要点
-- 简写属性里面不包含 `animation-play-state`
-- 暂停动画: `animation-play-state: puased;`
-- 经常和鼠标经过等其他配合使用想要动画走回来，而不是直接跳回来: `animation-direction: alternate`
-- 盒子动画结束后，停在结束位置:  `animation-fill-mode: forwards`
-
-### 6.2.2 速度曲线细节 animation-timing-function
-
-`animation-timing-function`：规定动画的速度曲线，默认是“ease”
-
-| **值**       | **描述**                  |
-| ----------- | ----------------------- |
-| linear      | 动画从头到尾的速度是相同的。匀速        |
-| ease        | 默认。动画以低速开始，然后加快，在结束前变慢。 |
-| ease-in     | 动画以低速开始。                |
-| ease-out    | 动画以低速结束。                |
-| ease-in-out | 动画以低速开始和结束。             |
-| steps()     | 指定了时间函数中的间隔数量（步长）       |
-
-```css
-/*打字机效果*/  
-div {  
-  width: 0px;  
-  height: 50px;  
-  line-height: 50px;  
-  white-space: nowrap;  
-  overflow: hidden;  
-  background-color: aquamarine;  
-  animation: move 4s steps(24) forwards;  
-}  
-  
-@keyframes move {  
-  0% {  
-    width: 0px;  
-  }  
-  
-  100% {  
-    width: 480px;  
-  }  
-}
-```
 
 # 7 3D 转换
 
