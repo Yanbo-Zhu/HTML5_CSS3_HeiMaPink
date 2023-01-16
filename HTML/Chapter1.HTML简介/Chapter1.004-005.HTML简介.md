@@ -1,8 +1,8 @@
-# HTML
+# 1 HTML
 
 Hyper Text Markup Language 超文本标记语言 
 
-# 常用浏览器及其内核
+# 2 常用浏览器及其内核
 
 浏览器是网页显示、运行的平台。
 
@@ -22,17 +22,17 @@ Hyper Text Markup Language 超文本标记语言
 | Chrome       | Chromium/Blink | 在 Chromium 项目中研发 Blink 渲染引擎（即浏览器核心），内置于 Chrome 浏览器之中。Blink 其实是 WebKit 的分支。大部分国产浏览器最新版都采用Blink内核。二次开发 |
 | Chrome/Opera | Blink          | chrome/opera 浏览器内核                                                                                   |
 
-# Web标准的构成
+# 3 Web标准的构成
 
 | 标准  | 说明                               |
 | --- | -------------------------------- |
-| 结构  | 结构对网页元素进行整理和分类，现阶段主要是HTML        |
+| 结构  | 结构对网页元素进行整理和分类，现阶段主要是HTML  . die semantische Beschreibung eines Textes.      |
 | 表现  | 表现用于设置网页元素的版式、颜色、大小等外观样式，主要是指CSS |
 | 行为  | 行为是指网页模型的定义以及交互的编写，现阶段主要是JS      |
 
 Web标准提出的最佳体验方案：结构、表现、行为相分离。
 
-# Web标准的优点
+# 4 Web标准的优点
 
 易于维护：只需更改CSS文件，就可以改变整站的样式
 页面响应快：HTML文档体积变小，响应时间短
@@ -40,7 +40,7 @@ Web标准提出的最佳体验方案：结构、表现、行为相分离。
 设备兼容性：不同的样式表可以让网页在不同的设备上呈现不同的样式
 搜索引擎：语义化的HTML能更容易被搜索引擎解析，提升排名
 
-# W3C标准
+# 5 W3C标准
 
 html5, css3, javascript 之间的关系
 
