@@ -74,7 +74,7 @@ Opacity wirkt sich auf das Element selbst und <mark>alle Kinderelemente</mark> a
 ```
 ![](image/Chapter5_页面布局_元素的显示与隐藏_opacity半透明效果.png)
 
-## 6.2 background
+## 6.2 background 中的 opcatity效果
 background 标签中也可以给出 半透明效果
 background 中给出只作用域自己, 不作用与子元素和孙子元素wirkt sich nur auf das Element selbst und <mark> nicht nur auf alle Kinderelemente</mark> aus. 
 
@@ -90,34 +90,66 @@ https://developer.mozilla.org/en-US/docs/Web/CSS/filter-function
 
 The `<filter-function>` data type is specified using one of the filter functions listed below. Each function requires an argument which, if invalid, results in no filter being applied.
 
-blur()
-Blurs the image.
+filter CSS属性将模糊或颜色偏移等图形效果应用于元素。
 
-brightness()
-Makes the image brighter or darker.
 
-contrast()
-Increases or decreases the image's contrast.
+使用 
 
-drop-shadow()
-Applies a drop shadow behind the image.
+```css
+filter: blur(0px);
+```
 
-grayscale()
-Converts the image to grayscale.
 
-hue-rotate()
-Changes the overall hue of the image.
+属性
 
-invert()
-Inverts the colors of the image. 变色 
-https://developer.mozilla.org/en-US/docs/Web/CSS/filter-function/invert
+|argument| explanantion |
+|---|---|
+|blur()|Blurs the image. `filter： blur(5px);` blur 模糊处理数值越大越模糊 |
+|brightness()|Makes the image brighter or darker.|
+|contrast()|Increases or decreases the image's contrast.|
+|drop-shadow()|Applies a drop shadow behind the image.|
+|grayscale()|Converts the image to grayscale.|
+|hue-rotate()|Changes the overall hue of the image.|
+|invert()|  Inverts the colors of the image. 变色  https://developer.mozilla.org/en-US/docs/Web/CSS/filter-function/invert|
+|opacity()|Makes the image transparent.|
+|saturate()| Super-saturates or desaturates the input image.|
+| sepia()| Converts the image to sepia.|
 
-opacity()
-Makes the image transparent.
 
-saturate()
-Super-saturates or desaturates the input image.
 
-sepia()
-Converts the image to sepia.
+例如： 
+```html
+<head>
+   <style>
+        img {
+            /* blur 是一个函数，小括号里面的数值越大，图片越模糊，注意数值要加px单位 */
+            filter: blur(5px);
+        }
+    </style>
+</head>
+
+<body>
+    <img src="images/pink.jpg" alt="">
+</body>
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

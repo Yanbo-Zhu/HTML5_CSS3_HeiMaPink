@@ -13,8 +13,20 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "HTML/Chapter3.HTML常用标签/Chapter3_02_HTML5_音频标签和视频标签.md",
+                "file": "CSS/Chapter7_CSS3新特性/Chapter7_CSS3新特性.md",
                 "mode": "source",
+                "source": true
+              }
+            }
+          },
+          {
+            "id": "543326d0754317d8",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "CSS/Chapter5_页面布局_元素的显示与隐藏/Chapter5_页面布局_04_元素的显示与隐藏.md",
+                "mode": "preview",
                 "source": true
               }
             }
@@ -48,7 +60,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "",
+                "query": "animation-timing-function",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -61,7 +73,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 349
+    "width": 413.5
   },
   "right": {
     "id": "75bad08b258c7b53",
@@ -77,7 +89,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "HTML/Chapter3.HTML常用标签/Chapter3_02_HTML5_音频标签和视频标签.md",
+                "file": "CSS/Chapter7_CSS3新特性/Chapter7_CSS3新特性.md",
                 "collapseAll": true,
                 "extraContext": true,
                 "sortOrder": "alphabetical",
@@ -94,7 +106,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "HTML/Chapter3.HTML常用标签/Chapter3_02_HTML5_音频标签和视频标签.md",
+                "file": "CSS/Chapter7_CSS3新特性/Chapter7_CSS3新特性.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -117,7 +129,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "HTML/Chapter3.HTML常用标签/Chapter3_02_HTML5_音频标签和视频标签.md"
+                "file": "CSS/Chapter7_CSS3新特性/Chapter7_CSS3新特性.md"
               }
             }
           }
@@ -139,17 +151,17 @@
       "workspaces:管理工作区布局": false
     }
   },
-  "active": "b787ac6daa5e4d9d",
+  "active": "ba7b1296865c75fc",
   "lastOpenFiles": [
-    "HTML/Chapter3.HTML常用标签/Chapter3_03_表格标签和列表标签.md",
-    "HTML/Chapter3.HTML常用标签/Chapter3_02_HTML图像标签和超链接标签.md",
-    "HTML/Chapter3.HTML常用标签/Chapter3_01_HTML常用标签.md",
-    "HTML/Chapter3.HTML常用标签/Chapter3_02_HTML5_音频标签和视频标签.md",
-    "HTML/Chapter2.HTML语法规范和基本结构标签/Chapter2_HTML页面基本结构下使用的标签.md",
     "HTML/Chapter2.HTML语法规范和基本结构标签/Chapter2_HTML语法规范.md",
-    "HTML/Chapter3.HTML常用标签/HTML5中新特性.md",
-    "HTML/Chapter3_表单/Chapter3_04_表单Fotmular.md",
-    "HTML/Chapter3.HTML常用标签/Chapter3_00_标签的Attirbute.md",
-    "HTML/Chapter3_表单/Chapter3_05_表单_HTML5中的新特性.md"
+    "HTML/Chapter3.HTML常用标签/Chapter3_03_表格标签和列表标签.md",
+    "CSS/Chapter7_CSS3新特性/Chapter7_CSS3新特性.md",
+    "CSS/Chapter4_元素显示模式blockInline_背景_文字文本属性/Chapter2_02_字体文本属性.md",
+    "CSS/Chapter5_页面布局_元素的显示与隐藏/Chapter5_页面布局_04_元素的显示与隐藏.md",
+    "CSS/Chapter6_CSS高级/Chapter6_CSS高级_02_用户界面样式_align_溢出文字省略显示_界面布局技巧.md",
+    "CSS/Chapter6_CSS高级/Chapter6_CSS高级_03_其他.md",
+    "CSS/Chapter6_CSS高级/Chapter6_CSS高级_01_精灵图_字体图标.md",
+    "CSS/Chapter5_页面布局_元素的显示与隐藏/image/Chapter5_页面布局_元素的显示与隐藏_visibility可见性.png",
+    "CSS/Chapter4_元素显示模式blockInline_背景_文字文本属性/Chapter4_05_CSS背景.md"
   ]
 }

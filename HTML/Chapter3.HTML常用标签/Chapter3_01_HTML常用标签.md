@@ -156,3 +156,9 @@ Abschließend noch ein paar Worte zu Sonderzeichen. Mittlerweile ist es so, dass
 Wenn Sie innerhalb von <pre> wirklich Sourcecode darstellen wollen, ist es für die semantische Korrektheit notwendig, zusätzlich das Tag <code>(...)</code> dahinter zu setzen und den Sourcecode dahinein einzufügen.
 ```
 
+# 11 Tags `<math>` und `<svg>`
+
+MathML und SVG kann man über die Tags `<math>` und `<svg>`  in HTML5 direkt einbauen und braucht damit kein Plugin mehr.
+- MathML – Zum Zeichnen von mathematischen Formeln
+- Scalable Vector Graphics (SVG) – Zum Zeichnen von 2-D-Vektorgrafik
+- WebGL – Zum Zeichnen von 3-D-Animationen im Browser

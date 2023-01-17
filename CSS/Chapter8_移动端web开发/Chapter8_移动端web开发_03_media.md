@@ -33,26 +33,29 @@ With media queries we can ask for certain types of output and additional feature
 - 当你重置浏览器大小的过程中，页面也会根据浏览器的宽度和高度重新渲染页面
 - 目前针对很多苹果手机、Android手机，平板等设备都用得到多媒体查询
 
-## 2.1 Organizing media queries within a stylesheet
+Organizing media queries within a stylesheet
 - There is no right or wrong way to organize media queries.
 - 可以all rules 都写在 一个 media query, 或者每个 rule 都写着再单独的一个 media query: Be consistent! You can write all rules within one media query or you can write a media query just after each separate rule that needs one.
 
-## 2.2 语法
-
-@media mediatype and|not|only( mediaFeature ){
-    CSS-code /*rules for thes features*/
+## 2.1 语法
+```css
+@media not|only mediatype and (mediafeature and|or|not mediafeature) {
+  CSS-Code;
 }
+```
+
 
 - 用 @media 开头 注意@符号
 - mediatype 媒体类型
-- 关键字 and, not, only
-- media feature 媒体特性 必须有小括号包含
+- keyword :  and, not, only
+- mediaFeature 媒体特性 必须有小括号包含
 
-### 2.2.1 使用的时候注意点
-- 不指定 mediatype,  则作用于全部的各种类型的mediatype.  If you don't include a type it will target to all types (screen, print, ...)
+使用的时候注意点
+- <mark>不指定 mediatype,  则作用于全部的各种类型的mediatype. </mark>  If you don't include a type it will target to all types (screen, print, ...)
+- 注意mediatype 是大小写敏感的，只能是小写;
 - 尽量少用 median query.   因为总是界面变化, 会增加 client 和 server 之间的访问量 
 
-### 2.2.2 例子
+## 2.2 例子
 下面代码的意思是在我们屏幕上页面处于 500px-800px 之间，页面背景颜色显示为 pink 色。页面小于 500px，背景颜色显示为 purple 色
 
 ```html
@@ -81,9 +84,7 @@ With media queries we can ask for certain types of output and additional feature
 </head>
 ```
 
-
-
-## 2.3 Keyword (关键字) (and, not ,only)
+## 2.3 Keyword (and, not ,only)
 
 关键字将媒体类型或多个媒体特性连接到一起做为媒体查询的条件。
 
@@ -91,7 +92,110 @@ With media queries we can ask for certain types of output and additional feature
 - not：排除某个媒体类型，相当于"非"的意思，可以省略。
 - only：指定某个特定的媒体类型，可以省略。
 
-## 2.4 媒体特性 (media Feature)
+
+## 2.4 mediatype (媒体类型)
+
+将不同的终端设备划分成不同的类型，称为媒体类型
+
+- <mark>不指定 mediatype,  则作用于全部的各种类型的mediatype. </mark>  If you don't include a type it will target to all types (screen, print, ...)
+- 注意mediatype 是大小写敏感的，只能是小写;
+
+
+### 2.4.1 常用的 media type
+
+all：適用於所有裝置
+screen：主要用於彩色電腦螢幕 (包含手機和平版)
+speech：適用於語音合成器 (speech synthesizer)、語音朗讀裝置
+print：適用於 paged material 和在列印預覽模式下在螢幕上查看的文件，例如：用瀏覽器的「列印預覽」模式察看文件 
+
+```css
+@media print {
+  body { font-size: 10pt; }
+}
+@media screen {
+  body { font-size: 13px; }
+}
+@media screen, print {
+  body { line-height: 1.2; }
+}
+```
+
+
+### 2.4.2 媒体类型为print( @media print )
+medien print 中设置, 只是打印机打印出来的时候, 页面长啥样 . 
+    - 可以用 pdf 打印阅览, 来查看效果 
+- media print 中的设置, 无关于 这个页面在阅览器中显示的, 长啥样  
+
+#### 2.4.2.1 语法
+```css
+@median print {
+    #menu a {
+        display: none;
+    }
+}
+```
+
+#### 2.4.2.2 例子
+```css
+@media print {
+    #menu a{
+        display: none;
+    }
+    main{
+        display: block;
+    }
+
+    article{
+        background: hsl(0 0% 100%);
+        border: none;
+        margin: auto;
+        width: 100%;
+        page-break-inside: avoid;
+    }
+    :root{
+        font-size: 12px;
+        font-family: serif;
+    }
+
+    a{
+        text-decoration: none;
+        color: hsl(0 0% 0%);
+    }
+     a[href]::after{
+        content: attr(href);
+        display: block;
+    }
+    nav{
+        display: none;
+    }
+
+}
+
+```
+
+### 2.4.3 媒体类型为screen (@media screen)
+
+- @media screen 是设置 页面在显示器中显示成什么样, 
+- 对于打印网页的时候, 打印出来的效果, @media screen 中的设置是无效的. 
+
+
+```css
+@media screen and (prefers-color-scheme: dark){  // and (prefers-color-scheme: dark 说的是 当系统是 深色模式的时候, 这个设置才有效. ,如果系统为 为白色模式, 这个设置失效
+
+    body{
+        blockground : hsl(1 0% 0%);
+        color: hsl (); 
+    }
+
+    article{
+        border-color: hsl (0 0% 100)
+    }
+}
+```
+
+
+
+## 2.5 媒体特性 (media Feature)
 
 每种媒体类型都具体各自不同的特性，根据不同媒体类型的媒体特性设置不同的展示风格。
 
@@ -108,7 +212,7 @@ With media queries we can ask for certain types of output and additional feature
 | orientation | landscape or portrait orientation of the device |
 | aspect-ratio | the ration of width to height |
 
-### 2.4.1 min-width 和 max-width的比较 
+### 2.5.1 min-width 和 max-width的比较 
 - min-width means from this width and larger, so it's for a large(r) screen.  阅览器的 view area 必须大于这个值的时候, 这个设置才生效
 - max-width works the other way around.  阅览器的 view area 必须小于这个值额时候, 这个设置才生效
 - You can also work within a range between min-width and max-width.
@@ -120,7 +224,7 @@ The order of media queries is important!
 - If you work with <code>min-width</code>, you work from the smallest to the biggest.
 -  <em>Try the whole stylesheet mobile-first!</em></p>
 
-#### 2.4.1.1 min-width, max-width 的例子 
+#### 2.5.1.1 min-width, max-width 的例子 
 
 例子1 
 ```css
@@ -202,7 +306,7 @@ The order of media queries is important!
 ![在这里插入图片描述](https://img-blog.csdnimg.cn/9ebceb16c2f04d2da6d4425202bf1b86.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA55Sf5ZG95piv5pyJ5YWJ55qE,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center)
 
 
-## 2.5 Breakpoints (design 在那个像素点变化)
+## 2.6 Breakpoints (design 在那个像素点变化)
 
 Breakpoints are the width at which we want to change the design.
 Don't use standard breakpoints. Better, look at the screen and decide at what point does the layout look wrong. It depends on your design. Try different breakpoints.
@@ -213,82 +317,6 @@ For maintainability keep the breakpoints to a minimum.
 
 
   
-## 2.6 mediatype (媒体类型)
-
-将不同的终端设备划分成不同的类型，称为媒体类型
-比如 media print, media screen
-
-### 2.6.1 媒体类型为print( @media print )
-medien print 中设置, 只是打印机打印出来的时候, 页面长啥样 . 
-    - 可以用 pdf 打印阅览, 来查看效果 
-- media print 中的设置, 无关于 这个页面在阅览器中显示的, 长啥样  
-
-#### 2.6.1.1 语法
-```css
-@median print {
-    #menu a {
-        display: none;
-    }
-}
-```
-
-#### 2.6.1.2 例子
-```css
-@media print {
-    #menu a{
-        display: none;
-    }
-    main{
-        display: block;
-    }
-
-    article{
-        background: hsl(0 0% 100%);
-        border: none;
-        margin: auto;
-        width: 100%;
-        page-break-inside: avoid;
-    }
-    :root{
-        font-size: 12px;
-        font-family: serif;
-    }
-
-    a{
-        text-decoration: none;
-        color: hsl(0 0% 0%);
-    }
-     a[href]::after{
-        content: attr(href);
-        display: block;
-    }
-    nav{
-        display: none;
-    }
-
-}
-
-```
-
-### 2.6.2 媒体类型为screen (@media screen)
-
-- @media screen 是设置 页面在显示器中显示成什么样, 
-- 对于打印网页的时候, 打印出来的效果, @media screen 中的设置是无效的. 
-
-
-```css
-@media screen and (prefers-color-scheme: dark){  // and (prefers-color-scheme: dark 说的是 当系统是 深色模式的时候, 这个设置才有效. ,如果系统为 为白色模式, 这个设置失效
-
-    body{
-        blockground : hsl(1 0% 0%);
-        color: hsl (); 
-    }
-
-    article{
-        border-color: hsl (0 0% 100)
-    }
-}
-```
 
 # 3 prefers-color-scheme
 https://developer.mozilla.org/zh-CN/docs/Web/CSS/@media/prefers-color-scheme

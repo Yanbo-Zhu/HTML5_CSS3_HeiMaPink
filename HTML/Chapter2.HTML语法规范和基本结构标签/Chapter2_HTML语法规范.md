@@ -32,7 +32,9 @@ https://www.w3.org/TR/wcag-3.0/
 - Ca. 10% der männlichen Bevölkerung sind Rot-Grün-blind oder Rot-Grün-schwach
 - Beachten alternativer Darstellungsformen und z. B. auch Vorlesehilfen
 - <ins>Hinterlegen von Tastaturkürzeln auf Links und Buttons mit dem Attribut <em> accesskey </em> (leider uneinheitlich zwischen Browsern, da nicht alle Access Keys verfügbar sind und es nicht standardisiert wurde) </ins>
+    - https://www.runoob.com/tags/att-global-accesskey.html
 - <ins>Beachten der Sprungreihenfolge mit der Tabulatortaste mit dem Attribut <em> tabindex </em> </ins>
+    - tabindex 全局属性 指示其元素是否可以聚焦，以及它是否/在何处参与顺序键盘导航（通常使用Tab键，因此得名）。 https://developer.mozilla.org/zh-CN/docs/Web/HTML/Global_attributes/tabindex
 - <ins>Hinterlegen von alternativen Texten und Tooltips auf Grafiken mit den Attributen  <em> alt </em>und  <em> title </em> </ins>
 - Nutzen von validiertem HTML und CSS (vgl. validator.w3.org)
 - Verzicht auf komplexe Handlungsfolgen, je nach Zielgruppe, z. B. verschachtelte (nested) Menüs oder Drag&Drop, da motorische (运动机能) Einschränkungen vorliegen könnten

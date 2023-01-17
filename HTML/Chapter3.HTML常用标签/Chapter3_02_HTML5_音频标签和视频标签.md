@@ -4,7 +4,6 @@
 
 因为多媒体标签的 属性、方法、事件比较多，因此我们需要什么功能的时候，就需要去查找相关的文档进行学习使用。
 
-
 - 音频标签和视频标签使用方式基本一致
 - 浏览器支持情况不同
 - 谷歌浏览器把音频和视频自动播放禁止了
@@ -20,6 +19,11 @@
 
 ```html
  <video src="media/mi.mp4"></video>
+
+<figure>
+ <video src="ogg"></video>
+ <figcaption>Example</figcaption>
+</figure>
 ```
 
 ![](Chapter3_Image/HTML5_006_video支持格式.png) 
@@ -32,13 +36,14 @@
 这种写法，浏览器会匹配video标签中的source，如果支持就播放，如果不支持往下匹配，直到没有匹配的格式，就提示文本
 
 <video src="media/mi.mp4" controls="controls"  width="300">
-    <source src="move.ogg" type="video/ogg" >
+    <source src="move.ogg" type='video/ogg; codecs="theora, vorbis"' >
     <source src="move.mp4" type="video/mp4" >
-    您的浏览器暂不支持 <video> 标签播放视频  //如果上两种格式， 阅览器都不支持， 就显示这句话： 您的浏览器暂不支持 <video> 标签播放视频
+    您的浏览器暂不支持 <video> 标签播放视频 (sorry, your browser does not support video)  //如果上两种格式， 阅览器都不支持， 就显示这句话： 您的浏览器暂不支持 <video> 标签播放视频
+    
 </video >
 ```
 
-### 1.1.2 video 常用属性
+### 1.1.2 video 这个 tag 的常用属性
 
 ![](Chapter3_Image/HTML5_005_video常用属性.png) 
 
@@ -57,7 +62,39 @@
 
 ```html
 <video src="media/mi.mp4" autoplay="autoplay" muted="muted"  loop="loop" poster="media/mi9.jpg"></video>
+<video autoplay preload contorls></video>
 ```
+
+### 1.1.3 Tags `<meter>` und `<progress>`
+Die Tags `<meter>` und `<progress>` beschreiben den Wert innerhalb eines Intervalls. Die korrekte Verwendung soll beispielhaft gezeigt werden:
+Die korrekte Verwendung soll beispielhaft gezeigt werden:
+`<meter value="2" min="0" max="10">2 von 10</meter>`
+
+
+### 1.1.4 canvas-Tag 
+Zahlreiche professionelle Beispiele zur Verwendung von `<canvas>` in Verbindung mit Javascript finden Sie auf chromeexperiments.com, dessen Beispiele (nicht nur) auf dem Chrome-Browser laufen.
+Ein wichtiges neues Tag dient dem Ersatz von Flash-Bestandteilen. Das canvas-Tag bietet einen Zeichenuntergrund, in dessen Kontext der Nutzer grafische Ausgaben, vergleichsweise dem Graphic Device Interface von Windows (GDI), tätigen kann. 
+
+
+Ein canvas kann auf folgende Ereignisse reagieren:
+- mousedown
+- mousemove
+- mouseup
+
+Ein Beispiel zum Zeichnen eines Images in den canvas:
+
+```html
+<canvas id="canvas" width=640 height=480></canvas>
+<script type=“text/javascript“>
+var image = document.getElementById('stencil');
+var canvas = document.getElementById('canvas');
+var context = canvas.getContext("2d");
+context.drawImage(image, 320 - image.width / 2, 240 - image.height / 2);
+</script>
+```
+
+
+
 
 ## 1.2 Audio音频
 
@@ -70,6 +107,12 @@
 
 ```html
 <audio src="media/music.mp3"></audio>
+
+
+<figure>
+ <video src="ogg"></video>
+ <figcaption>Example</figcaption>
+</figure>
 ```
 
 #### 1.2.1.1 兼容写法

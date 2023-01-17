@@ -40,7 +40,7 @@ cursor: default | pointer | move | text | not-allowed;
 </ul>
 ```
 
-## 1.2 取消表单轮廓 outline
+## 1.2 表单轮廓 outline
 
 ![图片](https://mmbiz.qpic.cn/mmbiz_png/y7EkeCWAzmqtcdL7HZYccBic0jicaWzR8bdicbvJ2vdWvVm9PuHt5WLFn7XqYAx60k0El53qx9JfgLB734At4Ru9w/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)
 是绘制于元素周围的一条线，位于边框边缘的外围，可起到突出元素的作用。
@@ -181,7 +181,7 @@ white-space设置或检索对象内文本显示方式。通常我们使用于强
 ![图片](https://mmbiz.qpic.cn/mmbiz_png/y7EkeCWAzmqtcdL7HZYccBic0jicaWzR8bJMSFBl0zS6bbLaYbicsptgr6KC0uTOEBhZViaFYNY96FibxUF3Xp3fReQ/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)
 
 ## 3.3 用例
-### 3.4 单行文本溢出省略号显示
+### 3.3.1 单行文本溢出省略号显示
 
 ```css
 /*1·先强制一行内显示文本*/ 
@@ -194,7 +194,7 @@ overflow: hidden;
 text-overflow: ellipsis;  /*ellipsis:省略号*/
 ```
 
-### 3.5 多行文本溢出显示省略号显示
+### 3.3.2 多行文本溢出显示省略号显示
 
 多行文本溢出显示省略号，有较大的兼容性问题，适合于webKit浏览器或移动端(移动端大部分是webKit内核)
 更推荐让后台人员来做这个效果，因为后台人员可以设置显示多少个字，操作更简单。

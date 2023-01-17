@@ -5,33 +5,8 @@
 
 # 2 CSS3 的其他特性
 
-## 2.1 CSS3 滤镜 filter
 
-filter CSS属性将模糊或颜色偏移等图形效果应用于元素。
-
-```
-filter: 函数();
-```
-
-例如： 
-`filter： blur(5px);` blur 模糊处理数值越大越模糊
-
-```html
-<head>
-   <style>
-        img {
-            /* blur 是一个函数，小括号里面的数值越大，图片越模糊，注意数值要加px单位 */
-            filter: blur(5px);
-        }
-    </style>
-</head>
-
-<body>
-    <img src="images/pink.jpg" alt="">
-</body>
-```
-
-## 2.2 CSS3 calc函数
+## 2.1 CSS3 calc函数
 
 此 CSS 函数让你在声明CSS属性值时执行一些计算。
 
@@ -254,7 +229,9 @@ div:hover {
 
 1. 转换transform 我们简单理解就是变形 有2D 和 3D 之分
 2. 我们暂且学了三个 分别是 位移 旋转 和 缩放
-3. 2D 移动 translate(x, y) 最大的优势是不影响其他盒子， 里面参数用%，是相对于自身宽度和高度来计算的
+3. 2D 移动 translate(x, y) 最大的优势是不影响其他盒子， <mark>里面参数用%，是相对于自身宽度和高度来计算的 </mark> (When using percentage in translate, it refers to width or height of itself. )
+    1. you can use vw and vh to translate based on the viewport size. https://stackoverflow.com/questions/11160227/translate-x-and-y-percentage-values-based-on-elements-height-and-width
+    2. `@keyframes bubbleup { 0% { transform: translateY(100vh); } 100% { transform: translateY(0vh); }}`
 4. 可以分开写比如 translateX(x) 和 translateY(y)
 5. 2D 旋转 rotate(度数) 可以实现旋转元素 度数的单位是deg
 6. 2D 缩放 sacle(x,y) 里面参数是数字 不跟单位 可以是小数 最大的优势 不影响其他盒子
@@ -265,7 +242,7 @@ div:hover {
 
 ![](image/Chapter7_CSS3新特性_2d转换_001_二维坐标系.png)
 
-## 5.3 移动 translate
+## 5.3 移动 transform: translate(x, y)
 
 2D移动是2D转换里面的一种功能，可以改变元素在页面中的位置，**类似**定位。
 
@@ -281,13 +258,17 @@ transform:translate(100px,0);
 translateX(100px);
 ```
 
-- 参数 `x, y` 可以是百分数，为盒子自身的宽度或高度。
+
 
 重点
-- 定义 2D 转换中的移动，沿着X和Y轴移动元素
-- translate 最大的优点：不会影响到其他元素的位置
-- translate 中的百分比单位是相对于 本身元素 的宽度和高度来计算的:  `trainslate:(50%，50%)`
+- 定义 2D 转换中的移动，沿着X和Y轴移动元素. 2D 移动 translate(x, y) 最大的优势是不影响其他盒子，
 - 对行内标签没有效果
+- 可以分开写比如 translateX(x) 和 translateY(y)
+- translate 最大的优点：不会影响到其他元素的位置
+- 参数 `x, y` 可以是百分数，为盒子自身的宽度或高度。 translate 中的百分比单位是相对于 本身元素 的宽度和高度来计算的:  `trainslate:(50%，50%)`
+    - you can use vw and vh to translate based on the viewport size. https://stackoverflow.com/questions/11160227/translate-x-and-y-percentage-values-based-on-elements-height-and-width
+    - `@keyframes bubbleup { 0% { transform: translateY(100vh); } 100% { transform: translateY(0vh); }}`
+
 
 ```css
 div {
@@ -310,7 +291,10 @@ div {
   /* 垂直移动 100px */
   transform: translateY(100px);
   /*百分比用法*/
-  transform: translateY(100%);   
+  transform: translateY(100%);  
+   /*vh 用法*/
+  transform: translateY(40vh);  
+  transform: translateX(70vh);
 }
 ```
 
@@ -361,7 +345,7 @@ span {
 
 
 
-## 5.4 旋转 rotate
+## 5.4 旋转 transform: rotate()
 
 值为正数则顺时针旋转，为负数则逆时针旋转。
 
@@ -447,7 +431,7 @@ transform-origin: x y;
 </body>
 ```
 
-## 5.5 缩放 scale
+## 5.5 缩放 transform: scale(x, y)
 
 缩放：`scale`,只要给元素添加上了这个属性就能控制它放大还是缩小
 
@@ -461,11 +445,11 @@ transform-origin: x y;
     - 可以设置转换中心点缩放，默认以中心点缩放的，而且不影响其他盒子
     - 可以配合 `transform-origin` 使用，改变缩放中心。
 
-## 5.6 使用
+## 5.6 使用 transform: scale(x, y)
 transform: scale(1, 1): 宽高都放大一倍，相当于没有放大
 transform: scale(2, 2): 宽和高都放大了二倍
 transform: scale(2): 如果只写了一个参数，第二个参数就和第一个参数一致
-transform:scale(0.5, 0.5): 缩小
+transform: scale(0.5, 0.5): 缩小
 
 - 参数大于 `1` 则放大，小于 `1` 则缩小。
 - `x, y` 不跟单位的话，是指缩放的倍数。
@@ -512,7 +496,6 @@ transform:scale(0.5, 0.5): 缩小
 ## 5.7 2D 转换综合写法
 
 注意：
-
 1. 同时使用多个转换，其格式为： `transform: translate(), rotate() scale()`
 2. 其顺序会影转换的效果。（先旋转会改变坐标轴方向）
 3. 当我们同时有位移和其他属性的时候，记得要将位移放到最前.
@@ -594,6 +577,7 @@ div {
 1. 可以做多个状态的变化 `keyframes` 关键帧
 2. 百分比必须是整数
 3. 百分比是总时间 `animation-duration` 的划分
+4. 不怎么用 left, top. 而 常用 transform: translate(). 因为 Das ist performanter.
 
 @keyframes 规则用来定义动画各个阶段的属性值，类似于 flash 动画中的关键帧，语法格式如下：
 语法说明如下：
@@ -983,7 +967,6 @@ from to 语法
 我们生活的环境是3D的，照片就是3D物体在2D平面呈现的例子.
 
 3D转换的特点：
-
 - 近大远小。
 - 物体后面遮挡不可见
 
@@ -1001,11 +984,8 @@ from to 语法
 ## 7.2 3D 转换知识要点
 3D 转换我们主要学习工作中最常用的 3D 位移 和 3D 旋转
 -   `3D` 位移：`translate3d(x, y, z)`
-    
 -   `3D` 旋转：`rotate3d(x, y, z)`
-    
 -   `透视` ：`perspctive`
-    
 -   `3D`呈现 `transfrom-style`
 
 ## 7.3 3D位移translate3d
@@ -1018,11 +998,8 @@ from to 语法
 3D移动在2D移动的基础上多加了一个可以移动的方向，就是z轴方向
 
 - translform:translateX(100px)：仅仅是在x轴上移动
-
 - translform:translateY(100px)：仅仅是在Y轴上移动
-
 - translform:translateZ(100px)：仅仅是在Z轴上移动（注意：translateZ一般用px单位）
-
 - transform:translate3d(x,y,z)：其中 x、y、z 分别指要移动的轴的方向的距离
 -  注意：x, y, z 对应的值不能省略，不需要填写用 0 进行填充
 
@@ -1107,6 +1084,7 @@ img:hover {
 
 -   左手的手拇指指向 y轴的正方向
 -   其余手指的弯曲方向就是该元素沿着y轴旋转的方向（正值）
+
 ![](image/Chapter7_CSS3新特性_3d转换_004_左手准则2.png)
 
 ```css
@@ -1162,36 +1140,7 @@ img:hover {
   transform: rotate3d(1, 1, 0, 180deg)
 }
 
-```4.1 鼠标样式 cursor
-cursor: default | pointer | move | text | not-allowed;
-Copy to clipboardErrorCopied
-4.2 取消表单轮廓和文本域缩放
-input {
-  outline: none;
-}
-textarea {
-  outline: none;
-  resize: none;
-}
-Copy to clipboardErrorCopied
-5. vertical-align 的应用
-vertical-align 指定行内/行内块元素的元素的垂直对齐方式。
-
-5.1 图片、表单和文字对齐 vertical-align
-img {
-  vertical-align: middle;
-}
-li {
-  disaplay: inline-block;
-  vertical-align: middle;
-}
-Copy to clipboardErrorCopied
-5.2 解决图片底部默认空白缝隙问题
-bug ：图片底侧会有一个空白缝隙，原因是行内块元素会和文字的基线对齐。主要解决方法有两种：
-
-给图片添加 vertical—align: middle topl bottom; 等。（提倡使用的）
-把图片转换为块级元素 display: block；
-
+```
 
 
 ## 7.6 3D呈现transform-style
