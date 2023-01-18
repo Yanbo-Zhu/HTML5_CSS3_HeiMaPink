@@ -19,7 +19,7 @@ Formular nicht  leeren, wenn alle Felder nicht richtig ausgefüllt sind.
 3 Anwender müssen 能够通过某个按键, 能够自己 das Formular leeren können
 
 
-# 2 表单域
+# 2 表单域 form
 
 表单域是一个包含表单元素的区域。 
 使用 `<form>` 标签用于定义表单域，手机和传递用户信息。 form 标签会将它范围内的表单元素信息提交给服务器。
@@ -28,10 +28,19 @@ Formular nicht  leeren, wenn alle Felder nicht richtig ausgefüllt sind.
 
 **语法格式**
 
-```
+```css
 <form action="url地址" method="提交方式" name="表单域名称">
   各种表单元素控件
 </form>
+
+<form action="datenaufnahmedatei.html" method="get">
+<!-- hier folgen die Formularelemente -->
+</form >
+
+<form action="mailto:max@mustermann.de" method="post" enctype="text/plain">
+<!--  weitere Formularinhalte -->
+</form>
+
 ```
 
 **常用属性：**
@@ -41,7 +50,7 @@ Formular nicht  leeren, wenn alle Felder nicht richtig ausgefüllt sind.
 | 属性     | 属性值      | 作用                                                     |
 | ------ | -------- | ------------------------------------------------------ |
 | action | url 地址   | <mark>表示向何处发送表单数据</mark>  <br/>指定接受并处理表单数据的服务器的 url 地址 |
-| method | get/post | 用于设置表单数据的提交方式，其取值为get或post                             |
+| method | get/post | 用于设置表单数据的提交方式，其取值为get或post. Wird dort der Wert get eingesetzt, hängt der Browser die Daten als Parameter an die Zieladresse, beim Wert post werden die Daten direkt an das Ziel verschickt.                          |
 | name   | 名称       | 用于指定表单名称，区分同一个页面中的多个表单域                                |
 |novalidate|  |When present, it specifies that the form-data (input) should not be validated when submitted. html 文件中 `<inpout>` 中能够设置 pattern .  `<form action="/action_page.php" novalidate>` |
 注意：
@@ -50,10 +59,10 @@ Formular nicht  leeren, wenn alle Felder nicht richtig ausgefüllt sind.
 2. 表单域是 `form` 标签。
 3. 元素属性值使用双引号语法
 4. 元素属性值可以写上的都写上
-   1. ```html
-      <input type="text" /> 
-      <input type="radio" name="name" checked="checked" />
-      ```
+ ```html
+  <input type="text" /> 
+  <input type="radio" name="name" checked="checked" />
+ ```
 
 ## 2.1 GET 和 POST 的区别
 
@@ -68,7 +77,23 @@ Formular nicht  leeren, wenn alle Felder nicht richtig ausgefüllt sind.
 | GET比POST更不安全，因为参数直接暴露在URL上，所以不能用来传递敏感信息。 <br/> 会在url 上暴露提前交的参数 | 不会在 url 上暴露提交的参数。比较安全                                               |
 
 
-# 3 如何Form表单提交且不刷新页面
+## 2.2 Formulardaten absenden
+
+Wenn der Besucher das Formular ausgefüllt hat und auf den Absendebutton klickt, werden die Daten verschickt. Wie und wohin, das können Sie natürlich bestimmen. Zum einen haben Sie die Möglichkeit, die Daten über CGI (Common Gateway Interface) an den Web-Server zu senden. Dazu benötigen Sie allerdings tiefgreifendere Programmierkenntnisse und einen Web-Server, der dies erlaubt. Das CGI-Programm übergibt dann beispielsweise die Parameter der Zeichenkette an den Server.
+
+Wir werden später sehen, daß mit JavaScript noch weitere Möglichkeiten bestehen.
+
+Es ist aber auch möglich, im Attribut action ein mailto einzubauen. Dazu schreiben Sie anstelle der URL für das CGI action="mailto:max@mustermann.de", zusammen mit den weiteren Attributen method=" post" und enctype=" text/plain". 
+Der Browser versendet die Formulardaten dann an die E-Mail-Adresse. In diesem Fall gibt es allerdings oft einige Schwierigkeiten (z.B. Umlaute oder ähnliches), sodass Sie Ihr Formular zunächst ausreichend testen sollten.
+
+```html
+<form action="mailto:max@mustermann.de" method="post" enctype="text/plain">
+<!--  weitere Formularinhalte -->
+</form>
+```
+
+
+## 2.3 如何Form表单提交且不刷新页面
 
 form表单在点击提交后会刷新整个页面，有时会影响网页功能和效果
 使之不刷新的解决思路：给form表单指定一个隐藏的iframe，这样提交表单后刷新的就是那个iframe而不是整个页面了
@@ -118,6 +143,41 @@ $("#btnSubmit").click(function(){
 });  
 ```
 
+# 3 fieldset: form 中 的 Gruppierungen
+
+Wenn Sie ebenfalls solche Gruppierungen erstellen möchten, können Sie dies einfach, indem Sie hinter das einleitende form-Tag noch ein fieldset-Tag einsetzen. 
+Dieses schließen Sie dann mit `</fieldset>` ab, wenn die Gruppe beendet ist.
+
+Möchten Sie der Gruppe noch einen "Namen" geben, setzen Sie hinter das einleitende `<fieldset>`-Element noch folgende Anweisung:
+
+`<legend>`Name der Gruppierung`</legend>`
+Anschließend können Sie mit dem weiteren Formular fortfahren.
+
+```html
+<form>
+    <fieldset>
+        <legend>Favorite Color</legend>
+        <label for="r">red</label>
+        <input id="r" type="checkbox" name="favorite_colors" value="red">
+        <input type="color" value="#DE3163">
+        <br>
+        <label for="y">yellow</label>
+        <input id="y" type="checkbox" name="favorite_colors" value="yellow">
+        <input type="color" value="#DFFF00">
+        <br>
+        <label for="g">green</label>
+        <input id="g" type="checkbox" name="favorite_colors" value="green">
+        <input type="color" value="#9FE2BF">
+        <br>
+        <label for="b">black</label>
+        <input id="b" type="checkbox" name="favorite_colors" value="black">
+        <input type="color" value="#000000">
+    </fieldset>
+</form>
+```
+
+
+
 # 4 表单控件（表单元素）
 
 在表单域中定义各种表单元素，允许用户在表单中输入或选择的内容控件。
@@ -132,7 +192,7 @@ $("#btnSubmit").click(function(){
 
 ![](Chapter3_Image/Chapter3_018_表单_例子.png)
 
-## 4.1 表单元素: select (下拉菜单)
+# 5 表单元素: select (下拉菜单)
 
 `select` 标签设置多个选项让用户选择，节约页面空间。 
 
@@ -161,13 +221,21 @@ $("#btnSubmit").click(function(){
 
 ![](Chapter3_Image/Chapter3_015_表单_003_Select下拉列表.png)
 
-### 4.1.1 Attribute
+## 5.1 Attribute
+select 这个 tag 的  Attribute
 
 |x|x|
 |---|---|
 |size |The number of visible options in the drop-down list. Default value is 1. If the multiple attribute is present, the default value is 4|
 
-### 4.1.2 例子
+option 这个 tag 的 attribue
+
+|x|x|
+|---|---|
+|selected |selected= "selected".  默认状态下就已经选上那个 |
+|multiple | Attribut multiple= " multiple ", kann er eine Mehrfachauswahl treffen, sofern dies für die Angabe notwendig ist.|
+
+## 5.2 例子
 
 ![](Chapter3_Image/Chapter3_025_表单_select.png)
 
@@ -195,12 +263,10 @@ $("#btnSubmit").click(function(){
     </select>
 ```
 
-## 4.2 表单元素:  text area 文本域
+# 6 表单元素:  text area 文本域
 
 场景：输入内容较多时。单行不再被满足
-
 textarea 用于定义多行文本输入的控件
-
 cols = “每行中的字符数” ， rows = “显示的函数”，我们在实际开发中不会使用，都是用CSS来改变大小
 
 ![](Chapter3_Image/Chapter3_014_表单_002_文本域Textarea控件.png)
@@ -233,26 +299,26 @@ cols = “每行中的字符数” ， rows = “显示的函数”，我们在�
 | textarea          | 文本域 | 可以显示多行文本 | 双标签，默认值写到标签中间    | 留言板        |
 
 
-## 4.3 表单元素: input 
+# 7 表单元素: input 
 更多input felder 的信息:  https://www.mediaevent.de/html/input.html
 
-`<input>` 标签用于收集用户信#息。 为单标签
+`<input>` 标签用于收集用户信息。 为单标签
 
 Type 属性必须给入
 ![](Chapter3_Image/Chapter3_013_表单_002_表单控件列表.png)
 
 
 
-### 4.3.1 input标签中type属性
+## 7.1 input标签中type属性
 
-```
+```css
 <input type="属性值" />
 ```
 
 - `type` 属性设置不同属性值来指定不同控件类型
 - `input` 标签包含 `type` 属性，决定了输入字段的不同形式：文本字段、复选框、掩码后的文本控件、单选按钮、按钮等。
 
-#### 4.3.1.1 input标签中type属性的常用值的列表
+### 7.1.1 type属性的常用值
 
 | 属性值      | 描述                           |
 | -------- | ---------------------------- |
@@ -269,12 +335,18 @@ Type 属性必须给入
 | number   |                              |
 | range    |                              |
 | email    |                              |
-| rul      |                              |
+| url      |                              |
 | search   |                              |
 | color    |                              |
+|tel| |
 | date     |                              |
+|datetime| |
+|week| |
+|time| |
+|datetime-local| |
 
-#### 4.3.1.2 文本框text与密码框password
+
+### 7.1.2 文本框text与密码框password
 
 type 属性设置为 text 是文本框
 type 属性设置为 password 是密码框
@@ -290,7 +362,17 @@ type 属性设置为 password 是密码框
 </body>
 ```
 
-#### 4.3.1.3 radio和 checkbox
+### 7.1.3 number
+
+![](Chapter3_Image/Chapter3_020_表单_input_number.png)
+
+```html
+<input type="number" name="num" max="100" min="0" step="10" required value="20">  
+点击上下的步长为10
+```
+
+
+### 7.1.4 radio和 checkbox
 
 - `type` 属性设置为 radio 不一定是 单选框 radio是，可以多选, 同时选上好几个radio 没问题的
   - name是表单元素的名字，这里的性别单选按钮必须有相同的名字name，才能实现 只能选一个的功能. 通过这样 就可以将多个 radio 放到一个组里面
@@ -346,7 +428,7 @@ type 属性设置为 password 是密码框
 </fieldset>
 ```
 
-#### 4.3.1.4 submit和reset
+### 7.1.5 submit和reset
 
 - `type` 属性设置为submit：提交按钮会把表单数据发送到服务器
 - ``type` 属性设置为reset：重置按钮会<mark>清除表单中的所有数据</mark>
@@ -356,7 +438,7 @@ type 属性设置为 password 是密码框
 <input type="reset" value="重新填写"> <br>  在 button 上面显示为 重新填写
 ```
 
-#### 4.3.1.5 button
+### 7.1.6 button
 
 - `type` 属性设置为button：是一个按钮
 - value 是按钮上面的字
@@ -365,42 +447,7 @@ type 属性设置为 password 是密码框
 <input type="button" value="获取短信验证码"> <br>  在 button 上面显示为 获取短信验证码
 ```
 
-#### 4.3.1.6 文件域file
-
-- `type` 属性设置为file：是一个文件域，可以上传文件
-
-```html
-<!-- 文件域：上传文件使用的 -->
-上传头像：<input type="file">
-```
-
-#### 4.3.1.7 image
-
-```html
-<input type="image" src="../image/1.jpg"> 
-图片来源与 src 处
-点击 这个图片，也会自动提交这个表单
-```
-
-#### 4.3.1.8 number
-
-![](Chapter3_Image/Chapter3_020_表单_input_number.png)
-
-```html
-<input type="number" name="num" max="100" min="0" step="10">  
-点击上下的步长为10
-```
-
-#### 4.3.1.9 滑块 range
-
-![](Chapter3_Image/Chapter3_021_表单_input_range.png)
-
-```html
-<input type="range" min="0" max="100"  name="音量" step="10">  
-点击上下的步长为10
-```
-
-#### 4.3.1.10 email, url
+### 7.1.7 email, url
 
 ```html
 <input type="email" name="email"> 
@@ -410,13 +457,42 @@ type 属性设置为 password 是密码框
 会自动验证你输入的文本里面是不是网址
 ```
 
-#### 4.3.1.11 搜索 Search
+
+### 7.1.8 文件域file
+
+- `type` 属性设置为file：是一个文件域，可以上传文件
+
+```html
+<!-- 文件域：上传文件使用的 -->
+上传头像：<input type="file">
+```
+
+### 7.1.9 image
+
+```html
+<input type="image" src="../image/1.jpg"> 
+图片来源与 src 处
+点击 这个图片，也会自动提交这个表单
+```
+
+
+### 7.1.10 滑块 range
+
+![](Chapter3_Image/Chapter3_021_表单_input_range.png)
+
+```html
+<input type="range" min="0" max="100"  name="音量" step="10">  
+点击上下的步长为10
+```
+
+
+### 7.1.11 搜索 Search
 
 ```html
 <input type="search" name="url"> 
 ```
 
-#### 4.3.1.12 List and Datalist
+### 7.1.12 List and Datalist
 
 ```html
             <fieldset>
@@ -433,7 +509,7 @@ type 属性设置为 password 是密码框
 
 ![](Chapter3_Image/Chapter3_026_表单_Input_ListAndDatalist.png)
 
-#### 4.3.1.13 color
+### 7.1.13 color
 
 <input type="color" value="#DE3163">
 <input type="color" value=""> value 值为空时， 会显示为黑色， 黑色为默认值
@@ -462,160 +538,24 @@ type 属性设置为 password 是密码框
 
 ![image-20221017233800621](Chapter3_Image/Chapter3_027_表单_Input_color.png)
 
+## 7.2 input 表单元素中的 label 标签
 
-#### 4.3.1.14 date
-
-Use HTMLInputElement.prototype.valueAsDate:
-```js
-document.getElementById('datePicker').valueAsDate = new Date();
-```
-
-### 4.3.2 input标签的其他属性 (除了 type 属性外)
-
-| 属性        | 属性值     | 描述                     |
-| --------- | ------- | ---------------------- |
-| name      | 自定义     | 定义 input 元素名称          |
-| value     | 自定义     | 规定 input 元素的值          |
-| checked   | checked | 规定此 input 元素首次加载时应当被选中 |
-| maxlength | 正整数     | 规定输入字段字符的最大长度          |
-|minlength|||
-|size||The input size attribute specifies the visible width, in characters, of an input field. The default value for size is 20. |
-|id|||
-|title||Use the global title attribute to describe the pattern to help the user.|
-|pattern||The pattern attribute works with the following input types: text, date, search, url, tel, email, and password. <br> pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"|
-
-
-#### 4.3.2.1 注意
-
-1. 对于 `radio` 单选框，必须使 `input` 的 `name` 具有相同的属性值，才能实现多选一。 同理，复选框也要有相同的`name`值。
-2. 单选框和复选框可以设置 `checked` 属性，页面打开默认选择按钮。
-3. 设置 `type` 的值为 `submit`，点击按钮后可以把表单域 form 里面的表单元素里面的值提交给后台。
-4. 设置 `type="button"`，普通按钮，后期结合 js 使用
-
-#### 4.3.2.2 name, value
-
-name 和 value 是每个表单元素都有的属性值，主要给后端人员使用。
-name 是表单元素的名字，要求 单选框和复选框要有相同的name值, value可以不一样
-
-```html
-<form>
-        用户名：<input type="text" name="username" value="请输入用户名"> <br> 
-        密码：<input type="password" name="password"> <br> 
-        radio是，可以多选, 同时选上好几个radio 没问题的
-        name是表单元素的名字，这里的性别单选按钮必须有相同的名字name，才能实现 只能选一个的功能
-        性别：男<input type="radio" name="sex" value="男"> 女 <input type="radio" name="sex" value="女">
-        <!-- checkbox是多选框，可以多选 -->
-        爱好：吃饭<input type="checkbox" name="habby" value="吃饭">  睡觉<input type="checkbox" name="habby" value="睡觉">   打游戏<input type="checkbox" name="habby" value="打游戏"> 
-</form>
-```
-
-##### 4.3.2.2.1 value属性(就是默认值)
-
-- value 默认的文本值。有些表单想刚打开页面就<mark>默认显示几个文字</mark>，就可以通过这个value 来设置。
-- `用户名:<input type="text"  name="username" value="请输入用户名"> `
-
-##### 4.3.2.2.2 name属性
-
-- name表单的名字，他的值不会显示出来 
-- 这样，后台可以通过这个name属性找到这个表单。 页面中的表单很多，name主要作用就是用于区别不同的表单。name属性：当前input表单的名字，后台可以通过这个name属性找到这个表单，name的主要作用就是用于区别不同的表单
-- name属性后面的值，是我们自己定义的。
-- radio  如果是一组，我们必须给他们命名相同的名字 name   这样就可以多个选其中的一个啦. name 是表单元素的名字，要求 单选框和复选框要有相同的name值, value可以不一样
-- name属性，我们现在用的较少，但是，当我们学ajax 和后台的时候，是必须的。
-
-`<input type="radio" name="sex"  />男`
-
-`<input type="radio" name="sex" />女`
-
-#### 4.3.2.3 checked, maxlength, minlength
-
-- checked 属性主要针对于单选框和复选框，主要作用是一打开页面，就可以默认状态下，就已经选中某个表单元素
-- maxlength:规定最多输入多少个字符
-- 单选按钮和复选框可以设置**checked** 属性
-- 当页面打开时候就可以默认选中这个按钮
-
-- <mark>单选框只能给其中一个加checked，</mark> 复选框可以给多个项加上 checked 
-  
- ```html
-    Radio 中 
-    注意 在 女不能在 写生  checked="checked"了    
-    性别:男<input type="radio" name="sex" value="男" checked="checked"> 女 <input type="radio" name="sex" value="女">   
-    
-    Checkbox 中 可以给多个项加上 checked
-    爱好：吃饭<input type="checkbox" name="habby" value="吃饭">  睡觉<input type="checkbox" name="habby" value="睡觉">   打游戏<input type="checkbox" name="habby" value="打游戏"> 
-```
-
-##### 4.3.2.3.1 checked属性
-
-表示默认选中状态。 较常见于 单选按钮和复选按钮。
-
-```html
-<input type="radio" name="sex" value="男" checked="checked" />男
-<input type="radio" name="sex" value="女" />女 
-```
-
-#### 4.3.2.4 使得这个field 只读 readonly, 禁用disable
-
-- 只读就是不能输入自己的值了
-
-- 禁用是 不能选这个值了
-
-![](Chapter3_Image/Chapter3_022_表单_input_readonly_disable_1.png)
-
-![](Chapter3_Image/Chapter3_022_表单_input_readonly_disable_2.png)
-
-#### 4.3.2.5 隐藏域 hidden
-
-虽然隐藏了， 但是这个feld 在你看不见的地方还存在。 这个功能可以用来给如一些有默认值的东西， 
-
-```html
-<input type="password" name="pwd" value="213123" hidden>
-```
-
-![](Chapter3_Image/Chapter3_023_表单_input_readonly_hidden.png)
-
-#### 4.3.2.6 placeholder 相当于提示的信息
-
-就是没有文本的时候， 这个field 上现实的提示词，一单输入了一个文本后， 这个提示词就不会再出现了
-
-```html
-<input type="text" name="username" placeholder="请输入你的用户名">
-```
-
-![](Chapter3_Image/Chapter3_024_表单_input_placeholder.png)
-
-#### 4.3.2.7 required 必须填写， 非空判断
-
-```html
-<input type="text" name="username" required>
-```
-
-
-required is a Boolean attribute which, if present, indicates that the user must specify a value for the input before the owning form can be submitted. 
-
-The required attribute is supported by text, search, url, tel, email, date, month, week, time, datetime-local, number, password, checkbox, radio, and file inputs.
-当 type 属性是 hidden、image 或者按钮类型（submit、reset 这两个 button）时不可使用。
-
-#### 4.3.2.8 pattern 正则表达式
-
-通过正则表达来审核内容
-
-```html
-<input type="text" name="username" pattern="">
-```
-
-### 4.3.3 input 表单元素中的 label 标签
-
+`label`标签的 for属性 应当与相关元素的id 属性相同
 `<label>` 标签为 input 元素定义标注。
 `<label>` 标签用于绑定一个表单元素，<mark>当点击 label 标签内的文本时，浏览器自动将焦点转到或者选择对应的表单元素上</mark>，提升用户体验。 
-`label`标签的 for属性 应当与相关元素的id 属性相同
-
-例子
 作用：用于绑定一个表单元素, 当点击label标签的时候, 被绑定的表单元素就会获得输入焦点。
 
+**语法** ： <mark>标签的 for 属性与相关元素的 id 属性 的值必须一样， 不然会报错</mark>。
+
+**for 属性**：表示Label 标签要绑定的HTML 元素，你点击这个标签的时候，所绑定的元素将获取焦点。
+
+**accesskey 属性**  
+功能：表示访问Label 标签所绑定的元素的热键，当您按下热键，所绑定的元素将获取焦点。  
+局限性：accessKey 属性所设置的快捷键不能与浏览器的快捷键冲突，否则将优先激活浏览器的快捷键。
+
+例子
 1. <mark>比如点一下用户名这三个字， 就可以把光标变到它对应的文本框中， 然后就可以输入用户名了</mark>
 2. 比如 有几个 radio buttin, 点一下 这个radio Button 对应的文字， 这个 radio 就自动选中了 
-
-**语法** ： <mark>标签的 for 属性与相关元素的 id 属性 的值必须一样， 不然会报错</mark>。
 
 ```html
 <label for="sex">男</label>
@@ -630,10 +570,9 @@ The required attribute is supported by text, search, url, tel, email, date, mont
 
 ```
 
-#### 4.3.3.1 如何绑定元素呢
+### 7.2.1 如何绑定元素呢
 
 - 第一种用法就是用label标签直接包含input表单， 适合单个表单选择
-
 - 第二种用法 for 属性规定 label 与哪个表单元素绑定(通过id)。
 
 ```html
@@ -647,7 +586,7 @@ The required attribute is supported by text, search, url, tel, email, date, mont
   <input type="radio" name="sex"  id="sex">
 ```
 
-#### 4.3.3.2 例子
+### 7.2.2 例子
 
 例子1：  点击" 用户名:" 就可以定位光标到输入框
 
@@ -667,10 +606,144 @@ The required attribute is supported by text, search, url, tel, email, date, mont
 </form>
 ```
 
-**for 属性**功能：
 
-表示Label 标签要绑定的HTML 元素，你点击这个标签的时候，所绑定的元素将获取焦点。
+### 7.2.3 date
 
-**acesskey 属性**  
-功能：表示访问Label 标签所绑定的元素的热键，当您按下热键，所绑定的元素将获取焦点。  
-局限性：accessKey 属性所设置的快捷键不能与浏览器的快捷键冲突，否则将优先激活浏览器的快捷键。
+Use HTMLInputElement.prototype.valueAsDate:
+```js
+document.getElementById('datePicker').valueAsDate = new Date();
+```
+
+## 7.3 input标签的其他属性 (除了 type 属性外)
+
+| 属性        | 属性值     | 描述                     |
+| --------- | ------- | ---------------------- |
+| name      | 自定义     | 定义 input 元素名称          |
+| value     | 自定义     | 规定 input 元素的值          |
+| checked   | checked | 规定此 input 元素首次加载时应当被选中 , 为 default 值 |
+| maxlength | 正整数     | 规定输入字段字符的最大长度          |
+|minlength|||
+|size||The input size attribute specifies the visible width, in characters, of an input field. The default value for size is 20. |
+|id|||
+|title||Use the global title attribute to describe the pattern to help the user.|
+|pattern||The pattern attribute works with the following input types: text, date, search, url, tel, email, and password. <br> pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"|
+
+
+### 7.3.1 注意
+
+1. 对于 `radio` 单选框，必须使 `input` 的 `name` 具有相同的属性值，才能实现多选一。 同理，复选框也要有相同的`name`值。
+2. 单选框和复选框可以设置 `checked` 属性，页面打开默认选择按钮。
+3. 设置 `type` 的值为 `submit`，点击按钮后可以把表单域 form 里面的表单元素里面的值提交给后台。
+4. 设置 `type="button"`，普通按钮，后期结合 js 使用
+
+
+### 7.3.2 value属性(就是默认值)
+name 和 value 是每个表单元素都有的属性值，主要给后端人员使用。
+name 是表单元素的名字，要求 单选框和复选框要有相同的name值, value可以不一样
+
+- value 默认的文本值。有些表单想刚打开页面就<mark>默认显示几个文字</mark>，就可以通过这个value 来设置。
+- `用户名:<input type="text"  name="username" value="请输入用户名"> `
+
+
+```html
+<form>
+        用户名：<input type="text" name="username" value="请输入用户名"> <br> 
+        密码：<input type="password" name="password"> <br> 
+        radio是，可以多选, 同时选上好几个radio 没问题的
+        name是表单元素的名字，这里的性别单选按钮必须有相同的名字name，才能实现 只能选一个的功能
+        性别：男<input type="radio" name="sex" value="男"> 女 <input type="radio" name="sex" value="女">
+        <!-- checkbox是多选框，可以多选 -->
+        爱好：吃饭<input type="checkbox" name="habby" value="吃饭">  睡觉<input type="checkbox" name="habby" value="睡觉">   打游戏<input type="checkbox" name="habby" value="打游戏"> 
+</form>
+```
+
+
+### 7.3.3 name属性
+name 和 value 是每个表单元素都有的属性值，主要给后端人员使用。
+name 是表单元素的名字，要求 单选框和复选框要有相同的name值, value可以不一样
+
+- name表单的名字，他的值不会显示出来 
+- 这样，后台可以通过这个name属性找到这个表单。 页面中的表单很多，name主要作用就是用于区别不同的表单。name属性：当前input表单的名字，后台可以通过这个name属性找到这个表单，name的主要作用就是用于区别不同的表单
+- name属性后面的值，是我们自己定义的。
+- radio  如果是一组，我们必须给他们命名相同的名字 name   这样就可以多个选其中的一个啦. name 是表单元素的名字，要求 单选框和复选框要有相同的name值, value可以不一样
+- name属性，我们现在用的较少，但是，当我们学ajax 和后台的时候，是必须的。
+
+`<input type="radio" name="sex"  />男`
+
+`<input type="radio" name="sex" />女`
+
+### 7.3.4 checked
+
+- checked 属性主要针对于单选框和复选框，主要作用是一打开页面，就可以默认状态下，就已经选中某个表单元素.  表示默认选中状态。 较常见于 单选按钮和复选按钮。
+- 单选按钮和复选框可以设置**checked** 属性
+- 当页面打开时候就可以默认选中这个按钮
+- <mark>单选框只能给其中一个加checked，</mark> 复选框可以给多个项加上 checked 
+  
+ ```html
+Radio 中 
+注意 在 女不能在 写生  checked="checked"了    
+性别:男<input type="radio" name="sex" value="男" checked="checked"> 女 <input type="radio" name="sex" value="女">   
+
+<input type="radio" name="sex" value="男" checked="checked" />男
+<input type="radio" name="sex" value="女" />女 
+```
+
+
+```html
+Checkbox 中 可以给多个项加上 checked
+爱好：吃饭<input type="checkbox" name="habby" value="吃饭">  睡觉<input type="checkbox" name="habby" value="睡觉">   打游戏<input type="checkbox" name="habby" value="打游戏"> 
+```
+
+### 7.3.5 maxlength, minlength
+- maxlength:规定最多输入多少个字符
+
+### 7.3.6 只读 readonly, 禁用disable
+
+- 只读就是不能输入自己的值了
+
+- 禁用是 不能选这个值了
+
+![](Chapter3_Image/Chapter3_022_表单_input_readonly_disable_1.png)
+
+![](Chapter3_Image/Chapter3_022_表单_input_readonly_disable_2.png)
+
+### 7.3.7 隐藏域 hidden
+
+虽然隐藏了， 但是这个feld 在你看不见的地方还存在。 这个功能可以用来给如一些有默认值的东西， 
+
+```html
+<input type="password" name="pwd" value="213123" hidden>
+```
+
+![](Chapter3_Image/Chapter3_023_表单_input_readonly_hidden.png)
+
+### 7.3.8 placeholder 相当于提示的信息
+
+就是没有文本的时候， 这个field 上现实的提示词，一单输入了一个文本后， 这个提示词就不会再出现了
+
+```html
+<input type="text" name="username" placeholder="请输入你的用户名">
+```
+
+![](Chapter3_Image/Chapter3_024_表单_input_placeholder.png)
+
+### 7.3.9 required 必须填写， 非空判断
+
+```html
+<input type="text" name="username" required>
+```
+
+
+required is a Boolean attribute which, if present, indicates that the user must specify a value for the input before the owning form can be submitted. 
+
+The required attribute is supported by text, search, url, tel, email, date, month, week, time, datetime-local, number, password, checkbox, radio, and file inputs.
+当 type 属性是 hidden、image 或者按钮类型（submit、reset 这两个 button）时不可使用。
+
+### 7.3.10 pattern 正则表达式
+
+通过正则表达来审核内容
+
+```html
+<input type="text" name="username" pattern="">
+```
+

@@ -1,14 +1,12 @@
-# 1 
-
-# 2 选择器分类
+# 1 选择器分类
 
 https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Selectors?retiredLocale=de#combinators
 
 CSS selectors can be grouped into the following categories based on the type of elements they can select.
 
-## 2.1 Basic selectors
+## 1.1 Basic selectors
 
-### 2.1.1 Universal selector ( *{color: red; } )
+### 1.1.1 Universal selector ( *{color: red; } )
 
 Selects all elements. Optionally, it may be restricted to a specific namespace or to all namespaces.
 
@@ -16,7 +14,7 @@ Selects all elements. Optionally, it may be restricted to a specific namespace o
 
 **Example:** `*` will match all the elements of the document.
 
-### 2.1.2 Type selector ( elementname {color: red; })
+### 1.1.2 Type selector / Element-Selektor ( elementname {color: red; })
 
 Selects all elements that have the given node name.
 
@@ -24,7 +22,7 @@ Selects all elements that have the given node name.
 
 **Example:** `input` will match any [`<input>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input) element.
 
-### 2.1.3 Class selector (.classname {color: red; } )
+### 1.1.3 Class selector (.classname {color: red; } )
 
 Selects all elements that have the given `class` attribute.
 
@@ -32,7 +30,7 @@ Selects all elements that have the given `class` attribute.
 
 **Example:** `.index` will match any element that has `class="index"`.
 
-### 2.1.4 ID selector ( #nav {color: red;} )
+### 1.1.4 ID selector ( #nav {color: red;} )
 
 Selects an element based on the value of its `id` attribute. There should be only one element with a given ID in a document.
 
@@ -40,7 +38,7 @@ Selects an element based on the value of its `id` attribute. There should be o
 
 **Example:** `#toc` will match the element that has `id="toc"`.
 
-### 2.1.5 Attribute selector ( [title] {color: red; } )
+### 1.1.5 Attribute selector ( [title] {color: red; } )
 
 Selects all elements that have the given attribute.
 
@@ -48,9 +46,9 @@ Selects all elements that have the given attribute.
 
 **Example:** `[autoplay]` will match all elements that have the `autoplay` attribute set (to any value).
 
-## 2.2 Grouping selectors
+## 1.2 Grouping selectors
 
-### 2.2.1 Selector list ( SelectorA, SelectorB )
+### 1.2.1 Selector list ( SelectorA, SelectorB )
 
 The `,` selector is a grouping method that selects all the matching nodes.
 
@@ -58,9 +56,9 @@ The `,` selector is a grouping method that selects all the matching nodes.
 
 **Example:** `div, span` will match both [`<span>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/span) and [`<div>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/div) elements.
 
-## 2.3 Combinators
+## 1.3 Combinators / Verschachtelung
 
-### 2.3.1 Descendant combinator  ( SelectorA SelectorB )
+### 1.3.1 Descendant combinator  / Nachfahrenkombinator  ( SelectorA SelectorB )
 
 The " " (space) combinator selects nodes that are descendants of the first element.
 
@@ -68,7 +66,7 @@ The " " (space) combinator selects nodes that are descendants of the first eleme
 
 **Example:** `div span` will match all [`<span>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/span) elements that are inside a [`<div>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/div) element.
 
-### 2.3.2 Child combinator ( SelectorA > SelectorB )
+### 1.3.2 Child combinator / Kindkombinator  ( SelectorA > SelectorB )
 
 The `>` combinator selects nodes that are direct children of the first element.
 
@@ -76,7 +74,7 @@ The `>` combinator selects nodes that are direct children of the first element
 
 **Example:** `ul > li` will match all [`<li>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/li) elements that are nested directly inside a [`<ul>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ul) element.
 
-### 2.3.3 General sibling combinator ( SelectorA ~ SelectorB )
+### 1.3.3 General sibling combinator / Geschwisterkombinator ( SelectorA ~ SelectorB )
 
 The `~` combinator selects siblings. This means that the second element follows the first (though not necessarily immediately), and both share the same parent.
 
@@ -84,7 +82,7 @@ The `~` combinator selects siblings. This means that the second element follow
 
 **Example:** `p ~ span` will match all [`<span>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/span) elements that follow a [`<p>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/p), immediately or not.
 
-### 2.3.4 Adjacent sibling combinator ( SelectorA + SelectorB )
+### 1.3.4 Adjacent sibling combinator  / Nachbarkombinator  ( SelectorA + SelectorB )
 
 The `+` combinator matches the second element only if it *immediately* follows the first element.
 
@@ -92,7 +90,7 @@ The `+` combinator matches the second element only if it *immediately* follo
 
 **Example:** `h2 + p` will match the first [`<p>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/p) element that *immediately* follow an [`<h2>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Heading_Elements) element.
 
-### 2.3.5 Column combinator ( SelectorA || SelectorB )
+### 1.3.5 Column combinator ( SelectorA || SelectorB )
 
 The `||` combinator selects nodes which belong to a column.
 
@@ -100,31 +98,31 @@ The `||` combinator selects nodes which belong to a column.
 
 **Example:** `col || td` will match all [`<td>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/td) elements that belong to the scope of the [`<col>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/col).
 
-## 2.4 Pseudo-classes and pseudo-elements
+## 1.4 Pseudo-classes and pseudo-elements
 
-### 2.4.1 Pseudo classes (a:visited)
+### 1.4.1 Pseudo classes (a:visited)
 
 The `:` pseudo allow the selection of elements based on state information that is not contained in the document tree.
 
 **Example:** `a:visited` will match all [`<a>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a) elements that have been visited by the user.
 
-### 2.4.2 Pseudo elements (`p::first-line)
+### 1.4.2 Pseudo elements (`p::first-line)
 
 The `::` pseudo represent entities that are not included in HTML.
 
 **Example:** `p::first-line` will match the first line of all [`<p>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/p) elements.
 
-# 3 Structure of a selector
+# 2 Structure of a selector
 
 https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Selectors?retiredLocale=de#combinators
 
-## 3.1 Simple selector
+## 2.1 Simple selector
 
 A selector with a single component, such as a single id selector or type selector, that's not used in combination with or contains any other selector component or combinator. A given element is said to match a simple selector when that simple selector accurately describes the element. 
 
 All [basic selectors](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Selectors?retiredLocale=de#basic_selectors), attributes, and single [pseudo-classes and pseudo-elements](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Selectors?retiredLocale=de#pseudo-classes_and_pseudo-elements) are simple selectors.
 
-## 3.2 Compound selector 复合选择器
+## 2.2 Compound selector 复合选择器
 
 A sequence of [simple selectors](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Selectors?retiredLocale=de#simple_selector) that are not separated by a [combinator](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Selectors?retiredLocale=de#combinators). A compound selector represents a set of simultaneous conditions on a single element. A given element is said to match a compound selector when the element matches all the simple selectors in the compound selector.
 
@@ -132,19 +130,19 @@ In a compound selector, the [type selector](https://developer.mozilla.org/en-US
 
 **Example:** `a#selected {...}`
 
-## 3.3 Complex selector
+## 2.3 Complex selector
 
 A sequence of one or more simple and/or [compound selectors](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Selectors?retiredLocale=de#compound_selector) that are separated by [combinators](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Selectors?retiredLocale=de#combinators). A complex selector represents a set of simultaneous conditions on a set of elements. These conditions apply in the context of relationships described by the combinators. A given element is said to match a complex selector when the element matches compound selectors and the combinators between the compound selectors.
 
 **Examples:** `a#selected > .icon {...}`, `.box h2 + p {...}`, `a .icon {...}`
 
-## 3.4 Relative selector
+## 2.4 Relative selector
 
 A selector that represents an element relative to one or more [anchor elements](https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-classes) preceded by a combinator. Relative selectors that don't begin with an explicit [combinator](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Selectors?retiredLocale=de#combinators) have an implied [descendant combinator](https://developer.mozilla.org/en-US/docs/Web/CSS/Descendant_combinator).
 
 **Examples:** `+ div#topic > #reference {...}`, `> .icon {...}`
 
-## 3.5 Selector list 
+## 2.5 Selector list 
 
 A comma-separated list of [simple](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Selectors?retiredLocale=de#simple_selector), [compound](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Selectors?retiredLocale=de#compound_selector), or [complex](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Selectors?retiredLocale=de#complex_selector) selectors. If the constituent selector type of a selector list is important but unspecified, it is called a *complex selector list*. A given element is said to match a selector list when the element matches any (at least one) of the selectors in that selector list. Read more about when a selector list is deemed [invalid](https://developer.mozilla.org/en-US/docs/Web/CSS/Selector_list#invalid_selector_list) and how to construct a [forgiving selector list](https://developer.mozilla.org/en-US/docs/Web/CSS/Selector_list#forgiving_selector_list).
 

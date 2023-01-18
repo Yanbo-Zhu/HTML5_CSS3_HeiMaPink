@@ -2,7 +2,7 @@
 
 选择器就是根据不同需求把不同标签选择出来。
 
-![](../Chapter1_简介/image/Chapter1_Css简介_001_css属性规则.png)
+![](image/Chapter1_Css简介_001_css属性规则.png)
 
 css中一共有哪些选择器:  https://www.w3school.com.cn/cssref/css_selectors.asp
 
@@ -15,6 +15,9 @@ css中一共有哪些选择器:  https://www.w3school.com.cn/cssref/css_selector
 
 # 3 基础选择器总结
 
+- 每个选择器都有自己的使用场景，都要掌握。
+- 如果是修改样式，类选择器是使用最多的。
+
 | 基础选择器  |                    | 作用                                                  | 特点                 | 使用情况       | 用法                        |
 | ------ | ------------------ | --------------------------------------------------- | ------------------ | ---------- | ------------------------- |
 | 标签选择器  | Type Selector      | 选中所有相同标签                                            | 不能差异化选择            | 较多         | `p{color:red;}`           |
@@ -23,15 +26,12 @@ css中一共有哪些选择器:  https://www.w3school.com.cn/cssref/css_selector
 | 通配符选择器 | Universal Selector | 选择所有标签元素                                            | 选择的太多，有部分不需要       | 特殊情况使用     | `* {color: red; }`        |
 | 属性选择器  | Attribute Selevtor | Selects all elements that have the given attribute. |                    |            | `[title] {color: red;  }` |
 
-- 每个选择器都有自己的使用场景，都要掌握。
-- 如果是修改样式，类选择器是使用最多的。
+
 
 # 4 团队约定
 
 1. 尽量少用通配符选择器 `*`。
-
 2. 尽量少用ID选择器
-
 3. 不使用无具体语义定义的标签选择器。
 
 ```css
@@ -46,13 +46,12 @@ p{}
 div{}   因为div 没有语义，我们尽量少用
 ```
 
-# 5 标签选择器 Type selector
+# 5 标签选择器 Type/Element selector  ( 类名 {} )
 
 直接用 HTML 标签名作为选择器，按标签名称分类，**为页面某一类标签指定统一的 CSS 样式。**
 
 语法
-
-```
+```css
 标签名 {
     属性1： 属性值1;
     属性2： 属性值2;
@@ -61,14 +60,13 @@ div{}   因为div 没有语义，我们尽量少用
 ```
 
 优点 标签选择器可以把某一标签全部选择出来，快速为同类型标签设置统一样式。
-
 缺点 不能设置差异化样式，只能选择全部当前标签。
 
 例子： 
 
-![](.\image\Chapter_css_简单选择器_001_标签选择器_例子.png)
+![](image/Chapter_css_简单选择器_001_标签选择器_例子.png)
 
-# 6 类选择器 class selector
+# 6 类选择器 class selector  (.类名 {} )
 
 差异化选择不同标签，单独选一个或者某个标签。
 
@@ -93,25 +91,21 @@ div{}   因为div 没有语义，我们尽量少用
 记忆口诀：样式点定义，结构类调用
 
 1. 类选择器用 `.` 标识，紧跟类名。
-
 2. 性定义的类名必须小写，使用 `-` 连接单词。
-   
-   1. ```css
-      <style>
-      .red {
-          color: red;
-      }
-      
-      .star-sing{
-          color: red;
-      }
-      </style>
-      ```
+```css
+<style>
+.red {
+  color: red;
+}
+
+.star-sing{
+  color: red;
+}
+</style>
+```
 
 3. 不要用纯数字、中文。用英文名
-
 4. 命名有意义。
-
 5. 类选择器在 HTML 中以 class 属性表示，在CSS中，类选择器以一个点 . 号表示
 
 ## 6.3 类选择器-单类名
@@ -135,11 +129,11 @@ div{}   因为div 没有语义，我们尽量少用
 - 多个类名中间必须用空格分开
 - 这个标签就可以分别具有这些类名的样式
 
-```
+```html
 <p class="class-name1 class-name2"></p>
 ```
 
-![](.\image\Chapter_css_简单选择器_003_标签选择器_一个标签多类名.png)
+![](image/Chapter_css_简单选择器_003_标签选择器_一个标签多类名.png)
 
 
 例子2
@@ -191,14 +185,12 @@ https://developer.mozilla.org/zh-CN/docs/Web/CSS/@media/prefers-color-scheme
 
 例子： 
 
-![](.\image\Chapter_css_简单选择器_002_标签选择器_例子2.png)
+![](image/Chapter_css_简单选择器_002_标签选择器_例子2.png)
 
-# 7 id 选择器
+# 7 id 选择器 ( \#id名 {}  )
 
 id 选择器可以为标有特定 id 的 HTML 元素指定特定的样式。
-
 用 `#` 来定义id， 以 id 属性来设置 id 选择器。
-
 用id 来调用这个样式
 
 记忆口诀：样式 **#** 定义，结构 **id** 调用。只能调用一次，别人切勿使用
@@ -219,46 +211,49 @@ id 选择器可以为标有特定 id 的 HTML 元素指定特定的样式。
 
 ## 7.1 例子
 
-![](.\image\Chapter_css_简单选择器_004_id选择器_例子.png)
+![](image/Chapter_css_简单选择器_004_id选择器_例子.png)
 
 ## 7.2 id 选择器与类选择器的区别
 
 1. 类选择器（class）好比人的名字，一个人可以有多个名字，同时一个名字也可以被多个人使用
-
 2. id 选择器好比人的身份证号码，全中国是唯一的，不得重复。
-
 3. id 选择器和类选择器最大的不同在于使用次数上
-
 4. 类选择器在修改样式中用的最多，id 选择器一般用于页面唯一性的元素上，经常和 JavaScript 搭配使用。
 
-# 8 通配符选择器 Univeral Selector
+IDs
+- sind eine eindeutige Bezeichnung
+- innerhalb eines HTML-Dokumentes dürfen sie nur einmal verwendet werden
+- Attribute können durch die JavaScript-Funktion „getElementById“ aufgerufen werden
+- sind auch als Ankerziele verwendbar
+
+Klassen
+- können beliebig oft verwendet werden
+- unterschiedliche Elemente können eine Klasse haben
+- sind weniger eine eindeutige Bezeichnung, vielmehr eine Zuordnung zu einer Gruppe
+
+
+# 8 通配符选择器 Univeral Selector  ( * {} )
 
 - 用 `*` 定义通配符选择器，选取页面中所有标签。对所有的标签都起作用， 不管这个标签的名字叫啥
 - 通配符选择器不需要调用，自动就给所有的元素使用样式
 - 特殊情况使用， 一般是用于清楚元素标签的内外边距
-  - ```css
-    * {
-        margin: 0;
-        padding: 0;
-    }
-    ```
 
 语法
-
-```
+```css
 * {
     属性1: 属性值1;
     ...
 }
+
+* {
+    margin: 0;
+    padding: 0;
+}
 ```
 
-```
-
-```
 
 例子： 
-
-  ![](.\image\Chapter_css_简单选择器_005_通配符选择器_例子.png)
+  ![](image/Chapter_css_简单选择器_005_通配符选择器_例子.png)
 
 # 9 属性选择器 Attribute Selector (css3 新特性)
 
@@ -275,12 +270,97 @@ Selects all elements that have the given attribute.
 |`E[att$=val]`|匹配具有att属性,且值以val结尾的E元素| 
 |`E[att*=val]`|匹配具有att属性,且值中含有val的E元素|
 
-## 9.1 Syntax: 
-[attr] [attr=value] [attr~=value] [attr|=value] [attr^=value] [attr$=value] [attr*=value]
+## 9.1 Syntax
+```
+[attr] 
+[attr=value]
+[attr~=value] 
+[attr|=value]
+[attr^=value]
+[attr$=value] 
+[attr*=value]
+
+```
+
+
+|x|x|
+|---|---|
+| `[attributname=attributwert]` |die direkte Ansprache über einen festen Wert|
+|`[attributname~=attributwert]`| Ermittlung eines Wertes innerhalb einer Zeichenkette welches mit Leerzeichen vom Rest der Zeichenkette getrennt steht|
+| `[attributname\|=attributwert]` | Ermittlung eines Wertes am Anfang einer Zeichenkette welches durch einen Bindestrich vom Rest der Zeichenkette steht |
+
+
+```css
+/* Elemente mit dem Attribut »type« die den Wert »submit« besitzen bekommen einen gelben Hintergrund */
+[type=submit] {
+  background: yellow;
+}
+
+/* Elemente mit dem Attribut "title" die den Wert "webprogrammierung", mit Leerzeichen getrennt, in der Zeichenkette beinhalten werden blau geschrieben */
+[title~=webprogrammierung] {
+  color: green;
+}
+
+/* Elemente mit dem Attribut "class" die den Wert "dummy", am Anfang einer Zeichenkette haben und auf den ein Bindestrich folgt werden rot geschrieben */
+[class|=dummy] {
+  color: red;
+}
+```
+
+```html
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8">
+    <title>Beispiel zu Attributselektoren - Attributwert</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <h1>Beispiel zu Attributselektoren - Attributwert</h1>
+    <input type="submit" value="Ich habe den Type Submit">
+    <input type="text" value="Ich habe den Type Text">
+
+    <p>Für die gezielte Gestaltung einer Webseite ist es von Nöten nicht nur <a href="#" title="Hier steht webprogrammierung im Title">HTML</a> sondern auch Kentnisse in <a href="#" title="Hier steht irgend ein Title">CSS</a> zu besitzen.</p>
+
+    <ul>
+      <li class="dummy-1">Ich bin Punkt 1</li>
+      <li class="dummy-2">Ich bin Punkt 2</li>
+      <li class="dummy3">Ich bin Punkt 3</li>
+    </ul>
+  </body>
+</html>
+```
 
 ## 9.2 例子
 
 更多例子见 [Attribute selectors - CSS&colon; Cascading Style Sheets | MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/Attribute_selectors)
+
+
+```css
+
+[title] {
+	border: 3px solid green;
+}
+
+<!DOCTYPE html>
+  <html lang="de">
+    <head>
+      <meta charset="utf-8">
+      <title>Beispiel zu Attributpräsenz - Grafiken im HTML-Dokument</title>
+      <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+      <h1>Grafiken</h1>
+      <p>
+        Fahren Sie doch auch mal mit der Maus über die Grafik.<br>
+        <img src="html_img_einbinden.jpg" title="Deko">
+      </p>
+    </body>
+ </html>
+ 
+
+```
+
 
 ```css
 [autoplay] will match all elements that have the autoplay attribute set (to any value).
@@ -319,6 +399,7 @@ input[type=text] {
     color: lightseagreen;
   }
 ```
+
 ### 9.2.1 例子1
 
 ```css

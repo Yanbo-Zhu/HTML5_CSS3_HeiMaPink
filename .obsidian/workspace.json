@@ -4,29 +4,17 @@
     "type": "split",
     "children": [
       {
-        "id": "92b61285ca17177a",
+        "id": "f313468d24904868",
         "type": "tabs",
         "children": [
           {
-            "id": "b787ac6daa5e4d9d",
+            "id": "56d2976ab6e524fd",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "CSS/Chapter7_CSS3新特性/Chapter7_CSS3新特性.md",
+                "file": "CSS/Chapter4_元素显示模式blockInline_背景_文字文本属性/Chapter2_02_字体属性_文本属性.md",
                 "mode": "source",
-                "source": true
-              }
-            }
-          },
-          {
-            "id": "543326d0754317d8",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "CSS/Chapter5_页面布局_元素的显示与隐藏/Chapter5_页面布局_04_元素的显示与隐藏.md",
-                "mode": "preview",
                 "source": true
               }
             }
@@ -60,7 +48,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "animation-timing-function",
+                "query": "table",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -89,7 +77,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "CSS/Chapter7_CSS3新特性/Chapter7_CSS3新特性.md",
+                "file": "CSS/Chapter4_元素显示模式blockInline_背景_文字文本属性/Chapter2_02_字体属性_文本属性.md",
                 "collapseAll": true,
                 "extraContext": true,
                 "sortOrder": "alphabetical",
@@ -106,7 +94,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "CSS/Chapter7_CSS3新特性/Chapter7_CSS3新特性.md",
+                "file": "CSS/Chapter4_元素显示模式blockInline_背景_文字文本属性/Chapter2_02_字体属性_文本属性.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -129,7 +117,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "CSS/Chapter7_CSS3新特性/Chapter7_CSS3新特性.md"
+                "file": "CSS/Chapter4_元素显示模式blockInline_背景_文字文本属性/Chapter2_02_字体属性_文本属性.md"
               }
             }
           }
@@ -151,17 +139,17 @@
       "workspaces:管理工作区布局": false
     }
   },
-  "active": "ba7b1296865c75fc",
+  "active": "56d2976ab6e524fd",
   "lastOpenFiles": [
-    "HTML/Chapter2.HTML语法规范和基本结构标签/Chapter2_HTML语法规范.md",
-    "HTML/Chapter3.HTML常用标签/Chapter3_03_表格标签和列表标签.md",
-    "CSS/Chapter7_CSS3新特性/Chapter7_CSS3新特性.md",
-    "CSS/Chapter4_元素显示模式blockInline_背景_文字文本属性/Chapter2_02_字体文本属性.md",
-    "CSS/Chapter5_页面布局_元素的显示与隐藏/Chapter5_页面布局_04_元素的显示与隐藏.md",
-    "CSS/Chapter6_CSS高级/Chapter6_CSS高级_02_用户界面样式_align_溢出文字省略显示_界面布局技巧.md",
-    "CSS/Chapter6_CSS高级/Chapter6_CSS高级_03_其他.md",
+    "CSS/Chapter4_盒子模型/Chapter4_盒子模型_04_Padding_margin_boxSizing.md",
+    "CSS/Chapter4_盒子模型/Chapter4_盒子模型_01_总览.md",
+    "CSS/Chapter5_页面布局/Chapter6_CSS高级_02_用户界面样式_align_溢出文字省略显示_界面布局技巧.md",
+    "CSS/Chapter5_页面布局/Chapter5_页面布局_04_元素的显示与隐藏.md",
+    "CSS/Chapter5_页面布局/Chapter5_页面布局_01_对齐.md",
+    "CSS/Chapter4_盒子模型/Chapter4_盒子模型_03_width_height_border.md",
+    "CSS/Chapter4_元素显示模式blockInline_背景_文字文本属性/Chapter2_02_字体文本属性_高度_宽度_对齐.md",
     "CSS/Chapter6_CSS高级/Chapter6_CSS高级_01_精灵图_字体图标.md",
-    "CSS/Chapter5_页面布局_元素的显示与隐藏/image/Chapter5_页面布局_元素的显示与隐藏_visibility可见性.png",
-    "CSS/Chapter4_元素显示模式blockInline_背景_文字文本属性/Chapter4_05_CSS背景.md"
+    "CSS/Chapter6_CSS高级/Chapter6_CSS高级_03_图形_calc函数.md",
+    "CSS/Chapter4_盒子模型/Chapter4_盒子模型_02_CSS5中新增的特性.md"
   ]
 }

@@ -71,41 +71,4 @@ border-right
 ### 2.2.3 注意就近原则， 下面定义的会覆盖掉上面定义的
 ![](image/Chapter4_css_盒子模型_边框_简写_重叠性.png)
 
-## 2.3 表格的细线边框 (合并相邻的边框)
-
-border-collapse 属性控制浏览器绘制表格边框的方式。它控制相邻单元格的边框。
-
-语法
-border-collapse: collapse;
-
-- collapse 是合并的意思
-- border-collapse:collapse; 表示将相邻边框合并在一起
-
-通过表格的`cellspacing="0"`,将单元格与单元格之间的距离设置为0. 
-但是两个单元格之间的边框会出现重叠，从而使边框变粗
-通过css属性：table{ border-collapse:collapse; } : `collapse` 单词是合并的意思,`border-collapse: collapse;`表示相邻边框合并在一起。
-
-```css
-<style> 
-  table {  
-   width: 500px;  
-   height: 300px;  
-   border: 1px solid red;  
-   /* border-width:5px*/
-   /* border-style:soild*/
-   /* border-color:pink*/
- }  
- td {  
-  border: 1px solid red;  
-  text-align: center;  
- }  
- table, td， th {  
-  border-collapse: collapse;  /*合并相邻边框*/  
-  border: 1px solid pink;
-  font-size: 14px
-  text-aligh: center 
- }
- 
- </style>
-```
 

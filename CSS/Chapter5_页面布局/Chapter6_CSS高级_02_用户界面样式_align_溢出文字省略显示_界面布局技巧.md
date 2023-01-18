@@ -7,7 +7,6 @@
 - 防止表单域拖拽
 
 
-
 | 属性   | 用途            | 用途                                    |
 | ---- | ------------- | ------------------------------------- |
 | 鼠标样式 | 更改鼠标样式cursor  | 样式很多，重点记住 pointer                     |
@@ -73,104 +72,15 @@ textarea {
 <textarea  style="resize: none;"></textarea>
 ```
 
-# 2 align
 
-## 2.1 其他类型的居中
--   有宽度的块级元素居中对齐，是margin: 0 auto;
--   让文字居中对齐，是 text-align: center;
-
-## 2.2 vertical-align
-
-`vertical-align` 指定行内/行内块元素的元素的垂直对齐方式。
-
-- 使用场景：经常用于设置**图片**或者**表单（行内块元素）**和**文字垂直对齐**。
-- 官方解释：用于设置一个元素的垂直对齐方式，但是它只针对于**行内元素**或者**行内块元素**有效
-    - 特别是行内块元素， 通常用来控制图片/表单与文字的对齐。
-
-### 2.2.1 属性值
-
-vertical-align: baseline | top | middle | bottom
-
-| 值        | 描述                        |
-| -------- | ------------------------- |
-| baseline | 默认，元素放置在父元素的基线上           |
-| top      | 把元素的顶端与行中最高元素的顶端对齐（顶线对齐）  |
-| middle   | 把此元素放置在父元素的中部（中线对齐）       |
-| bottom   | 把元素的顶端与行中最低的元素的顶端对齐（底线对齐） |
-
-![在这里插入图片描述](https://img-blog.csdnimg.cn/2f7832a64527405181bd3edbcd3a736a.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0F1Z2Vuc3Rlcm5fUVhM,size_16,color_FFFFFF,t_70#pic_center)
-
-![图片](https://mmbiz.qpic.cn/mmbiz_png/y7EkeCWAzmqtcdL7HZYccBic0jicaWzR8bX32nStNY16aY9odqroA3Mpia6nia2fuh9DYmYCszG7V1to2VsNwibY8Sg/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)
-
-### 2.2.2 图片、表单和文字居中对齐 vertical-align (vertical-align: middle)
-
-图片、表单都属于行内块元素，默认的 vertical-align 是基线对齐。
-此时可以给图片、表单这些行内块元素的 vertical-align 属性设置为 middle 就可以让文字和图片垂直居中对齐了。
-
-```css
-img {
-  vertical-align: middle;
-}
-li {
-  disaplay: inline-block;
-  vertical-align: middle;
-}
-```
-
-#### 2.2.2.1 重点
-
-vertical-align：middle的作用机制就是对齐基线，这里之所以<mark>要设置line-height（最关键的）就是要让首行匿名元素（空白节点）处于父容器基线左右的位置</mark>，然后内联元素设置了vertical-align:middle才会对齐这个节点，否则是无效的！！！！
-
-![在这里插入图片描述](https://img-blog.csdnimg.cn/159dbd0d98f941f5b17eb713341d3c64.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0F1Z2Vuc3Rlcm5fUVhM,size_16,color_FFFFFF,t_70#pic_center)
-
-您可以狠狠地点击这里：[CSS3 width:fill-available下的垂直居中demo](https://www.zhangxinxu.com/study/201605/width-fill-available.html)
-
-![块状元素尺寸表现内联元素垂直居中行为](https://image.zhangxinxu.com/image/blog/201605/2016-05-20_004332.png)
-
-完整关键CSS代码如下：
-
-```css
-.box {
-    height: 200px; 
-    /* 行高控制垂直居中 */
-    line-height: 200px;
-}
-.fill-available {
-    /* 元素内联，响应行高和vertical-align控制 */
-    display: inline-block;
-    vertical-align: middle;
-
-    /* 宽度如块状元素般表现 */
-    width: -webkit-fill-available;
-    width: -moz-fill-available;
-    width: -moz-available;    /* FireFox目前这个生效 */
-    width: fill-available;
-}
-```
-
-### 2.2.3 解决图片底部默认空白缝隙问题
-
-bug ：图片底侧会有一个空白缝隙，原因是行内块元素会和文字的基线对齐。给图片加边框就可以看见
-![在这里插入图片描述](https://img-blog.csdnimg.cn/6ab28389075f4478a70a11cae3e5a58e.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0F1Z2Vuc3Rlcm5fUVhM,size_16,color_FFFFFF,t_70#pic_center)
-![图片](https://mmbiz.qpic.cn/mmbiz_png/y7EkeCWAzmqtcdL7HZYccBic0jicaWzR8boGWdjhQUvkicibGiaRYd0KDL2Y1kmqWLl75piaeMlRTMVh4go056Pj1OLA/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)
-
-
-主要解决方法有两种：
-
-1. 给图片添加 `vertical—align: middle topl bottom;` 等。（提倡使用的）
-    1. ![图片](https://mmbiz.qpic.cn/mmbiz_png/y7EkeCWAzmqtcdL7HZYccBic0jicaWzR8bNO8sogwyKtqHT6Bg0iaDeAkWqlbbSWqKJIGqtt8As1oFz17wBkQYb4g/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)
-2. 把图片转换为块级元素 `display: block；`, 给img 添加 display：block; 转换为块级元素就不会存在问题了。
-
-## 2.3 horizontal-align
-
-# 3 溢出文字省略显示
-## 3.1 white-space
+# 2 溢出文字省略显示
+## 2.1 white-space
 
 white-space设置或检索对象内文本显示方式。通常我们使用于强制一行显示内容    
 `white-space:normal ；默认处理方式     `
 `white-space:nowrap ； 强制在同一行内显示所有文本，直到文本结束或者遭遇br标签对象才换行。   `
 
-## 3.2 text-overflow 文字溢出
+## 2.2 text-overflow 文字溢出
 
 设置或检索是否使用一个省略标记（...）标示对象内文本的溢出
 `text-overflow : clip ；不显示省略标记（...），而是简单的裁切       `
@@ -180,8 +90,8 @@ white-space设置或检索对象内文本显示方式。通常我们使用于强
 
 ![图片](https://mmbiz.qpic.cn/mmbiz_png/y7EkeCWAzmqtcdL7HZYccBic0jicaWzR8bJMSFBl0zS6bbLaYbicsptgr6KC0uTOEBhZViaFYNY96FibxUF3Xp3fReQ/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)
 
-## 3.3 用例
-### 3.3.1 单行文本溢出省略号显示
+## 2.3 用例
+### 2.3.1 单行文本溢出省略号显示
 
 ```css
 /*1·先强制一行内显示文本*/ 
@@ -194,7 +104,7 @@ overflow: hidden;
 text-overflow: ellipsis;  /*ellipsis:省略号*/
 ```
 
-### 3.3.2 多行文本溢出显示省略号显示
+### 2.3.2 多行文本溢出显示省略号显示
 
 多行文本溢出显示省略号，有较大的兼容性问题，适合于webKit浏览器或移动端(移动端大部分是webKit内核)
 更推荐让后台人员来做这个效果，因为后台人员可以设置显示多少个字，操作更简单。
@@ -213,21 +123,21 @@ display: -webkit-box;
 -webkit-box-orient : vertical;
 ```
 
-# 4 常见布局技巧
+# 3 常见布局技巧
 
-## 4.1 margin负值的运用
+## 3.1 margin负值的运用
 
 1. 解决并排盒子之间的边框宽度加倍问题。 原理：让每个盒子压住前面的盒子，边框叠加。
 2. 鼠标移动边框颜色变化效果。
 
-### 4.1.1 有两个盒子
+### 3.1.1 有两个盒子
 
 - 两个盒子加边框1px，浮动，贴紧会出现 1 + 1 = 2px
 - 给右边盒子添加`margin-left: -1px`
 - 正数向右边走，负数向左边走
   ![在这里插入图片描述](https://img-blog.csdnimg.cn/49161c07333346c990eab8dca70b4425.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0F1Z2Vuc3Rlcm5fUVhM,size_16,color_FFFFFF,t_70#pic_center)
 
-### 4.1.2 有多个盒子
+### 3.1.2 有多个盒子
 
 https://blog.csdn.net/Augenstern_QXL/article/details/119172527
 
@@ -283,7 +193,7 @@ ul li {
 </body>
 ```
 
-## 4.2 文字围绕浮动元素巧妙运用
+## 3.2 文字围绕浮动元素巧妙运用
 
 原理：浮动元素不会遮住文字。
 
@@ -295,7 +205,7 @@ div {
 
 ![在这里插入图片描述](https://img-blog.csdnimg.cn/71377b1f43f34ff1aaf153cf1dceb0b6.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0F1Z2Vuc3Rlcm5fUVhM,size_16,color_FFFFFF,t_70#pic_center)
 
-## 4.3 行内块元素巧妙运用
+## 3.3 行内块元素巧妙运用
 
 ![在这里插入图片描述](https://img-blog.csdnimg.cn/7d1aaaf6a6d549e7b1a90c25447fb370.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0F1Z2Vuc3Rlcm5fUVhM,size_16,color_FFFFFF,t_70#pic_center)
 

@@ -3,48 +3,8 @@
 ![](image/Chapter7_CSS3新特性_总结_001.png)
 ![](image/Chapter7_CSS3新特性_总结_002.png)
 
-# 2 CSS3 的其他特性
 
-
-## 2.1 CSS3 calc函数
-
-此 CSS 函数让你在声明CSS属性值时执行一些计算。
-
-```
-width: calc(100%-30px);
-/* 子盒子永远比父盒子小30px */
-```
-
-括号里面可以使用 `+ - * /` 来进行计算。
-
-```html
-<head> 
-   <style>
-        .father {
-            width: 300px;
-            height: 200px;
-            background-color: pink;
-        }
-
-        .son {
-            /* width: 150px; */
-            /* son盒子和父亲一样宽，都是100%，son盒子-30px */
-            width: calc(100%-30px);
-            height: 30px;
-            background-color: skyblue;
-        }
-    </style>
-</head>
-
-<body>
-    <!-- 需求：我们的子盒子宽度永远比父盒子小30像素 -->
-    <div class="father">
-        <div class="son"></div>
-    </div>
-</body>
-```
-
-# 3 浏览器私有属性
+# 2 浏览器私有属性
 
 浏览器私有前缀是为了兼容老版本的写法，比较新版本的浏览器无须添加。
 
@@ -63,14 +23,14 @@ width: calc(100%-30px);
    border-radius: 10px;
    ```
 
-# 4 属性的过渡 (transition)
+# 3 属性的过渡 (transition)
 
 过渡（transition）是CSS3中具有颠覆性的特征之一，我们可以在不使用Flash动画或JavaScript的情况下，当元素从一种样式变换为另一种样式时为元素添加效果。
 过渡动画：是从一个状态渐渐的过渡到另外一个状态 可以让我们页面更好看，更动感十足，虽然低版本浏览器不支持（ie9以下版本）但是不会影响页面布局。
 
 我们现在经常和 :hover 一起搭配使用。
 
-## 4.1 transition 的属性
+## 3.1 transition 的属性
 「定义」过渡transition是一个复合属性，包括transition-property、transition-duration、transition-timing-function、transition-delay这四个子属性。通过这四个子属性的配合来完成一个完整的过渡效果。
 
 ```css
@@ -108,7 +68,7 @@ transition-delay: 过渡延迟时间(默认值为0s)
 ~~~html
 <div class="test"></div>
 ```
-### 4.1.1 过渡属性 transition-property
+### 3.1.1 过渡属性 transition-property
 -   值: none | all | `<transition-property>[,<transition-property>]`
     -   none: 没有指定任何样式
     -  all: 默认值，表示指定元素所有支持transition-property属性的样式
@@ -121,7 +81,7 @@ transition-delay: 过渡延迟时间(默认值为0s)
 -   `<transition-property>`: 可过渡的样式，可用逗号分开写多个样式
 
 
-### 4.1.2 过渡持续时间 transition-duration
+### 3.1.2 过渡持续时间 transition-duration
 Demo 见 https://mp.weixin.qq.com/s?__biz=MzU0Mjg0MzI1Nw==&mid=2247484170&idx=1&sn=7e524ed872a5242e3cd5c9595afb7ff1&chksm=fb15cb1ccc62420a5ee1ed5735e069a63fe04512e6d219effc28d794c8a7a323cfc44e9bc325&scene=178&cur_album_id=1517142067985088512#rd
 
 -   值: `<time>[,<time>]*`
@@ -132,7 +92,7 @@ Demo 见 https://mp.weixin.qq.com/s?__biz=MzU0Mjg0MzI1Nw==&mid=2247484170&idx=1&
 -   [注意]若该属性为0s则为默认值，若为0则为无效值。所以必须带单位
 -   [注意]该值为单值时，即所有过渡属性都对应同样时间；该值为多值时，过渡属性按照顺序对应持续时间
 
-### 4.1.3 过渡时间函数 timing-function
+### 3.1.3 过渡时间函数 timing-function
 过渡时间函数用于定义元素过渡属性随时间变化的过渡速度变化效果
 
 -   值: `<timing-function>[,<timing-function>]*`
@@ -151,7 +111,7 @@ Demo 见 https://mp.weixin.qq.com/s?__biz=MzU0Mjg0MzI1Nw==&mid=2247484170&idx=1&
 
 
 
-## 4.2 复合写法
+## 3.2 复合写法
 ```css
 transition: 要过渡的属性 花费时间 运动曲线 何时开始;
 ```
@@ -162,7 +122,7 @@ transition: 要过渡的属性 花费时间 运动曲线 何时开始;
     - 当两个时间同时出现时，第一个是transition-duration，第二个是transition-delay；
     - 当只有一个时间时，它是transition-duration，而transition-delay为默认值0s
 
-### 4.2.1 例子
+### 3.2.1 例子
 
 
 ```css
@@ -216,7 +176,7 @@ div:hover {
 </body>
 ```
 
-# 5 2D 转换 transform
+# 4 2D 转换 transform
 
 转换（`transform`）是 CSS3 中具有颠覆性的特征之一，可以实现元素的位移、旋转、缩放等效果。
 
@@ -225,7 +185,7 @@ div:hover {
 - 旋转：`rotate`
 - 缩放：`scale`
 
-## 5.1 总结
+## 4.1 总结
 
 1. 转换transform 我们简单理解就是变形 有2D 和 3D 之分
 2. 我们暂且学了三个 分别是 位移 旋转 和 缩放
@@ -238,11 +198,11 @@ div:hover {
 7. 设置转换中心点 transform-origin : x y; 参数可以百分比、像素或者是方位名词
 8. l当我们进行综合写法，同时有位移和其他属性的时候，记得要将位移放到最前
 
-## 5.2 二维坐标系
+## 4.2 二维坐标系
 
 ![](image/Chapter7_CSS3新特性_2d转换_001_二维坐标系.png)
 
-## 5.3 移动 transform: translate(x, y)
+## 4.3 移动 transform: translate(x, y)
 
 2D移动是2D转换里面的一种功能，可以改变元素在页面中的位置，**类似**定位。
 
@@ -298,7 +258,7 @@ div {
 }
 ```
 
-### 5.3.1 让盒子实现水平和垂直居中
+### 4.3.1 让盒子实现水平和垂直居中
 
 ```css
 /*子绝父相*/
@@ -345,7 +305,7 @@ span {
 
 
 
-## 5.4 旋转 transform: rotate()
+## 4.4 旋转 transform: rotate()
 
 值为正数则顺时针旋转，为负数则逆时针旋转。
 
@@ -389,7 +349,7 @@ img:hover {
 </body>
 ```
 
-### 5.4.1 2D转换中心点 transform-origin
+### 4.4.1 2D转换中心点 transform-origin
 
 我们可以通过设置 `transform-origin` 设置元素转换的中心点。
 
@@ -431,7 +391,7 @@ transform-origin: x y;
 </body>
 ```
 
-## 5.5 缩放 transform: scale(x, y)
+## 4.5 缩放 transform: scale(x, y)
 
 缩放：`scale`,只要给元素添加上了这个属性就能控制它放大还是缩小
 
@@ -445,7 +405,7 @@ transform-origin: x y;
     - 可以设置转换中心点缩放，默认以中心点缩放的，而且不影响其他盒子
     - 可以配合 `transform-origin` 使用，改变缩放中心。
 
-## 5.6 使用 transform: scale(x, y)
+## 4.6 使用 transform: scale(x, y)
 transform: scale(1, 1): 宽高都放大一倍，相当于没有放大
 transform: scale(2, 2): 宽和高都放大了二倍
 transform: scale(2): 如果只写了一个参数，第二个参数就和第一个参数一致
@@ -493,7 +453,7 @@ transform: scale(0.5, 0.5): 缩小
 </body>
 ```
 
-## 5.7 2D 转换综合写法
+## 4.7 2D 转换综合写法
 
 注意：
 1. 同时使用多个转换，其格式为： `transform: translate(), rotate() scale()`
@@ -522,19 +482,19 @@ transform: scale(0.5, 0.5): 缩小
 </body>
 ```
 
-# 6 动画 animation
+# 5 动画 animation
 
 动画( animation ) 是 CSS3 中具有颠覆性的特征之一，可通过设置多个节点来精确控制一个或一组动画，常用来实现复杂的动画效果。
 相比较过渡，动画可以实现更多变化，更多控制，连续自动播放等效果。
 
-## 6.1 动画的基本使用
+## 5.1 动画的基本使用
 
 分为两步：
 
 1. 定义动画 (动画序列 `%α`)
 2. 使用/调用动画
 
-### 6.1.1 用keyframs定义一个动画
+### 5.1.1 用keyframs定义一个动画
 
 ```css
  /* 1. 定义动画 */
@@ -550,7 +510,7 @@ transform: scale(0.5, 0.5): 缩小
 }
 ```
 
-### 6.1.2 调用动画
+### 5.1.2 调用动画
 
 ```css
 div {
@@ -565,7 +525,7 @@ div {
 }
 ```
 
-## 6.2 动画序列 (@keyframes 规则)
+## 5.2 动画序列 (@keyframes 规则)
 
 - 0% 是动画的开始，100% 是动画的完成。这样的规则就是动画序列。
 - 在 @keyframes 中规定某项 CSS 样式，就能创建由当前样式逐渐改为新样式的动画效果。
@@ -646,7 +606,7 @@ properties：不同的样式属性名称，例如 color、left、width 等等。
   </style>
 ```
 
-## 6.3 动画常用属性
+## 5.3 动画常用属性
 http://c.biancheng.net/css3/animation.html
 
 | 属性                          | 描述                                        |
@@ -689,7 +649,7 @@ div:hover {
 }
 ```
 
-### 6.3.1 动画简写属性
+### 5.3.1 动画简写属性
 
 ```css
 animation: animation-name animation-duration animation-timing-function animation-delay animation-iteration-count animation-direction animation-fill-mode animation-play-state;
@@ -705,7 +665,7 @@ animation: myfirst 5s linear 2s infinite alternate;
 
 
 
-### 6.3.2 速度曲线细节 animation-timing-function
+### 5.3.2 速度曲线细节 animation-timing-function
 
 `animation-timing-function`：规定动画的速度曲线，默认是“ease”. 用来设置动画播放的速度曲线，通过速度曲线的设置可以使动画播放的更为平滑
 
@@ -790,7 +750,7 @@ div {
 ![animation-timing-function 属性演示](http://c.biancheng.net/uploads/allimg/210810/110H04454-1.gif)
 
 
-### 6.3.3 animation-fill-mode
+### 5.3.3 animation-fill-mode
 animation-fill-mode 属性用来设置当动画不播放时（开始播放之前或播放结束之后）动画的状态（样式），属性的可选值如下：
 
 |值	|描述|
@@ -832,7 +792,7 @@ animation-fill-mode 属性用来设置当动画不播放时（开始播放之前
 </html>
 ```
 
-### 6.3.4 animation-delay
+### 5.3.4 animation-delay
 
 animation-delay 属性用来定义动画开始播放前的延迟时间，单位为秒或者毫秒，属性的语法格式如下：
 animation-delay: time;
@@ -877,7 +837,7 @@ animation-delay: time;
 
 ![animation-delay 属性演示](http://c.biancheng.net/uploads/allimg/210810/110H05S4-2.gif)
 
-### 6.3.5 animation-direction
+### 5.3.5 animation-direction
 animation-direction 属性用来设置是否轮流反向播放动画，属性的可选值如下：
 
 |值	|描述|
@@ -889,7 +849,7 @@ animation-direction 属性用来设置是否轮流反向播放动画，属性的
 
 ![animation-direction 属性演示](http://c.biancheng.net/uploads/allimg/210810/110H055P-4.gif)
 
-## 6.4 整体示例
+## 5.4 整体示例
 
 需求：我们想页面一打开，一个盒子就从左边走到右边
 
@@ -962,7 +922,7 @@ from to 语法
 ```
 
 
-# 7 3D 转换
+# 6 3D 转换
 
 我们生活的环境是3D的，照片就是3D物体在2D平面呈现的例子.
 
@@ -972,7 +932,7 @@ from to 语法
 
 当我们在网页上构建3D效果的时候参考这些特点就能产出3D效果。
 
-## 7.1 三维坐标系
+## 6.1 三维坐标系
 
 三维坐标系其实就是指立体空间，立体空间是由3个轴共同组成的。
 ![](image/Chapter7_CSS3新特性_3d转换_001_三位坐标系.png)
@@ -981,14 +941,14 @@ from to 语法
 - y轴：垂直向下 **注意： y 下面是正值，上面是负值**
 - z轴：垂直屏幕 **注意： 往外面是正值，往里面是负值**
 
-## 7.2 3D 转换知识要点
+## 6.2 3D 转换知识要点
 3D 转换我们主要学习工作中最常用的 3D 位移 和 3D 旋转
 -   `3D` 位移：`translate3d(x, y, z)`
 -   `3D` 旋转：`rotate3d(x, y, z)`
 -   `透视` ：`perspctive`
 -   `3D`呈现 `transfrom-style`
 
-## 7.3 3D位移translate3d
+## 6.3 3D位移translate3d
 ```css
   transform: translate3d(100px, 100px, 100px)  
   /* 注意：x, y, z 对应的值不能省略，不需要填写用 0 进行填充 */  
@@ -1005,7 +965,7 @@ from to 语法
 
 因为z轴是垂直屏幕，由里指向外面，所以默认是看不到元素在z轴的方向上移动
 
-## 7.4 透视perspective
+## 6.4 透视perspective
 
 透视：在2D平面产生近大远小视觉立体，但是只是效果二维的. 如果想要在网页产生3D效果需要透视（理解成3D物体投影在2D平面内）
 - 模拟人类的视觉位置，可认为安排一只眼睛去看
@@ -1021,7 +981,7 @@ from to 语法
 - d：就是视距，视距就是一个距离人的眼睛到屏幕的距离。
 - z：就是 z轴，物体距离屏幕的距离，z轴越大（正值） 我们看到的物体就越大
 
-### 7.4.1 perspective的语法
+### 6.4.1 perspective的语法
 ```css
 body {
   /*透视需要写在被视察元素的父盒子上面 */
@@ -1029,7 +989,7 @@ body {
 }
 ```
 
-### 7.4.2 translateZ
+### 6.4.2 translateZ
 - perspecitve 给父级进行设置视距的，translateZ 给 子元素进行设置不同的大小  
 - translform:translateZ(100px)：仅仅是在Z轴上移动。
 -   有了透视，就能看到translateZ 引起的变化了
@@ -1037,9 +997,9 @@ body {
     -   translateZ：往外是正值
     -   translateZ：往里是负值
 
-## 7.5 3D旋转 rotate3d
+## 6.5 3D旋转 rotate3d
 
-### 7.5.1 语法
+### 6.5.1 语法
 3D旋转：3D旋转指可以让元素在三维平面内沿着 x轴，y轴，z轴或者自定义轴进行旋转。
 - transform: rotateX(45deg) ：沿着X轴正方向旋转45度
 - transform: rotateY(45deg) ：沿着Y轴正方向旋转45度
@@ -1056,7 +1016,7 @@ transform: rotate3d(1,1,0,45deg)
 ```
 
 
-### 7.5.2 rotateX: 左手准则
+### 6.5.2 rotateX: 左手准则
 
 -   左手的手拇指指向 x轴的正方向
 -   其余手指的弯曲方向就是该元素沿着x轴旋转的方向
@@ -1080,7 +1040,7 @@ img:hover {
 }
 ```
 
-### 7.5.3 rotateY: 左手准则
+### 6.5.3 rotateY: 左手准则
 
 -   左手的手拇指指向 y轴的正方向
 -   其余手指的弯曲方向就是该元素沿着y轴旋转的方向（正值）
@@ -1103,7 +1063,7 @@ img:hover {
 }
 ```
 
-### 7.5.4 rotateZ
+### 6.5.4 rotateZ
 ```css
 div {  
   perspective: 500px;  
@@ -1119,7 +1079,7 @@ img:hover {
   transform: rotateZ(180deg)
 ```
 
-### 7.5.5 rotate3d
+### 6.5.5 rotate3d
 -   transform: rotate3d(x, y, z, deg) -- 沿着自定义轴旋转 deg 为角度
 -   x, y, z 表示旋转轴的矢量，是标识你是否希望沿着该轴进行旋转，最后一个标识旋转的角度
     -   transform: rotate3d(1, 1, 0, 180deg) -- 沿着对角线旋转 45deg
@@ -1143,7 +1103,7 @@ img:hover {
 ```
 
 
-## 7.6 3D呈现transform-style
+## 6.6 3D呈现transform-style
 
 
 - 这个属性很重要, 控制子元素是否开启三维立体环境

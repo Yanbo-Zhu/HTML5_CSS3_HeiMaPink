@@ -1,3 +1,46 @@
+# 1 CSS 三角图形
+
+## 1.1 例子1
+```css
+.box1 {
+  width: 0;
+  height: 0;
+  border: 10px solid transparent;
+  border-left-color: black;
+  /* 照顾兼容性 */
+  line-height: 0;
+  font-size: 0;
+}
+```
+
+## 1.2 例子2
+
+![图片](https://mmbiz.qpic.cn/mmbiz_png/y7EkeCWAzmqtcdL7HZYccBic0jicaWzR8bMZvtNQGxxYDG6SvNX35cbQ6TaDfdMYoBxHVLwNHujC7dg4WzBD5TVQ/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)
+
+1.  我们用css 边框可以模拟三角效果
+2.  宽度高度为0
+3.  我们4个边框都要写， 只保留需要的边框颜色，其余的不能省略，都改为 transparent 透明就好了
+4.  为了照顾兼容性 低版本的浏览器，加上 font-size: 0;  line-height: 0;
+```css
+div {  
+  
+    width: 0;   
+  
+    height: 0;  
+    line-height:0；  
+    font-size: 0;  
+   border-top: 10px solid red;  
+  
+   border-right: 10px solid green;  
+  
+   border-bottom: 10px solid blue;  
+  
+   border-left: 10px solid #000;   
+  
+     }
+```
+
+
 # 2 圆角边框
 
 CSS3 新增 **圆角边框** 属性，盒子可以变成圆角。
@@ -74,14 +117,42 @@ div:hover {
 }
 ```
 
-# 3 文字阴影
 
-CSS3 中，使用 `text-shadow` 属性设置文本阴影。
-`text-shadow: h-shadow v-shadow blur color`
 
-| 值        | 描述              |
-| -------- | --------------- |
-| h-shadow | 必需，水平阴影位置。允许负值。 |
-| v-shadow | 必须，垂直阴影。允许负值。   |
-| blur     | 可选，模糊距离。        |
-| color    | 可选，阴影颜色。        |
+## 2.1 CSS3 calc函数
+
+此 CSS 函数让你在声明CSS属性值时执行一些计算。
+
+```
+width: calc(100%-30px);
+/* 子盒子永远比父盒子小30px */
+```
+
+括号里面可以使用 `+ - * /` 来进行计算。
+
+```html
+<head> 
+   <style>
+        .father {
+            width: 300px;
+            height: 200px;
+            background-color: pink;
+        }
+
+        .son {
+            /* width: 150px; */
+            /* son盒子和父亲一样宽，都是100%，son盒子-30px */
+            width: calc(100%-30px);
+            height: 30px;
+            background-color: skyblue;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 需求：我们的子盒子宽度永远比父盒子小30像素 -->
+    <div class="father">
+        <div class="son"></div>
+    </div>
+</body>
+```

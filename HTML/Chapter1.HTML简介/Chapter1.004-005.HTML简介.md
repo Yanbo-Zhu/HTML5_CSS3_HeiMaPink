@@ -1,8 +1,17 @@
-# 1 HTML
+# 1 HTML, CSS, JS
+1 HTML dient dem grundlegenden Aufbau (Inhalt) von Webseiten.
+2 Durch CSS wird das Design einer Webseite definiert. CSS  hat sehr oft auch starke Auswirkungen auf Funktionalität und Sicherheit. 
+Ist z.B. die Änderung der Schriftart notwendig, wäre viel mehr Aufwand nötig, in jeder HTML-Datei die Schriftart zu ändern, als nur eine einzige CSS-Datei zu editieren. Fehler im Design können einfacher gefunden werden, da es nur das Stylesheet sein kann, das den Fehler beinhaltet, nicht aber ein Befehl innerhalb irgendeines HTML-Tags.
+3 JavaScript ermöglicht die interaktive Manipulation von Inhalten (HTML) und Design (CSS).
+
+CSS verändert keinesfalls nur das Design einer Webseite, sondern hat sehr oft auch starke Auswirkungen auf Funktionalität und Sicherheit. 
+Gerade wenn JavaScript eingesetzt wird und man sich dabei an CSS orientiert. 
+
+# 2 HTML
 
 Hyper Text Markup Language 超文本标记语言 
 
-# 2 常用浏览器及其内核
+# 3 常用浏览器及其内核
 
 浏览器是网页显示、运行的平台。
 
@@ -22,7 +31,7 @@ Hyper Text Markup Language 超文本标记语言
 | Chrome       | Chromium/Blink | 在 Chromium 项目中研发 Blink 渲染引擎（即浏览器核心），内置于 Chrome 浏览器之中。Blink 其实是 WebKit 的分支。大部分国产浏览器最新版都采用Blink内核。二次开发 |
 | Chrome/Opera | Blink          | chrome/opera 浏览器内核                                                                                   |
 
-# 3 Web标准的构成
+# 4 Web标准的构成
 
 | 标准  | 说明                               |
 | --- | -------------------------------- |
@@ -32,7 +41,7 @@ Hyper Text Markup Language 超文本标记语言
 
 Web标准提出的最佳体验方案：结构、表现、行为相分离。
 
-# 4 Web标准的优点
+# 5 Web标准的优点
 
 易于维护：只需更改CSS文件，就可以改变整站的样式
 页面响应快：HTML文档体积变小，响应时间短
@@ -40,7 +49,7 @@ Web标准提出的最佳体验方案：结构、表现、行为相分离。
 设备兼容性：不同的样式表可以让网页在不同的设备上呈现不同的样式
 搜索引擎：语义化的HTML能更容易被搜索引擎解析，提升排名
 
-# 5 W3C标准
+# 6 W3C标准
 
 html5, css3, javascript 之间的关系
 
