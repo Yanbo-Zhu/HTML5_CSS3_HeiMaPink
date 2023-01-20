@@ -125,8 +125,51 @@ input:focus {
 
 
 # 3 :not(p)
+https://developer.mozilla.org/zh-CN/docs/Web/CSS/:not
 
 `:not()` 用来匹配不符合一组选择器的元素。由于它的作用是防止特定的元素被选中，它也被称为反选伪类（negation pseudo-class）
+
+```html
+<p>I am a paragraph.</p>
+<p class="fancy">I am so very fancy!</p>
+<div>I am NOT a paragraph.</div>
+<h2>
+  <span class="foo">foo inside h2</span>
+  <span class="bar">bar inside h2</span>
+</h2>
+
+```
+
+```css
+.fancy {
+  text-shadow: 2px 2px 3px gold;
+}
+
+/* 类名不是 `.fancy` 的 <p> 元素*/
+p:not(.fancy) {
+  color: green;
+}
+
+/* 非 <p> 元素 */
+body :not(p) {
+  text-decoration: underline;
+}
+
+/* 既不是 <div> 也不是 <span> 的元素 */
+body :not(div):not(span) {
+  font-weight: bold;
+}
+
+/* 不是 <div> 或 `.fancy` 的元素*/
+body :not(div, .fancy) {
+  text-decoration: overline underline;
+}
+
+/* <h2> 元素中不是有 `.foo` 类名的 <span> 元素 */
+h2 :not(span.foo) {
+  color: red;
+}
+```
 
 # 4 :target (location pseudo-class)
 

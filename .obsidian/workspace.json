@@ -13,8 +13,8 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "01_HTML/Chapter1.HTML简介/Chapter1.004-005.HTML简介.md",
-                "mode": "source",
+                "file": "02_CSS/Chapter4_元素显示模式blockInline_背景_文字文本属性/Chapter2_02_字体属性_文本属性.md",
+                "mode": "preview",
                 "source": true
               }
             }
@@ -48,7 +48,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "multiple column",
+                "query": "font-weight",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -77,7 +77,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "01_HTML/Chapter1.HTML简介/Chapter1.004-005.HTML简介.md",
+                "file": "02_CSS/Chapter4_元素显示模式blockInline_背景_文字文本属性/Chapter2_02_字体属性_文本属性.md",
                 "collapseAll": true,
                 "extraContext": true,
                 "sortOrder": "alphabetical",
@@ -94,7 +94,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "01_HTML/Chapter1.HTML简介/Chapter1.004-005.HTML简介.md",
+                "file": "02_CSS/Chapter4_元素显示模式blockInline_背景_文字文本属性/Chapter2_02_字体属性_文本属性.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -117,7 +117,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "01_HTML/Chapter1.HTML简介/Chapter1.004-005.HTML简介.md"
+                "file": "02_CSS/Chapter4_元素显示模式blockInline_背景_文字文本属性/Chapter2_02_字体属性_文本属性.md"
               }
             }
           }
@@ -139,17 +139,17 @@
       "workspaces:管理工作区布局": false
     }
   },
-  "active": "80b3dea01dc96e83",
+  "active": "ba7b1296865c75fc",
   "lastOpenFiles": [
-    "02_CSS/Chapter8_LayoutModule/Chapter8_Layout_05_mediaQuery.md",
+    "02_CSS/Chapter4_盒子模型/Chapter4_盒子模型_03_border_outline.md",
+    "02_CSS/Chapter4_元素显示模式blockInline_背景_文字文本属性/Chapter2_03_表格属性_列表属性_表单属性.md",
+    "02_CSS/Chapter2_选择器/Chapter2_03_复合选择器_Grouping selectors and Combinators.md",
+    "02_CSS/Chapter2_选择器/Chapter2_04_伪类选择器_Pseudo-class.md",
+    "02_CSS/Chapter2_选择器/Chapter2_04_伪类选择器_常用的.md",
+    "02_CSS/Chapter2_选择器/Chapter2_05_伪元素选择器_pseudo-elements.md",
+    "02_CSS/Chapter4_元素显示模式blockInline_背景_文字文本属性/Chapter2_02_字体文本属性_高度_宽度.md",
     "02_CSS/Chapter4_元素显示模式blockInline_背景_文字文本属性/Chapter2_02_字体属性_文本属性.md",
-    "02_CSS/Chapter7_CSS3新特性/Chapter7_CSS3新特性_02_StatischeGrafikeffekte_transition_animation.md",
-    "02_CSS/Chapter7_CSS3新特性/Chapter7_CSS3新特性_01_总览.md",
-    "02_CSS/Chapter8_LayoutModule/Chapter8_Layout_04_GridLayout.md",
     "02_CSS/Chapter2_选择器/Chapter2_01_基础选择器_basisSelector.md",
-    "02_CSS/Chapter8_LayoutModule/Chapter8_Layout_07_multicolumn.md",
-    "02_CSS/Chapter8_LayoutModule/Chapter8_Layout_03_FlexBoxing.md",
-    "02_CSS/Chapter8_LayoutModule/Chapter8_Layout_02_布局.md",
-    "02_CSS/Chapter8_LayoutModule/Chapter8_Layout_06_rem布局.md"
+    "02_CSS/Chapter4_元素显示模式blockInline_背景_文字文本属性/Chapter4_04_元素显示模式_BlockElement_InlineElement.md"
   ]
 }

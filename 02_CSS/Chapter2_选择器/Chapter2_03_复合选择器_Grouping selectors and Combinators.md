@@ -17,7 +17,7 @@
 |       | Adjacent sibling combinator / Nachbarkombinator |A + B    |             |                                              |      |                  
 |       | Column combinator           | A \|\| B    |             |                                              |      |              
 | 并集选择器 | Grouping selectors       | 符号是逗号，`.nav, a， .header`  | 选择某些相同样式的元素 | 可以用于集体声明       
-| 交集选择器 |  compound selector      | 选择器之间没有任何的连接符号 `div#yzh_animation `  选择的是： id为 yzh_animation 的div标签。    |   | 交集选择器是并且的意思,即...又...的意思 |   |  
+| 交集选择器 |  compound selector      | 选择器之间没有任何的连接符号 `div#yzh_animation `  选择的是： id为 yzh_animation 的div标签。<br> span.foo 有 `.foo` 类名的 <span> 元素     |   | 交集选择器是并且的意思,即...又...的意思 |   |  
 
 # 3 Grouping selectors and Combinators
 

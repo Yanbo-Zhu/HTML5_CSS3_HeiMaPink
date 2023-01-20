@@ -35,7 +35,8 @@ div {
 
 # 3 vertical-align
 
-`vertical-align` 指定行内/行内块元素的元素的垂直对齐方式。
+`vertical-align` 指定行内/行内块元素的元素的垂直对齐方式。 (property sets vertical alignment of an inline, inline-block or table-cell box.)
+这个属性 对 块元素无效, 比如对 div 元素就无效 
 
 - 使用场景：经常用于设置**图片**或者**表单（行内块元素）**和**文字垂直对齐**。
 - 官方解释：用于设置一个元素的垂直对齐方式，<mark>但是它只针对于**行内元素**或者**行内块元素**或者 表格单元 有效</mark>
@@ -128,7 +129,7 @@ bug ：图片底侧会有一个空白缝隙，原因是行内块元素会和文�
 
 主要解决方法有两种：
 
-1. 给图片添加 `vertical—align: middle topl bottom;` 等。（提倡使用的）
+1. 给图片添加 `vertical—align: middle top bottom;` 等。（提倡使用的）
     1. ![图片](https://mmbiz.qpic.cn/mmbiz_png/y7EkeCWAzmqtcdL7HZYccBic0jicaWzR8bNO8sogwyKtqHT6Bg0iaDeAkWqlbbSWqKJIGqtt8As1oFz17wBkQYb4g/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)
 2. 把图片转换为块级元素 `display: block；`, 给img 添加 display：block; 转换为块级元素就不会存在问题了。
 

@@ -275,9 +275,9 @@ Beziehungen innerhalb der Kopfdaten, stellen eine gute Möglichkeit dar, <mark>u
 - < header > :头部标签
 - < nav >: 导航标签 
 -  < main >: 包含  < article > 和 < section > 和  < aside >
-- < article >： 内容标签
-- < section >:定义文档某个区域
-- < aside >:侧边栏标签
+    - < article >： 内容标签
+    - < section >:定义文档某个区域
+    - < aside >:侧边栏标签
 - < footer >: 尾部标签
 
 **–注意：**
@@ -285,7 +285,7 @@ Beziehungen innerhalb der Kopfdaten, stellen eine gute Möglichkeit dar, <mark>u
 - 这种语义化标准主要是针对**搜索引擎**的
 - 这些新标签页面中可以使用**多次**
 - 在IE9中，需要把这些元素转换为**块级元素**
-- 其实，移动端更喜欢使用这些标签
+- 其实，移动端更喜欢使用这些标签anonyme Funktion als Wrapper für Funktionsaufrufe
 
 
 

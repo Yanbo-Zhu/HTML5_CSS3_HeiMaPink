@@ -442,6 +442,22 @@ capitalize – schreibt bei jedem Wortanfang einen Großbuchstaben
 uppercase – verwendet nur Großbuchstaben
 lowercase – verwendet nur Kleinbuchstaben
 
+```css
+/* Keyword values */
+text-transform: none;
+text-transform: capitalize;
+text-transform: uppercase;
+text-transform: lowercase;
+text-transform: full-width;
+text-transform: full-size-kana;
+
+/* Global values */
+text-transform: inherit;
+text-transform: initial;
+text-transform: revert;
+text-transform: revert-layer;
+text-transform: unset;
+```
 
 
 # 3 Absätze und Ausrichtungen
