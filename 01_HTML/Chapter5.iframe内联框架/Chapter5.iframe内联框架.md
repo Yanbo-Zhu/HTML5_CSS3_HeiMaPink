@@ -10,6 +10,9 @@ https://www.bilibili.com/video/BV1x4411V75C?p=11&vd_source=55e5cc2f534c16c73bbeb
 
 可以引入其他的html, 或者视频， 等等
 
+![](Image/Pasted%20image%2020241030082402.png)
+
+
 # 3 语法
 ```html
 <iframe src="path" name="mainFrame"></iframe>
@@ -28,21 +31,21 @@ https://www.bilibili.com/video/BV1x4411V75C?p=11&vd_source=55e5cc2f534c16c73bbeb
 
 
 
-# 5 例子
+# 4 例子
 
-## 5.1 例子0
+## 4.1 例子0
 
 添加一个bilibili的视频： 
 
 ![](Image/Chapter5_001_iframe框架例子.png)
 
-## 5.2 例子1
+## 4.2 例子1
 
 `<iframe src="https://www.baidu.com" frameborder="0"></frame>`
 
 ![](Image/Chapter5_004_iframe框架_例子1_1.png)
 
-## 5.3 例子2
+## 4.3 例子2
 
 ![](Image/Chapter5_003_iframe框架_例子2_1.png)
 
@@ -50,7 +53,7 @@ https://www.bilibili.com/video/BV1x4411V75C?p=11&vd_source=55e5cc2f534c16c73bbeb
 
 ![](Image/Chapter5_004_iframe框架_例子2_2.png) 
 
-## 5.4 例子3 引入一个自建的html
+## 4.4 例子3 引入一个自建的html
 
 ```html
 <!DOCTYPE html>

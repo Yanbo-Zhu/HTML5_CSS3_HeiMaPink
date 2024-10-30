@@ -2,6 +2,9 @@
 
 HTML 标签是由尖括号包围的关键词，例如`<html>`。
 
+![](image/Pasted%20image%2020241029163550.png)
+
+
 ## 1.1 HTML-Tag/Elemtn/Attribute 
 Ein HTML-Tag ist eine Auszeichnung, z.B. `<h1>`.
 Ein HTML-Element besteht aus dem Start-Tag, dem Inhalt und dem End-Tag `<h1>hallo</h1>`

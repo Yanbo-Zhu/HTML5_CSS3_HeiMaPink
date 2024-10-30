@@ -69,6 +69,8 @@ Von Grafiken können auch Links ausgehen, also Verweise auf eine andere Seite od
 
 在 HTML 标签中，`<a>` 标签用于从一个页面链接到另一个页面。
 
+![](image/Pasted%20image%2020241029182756.png)
+
 ## 3.1 download
 `<a download="Dateiname"> `
 

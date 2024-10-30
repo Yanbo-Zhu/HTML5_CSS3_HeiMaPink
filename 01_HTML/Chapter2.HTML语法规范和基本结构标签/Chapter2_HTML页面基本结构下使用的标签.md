@@ -1,6 +1,5 @@
 
-
-# 1 HTML 页面基本结构标签
+# 1.1 HTML 页面基本结构标签 SEITENSTRUKTURIERUNG
 
 每个网页都会有一个基本的结构标签，页面内容都是在这些基本标签上书写。 HTML 页面也叫 HTML 文档。
 基本骨架:
@@ -40,6 +39,8 @@
 | `<title></title>` | 文档的标题  |  在 head标签里面  让页面拥有一个属于自己的网页标题              |
 | `<body></body> `  | 文档的主体  | 元素包含文档的所有内容，页面内容基本都是放到body里面的. enthält den anzuzeigenden Inhalt (Text, Grafiken etc.) |
 
+
+
 # 2 文档类型声明标签 <!DOCTYPE>
 
 <!DOCTYPE>
@@ -47,7 +48,7 @@
 文档类型声明，作用就是告诉浏览器使用哪种HTML版本来显示网页。
 <!DOCTYPE html> 这句代码的意思是: 当前页面采取的是 <mark>HTML5 </mark>版本来显示网页.
 注意：
-<!DOCTYPE> 声明位于文档中的<mark>最前面的位置，处于 <html> 标签之前</mark>。
+<!DOCTYPE> 声明位于文档中的`<mark>`最前面的位置，处于 `<html> `标签之前`</mark>。`
 <!DOCTYPE> 不是一个 HTML 标签，它就是文档类型声明标签。
 
 ```html
@@ -65,7 +66,16 @@
 </html>
 ```
 
-# 3 html标签
+
+# 3 URI und URL 
+
+
+![](image/Pasted%20image%2020241029165206.png)
+
+
+
+
+# 4 html标签
 
 lang 这个 attribute 
 语言种类
@@ -96,29 +106,45 @@ lang 这个 attribute
 
 - 帮助网页阅读程序做识别
 
-# 4 Head 标签
+# 5 Head 标签
 
 Meta 标签 为面属性标签， 它用来标书我们网站的一些信息
 
 Meta标签一般用来作 SEO 
 
-## 4.1 title 网站标题 (双标签 )
+![](image/Pasted%20image%2020241029164209.png)
+
+
+## 5.1 style 
+
+Direkte Einbindung von CSS im Head der HTML-Seite
+Nur im Head zulässig
+Alternative Defi nition durch Einbindung externer CSS Dateien mittels `<link>` oder als Wert des Attributs style im jeweiligen
+HTML-Element
+
+## 5.2 title 网站标题 (双标签 )
 
 `title` 具有不可替代性，是我们内页的第一个重要标签，是搜索引擎了解网页的入口和对网页主题归属的最佳判断点。
 
-## 4.2 Meta 标签 (Standalone-Tag)
+## 5.3 Meta 标签 (Standalone-Tag)
 
 In Meta-Tags können Sie Anweisungen für Webserver, Browser oder automatische Suchmaschinen ("Robots") schreiben. 
 Meta-Tags können außerdem Angaben zum Autor oder Inhalt der Datei beinhalten, oder HTTP-Befehle, wie z.B. eine Weiterleitung zu einer anderen Adresse. 
 
-### 4.2.1 Syntax 
+- Metadaten sind "Daten über Daten"
+- `<meta>-Element `enthält Metadaten über die Webseite in Form von Schlüssel-/Wert-Paaren
+- Inhalt von `<meta>` wird nicht auf der Webseite dargestellt, kann aber durch Maschinen (Suchroboter) gelesen werden
+- Häufige Verwendung zur Defi nition von Vorschauen auf Webseiten (wenn Link auf Facebook, X oder Slack geteilt wird)
+- Ontologien zur Semantifi zierung der Schlüssel-/Wertpaare, z.B. Open Graph protocol von Facebook
+
+### 5.3.1 Syntax 
 eine Angabe steht in dem Standalone-Tag `<meta>`
 jedes Meta-Tag hat zwei Attribute (1. name oder http-equiv oder charset und 2. content)
 
 Eigenschaften die durch `name` definiert werden richten sich meist an Client-Programme (Browser) oder Suchmaschinen-Robots. 
 `http-equiv` bedeutet, dass es sich um Eigenschaften des HTTP handelt, um die Kommunikation zwischen Server und Browser zu beeinflussen.
 
-### 4.2.2 charset 字符集
+### 5.3.2 charset 字符集
 
 ```html
 <head>
@@ -131,7 +157,7 @@ zeigt dem Browser an, nach welcher Kodierung die Zeichen als Bytes notiert sind
 在`<head>`标签内，可以通过`<meta>`标签的charset 属性来设置文档使用何种字符编码。
 charset常用的值有：GB2312 , GBK、UTF-8，其中UTF-8被称为万国码，基本包含了全世界所有国家需要用到的字符。
 
-### 4.2.3 http-equiv属性
+### 5.3.3 http-equiv属性
 
 ```html
 <head>
@@ -152,7 +178,7 @@ http-equiv相当于http的文件头作用，它可以向浏览器传回一些有
 - cache-control（请求和响应遵循的缓存机制）
 
 
-### 4.2.4 name 属性
+### 5.3.4 name 属性
 
 
 <mark>后面的 content 中的值， 就是只 前面为 name = viewport 的时候， 这个 viewport 对应的取值</mark>
@@ -219,7 +245,7 @@ http-equiv相当于http的文件头作用，它可以向浏览器传回一些有
 - content-type (Art des Inhalts  
 -  Content-Script-Type/ Content-Style-Type (Default-Sprachen für Scripts/Stylesheets 
 
-#### 4.2.4.1 robots
+#### 5.3.4.1 robots
 Öffentliche Suchdienste beeinflussen
 
 `<meta name="robots" content="[Wert]" />`
@@ -231,8 +257,17 @@ kann das Durchsuchen der Webseite und/oder Unterseiten durch Suchmaschinen beein
 - all = sowohl die aktuelle HTML-Seite als auch die Links dürfen von Suchmaschinen durchsucht werden
 Mehr dazu unter Suchmaschinenoptimierung
 
-## 4.3 link 标签  (css 文件)
-Beziehungen innerhalb der Kopfdaten, stellen eine gute Möglichkeit dar, <mark>um Abhängigkeiten einer HTML-Datei anzugeben. </mark> So z.B. die vorherige oder nächste Seite. Suchdienste können so nahezu komplette Site-Maps der Website erstellen. Allerdings werden Kopfdaten meist für andere Informationen benötigt, wie das CSS-Stylesheet oder einem Favicon.
+## 5.4 link 标签  (css 文件)
+
+![](image/Pasted%20image%2020241029165514.png)
+
+Defi niert Verweis zwischen der Webseite, die `<link>` enthält, und einer externen Ressource
+rel-Attribut beschreibt Verhältnis zwischen der einbindenden oder der eingebundenen Ressource
+
+
+Beziehungen innerhalb der Kopfdaten, stellen eine gute Möglichkeit dar, `<mark>`um Abhängigkeiten einer HTML-Datei anzugeben.` </mark>` So z.B. die vorherige oder nächste Seite. Suchdienste können so nahezu komplette Site-Maps der Website erstellen. Allerdings werden Kopfdaten meist für andere Informationen benötigt, wie das CSS-Stylesheet oder einem Favicon.
+
+
 
 ```html
  1 <!DOCTYPE html>
@@ -248,7 +283,7 @@ Beziehungen innerhalb der Kopfdaten, stellen eine gute Möglichkeit dar, <mark>u
 11   </body>
 12 </html>
 ```
-### 4.3.1 syntax
+### 5.4.1 syntax
 ` <link rel= ″某个Attributwert″ type="image/x-icon" href="./favicon.ico"> `
 
 有这些 某个Attributwert
@@ -259,12 +294,17 @@ Beziehungen innerhalb der Kopfdaten, stellen eine gute Möglichkeit dar, <mark>u
 - fontdef kann eine downloadbare Schriftart einbinden um diese im Dokument verwendbar zu machen
 
 
-## 4.4 script标签 (引用 js 文件 )
+## 5.5 script标签 (引用 js 文件 )
 
-<script src="script/07DOM01.js" async defer></script>
+`<script src="script/07DOM01.js" async defer></script>`
 
 
-# 5 body 标签内部
+- Bindet JavaScript-Anweisungen im Head der HTML-Seite oder als externe Datei ein
+- Darf auch im Body stehen und kommt dort oft am Ende von `<body>` vor
+- Keine Kombination von eingebundenen JavaScript-Dateien innerhalb eines` <script>-Elements`
+- beachte: End Tag ist verpflichtend
+
+# 6 body 标签内部
 
 ![](image/HTML5_001_新增语义化标签.png)
 
@@ -289,7 +329,7 @@ Beziehungen innerhalb der Kopfdaten, stellen eine gute Möglichkeit dar, <mark>u
 
 
 
-## 5.1 例子
+## 6.1 例子
 
 ```html
 <!DOCTYPE html>
@@ -470,7 +510,7 @@ Beziehungen innerhalb der Kopfdaten, stellen eine gute Möglichkeit dar, <mark>u
 
 
 
-# 6 HTML标签的语义化
+# 7 HTML标签的语义化
 
 - 方便代码的阅读和维护，样式丢失的时候能让页面呈现清晰的结构。
 
@@ -480,7 +520,7 @@ Beziehungen innerhalb der Kopfdaten, stellen eine gute Möglichkeit dar, <mark>u
 
 -  标签：规定页面上所有链接的默认 URL 和设置整体链接的打开状态
 
-# 7 TDK 标签 SEO 优化
+# 8 TDK 标签 SEO 优化
 
 https://docs.mphy.top/#/HTML/ch04
 
@@ -505,7 +545,7 @@ SEO 的目的是对网站进行深度优化，从而帮助网站获得免费流�
 </head>
 ```
 
-## 7.1 title 网站标题
+## 8.1 title 网站标题
 
 `title` 具有不可替代性，是我们内页的第一个重要标签，是搜索引擎了解网页的入口和对网页主题归属的最佳判断点。
 
@@ -516,7 +556,7 @@ SEO 的目的是对网站进行深度优化，从而帮助网站获得免费流�
 - 京东(JD.COM) - 综合网购首选-正品低价、品质保障、配送及时、轻松购物！
 - 小米商城 - 小米5s、红米Note 4、小米MIX、小米笔记本官方网站
 
-## 7.2 description 网站说明
+## 8.2 description 网站说明
 
 简要说明我们网站主要是做什么的。
 
@@ -528,7 +568,7 @@ SEO 的目的是对网站进行深度优化，从而帮助网站获得免费流�
 <meta name="description" content="京东JD.COM-专业的综合网上购物商城,销售家电、数码通讯、电脑、家居百货、服装服饰、母婴、图书、食品等数万个品牌优质商品.便捷、诚信的服务，为您提供愉悦的网上购物体验!" />
 ```
 
-## 7.3 keywords 关键字
+## 8.3 keywords 关键字
 
 - keywords 是页面关键词，是搜索引擎的关注点之一。
 - keywords 最好限制为6～8 个关键词，关键词之间用英文逗号隔开，采用关键词1,关键词2 的形式。
@@ -539,7 +579,7 @@ SEO 的目的是对网站进行深度优化，从而帮助网站获得免费流�
 <meta name= " keywords" content="网上购物,网上商城,手机,笔记本,电脑,MP3,CD,VCD,DV,相机,数码,配件,手表,存储卡,京东" />
 ```
 
-## 7.4 LOGO SEO优化
+## 8.4 LOGO SEO优化
 
 1. logo 里面首先放一个h1 标签，目的是为了提权，告诉搜索引擎，这个地方很重要。
 

@@ -76,6 +76,14 @@ Formular nicht  leeren, wenn alle Felder nicht richtig ausgefüllt sind.
 | 对参数的数据类型，GET只接受ASCII字符                                         | 而POST没有限制                                                           |
 | GET比POST更不安全，因为参数直接暴露在URL上，所以不能用来传递敏感信息。 <br/> 会在url 上暴露提前交的参数 | 不会在 url 上暴露提交的参数。比较安全                                               |
 
+![](image/Pasted%20image%2020241030082008.png)
+
+![](image/Pasted%20image%2020241030082023.png)
+
+
+
+
+
 
 ## 2.2 Formulardaten absenden
 
