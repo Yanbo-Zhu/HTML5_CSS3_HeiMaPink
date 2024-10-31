@@ -1,4 +1,5 @@
 # 1 HTML, CSS, JS
+
 1 HTML dient dem grundlegenden Aufbau (Inhalt) von Webseiten.
 2 Durch CSS wird das Design einer Webseite definiert. CSS  hat sehr oft auch starke Auswirkungen auf Funktionalität und Sicherheit. 
 Ist z.B. die Änderung der Schriftart notwendig, wäre viel mehr Aufwand nötig, in jeder HTML-Datei die Schriftart zu ändern, als nur eine einzige CSS-Datei zu editieren. Fehler im Design können einfacher gefunden werden, da es nur das Stylesheet sein kann, das den Fehler beinhaltet, nicht aber ein Befehl innerhalb irgendeines HTML-Tags.

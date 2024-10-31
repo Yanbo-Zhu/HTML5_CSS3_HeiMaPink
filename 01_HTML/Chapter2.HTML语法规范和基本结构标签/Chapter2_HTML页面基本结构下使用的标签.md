@@ -1,5 +1,5 @@
 
-# 1.1 HTML 页面基本结构标签 SEITENSTRUKTURIERUNG
+# 1 HTML 页面基本结构标签 SEITENSTRUKTURIERUNG
 
 每个网页都会有一个基本的结构标签，页面内容都是在这些基本标签上书写。 HTML 页面也叫 HTML 文档。
 基本骨架:
@@ -43,6 +43,10 @@
 
 # 2 文档类型声明标签 <!DOCTYPE>
 
+![](image/Pasted%20image%2020241030154619.png)
+
+
+```
 <!DOCTYPE>
 
 文档类型声明，作用就是告诉浏览器使用哪种HTML版本来显示网页。
@@ -50,6 +54,7 @@
 注意：
 <!DOCTYPE> 声明位于文档中的`<mark>`最前面的位置，处于 `<html> `标签之前`</mark>。`
 <!DOCTYPE> 不是一个 HTML 标签，它就是文档类型声明标签。
+```
 
 ```html
 <!DOCTYPE html>
@@ -509,8 +514,12 @@ Beziehungen innerhalb der Kopfdaten, stellen eine gute Möglichkeit dar, `<mark>
 ```
 
 
+# 7 main 标签
 
-# 7 HTML标签的语义化
+
+![](image/Pasted%20image%2020241030154956.png)
+
+# 8 HTML标签的语义化
 
 - 方便代码的阅读和维护，样式丢失的时候能让页面呈现清晰的结构。
 
@@ -520,7 +529,7 @@ Beziehungen innerhalb der Kopfdaten, stellen eine gute Möglichkeit dar, `<mark>
 
 -  标签：规定页面上所有链接的默认 URL 和设置整体链接的打开状态
 
-# 8 TDK 标签 SEO 优化
+# 9 TDK 标签 SEO 优化
 
 https://docs.mphy.top/#/HTML/ch04
 
@@ -545,7 +554,7 @@ SEO 的目的是对网站进行深度优化，从而帮助网站获得免费流�
 </head>
 ```
 
-## 8.1 title 网站标题
+## 9.1 title 网站标题
 
 `title` 具有不可替代性，是我们内页的第一个重要标签，是搜索引擎了解网页的入口和对网页主题归属的最佳判断点。
 
@@ -556,7 +565,7 @@ SEO 的目的是对网站进行深度优化，从而帮助网站获得免费流�
 - 京东(JD.COM) - 综合网购首选-正品低价、品质保障、配送及时、轻松购物！
 - 小米商城 - 小米5s、红米Note 4、小米MIX、小米笔记本官方网站
 
-## 8.2 description 网站说明
+## 9.2 description 网站说明
 
 简要说明我们网站主要是做什么的。
 
@@ -568,7 +577,7 @@ SEO 的目的是对网站进行深度优化，从而帮助网站获得免费流�
 <meta name="description" content="京东JD.COM-专业的综合网上购物商城,销售家电、数码通讯、电脑、家居百货、服装服饰、母婴、图书、食品等数万个品牌优质商品.便捷、诚信的服务，为您提供愉悦的网上购物体验!" />
 ```
 
-## 8.3 keywords 关键字
+## 9.3 keywords 关键字
 
 - keywords 是页面关键词，是搜索引擎的关注点之一。
 - keywords 最好限制为6～8 个关键词，关键词之间用英文逗号隔开，采用关键词1,关键词2 的形式。
@@ -579,7 +588,7 @@ SEO 的目的是对网站进行深度优化，从而帮助网站获得免费流�
 <meta name= " keywords" content="网上购物,网上商城,手机,笔记本,电脑,MP3,CD,VCD,DV,相机,数码,配件,手表,存储卡,京东" />
 ```
 
-## 8.4 LOGO SEO优化
+## 9.4 LOGO SEO优化
 
 1. logo 里面首先放一个h1 标签，目的是为了提权，告诉搜索引擎，这个地方很重要。
 

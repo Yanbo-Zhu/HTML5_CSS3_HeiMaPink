@@ -71,6 +71,9 @@ Mit „&nbsp;“ erzeugen Sie ein Leerzeichen, in dem auf keinen Fall ein Zeilen
 | 删除线 | `<del></del>`或`<s><s/>`       | 更推荐使用`<del>`，语义更强烈  |
 | 下划线 underline | `<ins></ins>`或`<u></u>`       | 更推荐使用`<ins>`，语义更强烈  |
 
+
+![](image/Pasted%20image%2020241030155106.png)
+
 # 6 注释标签
 
 注释快捷键为 ctrl + /   或者 ctrl +shift + / 
