@@ -74,6 +74,11 @@ Mit „&nbsp;“ erzeugen Sie ein Leerzeichen, in dem auf keinen Fall ein Zeilen
 
 ![](image/Pasted%20image%2020241030155106.png)
 
+
+一个是 semantisch Bedeutung 
+一个是 pure stilistische benotung 
+
+
 # 6 注释标签
 
 注释快捷键为 ctrl + /   或者 ctrl +shift + / 
