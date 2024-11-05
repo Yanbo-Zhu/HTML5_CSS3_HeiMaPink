@@ -81,10 +81,6 @@ Formular nicht  leeren, wenn alle Felder nicht richtig ausgefüllt sind.
 ![](image/Pasted%20image%2020241030082023.png)
 
 
-
-
-
-
 ## 2.2 Formulardaten absenden
 
 Wenn der Besucher das Formular ausgefüllt hat und auf den Absendebutton klickt, werden die Daten verschickt. Wie und wohin, das können Sie natürlich bestimmen. Zum einen haben Sie die Möglichkeit, die Daten über CGI (Common Gateway Interface) an den Web-Server zu senden. Dazu benötigen Sie allerdings tiefgreifendere Programmierkenntnisse und einen Web-Server, der dies erlaubt. Das CGI-Programm übergibt dann beispielsweise die Parameter der Zeichenkette an den Server.
@@ -316,8 +312,145 @@ Type 属性必须给入
 ![](Chapter3_Image/Chapter3_013_表单_002_表单控件列表.png)
 
 
+## 7.1 
 
-## 7.1 input标签中type属性
+
+Input Type Text
+```js
+<form action="" method="">
+	Text: 
+	<input type="text" name="" id="">
+</form>
+```
+
+
+Input Type Number
+```js
+<form action="" method="" name="">
+  Nummer:
+  <input type="number" id="" name="" min="" max="">
+</form>
+```
+
+
+Input Type Password
+```js
+<form action="" method="" name="">
+	Passwort:
+	<input type="password" name="" id="">
+</form>
+```
+
+Input Type Date
+```js
+<form action="" method="" name="">
+	Datum: 
+	<input type="date" name="" id="" max="YYYY-MM-DD" min="YYYY-MM-DD">
+</form>
+```
+
+Input Type Time
+```js
+<form action="" method="" name="">
+	Uhrzeit:
+	<input type="time" name="" id="" max="XX:XX" min="XX:XX">
+</form>
+```
+
+
+Input Type Tel
+```js
+<form action="" method="" name="">
+	Telefonnummer:
+	<input type="tel" name="" id="">  
+</form>
+```
+
+
+Input Type Email
+```js
+<form action="" method="" name="">
+	E-Mail-Adresse: 
+    <input type="email" name="" id="">
+</form>
+```
+
+
+Input Type URL
+```js
+<form action="" method="" name="">
+	Internetseite: 
+	<input type="url" name="" id="">
+</form>
+```
+
+Input Type Color
+```js
+<form action="" method="" name="">
+	Farbe:
+	<input type="color" name="" id="">
+</form>
+```
+
+Input Type Radio
+```js
+<!-- Wenn die drei Radio Buttons zusammenhängen sollen, müssen sie den gleichen 
+Namen haben -->
+	
+<form action="" method="" name="">
+	Radio 1: <input type="radio" name="name" value="1"> <br>
+	Radio 2: <input type="radio" name="name" value="2"> <br>
+	Radio 3: <input type="radio" name="name" value="3"> <br>
+</form>
+```
+
+Input Type Checkbox
+```js
+<form action="" method="" name="">
+	Checkbox: 
+	<input type="checkbox" name="" id="">
+</form>
+```
+
+
+Input Types: Button, Submit, Reset
+```js
+<form action="" method="" name="">
+	Button: <input type="button" value="">
+	Submit button: <input type="submit" value="">
+	Reset button: <input type="reset" value="">
+</form>
+```
+
+Drop down data list
+```js
+<!-- input list und datalist id müssen gleichen Namen haben -->
+
+<form action="" method="" name="">
+	Drop down list: 
+	<input type="text" id="" name="" list="sodas">
+		<datalist id="sodas">
+			<select>
+				<option value="Coke">Coke</option>
+        <option value="Fanta">Fanta</option>
+        <option value="Sprite">Sprite</option>
+       </select>
+    </datalist>
+</form>
+```
+
+Labels
+```js
+<!-- label for und input id müssen gleichen Namen haben -->
+
+<form action="" method="post" name="">
+	<label for="firstName">Vorname:</label>
+	<input type="text" name="" id="firstName">
+</form>
+```
+
+
+## 7.2 input标签中type属性
 
 ```css
 <input type="属性值" />
@@ -326,7 +459,7 @@ Type 属性必须给入
 - `type` 属性设置不同属性值来指定不同控件类型
 - `input` 标签包含 `type` 属性，决定了输入字段的不同形式：文本字段、复选框、掩码后的文本控件、单选按钮、按钮等。
 
-### 7.1.1 type属性的常用值
+### 7.2.1 type属性的常用值
 
 | 属性值      | 描述                           |
 | -------- | ---------------------------- |
@@ -354,7 +487,7 @@ Type 属性必须给入
 |datetime-local| |
 
 
-### 7.1.2 文本框text与密码框password
+### 7.2.2 文本框text与密码框password
 
 type 属性设置为 text 是文本框
 type 属性设置为 password 是密码框
@@ -370,7 +503,7 @@ type 属性设置为 password 是密码框
 </body>
 ```
 
-### 7.1.3 number
+### 7.2.3 number
 
 ![](Chapter3_Image/Chapter3_020_表单_input_number.png)
 
@@ -380,7 +513,7 @@ type 属性设置为 password 是密码框
 ```
 
 
-### 7.1.4 radio和 checkbox
+### 7.2.4 radio和 checkbox
 
 - `type` 属性设置为 radio 不一定是 单选框 radio是，可以多选, 同时选上好几个radio 没问题的
   - name是表单元素的名字，这里的性别单选按钮必须有相同的名字name，才能实现 只能选一个的功能. 通过这样 就可以将多个 radio 放到一个组里面
@@ -436,7 +569,7 @@ type 属性设置为 password 是密码框
 </fieldset>
 ```
 
-### 7.1.5 submit和reset
+### 7.2.5 submit和reset
 
 - `type` 属性设置为submit：提交按钮会把表单数据发送到服务器
 - ``type` 属性设置为reset：重置按钮会<mark>清除表单中的所有数据</mark>
@@ -446,7 +579,7 @@ type 属性设置为 password 是密码框
 <input type="reset" value="重新填写"> <br>  在 button 上面显示为 重新填写
 ```
 
-### 7.1.6 button
+### 7.2.6 button
 
 - `type` 属性设置为button：是一个按钮
 - value 是按钮上面的字
@@ -455,7 +588,7 @@ type 属性设置为 password 是密码框
 <input type="button" value="获取短信验证码"> <br>  在 button 上面显示为 获取短信验证码
 ```
 
-### 7.1.7 email, url
+### 7.2.7 email, url
 
 ```html
 <input type="email" name="email"> 
@@ -466,7 +599,7 @@ type 属性设置为 password 是密码框
 ```
 
 
-### 7.1.8 文件域file
+### 7.2.8 文件域file
 
 - `type` 属性设置为file：是一个文件域，可以上传文件
 
@@ -475,7 +608,7 @@ type 属性设置为 password 是密码框
 上传头像：<input type="file">
 ```
 
-### 7.1.9 image
+### 7.2.9 image
 
 ```html
 <input type="image" src="../image/1.jpg"> 
@@ -484,7 +617,7 @@ type 属性设置为 password 是密码框
 ```
 
 
-### 7.1.10 滑块 range
+### 7.2.10 滑块 range
 
 ![](Chapter3_Image/Chapter3_021_表单_input_range.png)
 
@@ -494,13 +627,13 @@ type 属性设置为 password 是密码框
 ```
 
 
-### 7.1.11 搜索 Search
+### 7.2.11 搜索 Search
 
 ```html
 <input type="search" name="url"> 
 ```
 
-### 7.1.12 List and Datalist
+### 7.2.12 List and Datalist
 
 ```html
             <fieldset>
@@ -517,7 +650,7 @@ type 属性设置为 password 是密码框
 
 ![](Chapter3_Image/Chapter3_026_表单_Input_ListAndDatalist.png)
 
-### 7.1.13 color
+### 7.2.13 color
 
 <input type="color" value="#DE3163">
 <input type="color" value=""> value 值为空时， 会显示为黑色， 黑色为默认值
@@ -546,7 +679,7 @@ type 属性设置为 password 是密码框
 
 ![image-20221017233800621](Chapter3_Image/Chapter3_027_表单_Input_color.png)
 
-## 7.2 input 表单元素中的 label 标签
+## 7.3 input 表单元素中的 label 标签
 
 `label`标签的 for属性 应当与相关元素的id 属性相同
 `<label>` 标签为 input 元素定义标注。
@@ -578,7 +711,7 @@ type 属性设置为 password 是密码框
 
 ```
 
-### 7.2.1 如何绑定元素呢
+### 7.3.1 如何绑定元素呢
 
 - 第一种用法就是用label标签直接包含input表单， 适合单个表单选择
 - 第二种用法 for 属性规定 label 与哪个表单元素绑定(通过id)。
@@ -594,7 +727,7 @@ type 属性设置为 password 是密码框
   <input type="radio" name="sex"  id="sex">
 ```
 
-### 7.2.2 例子
+### 7.3.2 例子
 
 例子1：  点击" 用户名:" 就可以定位光标到输入框
 
@@ -615,14 +748,14 @@ type 属性设置为 password 是密码框
 ```
 
 
-### 7.2.3 date
+### 7.3.3 date
 
 Use HTMLInputElement.prototype.valueAsDate:
 ```js
 document.getElementById('datePicker').valueAsDate = new Date();
 ```
 
-## 7.3 input标签的其他属性 (除了 type 属性外)
+## 7.4 input标签的其他属性 (除了 type 属性外)
 
 | 属性        | 属性值     | 描述                     |
 | --------- | ------- | ---------------------- |
@@ -637,7 +770,7 @@ document.getElementById('datePicker').valueAsDate = new Date();
 |pattern||The pattern attribute works with the following input types: text, date, search, url, tel, email, and password. <br> pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"|
 
 
-### 7.3.1 注意
+### 7.4.1 注意
 
 1. 对于 `radio` 单选框，必须使 `input` 的 `name` 具有相同的属性值，才能实现多选一。 同理，复选框也要有相同的`name`值。
 2. 单选框和复选框可以设置 `checked` 属性，页面打开默认选择按钮。
@@ -645,7 +778,7 @@ document.getElementById('datePicker').valueAsDate = new Date();
 4. 设置 `type="button"`，普通按钮，后期结合 js 使用
 
 
-### 7.3.2 value属性(就是默认值)
+### 7.4.2 value属性(就是默认值)
 name 和 value 是每个表单元素都有的属性值，主要给后端人员使用。
 name 是表单元素的名字，要求 单选框和复选框要有相同的name值, value可以不一样
 
@@ -666,7 +799,7 @@ name 是表单元素的名字，要求 单选框和复选框要有相同的name
 ```
 
 
-### 7.3.3 name属性
+### 7.4.3 name属性
 name 和 value 是每个表单元素都有的属性值，主要给后端人员使用。
 name 是表单元素的名字，要求 单选框和复选框要有相同的name值, value可以不一样
 
@@ -680,7 +813,7 @@ name 是表单元素的名字，要求 单选框和复选框要有相同的name
 
 `<input type="radio" name="sex" />女`
 
-### 7.3.4 checked
+### 7.4.4 checked
 
 - checked 属性主要针对于单选框和复选框，主要作用是一打开页面，就可以默认状态下，就已经选中某个表单元素.  表示默认选中状态。 较常见于 单选按钮和复选按钮。
 - 单选按钮和复选框可以设置**checked** 属性
@@ -702,10 +835,10 @@ Checkbox 中 可以给多个项加上 checked
 爱好：吃饭<input type="checkbox" name="habby" value="吃饭">  睡觉<input type="checkbox" name="habby" value="睡觉">   打游戏<input type="checkbox" name="habby" value="打游戏"> 
 ```
 
-### 7.3.5 maxlength, minlength
+### 7.4.5 maxlength, minlength
 - maxlength:规定最多输入多少个字符
 
-### 7.3.6 只读 readonly, 禁用disable
+### 7.4.6 只读 readonly, 禁用disable
 
 - 只读就是不能输入自己的值了
 
@@ -715,7 +848,7 @@ Checkbox 中 可以给多个项加上 checked
 
 ![](Chapter3_Image/Chapter3_022_表单_input_readonly_disable_2.png)
 
-### 7.3.7 隐藏域 hidden
+### 7.4.7 隐藏域 hidden
 
 虽然隐藏了， 但是这个feld 在你看不见的地方还存在。 这个功能可以用来给如一些有默认值的东西， 
 
@@ -725,7 +858,7 @@ Checkbox 中 可以给多个项加上 checked
 
 ![](Chapter3_Image/Chapter3_023_表单_input_readonly_hidden.png)
 
-### 7.3.8 placeholder 相当于提示的信息
+### 7.4.8 placeholder 相当于提示的信息
 
 就是没有文本的时候， 这个field 上现实的提示词，一单输入了一个文本后， 这个提示词就不会再出现了
 
@@ -735,7 +868,7 @@ Checkbox 中 可以给多个项加上 checked
 
 ![](Chapter3_Image/Chapter3_024_表单_input_placeholder.png)
 
-### 7.3.9 required 必须填写， 非空判断
+### 7.4.9 required 必须填写， 非空判断
 
 ```html
 <input type="text" name="username" required>
@@ -747,7 +880,7 @@ required is a Boolean attribute which, if present, indicates that the user must 
 The required attribute is supported by text, search, url, tel, email, date, month, week, time, datetime-local, number, password, checkbox, radio, and file inputs.
 当 type 属性是 hidden、image 或者按钮类型（submit、reset 这两个 button）时不可使用。
 
-### 7.3.10 pattern 正则表达式
+### 7.4.10 pattern 正则表达式
 
 通过正则表达来审核内容
 

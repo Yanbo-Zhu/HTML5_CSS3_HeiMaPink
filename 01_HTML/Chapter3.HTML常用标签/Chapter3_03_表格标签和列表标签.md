@@ -80,6 +80,100 @@
 - `<tbody>` 表示主体区域，更好区分表格结构。
 -  `<tfoot></tfoot>` 放表格的脚注之类。
 
+```html
+<table>
+	<thead>
+		<tr>
+			<th></th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td></td>
+		</tr>
+	</tbody>
+	<tfoot>
+		<tr>
+			<td></td>
+		</tr>
+	</tfoot>
+</table>
+```
+
+```html
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <title>Beispieltabelle</title>
+  <style>
+    table {
+      width: 50%;
+      border-collapse: collapse;
+      margin: 20px 0;
+      font-family: Arial, sans-serif;
+      font-size: 16px;
+      text-align: left;
+    }
+    thead {
+      background-color: #f2f2f2;
+    }
+    th, td {
+      border: 1px solid #ddd;
+      padding: 12px;
+    }
+    tbody tr:nth-child(even) {
+      background-color: #f9f9f9;
+    }
+    tfoot td {
+      font-weight: bold;
+      background-color: #e9e9e9;
+    }
+  </style>
+</head>
+<body>
+
+<h2>Produkt-Tabelle</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Produkt</th>
+      <th>Preis</th>
+      <th>Menge</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Apfel</td>
+      <td>€1.00</td>
+      <td>10</td>
+    </tr>
+    <tr>
+      <td>Banane</td>
+      <td>€0.50</td>
+      <td>20</td>
+    </tr>
+    <tr>
+      <td>Orange</td>
+      <td>€0.80</td>
+      <td>15</td>
+    </tr>
+  </tbody>
+  <tfoot>
+    <tr>
+      <td>Gesamt</td>
+      <td colspan="2">€2.30</td>
+    </tr>
+  </tfoot>
+</table>
+
+</body>
+</html>
+```
+
+
+
 注意：
 
 1. 表格头部区域标签`<thead> </thead>`：定义表格头部，且内部必须有`<tr>`标签。
