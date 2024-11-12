@@ -1,3 +1,28 @@
+
+**Pseudo-Elemente:**
+
+Ein Pseudo-Element wird verwendet, um bestimmte Teile eines Elements zu stylen. Es wird erstellt, indem man zwei Doppelpunkte (::) gefolgt vom Namen des Pseudo-Elements an den Selektor anhängt.
+
+```css
+/* Syntax */
+selector::pseudo-element {
+  property: value;
+}
+```
+
+```css
+/* Example */
+p::first-line {
+  color: aliceblue;
+}
+```
+
+Es kann zum Beispiel verwendet werden, um:
+
+- Den ersten Buchstaben oder die erste Zeile eines Elements zu gestalten
+- Inhalt vor oder nach dem eigentlichen Inhalt eines Elements einzufügen
+
+
 # 1 伪元素 Pseudo-elements ( selector::pseudo-element ) 总览 
 
 [Pseudo-elements - CSS&colon; Cascading Style Sheets | MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-elements?retiredLocale=de)

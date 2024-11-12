@@ -1,4 +1,132 @@
-# 1 内边距Innenabstand  padding
+
+# 1 margin_padding_比较 
+
+
+**Padding:**
+
+_Padding_ ist der innere Abstand zwischen dem Inhalt eines HTML-Elements und seinem Rand (Border). Es beschreibt den leeren Raum zwischen dem Inhalt und der Begrenzung des Elements.
+
+- Das Padding vergrößert das Element, indem es dem Inhalt mehr Platz gibt, ohne den äußeren Rand (Margin) zu beeinflussen.
+
+---
+
+**Margin:**
+
+_Margin_ ist der äußere Abstand eines HTML-Elements zu anderen Elementen. Es beschreibt den Raum um das gesamte Element und seine Grenze (Border). _Margin_ wirkt sich also auf den Abstand zwischen verschiedenen Elementen auf der Seite aus.
+
+- _Margin_ beeinflusst die Position des gesamten Elements, ohne die Größe des Elements selbst zu ändern.
+
+---
+
+**Zusammenfassung der Unterschiede**
+
+- **Padding**: Abstand **innerhalb** eines Elements (zwischen Inhalt und Rand).
+- **Margin**: Abstand **außerhalb** eines Elements (zwischen Element und anderen Elementen).
+
+
+
+## 1.1 margin addition of two html-Elemente
+
+margin 不会相加 
+padding 会相加 
+
+1 css
+- Ich habe zwei HTML-Elemente, beide mit `margin: 20px 0px`. Sie stehen untereinander. Die Margins werden doch addiert, sodass ich 40px Abstand zwischen den Elementen habe, oder? 🤔
+    
+**Nein**, die Margins werden in diesem Fall nicht addiert. In CSS tritt stattdessen das sogenannte _Margin_ ****_Collapsing_ auf. Wenn zwei benachbarte Block-Elemente vertikale Margins haben, wird der größere der beiden Margins verwendet, anstatt beide zu addieren.
+
+In deinem Fall haben beide Elemente einen vertikalen Margin von `20px`, sodass der Abstand zwischen ihnen ebenfalls `20px` beträgt, nicht `40px`.
+
+2 
+- Ich habe zwei HTML-Elemente, beide mit `padding : 20px 0px`. Sie stehen untereinander. Die padding werden doch addiert, sodass ich 40px Abstand zwischen den Elementen habe, oder? 🤔
+Bei Padding tritt das Margin Collapsing nicht auf. 
+Ein Padding Collapsing gibt es auch nicht. Wenn man zwei HTML-Elemente untereinander hat, und beide haben z. B. `padding: 20px 0px`, wird der Abstand zwischen den Inhalten dieser Elemente tatsächlich addiert.
+
+Das bedeutet, dass der Abstand zwischen den Inhalten der beiden Elemente bei jeweils `padding: 20px 0px` insgesamt 40px beträgt (20px vom unteren Padding des ersten Elements und 20px vom oberen Padding des zweiten Elements).
+
+## 1.2 例子
+
+
+```css
+<!-- try it yourself -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="background-color: yellowgreen;">
+
+    <p id="p1" style="margin: 0px; padding: 0px; width: 600px; border: 2px solid black; background-color: aliceblue;">
+        margin: 0px; padding: 0px; width: 600px
+    </p>
+    <br>
+    <p id="p2" style="margin:0px; padding:20px; width: 600px; border: 2px solid black; background-color: aliceblue;">
+        margin:0px; padding 20px; width: 600px;
+    </p>
+    <br>
+    <p id="p3" style="margin:20px; padding:0px; width: 600px; border: 2px solid black; background-color: aliceblue;">
+        margin:20px; padding 0px; width: 600px;
+    </p>
+    <br>
+    <p id="p4" style="margin: 20px; padding: 20px; width: 600px; border: 2px solid black; background-color: aliceblue;">
+        margin: 20px; padding: 20px; width: 600px
+    </p>
+
+</body>
+</html>
+```
+
+
+![](image/Pasted%20image%2020241112215733.png)
+
+1
+```css
+<p style="margin: 0px; padding: 0px; width: 600px; border: 2px solid black;">
+```
+
+Dieses Element hat kein `margin` und kein `padding`, daher ist der Text direkt an den Rand des Elements angepasst. Es hat eine feste Breite von 600px, was die Breite des Textcontainers begrenzt. Der Rand (`border`) von 2px zeigt den äußeren Umriss des Elements.
+
+![](image/Pasted%20image%2020241112215832.png)
+
+
+
+2 
+```css
+<p style="margin:0px; padding:20px; width: 600px; border: 2px solid black;">
+```
+
+Hier gibt es kein `margin`, aber ein padding von 20px, was einen inneren Abstand zwischen Text und Rand erzeugt. Das `padding` sorgt dafür, dass der Text innerhalb des Elements nicht direkt an der Grenze liegt. Die Breite ist ebenfalls 600px, aber der Inhalt nimmt mehr Platz ein als bei p1.
+
+
+![](image/Pasted%20image%2020241112215850.png)
+
+3
+```css
+<p style="margin:20px; padding:0px; width: 600px; border: 2px solid black;">
+```
+Dieses Element hat ein `margin` von 20px, das den äußeren Abstand zu anderen Elementen schafft, aber kein `padding`. Der Rand des Elements ist also 20px von anderen Elementen entfernt, doch der Text selbst liegt direkt am Rand. Die Breite des Inhalts bleibt bei 600px.
+![](image/Pasted%20image%2020241112215922.png)
+
+
+
+4 
+```css
+<p style="margin: 20px; padding: 20px; width: 600px; border: 2px solid black;">
+```
+
+Hier sind sowohl ein `margin` von 20px als auch ein `padding` von 20px vorhanden. Dadurch entsteht ein äußerer Abstand von 20px zu den Nachbarelementen und ein innerer Abstand zwischen Rand und Text von 20px.
+
+![](image/Pasted%20image%2020241112215944.png)
+
+
+
+
+
+
+# 2 内边距Innenabstand  padding
 
 padding 属性用于设置**内边距**,**即盒子边框与内容之间的距离**
 
@@ -9,7 +137,7 @@ padding 属性用于设置**内边距**,**即盒子边框与内容之间的距�
 | padding -top   | 上内边距 |
 | padding-bottom | 下内边距 |
 
-## 1.1 padding属性(简写属性)
+## 2.1 padding属性(简写属性)
 
 可以有一到四个值, <u>数值之前千万不能有逗号</u>, 否则失效了
 
@@ -20,7 +148,7 @@ padding 属性用于设置**内边距**,**即盒子边框与内容之间的距�
 | padding: 5px 10px 20px;     | 3个值，上，左右，下。 代表上内边距5像素，左右内边距10像素，下内边距20像素       |
 | padding :5px 10px 20px 30px | 4个值，上，右，下，左，顺时针。 上是5像素，右是10像素，下20像素，左是30像素，顺时针 |
 
-## 1.2 padding 会影响盒子实际大小
+## 2.2 padding 会影响盒子实际大小
 
 如果盒子本身没有指定width/height属性，则此时padding不会撑开盒子大小 （让 padding 不影响盒子大小）
 
@@ -43,11 +171,11 @@ padding: 20px
 但是，有时候 padding 影响盒子是有好处的，比如我们要做导航： 因为每个导航栏里面的字数不一样多,我们可以不用给每个盒子宽度了,直接给 padding 最合适.
 ![](image/Chapter4_css_盒子模型_padding_001_例子导航栏.png)
 
-### 1.2.1 解决方案， 让padding不会影响盒子实际大小：
+### 2.2.1 解决方案， 让padding不会影响盒子实际大小：
 1. 要保证盒子和效果图一样大，则让   width/height-多出来的内边距大小  即可。
 2. 如果盒子本身没有指定width/height属性，则此时padding不会撑开盒子大小 （让 padding 不影响盒子大小）
 
-#### 1.2.1.1 例子1
+#### 2.2.1.1 例子1
 ```css
 <h1> {
 /*width: 100% ;*/* // width 没有被指定
@@ -57,13 +185,13 @@ padding: 30px;  // 此时只有整个盒子的的高度被增长， 宽度没有
 }
 ```
 
-#### 1.2.1.2 例子2 (重要)： 
+#### 2.2.1.2 例子2 (重要)： 
 这种情况下 p中没有直接给出 height 和 width， p继承 div 的 height 和 width, ， p 不会因为 p 的padding而变大， 会仍为300px x 100px: 
 
 ![](image/Chapter4_css_盒子模型_padding_004_例子4.png)
 ![](image/Chapter4_css_盒子模型_padding_004_例子5.png)
 
-#### 1.2.1.3 例子3 (重要)： 
+#### 2.2.1.3 例子3 (重要)： 
 <mark> 孩子继承父亲的宽度，孩子设置padding 不会撑开盒子， 除非孩子自己设置了 height 和 width 元素  </mark>
 这种情况下 p中直接给出  width， 没有直接给出 height
 p继承 div 的 height 和 width。
@@ -71,12 +199,12 @@ p继承 div 的 height 和 width。
 ![](image/Chapter4_css_盒子模型_padding_005_例子6.png)
 ![](image/Chapter4_css_盒子模型_padding_006_例子7.png)
 
-## 1.3 例子: 新浪导航栏
+## 2.3 例子: 新浪导航栏
 ![](image/Chapter4_css_盒子模型_padding_004_例子3.png)
 ![](image/Chapter4_css_盒子模型_padding_002_例子1.png)
 ![](image/Chapter4_css_盒子模型_padding_003_例子2.png)
 
-# 2 box-sizing 属性 (css3新属性)
+# 3 box-sizing 属性 (css3新属性)
 content-box, border-box oder padding-box
 
 引子
@@ -87,7 +215,7 @@ box-sizing 被写在哪个位置
 - Das box-sizing sollte für alle Elemente gleich sein und wird deshalb im <mark>Universal Selektor </mark> notiert. 
 - So kann es später auch für einzelne Elemente überschrieben werden.
 
-## 2.1 content-box, border-box
+## 3.1 content-box, border-box
 CSS 中的 `box-sizing` 属性定义了 `user agent` 应该如何计算一个元素的总宽度和总高度。 box-sizing 属性可以被用来调整这些表现。
 CSS3中可以通过 box-sizing 来指定盒模型，有2个值：即可指定为 content-box，border-box ，这样我们计算盒子大小的方式就发生了改变。
 
@@ -103,7 +231,7 @@ CSS3中可以通过 box-sizing 来指定盒模型，有2个值：即可指定为
 
 
 
-### 2.1.1 content-box (默认的, 传统的)
+### 3.1.1 content-box (默认的, 传统的)
 `content-box` 是默认值。
 
 ```css
@@ -119,7 +247,7 @@ box-sizing: content-box;
   - tatsächliche Breite = width （内容的宽度） + 2 * margin + 2 * border + 2 * padding
   - tatsächliche height = height (内容的宽度） + 2 * margin + 2 * border + 2 * padding
 
-### 2.1.2 border-box (css3 新特性)
+### 3.1.2 border-box (css3 新特性)
 
 -   你想要设置的边框和内边距的值是包含在 `width` 内的。
 -   此种情况盒子大小为 宽度width，包括内边距和边框在内，这样 padding 和 border 就不会撑大盒子了(前提是 padding 和 border 不会超过 width 宽度)
@@ -147,18 +275,18 @@ box-sizing: content-box;
   - tatsächliche height = Height + 2 * margin
 
 
-## 2.2 padding-box
+## 3.2 padding-box
 
 
-# 3 外边距 margin
+# 4 外边距 margin
 
 margin（外边距）属性用于设置外边距，即控制盒子和盒子之间的距离
 
-## 3.1 margin 不会影响盒子的实际尺寸
+## 4.1 margin 不会影响盒子的实际尺寸
 - <mark> margin 不考虑在盒子的尺寸内， margin 不会撑大盒子的尺寸 </mark>
 - <mark> 因为margin可用于大盒子中的 儿子盒子的分离， 而不用考虑对大盒子的影响  </mark>
 
-## 3.2 margin的属性
+## 4.2 margin的属性
 
 | 属性            | 作用   |
 | ------------- | ---- |
@@ -169,7 +297,7 @@ margin（外边距）属性用于设置外边距，即控制盒子和盒子之�
 
 ![](image/Chapter4_css_盒子模型_margin_003_例子.png)
 
-## 3.3 margin 简写属性
+## 4.3 margin 简写属性
 
 margin 简写方式代表的意义跟 padding 完全一致
 可以有一到四个值
@@ -181,11 +309,11 @@ margin 简写方式代表的意义跟 padding 完全一致
 | margin: 5px 10px 20px;     | 3个值，上，左右，下。 代表上外边距5像素，左右外边距10像素，下外边距20像素       |
 | margin :5px 10px 20px 30px | 4个值，上，右，下，左，顺时针。 上是5像素，右是10像素，下20像素，左是30像素，顺时针 |
 
-## 3.4 keyword auto
+## 4.4 keyword auto
 https://www.php.cn/css-tutorial-412560.html
 
 
-### 3.4.1 auto 在什么情况下无效 
+### 4.4.1 auto 在什么情况下无效 
 重点: <mark>auto只适用于水平边距，它不适用于浮动和内联元素，并且它本身也不能用于绝对和固定定位元素</mark>
 
 - auto在浮动，内联和绝对元素中不起作用。所有这些元素已经决定了它们的布局，所以没有auto用于边距并期望它像这样集中。
@@ -194,13 +322,13 @@ https://www.php.cn/css-tutorial-412560.html
 
 
 
-### 3.4.2 auto 在宽度方面的作用 
+### 4.4.2 auto 在宽度方面的作用 
 
 - 如果一侧定值，一侧auto，则auto为剩余空间大小
 - 如果两侧均是auto，则平分剩余空间
     - 假如一个DIV我们设置宽度为500px，然后设置margin:0 auto样式后，假如你浏览器窗口宽度为1000px宽，这个时候此DIV靠左和靠右间距为（auto）这个时候浏览器会自动辨析DIV靠左和靠右各250px宽度间距，此时这个DIV盒子自然而然就水平居中浏览器中。
 
-#### 3.4.2.1 为什么auto能实现水平居中
+#### 4.4.2.1 为什么auto能实现水平居中
 这是因为水平方向的 auto，其计算值取决于可用空间（剩余空间）。
 
 想象这样一个场景，一个宽100px的p被包含在一个宽500px的div内，此时设置 p 的 margin-left 值为 auto
@@ -208,11 +336,11 @@ margin-left:auto; 自动占据了包含块的可用空间，即 500 - 100px = 40
 所以 margin-left:auto; 的结果会相当于右对齐。
 
 
-#### 3.4.2.2 例子 
+#### 4.4.2.2 例子 
 
-##### 3.4.2.2.1 两侧一样
+##### 4.4.2.2.1 两侧一样
 ![](image/Chapter4_css_盒子模型_margin_auto_004_水平两侧一样.png)
-##### 3.4.2.2.2 两侧不平均 
+##### 4.4.2.2.2 两侧不平均 
 ```css
 <style>
     .father {
@@ -235,7 +363,7 @@ margin-left:auto; 自动占据了包含块的可用空间，即 500 - 100px = 40
 ```
 ![](image/Chapter4_css_盒子模型_margin_auto_002.png)
 
-##### 3.4.2.2.3 margin-left:auto
+##### 4.4.2.2.3 margin-left:auto
 代替float:right实现右对齐
 ```css
 .father {
@@ -258,14 +386,14 @@ margin-left:auto; 自动占据了包含块的可用空间，即 500 - 100px = 40
 ![](image/Chapter4_css_盒子模型_margin_auto_001_marginleft.png)
 
 
-### 3.4.3 margin: auto 在 垂直方面的作用 
+### 4.4.3 margin: auto 在 垂直方面的作用 
 
 不论是 margin: auto; 还是 margin: 0 auto; 效果都是一样的，都是让 #demo 水平居中了，<mark>但纵向并没有任何变化。</mark>
 - margin: auto; 其实相当于 margin: auto auto auto auto;
 - margin: 0 auto;相当于margin: 0 auto 0 auto;，四个值分别对应上右下左。至于CSS中的上、右、下、左顺序就不做赘述了。
 - 还可拆分为：margin-left:auto;  margin-right: auto;  margin-top: 0;   margin-bottom: 0;
 
-#### 3.4.3.1 margin-top: auto; 和 margin-bottom: auto;，其计算值为0: 
+#### 4.4.3.1 margin-top: auto; 和 margin-bottom: auto;，其计算值为0: 
 
 <mark>根据规范，margin-top: auto; 和 margin-bottom: auto;，其计算值为0 </mark>
 这也就解释了为什么margin: auto; 等同于 margin: 0 auto;
@@ -281,7 +409,7 @@ margin-left:auto; 自动占据了包含块的可用空间，即 500 - 100px = 40
 猜想1: 也许是因为同样的原因，他们决定为绝对定位的元素 添加一个例外，使绝对定位的元素可以在整个页面的高度上, 垂直居中。
 猜想2: 这也可能是由于边缘坍塌效应（相邻元素“边缘”的崩溃），这是垂直边距的另一个例外。猜想2是一个不太可能的情况 - 因为不会折叠其边距的元素 - 如Floats和overflow其他元素visible，仍然为其分配0px垂直边距auto。
 
-### 3.4.4 绝对定位的元素的 水平和垂直方向居中
+### 4.4.4 绝对定位的元素的 水平和垂直方向居中
 
 将元素转换为绝对定位只是为了使它可以垂直居中可能不是一个好主意。还有其他选项，如flexbox和CSS变换，更适合那些。
 
@@ -298,11 +426,11 @@ margin-left:auto; 自动占据了包含块的可用空间，即 500 - 100px = 40
 - 总结: 对于一个绝对元件被垂直居中，其top，height和bottom值不应该auto。我们所要做的就是在绝对定位的元素中赋予它们一些价值。left并且right应该具有相同的值以实现完美的居中。
 
 
-#### 3.4.4.1 块级元素水平垂直居中的技巧
+#### 4.4.4.1 块级元素水平垂直居中的技巧
 
 5 种技巧 https://blog.csdn.net/qq_34295211/article/details/105929606 
 
-###### 3.4.4.1.1.1 magin:auto配合绝对定位实现水平和垂直方向居中
+###### 4.4.4.1.1.1 magin:auto配合绝对定位实现水平和垂直方向居中
 ```css
 .father {
       width: 300px;
@@ -335,9 +463,9 @@ margin-left:auto; 自动占据了包含块的可用空间，即 500 - 100px = 40
 例子2: 
 ![](image/Chapter4_css_盒子模型_margin_auto_005_拥有绝对定位的元素的水平和垂直方向上的居中.png)
 
-## 3.5 外边距典型应用
+## 4.5 外边距典型应用
 
-### 3.5.1 块级元素 水平轴方向上居中
+### 4.5.1 块级元素 水平轴方向上居中
 
 外边距可以让块级盒子 **水平轴方向上居中**，但是必须满足两个条件：
 
@@ -357,7 +485,7 @@ margin-left:auto; 自动占据了包含块的可用空间，即 500 - 100px = 40
 - margin: auto;
 - margin: 0 auto;
 
-### 3.5.2 行内元素和行内块元素 的水平居中 
+### 4.5.2 行内元素和行内块元素 的水平居中 
 
 1 行内元素和行内块元素是没有高度和宽度的， 所以下面这么定义的话， 对 span 是没有效果的 
 ![](image/Chapter4_css_盒子模型_margin_004_水平居中_例子.png)
@@ -368,20 +496,20 @@ margin-left:auto; 自动占据了包含块的可用空间，即 500 - 100px = 40
 1. 盒子内的文字水平居中是 text-align: center; 而且还可以让 行内元素和行内块居中对齐
 2. 块级盒子水平居中  左右margin 改为 auto
 
-##### 3.5.2.1.1 例子
+##### 4.5.2.1.1 例子
 ![](image/Chapter4_css_盒子模型_margin_005_水平居中_例子.png)
 ![](image/Chapter4_css_盒子模型_margin_006_水平居中_例子.png)
 
 ![](image/Chapter4_css_盒子模型_margin_007_水平居中_例子.png)
-### 3.5.3 插入图片和背景图片区别
+### 4.5.3 插入图片和背景图片区别
 
 1. `插入图片`我们用的最多 比如产品展示类  移动位置只能靠盒模型 padding margin
 
 2. `背景图片`我们一般用于小图标背景或者超大背景图片、背景图片，移动位置只能通过  background-position
 
-## 3.6 外边距合并
+## 4.6 外边距合并
 
-### 3.6.1 相邻元素垂直外边距的合并
+### 4.6.1 相邻元素垂直外边距的合并
 
 当上下相邻块元素相遇时，若上面的元素有下外边距margin-bottom，下面的元素有上外边距margin-top，则他们之间的垂直间距不是 `margin-bottotm` 与 `margin-top` 之和。
 
@@ -390,7 +518,7 @@ margin-left:auto; 自动占据了包含块的可用空间，即 500 - 100px = 40
 解决方法： 「解决方案：尽量给只给一个盒子添加margin值」
 ![](image/Chapter4_css_盒子模型_margin_001_相邻元素垂直外边距的合并_01.png)
 
-### 3.6.2 嵌套块元素垂直外边距的塌陷
+### 4.6.2 嵌套块元素垂直外边距的塌陷
 使用 margin 定于块元素的水边外边距的时候， 可能会出现外边距的合并
 ![](image/Chapter4_css_盒子模型_margin_002_嵌套块元素垂直外边距的塌陷_02.png)
 ![](image/Chapter4_css_盒子模型_margin_002_嵌套块元素垂直外边距的塌陷_03.png)
@@ -412,7 +540,7 @@ before:
 错误的after 
 ![](image/Chapter4_css_盒子模型_margin_002_嵌套块元素垂直外边距的塌陷_06.png)
 
-## 3.7 清除内外边距
+## 4.7 清除内外边距
 
 网页元素很多都带有默认内外边距，而且不同浏览器默认的也不一致，因此在布局前，要先清除网页元素的内外边距。
 注意：

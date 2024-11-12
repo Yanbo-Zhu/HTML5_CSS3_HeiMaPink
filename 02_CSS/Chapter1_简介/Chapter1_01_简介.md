@@ -25,6 +25,31 @@ CSS 最大价值: 由 HTML 专注去做结构呈现，样式交给 CSS，即 结
 
 ![](.\image\Chapter1_Css简介_002_css引入方式.png)
 
+
+1. **Inline-CSS** – Das Styling wird direkt im HTML-Element mit dem Attribut `style` definiert.    
+    ```html
+    <p style="color: red;">Das ist ein roter Text.</p>
+    ```
+
+2. **Internes CSS** – Das Styling wird im Kopfbereich des HTML-Dokuments mit dem `<style>` Element definiert.
+    ```html
+    <head>
+        <style>
+            p {
+                color: blue;
+            }
+        </style>
+    </head>
+    ```
+    
+3. **Externes CSS** – Das Styling wird über eine externe CSS-Datei definiert, die mit dem `<link>` Element eingebunden wird. Beispiel:
+```html
+<head>
+    <link rel="stylesheet" href="style.css">
+</head> 
+```
+
+
 ## 3.1 外部样式表(链接式)
 Formate zentral im externen Stylesheet definieren
 

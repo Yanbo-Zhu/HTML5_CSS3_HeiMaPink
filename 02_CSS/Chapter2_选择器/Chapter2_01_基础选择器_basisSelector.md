@@ -11,7 +11,13 @@ css中一共有哪些选择器:  https://www.w3school.com.cn/cssref/css_selector
 选择器分为基础选择器和复合选择器两大类。
 
 - 基础选择器由单个选择器组成
-- 基础选择器包括：标签选择器、类选择器、id 选择器和通配符选择器、
+- 基础选择器包括：标签选择器、类选择器、id 选择器和通配符选择器
+
+1. _Einfache Selektoren_ (wählen Elemente basierend auf den Elementnamen, ID oder Klasse aus)
+2. _Attribut-Selektoren_ (wählen Elemente basierend auf einem Attribut oder Attributwert aus)
+3. _Kombinator-Selektoren_ (wählen Elemente basierend auf einer spezifischen Beziehung zwischen ihnen aus)
+4. _Pseudo-Klassen-Selektoren_ (wählen Elemente basierend auf einem bestimmten Zustand aus)
+5. _Pseudo-Element-Selektoren_ (wählen und gestalten einen Teil eines Elements)
 
 # 3 基础选择器总结
 
@@ -49,6 +55,8 @@ div{}   因为div 没有语义，我们尽量少用
 # 5 标签选择器 Type/Element selector  ( 类名 {} )
 
 直接用 HTML 标签名作为选择器，按标签名称分类，**为页面某一类标签指定统一的 CSS 样式。**
+Der Element-Selektor wählt alle Elemente mit dem angegebenen HTML-Tag aus.
+
 
 语法
 ```css
@@ -56,6 +64,11 @@ div{}   因为div 没有语义，我们尽量少用
     属性1： 属性值1;
     属性2： 属性值2;
     属性3： 属性值3;
+}
+
+/* Example */
+p {
+  color: green;
 }
 ```
 
@@ -69,7 +82,7 @@ div{}   因为div 没有语义，我们尽量少用
 # 6 类选择器 class selector  (.类名 {} )
 
 差异化选择不同标签，单独选一个或者某个标签。
-
+Der Klassen-Selektor wählt Elemente mit einem bestimmten Klassenattribut aus. Um Elemente mit einer bestimmten Klasse auszuwählen, schreibt man einen Punkt (.) gefolgt von dem Namen der Klasse.
 ## 6.1 语法
 
 记忆口诀：样式点定义，结构类调用
@@ -83,6 +96,13 @@ div{}   因为div 没有语义，我们尽量少用
     属性1： 属性值1;
     属性2： 属性值2;
     属性3： 属性值3;
+}
+```
+
+```css
+/* Example */
+.person {
+  color: yellow;
 }
 ```
 
@@ -189,6 +209,9 @@ https://developer.mozilla.org/zh-CN/docs/Web/CSS/@media/prefers-color-scheme
 
 # 7 id 选择器 ( \#id名 {}  )
 
+Der ID-Selektor wählt das Element mit der angegebenen ID aus. Um ein Element mit einer bestimmten ID auszuwählen, schreibt man ein Hashtag-Zeichen (#) gefolgt von dem Namen der ID.
+
+
 id 选择器可以为标有特定 id 的 HTML 元素指定特定的样式。
 用 `#` 来定义id， 以 id 属性来设置 id 选择器。
 用id 来调用这个样式
@@ -202,12 +225,17 @@ id 选择器可以为标有特定 id 的 HTML 元素指定特定的样式。
 }
 ```
 
+```css
+/* Syntax */ #szymonszewczyk { color: red; }
+```
+
 注意：id 属性只能在每个 HTML 文档中出现一次。
 
 ```css
 <div id="pink">woshishui</div>
 <div id="pink">woshishui</div>  // 同一个id只能调用一次， 所以这里再次出现pink是不正确的
 ```
+
 
 ## 7.1 例子
 
@@ -259,6 +287,10 @@ Klassen
 
 Selects all elements that have the given attribute.
 
+`[**attribute="value"]` Selektor:** Der Attributselektor wird verwendet, um Elemente mit einem bestimmten Attribut und Wert auszuwählen.
+
+
+
 属性选择器可以根据元素特定属性的来选择元素。这样就可以不用借助于类或者id选择器。
 
 |简介| 选择|
@@ -282,6 +314,15 @@ Selects all elements that have the given attribute.
 
 ```
 
+
+```css
+
+/* Syntax */
+input[type="text"] {
+  width: 150px;
+}
+
+```
 
 |x|x|
 |---|---|

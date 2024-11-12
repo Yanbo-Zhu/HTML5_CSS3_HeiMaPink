@@ -1,5 +1,27 @@
 伪类选择器和伪元素选择器为 css3的新特性
 
+Eine Pseudo-Klasse wird verwendet, _meistens_ um einen besonderen Zustand eines Elements zu definieren. Sie wird erstellt, indem man einen Doppelpunkt (:) gefolgt vom Namen der Pseudo-Klasse an den Selektor anhängt.
+
+```css
+/* Syntax */
+selector:pseudo-class {
+  property: value;
+}
+```
+
+```css
+/* Example */
+div:hover {
+  background-color: blue;
+}
+```
+
+Sie kann zum Beispiel verwendet werden, um:
+
+- Ein Element zu stylen, wenn ein Benutzer mit der Maus darüber fährt
+- Besuchte und unbesuchte Links unterschiedlich zu gestalten
+- Ein Element zu stylen, wenn es den Fokus erhält
+
 # 1 伪类选择器 Pseudo-class
 
 | 选择器          | 作用        | 特征    | 使用情况 | 隔开符号及用法                             |

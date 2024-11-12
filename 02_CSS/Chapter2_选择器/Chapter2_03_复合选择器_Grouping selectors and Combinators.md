@@ -19,6 +19,14 @@
 | 并集选择器 | Grouping selectors       | 符号是逗号，`.nav, a， .header`  | 选择某些相同样式的元素 | 可以用于集体声明       
 | 交集选择器 |  compound selector      | 选择器之间没有任何的连接符号 `div#yzh_animation `  选择的是： id为 yzh_animation 的div标签。<br> span.foo 有 `.foo` 类名的 <span> 元素     |   | 交集选择器是并且的意思,即...又...的意思 |   |  
 
+
+**) Kombinationsselektoren**: Ein CSS-Selektor kann mehr als einen einfachen Selektor enthalten. Zwischen den einfachen Selektoren kann ein Kombinator eingefügt werden. Es gibt vier verschiedene Kombinatoren in CSS:
+
+1. Nachfahrenselektor / descendant selector (Leerzeichen)
+2. Kindselektor / child selector (>)
+3. Direkt benachbarter Geschwisterselektor / adjacent sibling selector (+)
+4. Allgemeiner Geschwisterselektor / general sibling selector (~)
+
 # 3 Grouping selectors and Combinators
 
 ## 3.1 后代选择器 （Descendant combinator： A B）
@@ -62,7 +70,9 @@
     }
   ```
 
-  
+
+Der Nachfahrenselektor wählt alle Elemente aus, die Nachfahren eines angegebenen Elements sind.
+  ![](image/Pasted%20image%2020241112215118.png)
   
  
 ### 3.1.1 例子
@@ -91,6 +101,11 @@ ul li {
 
 子元素选择器（子选择器）只能选择作为元素作为元素的最近一级子元素。简单理解就是选亲儿子。 跟孙子没有关系, 虽然孙子也用同名的标签
 
+**child selector:** Der Kindselektor wählt alle Elemente aus, die **direkte** Kinder eines angegebenen Elements sind.
+
+![](image/Pasted%20image%2020241112215222.png)
+
+
 ```css
 元素1 > 元素2 { 样式声明; }  上述语法表示选择元素1 里面的所有直接后代(子元素)元素2，例如
 
@@ -111,6 +126,12 @@ div > p{
 ## 3.3 General sibling combinator （A ~ B）
 
 The general sibling combinator (~) separates two selectors and matches all iterations of the second element, that are following the first element (though not necessarily immediately), and are children of the same parent element.
+
+Der allgemeine Geschwisterselektor wählt alle Elemente aus, die nachfolgende Geschwister eines angegebenen Elements sind.
+
+![](image/Pasted%20image%2020241112215343.png)
+
+
 
 ```css
 /* Paragraphs that are siblings of and
@@ -221,3 +242,17 @@ p.hinweis {
 <p class="hinweis"> p:  Achtung, hier kommt ein Hinweis!</p>
 
 ```
+
+
+
+## 3.6 adjacent sibling selector (A+B)
+
+
+Der direkt benachbarte Geschwisterselektor wird verwendet, um ein Element auszuwählen, das sich direkt nach einem bestimmten anderen Element befindet. Geschwisterelemente müssen dasselbe Elternelement haben, und „benachbart“ bedeutet „direkt folgend“.
+
+![](image/Pasted%20image%2020241112215326.png)
+
+
+
+
+

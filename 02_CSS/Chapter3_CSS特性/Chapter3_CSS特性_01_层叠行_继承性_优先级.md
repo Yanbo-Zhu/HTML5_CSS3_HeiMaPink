@@ -54,8 +54,93 @@ ul>li:
 ![](image/Chapter_css特性_继承性_004_行高的继承性_03.png)
 
 
+# 3 不同引入方式的优先级 
 
-# 3 优先级/权重 SelectorWeight/Specificity/ Wertigkeit
+1. **Wichtigkeitsregel (`!important`)** kann jede Methode überschreiben, auch Inline-CSS. Wenn `!important` verwendet wird, hat die Regel die höchste Priorität.
+    
+    ```css
+    p {
+        color: blue !important;
+    }
+    
+    /* Wenn dies im externen oder internen CSS definiert ist, wird der Text 
+    blau sein, auch wenn Inline-CSS eine andere Farbe vorgibt. */
+    ```
+    
+2. **Inline-CSS** ist die stärkste Methode. Da der Stil direkt im HTML-Element definiert ist, überschreibt er andere Methoden.
+    
+    ```html
+    <p style="color: red;">Dieser Text wird rot sein, egal was im externen 
+    oder internen CSS steht.</p>
+    ```
+    
+3. **Interne Styles (im `<style>`Tag)** sind schwächer als Inline-CSS, aber sie können externe Styles überschreiben.
+    
+4. **Externe CSS-Dateien** haben die niedrigste Priorität.
+
+## 3.1 **Verwendet man `!important`
+
+
+**Fazit:**
+- `!important` kann **nicht** in Inline-CSS verwendet werden.
+- Um Inline-Stile zu überschreiben, sollte `!important` in **externen** oder **internen** Stylesheets verwendet werden.
+
+---
+
+1 Verwendet man `!important` intern oder extern?**
+
+Die Verwendung von `!important` ist sowohl in internen als auch in **externen** CSS-Stylesheets möglich, allerdings wird empfohlen, es **sparsam und gezielt** einzusetzen, da es die normale Kaskadierung und Spezifität von CSS-Regeln außer Kraft setzt.
+
+**Internes CSS** (innerhalb eines `<style>`Tags im HTML-Dokument) kann `!important` verwenden, um sicherzustellen, dass bestimmte Stile Vorrang vor anderen haben, selbst vor externen Stilen oder Inline-Stilen, die ohne `!important` deklariert wurden.
+
+```html
+<style>
+    p {
+        color: blue !important;
+    }
+</style>
+```
+
+
+---
+
+2 
+ **Externes CSS** (in einer separaten CSS-Datei) kann ebenfalls `!important` verwenden. Hier wird es oft eingesetzt, um sicherzustellen, dass bestimmte Stile Vorrang vor anderen haben, beispielsweise bei der Gestaltung von großen Projekten oder Bibliotheken, in denen die Reihenfolge und Spezifität schwierig zu kontrollieren ist.
+
+```css
+p {
+    color: green !important;
+}
+```
+
+
+---
+
+
+3 
+Wann sollte man `!important` verwenden?
+    
+- Verwende `!important` mit Bedacht, wenn du unbedingt eine Regel priorisieren musst und sicherstellen möchtest, dass keine andere CSS-Regel diese überschreibt.
+- Es sollte jedoch vermieden werden, es übermäßig zu nutzen, da dies die Pflege und das Debugging des Stylesheets erschwert. Zu viele `!important` Regeln können zu Konflikten und unerwartetem Verhalten führen, insbesondere in großen Projekten.
+    
+Zusammenfassend: `!important` kann sowohl in internen als auch in externen Stylesheets verwendet werden, sollte jedoch nur dann eingesetzt werden, wenn es wirklich notwendig ist, um die Übersichtlichkeit und Wartbarkeit des CSS-Codes zu gewährleisten.
+
+---
+
+4 
+**Kann man `!important` auch inline verwenden?**
+Nein, `!important` kann **nicht** in **Inline-CSS** verwendet werden. Inline-Stile haben bereits eine sehr hohe Spezifität, da sie direkt im HTML-Element definiert sind, und der Einsatz von `!important` in dieser Konstellation ist nicht möglich.
+
+Ein Beispiel, das **nicht funktioniert**:
+
+```html
+<p style="color: red !important;">Dieser Text wird nicht rot sein.</p>
+```
+
+Hier wird das `!important`-Attribut im Inline-Stil ignoriert, da `!important` in dieser Konstellation keine Wirkung zeigt. Die einzige Möglichkeit, Inline-Stile zu überschreiben, besteht darin, externe oder interne CSS-Regeln mit `!important` zu versehen, um sicherzustellen, dass sie die Inline-Stile übersteuern.
+
+
+# 4 优先级/权重 SelectorWeight/Specificity/ Wertigkeit
 
 概念： 当一个元素指定多个选择器时，就会有有优先级的产生。
 -   选择器相同，则执行层叠性
@@ -63,7 +148,7 @@ ul>li:
 
 ![](image/Chapter_css特性_优先级_001.png)
 
-## 3.1 权重计算公式
+## 4.1 权重计算公式
 关于CSS权重，我们需要一套计算公式来去计算，这个就是 CSS Specificity（特殊性）
 [Specificity - CSS&colon; Cascading Style Sheets | MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/Specificity)
 The selector weight categories are listed here in the order of decreasing specificity:
@@ -94,12 +179,12 @@ The selector weight categories are listed here in the order of decreasing specif
     - ![](image/Chapter_css特性_继承性_005_继承的行高为0.png)
 
 
-### 3.1.1 ID column
+### 4.1.1 ID column
 
 Includes only ID selectors, such as #example. 
 For each ID in a matching selector, add 1-0-0 to the weight value.
 
-### 3.1.2 CLASS column
+### 4.1.2 CLASS column
 
 Includes
 
@@ -109,7 +194,7 @@ Includes
 
 For each class, attribute selector, or pseudo-class in a matching selector, add 0-1-0 to the weight value.
 
-### 3.1.3 TYPE column
+### 4.1.3 TYPE column
 
 Includes 
 
@@ -134,7 +219,7 @@ Combinators, such as +, >, ~, " ", and ||, may make a selector more specific in 
 The negation pseudo-class, [`:not()`](https://developer.mozilla.org/en-US/docs/Web/CSS/:not), itself has no weight. Neither do the [`:is()`](https://developer.mozilla.org/en-US/docs/Web/CSS/:is) or the [`:has()`](https://developer.mozilla.org/en-US/docs/Web/CSS/:has) pseudo-classes. The parameters in these selectors, however, do. The values of both come from the parameter in the list of parameters that has the highest specificity. The [`:not()`, `:is()` and `:has()` exceptions](https://developer.mozilla.org/en-US/docs/Web/CSS/Specificity?retiredLocale=de#the-is-not-and-has-exceptions) are discussed below.
 
 
-## 3.2 Die Verwendung von !important
+## 4.2 Die Verwendung von !important
 有 die höchstest Wertigkeit 
 
 !important wird i.d.R. nur verwendet, wenn third-party-styles verwendet werden, also fremde styles aus frameworks, die überschrieben werden sollen. Verwendet man nur eigene styles ist die Verwendung von !important unbedingt zu vermeiden.
@@ -159,8 +244,8 @@ ul li {
 
 
 
-## 3.3 权重计算例子
-### 3.3.1 元素选择器和类选择器的权重的比较
+## 4.3 权重计算例子
+### 4.3.1 元素选择器和类选择器的权重的比较
 
 ```css
 <head>
@@ -178,7 +263,7 @@ ul li {
 </body>
 ```
 
-### 3.3.2 复合选择器权重的叠加
+### 4.3.2 复合选择器权重的叠加
 
 权重叠加：如果是复合选择器，则会有权重的叠加，需要计算权重， 但是没有进位
 ```css
