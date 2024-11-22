@@ -1,6 +1,7 @@
 ![在这里插入图片描述](https://img-blog.csdnimg.cn/31944f6dcdbe424b95efb6209f9fc7d0.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA55Sf5ZG95piv5pyJ5YWJ55qE,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center)
 
 
+==给 selector 中加上 display: flex==
 # 1 flex布局 (使用 flexbox)
 
 | 传统布局            | flex弹性布局             |
@@ -96,18 +97,40 @@ span 直接给宽度和高度，背景颜色，还有蓝色边框
 ## 2.1 flex-Container 的属性总览
 flex-Container 指的是 父项
 
+Wichtige Eigenschaften für den Flex-Container:
+1. display: flex : Aktiviert den Flexbox-Modus für den Container.
+2. flex-direction : Bestimmt, 0b die Flex-ltems in einer Reihe (row) Oder einer Spalte (column) angeordnet werden.
+    1. row (Standard): Anordnung von links nach rechts.
+    2. column : Anordnung von oben nach unten.
+3. justify-content : Steuert die horizontale Ausrichtung der Flex-ltems entlang der Hauptachse.
+    1. flex-start : Am Anfang des Containers.
+    2. center : Zentriert.
+    3. space-between : Gleichmäßiger Abstand zwischen den Elementen.
+4. align-items : Steuert die vertikale Ausrichtung der Flex-ltems entlang der Querachse.
+    1. flex-start : Am Anfang des Containers.
+    2. center : Zentriert.
+    3. stretch : Dehnt die Flex-ltems, um die Höhe des Containers anzupassen (standardmäßig).
+5. flex-wrap : Gibt an, 0b die Flex-items auf mehrere Zeilen umgebrochen werden sollen, wenn der Platz nicht ausreicht.
+    1. nowrap (Standard): Alle Elemente bleiben in einer Zeile.
+    2. wrap : Die Flex-items werden umgebrochen.
+
+
 以下有 6 个属性是对父元素设置的
 
-|properties |description |
-|--|---|
-|display| sets the flex-container, which can be block (flex) or inline (inline-flex).|
-|flex-direction|设置主轴的方向. sets the axes. The value row is default and sets the main-axis horizontal and the cross-axis vertical.|
-|flex-wrap|设置子元素是否换行. 默认值为 nowarp. lets the flex-items wrap, if there is not enough room, or will fit them all in one line without wrapping them. <br> 其他方法: You can make single-line-containers or multi-lined with `wrap`.|
-|flex-flow|复合属性，相当于同时设置了 flex-direction 和 flex-wrap. It combines flex-direction and flex-wrap.|
-|justify-content|设置主轴(hauptachse)上的子元素排列方式. it aligns all flex-items along the main-axis. <br> Es steuern der Elemente auf der Hauptachse, Standardwert ist flex-start, d.h. linksbündig|
-|align-items|设置侧轴(Kreuzachse, cross achx)上的子元素排列方式（单行）. 当转行是的时候, 显示出来的两行之间有间隔 <br> it aligns them along the cross-axis, over a single line. <br> Es steuert die Elemente auf der Kreuzachse, Standardwert ist stretch, d.h. alle Elemente sind so hoch wie der Flex-Container|
-|align-content|设置侧轴上的子元素的排列方式（多行）.  效果是, 当转行的时候, 显示出来的两行之间无间隔 间隔. 有umbruch ja oder nein <br>it aligns the flex-items along the cross axis, but only in multi-lined containers with enough space along the cross-axis. <br> Es steuert die Elemente auf der Kreuzachse für multilined Container. D.h. es müssen mehrere Zeilen für row existieren, bzw. mehrere Spalten für column. Möglich ist das nur, wenn der Umbruch mit wrap definiert ist und die flex-items mehr als 100% des Flex-Containers einnehmen.|
-|gap|applies space between items. item 之间的间隙， 这样就会显示出间隙.  <br> You can specify further <code>row-gap</code> or <code>column-gap</code> |
+| properties      | description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| display         | sets the flex-container, which can be block (flex) or inline (inline-flex).                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| flex-direction  | 设置主轴的方向. sets the axes. The value row is default and sets the main-axis horizontal and the cross-axis vertical.                                                                                                                                                                                                                                                                                                                                                                                  |
+| flex-wrap       | 设置子元素是否换行. 默认值为 nowarp. lets the flex-items wrap, if there is not enough room, or will fit them all in one line without wrapping them. <br> 其他方法: You can make single-line-containers or multi-lined with `wrap`.                                                                                                                                                                                                                                                                                |
+| flex-flow       | 复合属性，相当于同时设置了 flex-direction 和 flex-wrap. It combines flex-direction and flex-wrap.                                                                                                                                                                                                                                                                                                                                                                                                              |
+| justify-content | 设置主轴(hauptachse)上的子元素排列方式. it aligns all flex-items along the main-axis. <br> Es steuern der Elemente auf der Hauptachse, Standardwert ist flex-start, d.h. linksbündig                                                                                                                                                                                                                                                                                                                          |
+| align-items     | 设置侧轴(Kreuzachse, cross achx)上的子元素排列方式（单行）. 当转行是的时候, 显示出来的两行之间有间隔 <br> it aligns them along the cross-axis, over a single line. <br> Es steuert die Elemente auf der Kreuzachse, Standardwert ist stretch, d.h. alle Elemente sind so hoch wie der Flex-Container                                                                                                                                                                                                                                 |
+| align-content   | 设置侧轴上的子元素的排列方式（多行）.  效果是, 当转行的时候, 显示出来的两行之间无间隔 间隔. 有umbruch ja oder nein <br>it aligns the flex-items along the cross axis, but only in multi-lined containers with enough space along the cross-axis. <br> Es steuert die Elemente auf der Kreuzachse für multilined Container. D.h. es müssen mehrere Zeilen für row existieren, bzw. mehrere Spalten für column. Möglich ist das nur, wenn der Umbruch mit wrap definiert ist und die flex-items mehr als 100% des Flex-Containers einnehmen. |
+| gap             | applies space between items. item 之间的间隙， 这样就会显示出间隙.  <br> You can specify further <code>row-gap</code> or <code>column-gap</code>                                                                                                                                                                                                                                                                                                                                                                |
+|                 |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+
+
+
 
 例子: 
 ![](image/Chapter8_Flexbox_FlexContainer_001_例子.png)
@@ -684,6 +707,22 @@ column-gap: 一直是主轴方向的间隔
 <mark> 当父元素不是 flex-container 的时候, 无法使用 flex-item 的特性 </mark>
 
 
+1. flex-grow : Gibt an, wie viel ein Flex-ltem wachsen dart wenn zusätzlicher Platz im Container vorhanden ist.
+    1. flex-grow: 1 : Das Element füllt den freien Raum aus.
+2. flex-shrink : Gibt an, wie viel ein Flex-ltem schrumpfen darf, wenn nicht genug Platz vorhanden ist.
+    1. flex-shrink: 1 : Das Element Wird verkleinert, um in den Container zu passen.
+3. flex-basis : Definiert die Startgröße eines Flex-ltems, bevor flex-grow Oder flex-shrink angewendet werden.
+4. Die Kurzform flex kombiniert diese drei Werte. Zum Beispiel:
+    1. flex: 1;  ist gleichbedeutend mit flex: 1 1 .
+    2. flex: 2; bedeutet, das Element wächst doppelt so viel wie ein Element mit flex:
+
+
+- flex-grow: Angabe zur Ausbreitung der Elemente, Standardwert ist 0, d.h. das Element darf nicht breiter werden
+- flex-shrink: Angabe zur Verkleinerung der Elemente, Standardwert ist 1, d.h. Elemente dürfen kleiner dargestellt werden
+- flex-basis: festlegen der Basis-Größe des Items. Wichtig zu wissen, flex-basis überschreibt width und height. 
+- flex: Alle drei Angaben sollten zusammen und als Sammeleigenschaft angegeben werden um unliebsame Überraschungen zu vermeiden und die Wartbarkeit zu erhöhen. flex: 1 1 20em;
+- order: Angabe zum Ändern der Darstellungsreihenfolge, Standardwert ist 0, d.h. die Darstellungsreihenfolge entspricht der des HTML-Codes
+
 |properties |description |
 |--|---|
 |flex-grow| 默认值为0. 就是通过鼠标, 让阅览器的view area变大变小的时候,  1就是, item可以根据 窗口的大小 膨胀<br>allows the flex-item grow bigger along the main-axis, if there is space. The values are positive integers and they can be used as proportions.|
@@ -693,11 +732,6 @@ column-gap: 一直是主轴方向的间隔
 |align-self |控制子项自己在侧轴的排列方式. <br> allows a separate alignment for individual items. The value overrides the `align-items` value for all flex-items.|
 | order属性|定义子项的排列顺序（前后顺序. Standardwert ist 0. allows for a different order than the given from the HTML document. <br>The default value is 0. <br>Each item can be assigned a number. The lowest number is put to the beginning of the main-axis. <br>If several items have the same value, they are put into source order. |
 
-- flex-grow: Angabe zur Ausbreitung der Elemente, Standardwert ist 0, d.h. das Element darf nicht breiter werden
-- flex-shrink: Angabe zur Verkleinerung der Elemente, Standardwert ist 1, d.h. Elemente dürfen kleiner dargestellt werden
-- flex-basis: festlegen der Basis-Größe des Items. Wichtig zu wissen, flex-basis überschreibt width und height. 
-- flex: Alle drei Angaben sollten zusammen und als Sammeleigenschaft angegeben werden um unliebsame Überraschungen zu vermeiden und die Wartbarkeit zu erhöhen. flex: 1 1 20em;
-- order: Angabe zum Ändern der Darstellungsreihenfolge, Standardwert ist 0, d.h. die Darstellungsreihenfolge entspricht der des HTML-Codes
 
 ## 3.2 flex-basis
 https://zhuanlan.zhihu.com/p/39052660
@@ -744,6 +778,8 @@ https://zhuanlan.zhihu.com/p/39052660
 Flex: flex-grow, flex-shrink ,  flex-basis.
 默认值为 1 0 auto
 
+flex: 1; ist gleichbedeutend mit flex: 1 1 0%;.
+flex: 2; bedeutet, das Element wächst doppelt so viel wie ein Element mit flex: 1.
 ### 3.4.1 例子
 flex 属性定义子项目分配剩余空间，用flex来表示占多少份数。
 ![在这里插入图片描述](https://img-blog.csdnimg.cn/dc679b96741d476e97bb3cb7f7f41d68.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA55Sf5ZG95piv5pyJ5YWJ55qE,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center)

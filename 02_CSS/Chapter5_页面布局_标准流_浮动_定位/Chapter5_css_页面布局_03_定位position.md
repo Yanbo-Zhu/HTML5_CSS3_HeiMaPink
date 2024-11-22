@@ -1,3 +1,9 @@
+
+https://developer.mozilla.org/en-US/docs/Web/CSS/position
+可以用这来玩 加深理解 
+![](image/Pasted%20image%2020241122230957.png)
+
+
 # 1 为什么需要定位
 将盒子**「定」**在某一个**「位」**置  自由的漂浮在其他盒子(包括标准流和浮动)的上面。
 
@@ -58,6 +64,17 @@
 | fixed固定定位    | 是（不占有位置） | 相对于浏览器移动位置    | 常用     |
 | sticky       | 否 （占有位置）        | 相对于浏览器移动位置   | ？ |
 
+
+|              |                                                                                                                               |                                                   |
+| ------------ | ----------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------- |
+| Positionstyp | Eigenschaften                                                                                                                 | Dokumentenfluss                                   |
+| static       | Standardpositionierung, keine top, left, right oder bottom.                                                                   | Im normalen Fluss                                 |
+| relative     | Bewegt das Element relativ zu seiner ursprünglichen Position, bleibt jedoch im Fluss.                                         | Im normalen Fluss, verschoben                     |
+| absolute     | Bewegt das Element relativ zu seinem nächstgelegenen positionierten Vorfahren, entfernt es aus dem Fluss.                     | Nicht im normalen Fluss                           |
+| fixed        | Bewegt das Element relativ zum Viewport (Ansichtsfenster), bleibt beim Scrollen an Ort und Stelle, entfernt es aus dem Fluss. | Nicht im normalen Fluss                           |
+| sticky       | Kombiniert relative und fixed: bleibt im Fluss, bis es eine Schwelle erreicht, und bleibt dann dort haften.                   | Im normalen Fluss, bis die Schwelle erreicht wird |
+
+
 - 一定要记住相对定位，固定定位，绝对定位的两个大特点：
     1.是否占有位置（脱标否）
     2.以谁为基准点移动
@@ -67,6 +84,8 @@
     - `top` 和 `bottom` 不要同时使用；
     - `left` 和 `right` 不要同时使用。
 
+
+
 解释
 -   static – wenn keine spezielle Positionierung erfolgen soll (Normaleinstellung)
 -   absolute – Positionierung ist absolut, wird gemessen am Rand des Vorfahrenelementes, das nicht position: static; besitzt), also selbst positioniert ist. Zusätzlich wird das Element aus dem Textfluß entfernt und gibt seinen ursprünglichen Raum frei. Außerdem wird es ohne Größenangabe auf den tatsächlich benötigten Mindestraum schrumpfen. Dadurch kann es zu Überlappungen kommen.
@@ -74,8 +93,13 @@
 -   fixed – ebenfalls eine absolute Positionierung, wird gemessen am Browserfenster, bleibt beim Scrollen stehen (ist immer auf dem Bildschirm zu sehen). Auch diese Elemente werden aus dem Textfluß entfernt.
 -   sticky – das Element verhält sich zuerst relative und ab einem gegebenen Offset verhält es sich fixed, wird also aus dem Textfluß entfernt und scrolled nicht mehr mit.
 
-## 3.1 静态定位 static (了解)
+## 3.1 静态定位 static (默认就是 static)
 Dieser Wert ist der default. Das Element befindet sich wie im HTML-Dokument aufgelistet im Textfluß, alle anderen Elemente respektieren seinen Platz und seine Position.
+
+Dies ist der Standardwert für alle Elemente. Wenn kein anderer position-Wert angegeben wird, wird der Wert static verwendet. Elemente mit position: static werden im normalen Dokumentenfluss platziert, was bedeutet, dass sie an der Stelle im HTML-Dokument erscheinen, an der sie codiert sind.
+- Eigenschaften wie top, left, right und bottom haben bei staticElementen keine Wirkung.
+- Die Position wird nur durch die Block- oder Inline-Eigenschaften des Elements beeinflusst (abhängig vom Layout-Modell).
+
 
 - 静态定位是元素的默认定位方式，默认定位方式。
 - 静态定位按照标准流特性摆放位置，它没有边偏移
@@ -87,11 +111,21 @@ Dieser Wert ist der default. Das Element befindet sich wie im HTML-Dokument aufg
 选择器 {
   position: static;
 }
+
+div {
+  position: static; 
+}
+/* Dies ist der Standard, also muss es nicht explizit gesetzt werden */
 ```
 
 ## 3.2 相对定位 relative（重要）
 
 相对定位是元素在移动位置的时候，是相对于它原来的位置来说的（自恋型）。
+
+Bei position: relative bleibt das Element im normalen Fluss, wie bei static, aber es kann relativ zu seiner ursprünglichen Position verschoben werden, ohne den Platz zu verlieren, den es im normalen Fluss einnimmt.
+- Du kannst die Position des Elements mit den Eigenschaften top, left, right oder bottom ändern.
+- Der Platz, den das Element normalerweise einnehmen würde, bleibt erhalten, auch wenn das Element visuell verschoben wird.
+
 Das Element befindet sich im Textfluß und kann zusätzlich mit den Properties top, right, bottom und/oder left verschoben werden. Die Verschiebung nimmt als Bezug die Ausgangsposition und der ursprüngliche Platz wird reserviert und freigehalten.
 
 Das property wird oft verwendet, um als Bezugspunkt für absolute positionierte Elemente zu dienen. Dann sind i.d.R. top, right, bottom und left überflüssig.
@@ -106,6 +140,15 @@ Das property wird oft verwendet, um als Bezugspunkt für absolute positionierte 
   top: 5em;
   left: 7em;  
 }
+
+div {
+  position: relative;
+  top: 20px; /* Das Element wird 20px nach 
+  unten verschoben */
+  left: 30px; /* Das Element wird 30px nach
+  rechts verschoben */
+}
+
 ```
 
 Properties: 
@@ -118,7 +161,13 @@ Properties:
 
 ## 3.3 绝对定位 absolute （重要）
 
-绝对定位是元素在移动位置的时候，是相对于它祖先元素来说的（拼爹型）。
+绝对定位是元素在移动位置的时候，是相对于它祖先元素来说的, das nicht position: static hat, （拼爹型）。
+
+Ein Element mit position: absolute wird aus dem normalen Fluss entfernt und ==relativ zu seinem nächsten positionierten Vorfahren (dem nächstgelegenen Elternelement, das nicht position: static hat) positioniert==. 
+Falls es keinen solchen Vorfahren gibt, wird es relativ zum body (oder der html-Wurzel) positioniert.
+- Es hat keinen Einfluss auf die umgebenden Elemente, da es nicht mehr im normalen Dokumentenfluss ist.
+- Eigenschaften wie top, left, right und bottom können verwendet werden, um die Position relativ zu seinem nächsten positionierten Vorfahren zu bestimmen.
+
 Das Element wird aus dem Textfluß entfernt und von Folgeelementen und Elternelementen ignoriert, die seinen Platz einnehmen. 
 Zusätzlich schrumpft 收缩 es auf seine tatsächliche Größe. 
 Es wird zum Block-Element und kann deshalb eine width zugewiesen bekommen.
@@ -128,9 +177,19 @@ Bezugspunkt für die Verschiebung ist hier der nächste Vorfahre (祖先), der s
 
 语法：
 
-```
+```css
 选择器 {
   position: absolute;
+}
+
+div {
+  position: absolute;
+  top: 50px; /* Das Element wird 
+  50px von der Oberkante des 
+  Elternelements platziert */
+  right: 20px; /* Das Element wird 
+  20px von der rechten Kante des 
+  Elternelements platziert */
 }
 ```
 
@@ -185,7 +244,12 @@ Bezugspunkt für die Verschiebung ist hier der nächste Vorfahre (祖先), der s
 固定定位是元素固定于浏览器可视区的位置。 <mark> 以阅览器的viewport 为基准, 不以某个元素为基准 </mark>
 <mark>注意这里说的是 可视窗口, 不是整个页面内容全部的窗口. 当 页面向下滚动, 有些内容就不可视了, 就不在可视窗口中了</mark>
 固定在 viewport 上面, 总是可见的, 即便是滚动的时候. Das fixed positionierte Element bleibt beim Scrollen stehen (ist immer auf dem Bildschirm zu sehen).
- 
+
+Ein Element mit position: fixed wird ebenfalls aus dem normalen Dokumentenfluss entfernt, aber es wird relativ zum Viewport (dem sichtbaren Bereich des Browsers) positioniert. Das bedeutet, dass es immer an derselben Position bleibt, auch wenn die Seite gescrollt wird.
+- Eigenschaften wie top, left, right und bottom können verwendet werden, um die Position relativ zum Ansichtsfenster festzulegen.
+- Es bewegt sich nicht mit dem Scrollen der Seite.
+
+
 主要使用场景：可以在浏览器页面滚动时元素的位置不会改变。
 Das Element verhält sich wie ein absolute positioniertes Element, lediglich der Bezug für eine Verschiebung ist jetzt immer der viewport.
 Das Element bleibt fixiert an einer Stelle im viewport, die mit top, right, bottom und left festgelegt ist.
@@ -232,6 +296,11 @@ Das Element verhält sich relative, bis zu einem gegebenen offset, dann verhält
 基本上，可以看出是position:relative和position:fixed的结合体
 当元素在屏幕内，表现为relative. 随着页面的滚动，当导航距离上边缘0距离的时候，黏在了上边缘，不会被消失 表现如同position:fixed。
 
+Ein Element mit position: sticky verhält sich wie eine Mischung aus relative und fixed. Zunächst verhält sich das Element wie bei `position: relative`, aber sobald ein bestimmter Punkt im Ansichtsfenster erreicht wird (definiert durch top, left, right oder bottom), bleibt es an dieser Position kleben und verhält sich wie fixed.
+- Es bleibt im normalen Dokumentenfluss, bis es die festgelegte Position erreicht, und dann bleibt es dort, bis es aus dem sichtbaren Bereich gescrollt wird.
+- Diese Positionierungsart wird oft für Menüs oder Navigationen verwendet, die beim Scrollen sichtbar bleiben sollen.
+
+
 ### 3.6.1 粘性定位的特点：
 
 1. 以浏览器的可视窗口为参照点移动元素（固定定位特点）
@@ -254,6 +323,13 @@ Das Element verhält sich relative, bis zu einem gegebenen offset, dann verhält
 选择器 {
   position: sticky; 
   top: 10px;
+}
+
+div {
+  position: sticky;
+  top: 0; /* Das Element bleibt 
+  oben am Bildschirm haften, wenn 
+  es dorthin gescrollt wird */
 }
 ```
 

@@ -34,6 +34,8 @@ For maintainability keep the breakpoints to a minimum.
 
 "https://developer.mozilla.org/en-US/docs/Web/CSS/Media_Queries/Using_media_queries" 
 
+Die @media-Regel in CSS wird verwendet, um sogenannte Media Queries zu definieren. Diese ermöglichen es, CSS-Stile nur dann anzuwenden, wenn bestimmte Bedingungen erfüllt sind, wie z.B. die Größe des Anzeigegeräts, die Ausrichtung des Bildschirms oder die Auflösung. Das ist besonders nützlich für responsive Webdesign, um Websites an verschiedene Bildschirmgrößen und Geräte anzupassen (z.B. Desktop, Tablet, Smartphone).
+
 媒体查询（Media Query）是CSS3新语法。
 With media queries we can ask for certain types of output and additional features. Depending on those we can change styles for these features.
 <mark>Media Queries are stylesheets within stylesheets.</mark>
