@@ -8,6 +8,9 @@ Ist z.B. die Änderung der Schriftart notwendig, wäre viel mehr Aufwand nötig,
 CSS verändert keinesfalls nur das Design einer Webseite, sondern hat sehr oft auch starke Auswirkungen auf Funktionalität und Sicherheit. 
 Gerade wenn JavaScript eingesetzt wird und man sich dabei an CSS orientiert. 
 
+
+![](image/Pasted%20image%2020241123113315.png)
+
 # 2 HTML
 
 Hyper Text Markup Language 超文本标记语言 

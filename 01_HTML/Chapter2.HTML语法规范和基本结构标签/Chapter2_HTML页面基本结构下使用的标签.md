@@ -75,9 +75,22 @@
 # 3 URI und URL 
 
 
-![](image/Pasted%20image%2020241029165206.png)
+![](image/Pasted%20image%2020241123115548.png)
+
+Bezeichner für abstrakte oder physische Ressourcen
+URL und URN sind zwei gängige Unterkategorien von URIs
+Beachte: die Begriffe URI und URL werden häufig synonym verwendet
+Eine Origin besteht lediglich aus dem Schema sowie der Authority (=Domain plus Port-Nummer)
 
 
+UNIFORM RESOURCE NAME (URN)
+- Codiert den Namen einer Ressource, die weltweit eindeutig und dauerhaft referenziert werden muss
+- Beispiel: isbn:3827370191
+- Beispiel: tel:+1-816-555-1212
+
+UNIFORM RESOURCE LOCATOR (URL)
+- Codiert den Ort einer Ressource
+- Beispiel: http://www.tu.berlin/vorlesungen/webtechnologien
 
 
 # 4 html标签
@@ -119,6 +132,21 @@ Meta标签一般用来作 SEO
 
 ![](image/Pasted%20image%2020241029164209.png)
 
+Grundaufbau einer Webseite besteht aus den Elementen `<html>, <head> und <body>`
+
+DOCTYPE
+HTML-Standard der Webeseite
+Hat den Wert html für HTML5-Seite
+
+HEAD
+Steuerelemente einer Webseite
+Interpretation durch den Webbrowser zur korrekten
+Darstellung der Webseite
+Bleiben dem Nutzer verborgen
+
+BODY
+Sichtbare Nutzdaten einer Webseite 
+Werden dem Nutzer angezeigt
 
 ## 5.1 style 
 
@@ -262,13 +290,10 @@ kann das Durchsuchen der Webseite und/oder Unterseiten durch Suchmaschinen beein
 - all = sowohl die aktuelle HTML-Seite als auch die Links dürfen von Suchmaschinen durchsucht werden
 Mehr dazu unter Suchmaschinenoptimierung
 
-## 5.4 link 标签  (css 文件)
+## 5.4 link 标签  (去使用css 文件)
 
-![](image/Pasted%20image%2020241029165514.png)
-
-Defi niert Verweis zwischen der Webseite, die `<link>` enthält, und einer externen Ressource
+Definiert Verweis zwischen der Webseite, die `<link>` enthält, und einer externen Ressource
 rel-Attribut beschreibt Verhältnis zwischen der einbindenden oder der eingebundenen Ressource
-
 
 Beziehungen innerhalb der Kopfdaten, stellen eine gute Möglichkeit dar, `<mark>`um Abhängigkeiten einer HTML-Datei anzugeben.` </mark>` So z.B. die vorherige oder nächste Seite. Suchdienste können so nahezu komplette Site-Maps der Website erstellen. Allerdings werden Kopfdaten meist für andere Informationen benötigt, wie das CSS-Stylesheet oder einem Favicon.
 
@@ -289,6 +314,7 @@ Beziehungen innerhalb der Kopfdaten, stellen eine gute Möglichkeit dar, `<mark>
 12 </html>
 ```
 ### 5.4.1 syntax
+
 ` <link rel= ″某个Attributwert″ type="image/x-icon" href="./favicon.ico"> `
 
 有这些 某个Attributwert
@@ -302,8 +328,6 @@ Beziehungen innerhalb der Kopfdaten, stellen eine gute Möglichkeit dar, `<mark>
 ## 5.5 script标签 (引用 js 文件 )
 
 `<script src="script/07DOM01.js" async defer></script>`
-
-
 - Bindet JavaScript-Anweisungen im Head der HTML-Seite oder als externe Datei ein
 - Darf auch im Body stehen und kommt dort oft am Ende von `<body>` vor
 - Keine Kombination von eingebundenen JavaScript-Dateien innerhalb eines` <script>-Elements`

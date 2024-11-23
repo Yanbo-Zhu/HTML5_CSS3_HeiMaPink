@@ -7,6 +7,14 @@ https://www.youtube.com/watch?v=qNtJ5p3h2A4
 https://juejin.cn/post/6854573220306255880#heading-2
 https://www.ruanyifeng.com/blog/2019/03/grid-layout-tutorial.html
 
+
+![](image/Pasted%20image%2020241123134313.png)
+
+![](image/Pasted%20image%2020241123134325.png)
+
+![](image/Pasted%20image%2020241123134332.png)
+
+
 # 2 什么是 GridBox
 
 The grid modul is a two dimensional layout tool.

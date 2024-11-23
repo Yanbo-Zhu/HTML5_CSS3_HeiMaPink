@@ -888,3 +888,23 @@ The required attribute is supported by text, search, url, tel, email, date, mont
 <input type="text" name="username" pattern="">
 ```
 
+
+
+# 8 HTTP-METHODEN ZUR ÜBERTRAGUNG DER FORMULARDATEN
+
+![](image/Pasted%20image%2020241123120941.png)
+
+
+![](image/Pasted%20image%2020241123120948.png)
+
+
+GET-METHODE
+- Formulareingabe wird mittels einer HTTP-GET-Methode gesendet, d.h. die Daten werden an die URL angehängt, die in action angegeben ist
+- Nach dem Absenden des Formulars sind die Formulareingaben in der Browserzeile sichtbar
+- HTTP empfi ehlt eine Maximalgröße von 255 Bytes für URLs, daher nur für kleine Formulare geeignet
+
+
+POST-METHODE
+- Übertragung der Daten im Nutzdatenteil einer Nachricht, die mit der HTTP-POST-Methode versendet wird
+- Übertragung der Daten ist für den Nutzer nicht sichtbar
+- Je nach Konfi guration des Webservers kann die maximale Dateigröße beschränkt sein, z.B. 8 MB

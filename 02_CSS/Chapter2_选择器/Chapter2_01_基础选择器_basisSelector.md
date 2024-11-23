@@ -52,11 +52,43 @@ p{}
 div{}   因为div 没有语义，我们尽量少用
 ```
 
-# 5 标签选择器 Type/Element selector  ( 类名 {} )
+
+
+# 5 通配符选择器 Univeral Selector  ( * {} )
+
+- 用 `*` 定义通配符选择器，选取页面中所有标签。对所有的标签都起作用， 不管这个标签的名字叫啥
+- 通配符选择器不需要调用，自动就给所有的元素使用样式
+- 特殊情况使用， 一般是用于清楚元素标签的内外边距
+
+- Steuert alle HTML-Elemente
+- Verwendung für allgemeine Angaben, wie zum Beispiel die Festlegung einer gemeinsamen Schrift
+- Sparsame Verwendung empfohlen, da rechen- und speicherintensiv (Regeln müssen im DOM auf alle Elemente abgebildet der Webseite explizit abgebildet werden)
+
+语法
+```css
+* {
+    属性1: 属性值1;
+    ...
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+```
+
+
+例子： 
+  ![](image/Chapter_css_简单选择器_005_通配符选择器_例子.png)
+
+
+
+# 6 标签选择器 Type/Element selector  ( 类名 {} )
 
 直接用 HTML 标签名作为选择器，按标签名称分类，**为页面某一类标签指定统一的 CSS 样式。**
 Der Element-Selektor wählt alle Elemente mit dem angegebenen HTML-Tag aus.
 
+Steuert alle HTML-Elemente mit angegebenen Namen
 
 语法
 ```css
@@ -79,11 +111,18 @@ p {
 
 ![](image/Chapter_css_简单选择器_001_标签选择器_例子.png)
 
-# 6 类选择器 class selector  (.类名 {} )
+# 7 类选择器 class selector  (.类名 {} )
 
 差异化选择不同标签，单独选一个或者某个标签。
 Der Klassen-Selektor wählt Elemente mit einem bestimmten Klassenattribut aus. Um Elemente mit einer bestimmten Klasse auszuwählen, schreibt man einen Punkt (.) gefolgt von dem Namen der Klasse.
-## 6.1 语法
+
+- Deklaration bezieht sich auf alle HTML-Elemente welche den zugehörigen Selektor im class-Attribut setzen
+- Wert von class kann in einem HTML-Dokument beliebig oft vorkommen
+- Dient ausschließlich der Vergabe von CSS-Klassennamen
+- In einem class-Attribut können mehrere Klassennamen kombiniert werden, die jeweils durch ein Leerzeichen voneinander getrennt sind
+- Geringere Gewichtung als id-Selektor
+
+## 7.1 语法
 
 记忆口诀：样式点定义，结构类调用
 
@@ -106,7 +145,7 @@ Der Klassen-Selektor wählt Elemente mit einem bestimmten Klassenattribut aus. U
 }
 ```
 
-## 6.2 注意
+## 7.2 注意
 
 记忆口诀：样式点定义，结构类调用
 
@@ -128,7 +167,7 @@ Der Klassen-Selektor wählt Elemente mit einem bestimmten Klassenattribut aus. U
 4. 命名有意义。
 5. 类选择器在 HTML 中以 class 属性表示，在CSS中，类选择器以一个点 . 号表示
 
-## 6.3 类选择器-单类名
+## 7.3 类选择器-单类名
 
 ```css
 // 定义一个class， 这个class将所有拥有red类HTML元素均设置为红色
@@ -143,7 +182,7 @@ Der Klassen-Selektor wählt Elemente mit einem bestimmten Klassenattribut aus. U
 <li class='red'>来生缘</li>
 ```
 
-## 6.4 类选择器-多类名
+## 7.4 类选择器-多类名
 
 - 一个标签， 在标签的 class 属性中， 写多个类名
 - 多个类名中间必须用空格分开
@@ -197,19 +236,27 @@ https://developer.mozilla.org/zh-CN/docs/Web/CSS/@media/prefers-color-scheme
 
 [结果](https://developer.mozilla.org/zh-CN/docs/Web/CSS/@media/prefers-color-scheme#%E7%BB%93%E6%9E%9C)
 
-## 6.5 多类名开发中使用场景
+## 7.5 多类名开发中使用场景
 
 1. 可以把一些标签元素相同的样式(公共的部分)放到一个类里面
 2. 这些标签都可以调用这个公共的类，然后再调用自己独有的类
 3. 从而节省CSS代码，统一修改也方便
 
+
 例子： 
 
 ![](image/Chapter_css_简单选择器_002_标签选择器_例子2.png)
 
-# 7 id 选择器 ( \#id名 {}  )
+# 8 id 选择器 ( \#id名 {}  )
 
 Der ID-Selektor wählt das Element mit der angegebenen ID aus. Um ein Element mit einer bestimmten ID auszuwählen, schreibt man ein Hashtag-Zeichen (#) gefolgt von dem Namen der ID.
+
+
+- Deklaration bezieht sich auf genau ein HTML-Element, welches den Selektor im id-Attribut setzt
+- Eine CSS-Regel, die über id vergeben wird, hat eine hohe Gewichtung
+- Ein id-Wert kann im HTML-Code nicht mit einem zweiten id-Wert kombiniert werden
+- Über id werden eindeutige Aufgaben gesteuert, die bei der Mehrfachvergabe einer id nicht funktionieren würden (zum Beispiel Steuerung von `<input>`-Feldern)
+- CSS-Deklaration bezieht sich nur  konkret auf das HTML-Element, welches das zugehörige id-Attribut defi niert, nicht auf alle HTML-Elemente des gleichen Namens
 
 
 id 选择器可以为标有特定 id 的 HTML 元素指定特定的样式。
@@ -237,11 +284,11 @@ id 选择器可以为标有特定 id 的 HTML 元素指定特定的样式。
 ```
 
 
-## 7.1 例子
+## 8.1 例子
 
 ![](image/Chapter_css_简单选择器_004_id选择器_例子.png)
 
-## 7.2 id 选择器与类选择器的区别
+## 8.2 id 选择器与类选择器的区别
 
 1. 类选择器（class）好比人的名字，一个人可以有多个名字，同时一个名字也可以被多个人使用
 2. id 选择器好比人的身份证号码，全中国是唯一的，不得重复。
@@ -259,29 +306,6 @@ Klassen
 - unterschiedliche Elemente können eine Klasse haben
 - sind weniger eine eindeutige Bezeichnung, vielmehr eine Zuordnung zu einer Gruppe
 
-
-# 8 通配符选择器 Univeral Selector  ( * {} )
-
-- 用 `*` 定义通配符选择器，选取页面中所有标签。对所有的标签都起作用， 不管这个标签的名字叫啥
-- 通配符选择器不需要调用，自动就给所有的元素使用样式
-- 特殊情况使用， 一般是用于清楚元素标签的内外边距
-
-语法
-```css
-* {
-    属性1: 属性值1;
-    ...
-}
-
-* {
-    margin: 0;
-    padding: 0;
-}
-```
-
-
-例子： 
-  ![](image/Chapter_css_简单选择器_005_通配符选择器_例子.png)
 
 # 9 属性选择器 Attribute Selector (css3 新特性)
 

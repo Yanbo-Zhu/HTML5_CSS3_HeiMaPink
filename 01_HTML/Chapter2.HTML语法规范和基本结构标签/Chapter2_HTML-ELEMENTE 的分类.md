@@ -1,6 +1,39 @@
 
 
-# 1 HTML 页面基本结构标签 SEITENSTRUKTURIERUNG
+# 1 BLOCK-ELEMENTE, INLINE-ELEMENTE, leer-element
+
+## 1.1 Block-Elemente
+
+Block-Elemente nehmen die volle Breite des Elternelements ein (sofern die Breite nicht
+mittels CSS verändert wird) und die erforderliche Höhe zur Darstellung des Inhalts
+Mit jedem neuen Block-Element wird ein neuer Absatz erzeugt
+Nachfolgende Elemente rutschen unter das Block-Element
+Gängige Bock-Elemente: `<header>, <footer>, <article>, <section>, <aside>, <nav>, <h1> bis <h6>, <p>, <ul>, <ol>, <li>, <div>`
+
+![](image/Pasted%20image%2020241123114545.png)
+
+
+## 1.2 INLINE-ELEMENTE
+
+Inline-Elemente nehmen sowohl in der Breite als auch in der Höhe nur soviel Platz ein wie erforderlich
+Mehrere Inline-Elemente werden wie Wörter hintereinander aufgereiht
+Ist die verfügbare Breite durch mehrere Inline-Elemente erreicht, brechen sie in die nächste Zeile um
+Gängige Inline-Elemente: `<em>, <strong>, <a>, <img> und <span>`
+
+
+![](image/Pasted%20image%2020241123114607.png)
+
+
+
+## 1.3 Leere Element 
+
+Void Elements sind HTML-Elemente ohne End Tag
+Void Elements dürfen keinen End Tag besitzen
+
+![](image/Pasted%20image%2020241123114637.png)
+
+
+# 2 Seitenstrukturierung
 
 每个网页都会有一个基本的结构标签，页面内容都是在这些基本标签上书写。 HTML 页面也叫 HTML 文档。
 基本骨架:
@@ -46,12 +79,12 @@
 
 
 
-# 2 HTML-ELEMENTE ZUR TEXTSTRUKTURIERUNG
+# 3 Textstrukurierung
 
 ![](image/Pasted%20image%2020241029183059.png)
 
 
-# 3 HTML-ELEMENTE ZUR TEXTAUSZEICHNUNG
+# 4 Textzeichnung
 
 
 
@@ -62,22 +95,21 @@
 
 ![](image/Pasted%20image%2020241029183121.png)
 
-# 4 HTML-ELEMENTE ZUR FORMULARDARSTELLUNG
+# 5 Formulardarstellung
 
 ![](image/Pasted%20image%2020241029183231.png)
 
-# 5 HTML-ELEMENTE ZUR FORMULARDARSTELLUNG
 
 
 ![](image/Pasted%20image%2020241029183258.png)
 
 
-# 6 HTML-ELEMENTE ZUR EINBETTUNG VON MEDIEN UND INHALTEN
+# 6 EINBETTUNG VON MEDIEN UND INHALTEN
 
 ![](image/Pasted%20image%2020241030081407.png)
 
 
-# 7 HTML-ELEMENTE ZUR DARSTELLUNG VON TABELLEN
+# 7 DARSTELLUNG VON TABELLEN
 
 
 ![](image/Pasted%20image%2020241030081429.png)

@@ -20,37 +20,190 @@ CSS 最大价值: 由 HTML 专注去做结构呈现，样式交给 CSS，即 结
  CSS 主要用于设置 HTML 页面中的文本内容（字体、大小、对齐方式等）、图片的外形（宽高、边框样式、边距等）以及版面的布局和外观显示样式。
  CSS 让我们的网页更加丰富多彩，布局更加灵活自如。简单理解：CSS 可以美化 HTML , 让 HTML 更漂亮， 让页面布局更简单。
 
-# 3 css样式表引入方式
 
 
-![](.\image\Chapter1_Css简介_002_css引入方式.png)
+# 3 css语法规范
+
+1.使用 HTML 时，需要遵从一定的规范，CSS 也是如此。要想熟练地使用 CSS 对网页进行修饰，首先需要了解CSS 样式规则。
+2.CSS 规则由两个主要的部分构成：<mark>选择器 以及 一条或多条声明</mark>。
+
+![](Image/Chapter1_Css简介_001_css属性规则.png)
+
+ 1.选择器是用于指定 CSS 样式的 HTML 标签，花括号内是对该对象设置的具体样式
+ 2.属性和属性值以“键值对”的形式出现
+ 3.属性是对指定的对象设置的样式属性，例如字体大小、文本颜色等
+ 4.属性和属性值之间用英文“:”分开
+ 5.多个“键值对”之间用英文“;”进行区分
+
+Solch eine Anweisung besteht aus zwei Teilen, dem Selektor und der Deklaration. 
+- Der Selektor bestimmt, auf welches HTML-Element die Anweisung angewendet werden soll.  h1 就是 Selektor 
+- Die Deklaration beschreibt, was auf das Element angewendet wird.  就是 {} 中的内容 为 Deklaration 
+    - Sie besteht aus einer Eigenschaft (oder mehreren) die das Element besitzt und meist einem Wert, den die Eigenschaft bekommen soll.
+
+```css
+Selektor {Eigenschaft: Wert;}
+      h1 {color:#885ac7;}
+```
 
 
-1. **Inline-CSS** – Das Styling wird direkt im HTML-Element mit dem Attribut `style` definiert.    
-    ```html
-    <p style="color: red;">Das ist ein roter Text.</p>
-    ```
 
-2. **Internes CSS** – Das Styling wird im Kopfbereich des HTML-Dokuments mit dem `<style>` Element definiert.
-    ```html
-    <head>
-        <style>
-            p {
-                color: blue;
-            }
-        </style>
-    </head>
-    ```
-    
-3. **Externes CSS** – Das Styling wird über eine externe CSS-Datei definiert, die mit dem `<link>` Element eingebunden wird. Beispiel:
+![](Image/Pasted%20image%2020241123122832.png)
+
+SELEKTOR
+- Ein Selektor bestimmt das oder die HTML-Elemente auf welche die CSS-Regel angewendet werden soll
+- Viele verschiedene Arten von Selektoren
+- Hier: Elementselektor
+
+DEKLARATIONSBLOCK
+- Enthält die Deklarationen, die auf die ausgewählten HTMLElemente anzuwenden sind, und wird durch ein Paar geschweifte Klammern umschlossen Eine Deklaration besteht aus folgenden Einzelteilen: 
+- der Eigenschaft (Property),
+- einem Doppelpunkt, 
+- einem oder mehreren Werten (Property Values) und
+- einem abschließenden Semikolon.
+
+## 3.1 例子
+
+    所有的样式，都包含在 <style> 标签内，表示是样式表。<style> 一般写到 </head> 上方
+
+```html
+<head>
+      <style>
+          h4 {
+              color: blue;
+              font-size: 100px;
+          }
+      </style>
+</head>
+```
+
+```html
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>体验css语法规法</title>
+    <style>
+        p {  <!-- 给p这个标签定义样式 -->
+            color: red;
+            font-size: 20px;
+        }
+
+    </style>
+</head>
+<body>
+    <p>
+        Hallo
+    </p>
+</body>
+</html>
+```
+
+## 3.2 css代码风格
+
+- 展开式
+- 选择器，属性名，属性关键字, 全部小写
+- 空格规范
+
+### 3.2.1 样式格式书写
+
+2 紧凑格式  : 
+
+```
+h3 { color: pink; font-size: 20px;}
+```
+
+2 展开格式:  (强烈推荐这种格式， 因为更直观。)
+
+```
+h3 {
+ color: pink;
+ font-size: 20px;  
+ }
+```
+
+### 3.2.2 样式大小写风格
+
+1.小写格式强烈 (强烈推荐这种格式， 因为更直观。强烈推荐样式选择器，属性名，属性值关键字全部使用小写字母，特殊情况除外。)
+
+    h3 {
+         color: pink;
+    }
+
+ 2 大写格式 
+
+```
+H3 {
+ COLOR: PINK;
+}
+```
+
+### 3.2.3 样式空格风格
+
+属性值前面，冒号后面，保留一个空格 选择器（标签）和大括号中间保留空格
+
+```
+h3 {  // h3 后面有个空格 
+ color: pink;  // 冒号后有一个空格 
+}
+```
+
+
+## 3.3 DATENTYPEN
+
+
+![](Image/Pasted%20image%2020241123130218.png)
+
+
+# 4 css样式表引入方式
+
+
+![](Image/Pasted%20image%2020241123122948.png)
+
+
+---
+
+**Externes CSS** – Das Styling wird über eine externe CSS-Datei definiert, die mit dem `<link>` Element eingebunden wird. Beispiel:
 ```html
 <head>
     <link rel="stylesheet" href="style.css">
 </head> 
 ```
 
+![](Image/Pasted%20image%2020241123123006.png)
 
-## 3.1 外部样式表(链接式)
+
+---
+
+**Inline-CSS** – Das Styling wird direkt im HTML-Element mit dem Attribut `style` definiert.    
+```html
+<p style="color: red;">Das ist ein roter Text.</p>
+```
+
+
+
+![](Image/Pasted%20image%2020241123123103.png)
+
+
+---
+
+
+**Internes CSS** – Das Styling wird im Kopfbereich des HTML-Dokuments mit dem `<style>` Element definiert.
+```html
+<head>
+    <style>
+        p {
+            color: blue;
+        }
+    </style>
+</head>
+```
+
+![](Image/Pasted%20image%2020241123123038.png)
+
+
+## 4.1 外部样式表(链接式)
 Formate zentral im externen Stylesheet definieren
 
 ```html
@@ -75,7 +228,7 @@ Formate zentral im externen Stylesheet definieren
 1. 新建一个.css 文件， 把所有的css 代码都放入此文件中
 2. 在html 中， 通过 link 标签引入这个文件
 
-## 3.2 行内样式表(行内式)
+## 4.2 行内样式表(行内式)
 Inline-Styles (HTML-Elemente direkt formatieren)
 
 通过标签的style属性来设置元素的CSS样式. 适合于简单的样式修改
@@ -91,7 +244,7 @@ Inline-Styles (HTML-Elemente direkt formatieren)
 <div style="color: red; font-size: 12px;">青春不常在，抓紧谈恋爱</div>
 ```
 
-## 3.3 内部样式表(内嵌式)
+## 4.3 内部样式表(内嵌式)
 
 Formate zentral für ein Dokument definieren
 
@@ -129,118 +282,6 @@ Formate zentral für ein Dokument definieren
  
 ```
 
-
-
-# 4 css语法规范
-
-1.使用 HTML 时，需要遵从一定的规范，CSS 也是如此。要想熟练地使用 CSS 对网页进行修饰，首先需要了解CSS 样式规则。
-2.CSS 规则由两个主要的部分构成：<mark>选择器 以及 一条或多条声明</mark>。
-
-![](Image/Chapter1_Css简介_001_css属性规则.png)
-
- 1.选择器是用于指定 CSS 样式的 HTML 标签，花括号内是对该对象设置的具体样式
- 2.属性和属性值以“键值对”的形式出现
- 3.属性是对指定的对象设置的样式属性，例如字体大小、文本颜色等
- 4.属性和属性值之间用英文“:”分开
- 5.多个“键值对”之间用英文“;”进行区分
-
-Solch eine Anweisung besteht aus zwei Teilen, dem Selektor und der Deklaration. 
-- Der Selektor bestimmt, auf welches HTML-Element die Anweisung angewendet werden soll.  h1 就是 Selektor 
-- Die Deklaration beschreibt, was auf das Element angewendet wird.  就是 {} 中的内容 为 Deklaration 
-    - Sie besteht aus einer Eigenschaft (oder mehreren) die das Element besitzt und meist einem Wert, den die Eigenschaft bekommen soll.
-
-```css
-Selektor {Eigenschaft: Wert;}
-      h1 {color:#885ac7;}
-```
-
-## 4.1 例子
-
-    所有的样式，都包含在 <style> 标签内，表示是样式表。<style> 一般写到 </head> 上方
-
-```cshtml
-<head>
-      <style>
-          h4 {
-              color: blue;
-              font-size: 100px;
-          }
-      </style>
-</head>
-```
-
-```cshtml
-<!DOCTYPE html>
-<html lang="zh">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>体验css语法规法</title>
-    <style>
-        p {  <!-- 给p这个标签定义样式 -->
-            color: red;
-            font-size: 20px;
-        }
-
-    </style>
-</head>
-<body>
-    <p>
-        Hallo
-    </p>
-</body>
-</html>
-```
-
-## 4.2 css代码风格
-
-- 展开式
-- 选择器，属性名，属性关键字, 全部小写
-- 空格规范
-
-### 4.2.1 样式格式书写
-
-2 紧凑格式  : 
-
-```
-h3 { color: pink; font-size: 20px;}
-```
-
-2 展开格式:  (强烈推荐这种格式， 因为更直观。)
-
-```
-h3 {
- color: pink;
- font-size: 20px;  
- }
-```
-
-### 4.2.2 样式大小写风格
-
-1.小写格式强烈 (强烈推荐这种格式， 因为更直观。强烈推荐样式选择器，属性名，属性值关键字全部使用小写字母，特殊情况除外。)
-
-    h3 {
-         color: pink;
-    }
-
- 2 大写格式 
-
-```
-H3 {
- COLOR: PINK;
-}
-```
-
-### 4.2.3 样式空格风格
-
-属性值前面，冒号后面，保留一个空格 选择器（标签）和大括号中间保留空格
-
-```
-h3 {  // h3 后面有个空格 
- color: pink;  // 冒号后有一个空格 
-}
-```
 
 # 5 Kommentierung im Stylesheet
 ```css

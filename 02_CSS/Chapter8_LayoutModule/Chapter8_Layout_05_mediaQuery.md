@@ -32,6 +32,8 @@ For maintainability keep the breakpoints to a minimum.
 
 # 3 媒体查询 Media Query
 
+Media Queries ab CSS3 ermöglichen die Verknüpfung von Stylesheets mit bestimmten Eigenschaften, z.B. Aufl ösung, Bildschirmgröße oder Ausrichtung
+
 "https://developer.mozilla.org/en-US/docs/Web/CSS/Media_Queries/Using_media_queries" 
 
 Die @media-Regel in CSS wird verwendet, um sogenannte Media Queries zu definieren. Diese ermöglichen es, CSS-Stile nur dann anzuwenden, wenn bestimmte Bedingungen erfüllt sind, wie z.B. die Größe des Anzeigegeräts, die Ausrichtung des Bildschirms oder die Auflösung. Das ist besonders nützlich für responsive Webdesign, um Websites an verschiedene Bildschirmgrößen und Geräte anzupassen (z.B. Desktop, Tablet, Smartphone).
@@ -49,13 +51,24 @@ Organizing media queries within a stylesheet
 - There is no right or wrong way to organize media queries.
 - 可以all rules 都写在 一个 media query, 或者每个 rule 都写着再单独的一个 media query: Be consistent! You can write all rules within one media query or you can write a media query just after each separate rule that needs one.
 
-## 3.1 语法
+## 3.1 Media Query 的被使用 
+
+比如说 就是当你的 页面是 screen 形式来展示的, 并且  width 大于 750px,   那些 就会使用 style.css 去 render 这个界面  
+
+![](image/Pasted%20image%2020241123140619.png)
+
+
+
+## 3.2 语法
+
+![](image/Pasted%20image%2020241123140935.png)
+
+
 ```css
 @media not|only mediatype and (mediafeature) and|or|not (mediafeature) {
   CSS-Code;
 }
 ```
-
 
 - 用 @media 开头 注意@符号
 - mediatype 媒体类型
@@ -67,7 +80,8 @@ Organizing media queries within a stylesheet
 - 注意mediatype 是大小写敏感的，只能是小写;
 - 尽量少用 median query.   因为总是界面变化, 会增加 client 和 server 之间的访问量 
 
-## 3.2 例子
+## 3.3 例子
+
 下面代码的意思是在我们屏幕上页面处于 500px-800px 之间，页面背景颜色显示为 pink 色。页面小于 500px，背景颜色显示为 purple 色
 
 ```html
@@ -96,7 +110,7 @@ Organizing media queries within a stylesheet
 </head>
 ```
 
-## 3.3 Keyword (and, not ,only)
+## 3.4 Keyword (and, not ,only)
 
 关键字将媒体类型或多个媒体特性连接到一起做为媒体查询的条件。
 
@@ -149,7 +163,7 @@ Organizing media queries within a stylesheet
 
 
 
-## 3.4 mediatype (媒体类型)
+## 3.5 mediatype (媒体类型)
 
 将不同的终端设备划分成不同的类型，称为媒体类型
 
@@ -157,12 +171,16 @@ Organizing media queries within a stylesheet
 - 注意mediatype 是大小写敏感的，只能是小写;
 
 
-### 3.4.1 常用的 media type
+### 3.5.1 常用的 media type
  <mark>不指定 mediatype,  则作用于全部的各种类型的mediatype. </mark>  If you don't include a type it will target to all types (screen, print, ...)
 all：適用於所有裝置
 screen：主要用於彩色電腦螢幕 (包含手機和平版)
 speech：適用於語音合成器 (speech synthesizer)、語音朗讀裝置
 print：適用於 paged material 和在列印預覽模式下在螢幕上查看的文件，例如：用瀏覽器的「列印預覽」模式察看文件 
+
+![](image/Pasted%20image%2020241123140753.png)
+
+
 
 ```css
 @media print {
@@ -177,12 +195,19 @@ print：適用於 paged material 和在列印預覽模式下在螢幕上查看�
 ```
 
 
-### 3.4.2 媒体类型为print( @media print )
+Media Types ermöglichen die Verknüpfung von dedizierten Stylesheets zu bestimmten Gerätetypen
+
+Problem 1: Geräte der gleichen Klasse (Smartphones, Tablets,...) haben heute unterschiedliche Eigenschaften, z.B. Bildschirmaufl ösungen
+
+Problem 2: Für moderne Geräte existieren keine zugehörigen Typen, z.B. Smartphones werden wie Desktop-Rechner mit screen deklariert
+
+
+### 3.5.2 媒体类型为print( @media print )
 medien print 中设置, 只是打印机打印出来的时候, 页面长啥样 . 
     - 可以用 pdf 打印阅览, 来查看效果 
 - media print 中的设置, 无关于 这个页面在阅览器中显示的, 长啥样  
 
-#### 3.4.2.1 语法
+#### 3.5.2.1 语法
 ```css
 @median print {
     #menu a {
@@ -191,7 +216,7 @@ medien print 中设置, 只是打印机打印出来的时候, 页面长啥样 .
 }
 ```
 
-#### 3.4.2.2 例子
+#### 3.5.2.2 例子
 ```css
 @media print {
     #menu a{
@@ -229,7 +254,7 @@ medien print 中设置, 只是打印机打印出来的时候, 页面长啥样 .
 
 ```
 
-### 3.4.3 媒体类型为screen (@media screen)
+### 3.5.3 媒体类型为screen (@media screen)
 
 - @media screen 是设置 页面在显示器中显示成什么样, 
 - 对于打印网页的时候, 打印出来的效果, @media screen 中的设置是无效的. 
@@ -251,7 +276,7 @@ medien print 中设置, 只是打印机打印出来的时候, 页面长啥样 .
 
 
 
-## 3.5 媒体特性 (media Feature)
+## 3.6 媒体特性 (media Feature)
 
 每种媒体类型都具体各自不同的特性，根据不同媒体类型的媒体特性设置不同的展示风格。
 
@@ -269,7 +294,11 @@ medien print 中设置, 只是打印机打印出来的时候, 页面长啥样 .
 | aspect-ratio | the ration of width to height |
 |prefers-color-scheme||
 
-### 3.5.1 min-width 和 max-width的比较 
+### 3.6.1 min-width 和 max-width的比较 
+
+![](image/Pasted%20image%2020241123140834.png)
+
+
 - min-width means from this width and larger, so it's for a large(r) screen.  阅览器的 view area 必须大于这个值的时候, 这个设置才生效
 - max-width works the other way around.  阅览器的 view area 必须小于这个值额时候, 这个设置才生效
 - You can also work within a range between min-width and max-width.
@@ -281,7 +310,7 @@ The order of media queries is important!
 - If you work with <code>min-width</code>, you work from the smallest to the biggest.
 -  <em>Try the whole stylesheet mobile-first!</em></p>
 
-#### 3.5.1.1 min-width, max-width 的例子 
+#### 3.6.1.1 min-width, max-width 的例子 
 
 例子1 
 ```css
@@ -364,7 +393,7 @@ The order of media queries is important!
 
   
 
-## 3.6 prefers-color-scheme
+## 3.7 prefers-color-scheme
 https://developer.mozilla.org/zh-CN/docs/Web/CSS/@media/prefers-color-scheme
 
 W3C 在 2020 年 7 月 31 日发布的 [Media Queries Level 5 标准草案](https://www.w3.org/TR/mediaqueries-5/) 中提到了新的属性 `prefers-color-scheme`，网页现在可以通过条件规则组来 <mark>获取浏览器宿系统的暗色模式状态</mark>并应用了。
@@ -374,7 +403,7 @@ W3C 在 2020 年 7 月 31 日发布的 [Media Queries Level 5 标准草案](htt
     2. 如果宿主系统为暗色模式, 则 `@media screen and (prefers-color-scheme: dark)` 块中的设置, 生效, 
     3. 如果宿主系统为亮色模式, 则 `@media screen and (prefers-color-scheme: light)` 块中的升值, 生效, 
 
-### 3.6.1 properties 
+### 3.7.1 properties 
 prefers-color-scheme 有 2 种值：
 - light——浏览器宿系统使用亮色主题的界面，同时也是默认值，浏览器 privacy.resistFingerprinting 被设置为 true 时返回的也将是这个值
 - dark——浏览器宿系统使用暗色主题的界面
@@ -384,7 +413,7 @@ prefers-color-scheme 有 2 种值：
 - no-preference——浏览器宿系统使用未知主题的界面，
     - 当较旧版本的浏览器在宿系统不支持系统层级的暗色模式时会返回这个值，较旧版本的浏览器 privacy.resistFingerprinting 被设置为 true 时返回的也将是这个值
 
-### 3.6.2 语法
+### 3.7.2 语法
 CSS: 
 ```css
 @media (prefers-color-scheme: dark) {

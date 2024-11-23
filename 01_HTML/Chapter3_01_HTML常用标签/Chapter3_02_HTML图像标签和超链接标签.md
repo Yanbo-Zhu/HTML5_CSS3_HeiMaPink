@@ -11,7 +11,7 @@ src 是标签的 必须属性，用于指定图像文件的路径和文件名�
 
 ## 1.1 图像标签的属性
 
-![](../Chapter3_表单/Chapter3_Image/Chapter3_017_图像标签_01.png)
+![](../Chapter3_02_表单/Chapter3_Image/Chapter3_017_图像标签_01.png)
 
 属于这个图像标签的特性。
 
@@ -65,16 +65,41 @@ Von Grafiken können auch Links ausgehen, also Verweise auf eine andere Seite od
 
 完整的网络地址 “https://www.itcases.cn/images/log.gif”, 为网络的绝对地址
 
-# 3 Links 链接标签 `<a>`  双标签 
+![](image/Pasted%20image%2020241123120537.png)
+
+
+# 3 MIME-TYPES
+
+![](image/Pasted%20image%2020241123120610.png)
+
+![](image/Pasted%20image%2020241123120618.png)
+
+
+# 4 链接标签
+
+## 4.1 `<a> 和 <link>`的比较
+![](image/Pasted%20image%2020241029165514.png)
+
+HTML stellt zwei Möglichkeiten bereit, Beziehungen zwischen Dokumenten zu beschreiben:
+- `<a>`-Element (Anchor) im Body eines HTML-Dokuments führt einen klickbaren Verweis im Dokument ein
+- `<link>-`Element (vorwiegend) im Head beschreibt eine Beziehung zwischen dem Dokument, welches den Link enthält, und einem anderen Dokument sowie die Art dieser Beziehung
+
+`<a> `liefert einen für den Nutzer sichtbaren Verweis, `<link> `ist für den Nutzer unsichtbar und dient der Steuerung des Browsers
+
+Attribute in `<a> und <link>`
+- href: URI des Zieldokuments
+- rel: Art der Beziehung
+- media: Ausgabemedium für welches das Zieldokument bestimmt ist
+- type: MIME-Type des Zieldokuments
+
+
+
+## 4.2 `<a>`
 
 在 HTML 标签中，`<a>` 标签用于从一个页面链接到另一个页面。
-
-![](image/Pasted%20image%2020241029182756.png)
-
-## 3.1 download
 `<a download="Dateiname"> `
 
-## 3.2 超链接 href
+## 4.3 超链接 href
 
 a 是单词 anchor 的简写，是锚的意思。
 `<a href="跳转目标" target="目标窗口的弹出方式">这里显示这个链接对应的文本</a>`
@@ -91,7 +116,7 @@ Das Attribut `target` ist dabei optional. Wird es nicht angegeben, wird der Link
 - _parent öffnet den Verweis im browsing content des Eltern Frame. Existiert dieses nicht verhält es sich wie _self.
 - _top öffnet den Verweis im obersten browsing content.
 
-### 3.2.1 超链接分类
+### 4.3.1 超链接分类
 
 不仅可以创建文本超链接，在网页中各种网页元素，如图像、表格、音频、视频等都可以添加超链接。
 
@@ -112,7 +137,7 @@ Das Attribut `target` ist dabei optional. Wird es nicht angegeben, wird der Link
    1. 网页链接： `<a href="mailto:2323232@qq.com">链接这里会打开邮件发送的app</a>`
 
 
-### 3.2.2 src 和 href 的区别
+### 4.3.2 src 和 href 的区别
 
 一句话概括:**src 是引入资源的, href 是跳转url的**
 
@@ -124,7 +149,7 @@ Das Attribut `target` ist dabei optional. Wird es nicht angegeben, wird der Link
 3. href是Hypertext Reference的缩写，指向网络资源所在位置，建立和当前元素（锚点）或当前文档（链接）之间的链接。
    1. 如果我们在文档中添加那么浏览器会识别该文档为css文件，就会并行下载资源并且<mark>不会停止对当前文档的处理</mark>。这也是为什么建议使用link方式来加载css，而不是使用@import方式。
 
-### 3.2.3 link和@import的区别
+### 4.3.3 link和@import的区别
 
 1、从属关系区别：  
 link属于html标签，而@import是css提供的。  
@@ -139,11 +164,11 @@ import只在IE5以上才能识别，而link是html标签，无兼容问题。
 （简而言之，link和@import，谁写在后面，谁的样式就被应用，后面的样式覆盖前面的样式。）
 
 
-### 3.2.4 如何 阻止 a 链接跳转
+### 4.3.4 如何 阻止 a 链接跳转
  阻止 a 链接跳转，可给 href 属性设置 javascript:void(0); 或者 javascript:;。 
 
 
-# 4 Anker  锚点链接： ( 使用 `#`号)
+# 5 Anker  锚点链接： ( 使用 `#`号)
 
 锚点定位：通过创建锚点链接，用户能够快速定位到目标内容。点击链接，可以快速定位到页面中的某个位置。
 
@@ -154,7 +179,7 @@ import只在IE5以上才能识别，而link是html标签，无兼容问题。
     - `<a href="#two">个人生活</a>`  ， 点击个人生活后， 会跳转到 two 所定义的位置 
     - 也可写成 `<a href=4.链接标签.html#top></a>`
 
-## 4.1 id的命名规则
+## 5.1 id的命名规则
 规定元素的唯一 id。
 
 命名规则：

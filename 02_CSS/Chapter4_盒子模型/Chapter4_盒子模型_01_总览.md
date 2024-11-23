@@ -25,12 +25,24 @@ dem Abstand zum äußeren Raum (margin)
   ![](image/Chapter4_css_盒子模型_边框_01.png)
 
 
-# 3 内盒尺寸 
-## 3.1 content 和 width 和 height
+
+# 3 例子 
+
+![](image/Pasted%20image%2020241123125241.png)
+
+
+
+
+# 4 内盒尺寸 
+
+
+## 4.1 content 和 width 和 height
 在 CSS 中，width 和 height 指的是内容区域的宽度和高度。
 增加内边距、边框和外边距不会影响内容区域的尺寸，但是会增加元素框的总尺寸。
 
-## 3.2 盒子尺寸计算(元素实际大小)
+
+
+## 4.2 盒子尺寸计算(元素实际大小)
 
 盒子的实际大小：**内容的宽度和高度 +  内边距   +  边框**
 
@@ -38,12 +50,16 @@ dem Abstand zum äußeren Raum (margin)
 - 盒子总高度：Element  Width = content width (元素名为 width 内容宽度, 不含有边框的宽度) + 2*  padding + 2*  border （Width为内容宽度）
 - <mark> margin 不考虑在盒子的尺寸内， margin 不会撑大盒子的尺寸 </mark>
 
-## 3.3 边框会额外增加盒子的实际大小
+
+
+## 4.3 边框会额外增加盒子的实际大小
 因此有两种方案解决。
 1. 测量盒子大小的时候，不测边框。
 2. 若测量的时候包含了边框，则需要 width/height-边框宽度。
 
-## 3.4 盒子模型布局稳定性
+
+
+## 4.4 盒子模型布局稳定性
 
 优先使用  宽度 （width）  其次 使用内边距（padding）    再次  外边距（margin）
 `width >  padding  >   margin`   
@@ -54,8 +70,10 @@ dem Abstand zum äußeren Raum (margin)
 - padding  会影响盒子大小， 需要进行加减计算（麻烦） 其次使用。
 - width   没有问题（嗨皮）我们经常使用宽度剩余法 高度剩余法来做。
 
-# 4 综合案例
-## 4.1 案例 产品模块
+
+
+# 5 综合案例
+## 5.1 案例 产品模块
 ![](image/Chapter4_css_盒子模型_综合案例_01_产品模块.png)
 
 注意点
@@ -138,7 +156,9 @@ dem Abstand zum äußeren Raum (margin)
 </body>
 </html>
 ```
-## 4.2 新闻快报
+
+
+## 5.2 新闻快报
 d:\File_Storage\File_Markdown\HTML5_CSS3_HeiMaPink_别人的笔记\基础部分\06-前端基础CSS第四天\案例\01-综合案例-新闻快报.html
 ![](image/Chapter4_css_盒子模型_综合案例_02_快报模块.png)
 

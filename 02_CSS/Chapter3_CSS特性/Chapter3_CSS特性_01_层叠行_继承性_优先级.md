@@ -1,5 +1,29 @@
 CSS 有三个非常重要的特性：层叠性、继承性、优先级。
-# 1 层叠性
+
+
+# 1 KASKADEN VERSCHIEDENER STYLESHEETS
+
+Autoren-Stylesheet, Nutzer-Stylesheet, Brower-stylesheet 的优先级 
+
+![](image/Pasted%20image%2020241123132829.png)
+
+![](image/Pasted%20image%2020241123132958.png)
+
+
+Mehrere Stylesheets ergänzen sich 
+Aus den drei Stylesheets wird ein gesamtes Stylesheet errechnet
+Bei sich widersprechenden Regeln für dasselbe Element "gewinnt" die aus dem Stylesheet mit der höchsten Priorität
+
+Prioritäten
+1. Nutzer-Stylesheet-Definitionen mit !important
+2. Autoren-Stylesheet-Definitionen mit !important
+3. Autoren-Stylesheet-Definitionen
+4. Nutzer-Stylesheet-Definitionen
+5. Browser-Stylesheet-Definitionen
+
+
+
+# 2 层叠性
 相同选择器设置相同的样式，此时一个样式就会覆盖另一个冲突的样式。层叠性主要解决样式冲突的问题。
 概念：
 -   所谓层叠性是指多种CSS样式的叠加
@@ -11,7 +35,7 @@ CSS 有三个非常重要的特性：层叠性、继承性、优先级。
 - <mark> 后一个div 的样式的代码 距离 body 里面的 div近， 所以后一个定义的div 的样式就被采样 </mark>
 ![](image/Chapter_css特性_层叠性_001.png)
 
-# 2 继承性
+# 3 继承性
 
 概念：
 -   子标签会继承父标签的某些样式，如文本颜色和字号。
@@ -25,7 +49,7 @@ CSS 有三个非常重要的特性：层叠性、继承性、优先级。
 
 ![](image/Chapter_css特性_继承性_001.png)
 
-## 2.1 行高的继承性（line-height）
+## 3.1 行高的继承性（line-height）
 - <mark>子元素不会继承的样式： 行高， 盒子边距 </mark>
 ```css
 <style>
@@ -54,7 +78,7 @@ ul>li:
 ![](image/Chapter_css特性_继承性_004_行高的继承性_03.png)
 
 
-# 3 不同引入方式的优先级 
+# 4 不同引入方式的优先级 
 
 1. **Wichtigkeitsregel (`!important`)** kann jede Methode überschreiben, auch Inline-CSS. Wenn `!important` verwendet wird, hat die Regel die höchste Priorität.
     
@@ -78,7 +102,7 @@ ul>li:
     
 4. **Externe CSS-Dateien** haben die niedrigste Priorität.
 
-## 3.1 **Verwendet man `!important`
+## 4.1 **Verwendet man `!important`
 
 
 **Fazit:**
@@ -140,7 +164,7 @@ Ein Beispiel, das **nicht funktioniert**:
 Hier wird das `!important`-Attribut im Inline-Stil ignoriert, da `!important` in dieser Konstellation keine Wirkung zeigt. Die einzige Möglichkeit, Inline-Stile zu überschreiben, besteht darin, externe oder interne CSS-Regeln mit `!important` zu versehen, um sicherzustellen, dass sie die Inline-Stile übersteuern.
 
 
-# 4 优先级/权重 SelectorWeight/Specificity/ Wertigkeit
+# 5 优先级/权重 SelectorWeight/Specificity/ Wertigkeit
 
 概念： 当一个元素指定多个选择器时，就会有有优先级的产生。
 -   选择器相同，则执行层叠性
@@ -148,7 +172,7 @@ Hier wird das `!important`-Attribut im Inline-Stil ignoriert, da `!important` in
 
 ![](image/Chapter_css特性_优先级_001.png)
 
-## 4.1 权重计算公式
+## 5.1 权重计算公式
 关于CSS权重，我们需要一套计算公式来去计算，这个就是 CSS Specificity（特殊性）
 [Specificity - CSS&colon; Cascading Style Sheets | MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/Specificity)
 The selector weight categories are listed here in the order of decreasing specificity:
@@ -159,16 +183,26 @@ The selector weight categories are listed here in the order of decreasing specif
 - 权重可以叠加。 数位之间没有进制，级别之间不可超越。
     - 如果是复合选择器，则会有权重的叠加，需要计算权重， 但是没有进位
 
+- Prioritätsregeln nicht nur zwischen Browser-, Autoren- und Nutzer-Styles, sondern auch zwischen Selektoren
+- Berechnung der Priorität anhand der `Spezifität` der Selektoren
+- Eingruppierung der Selektoren in verschiedene Prioritätsklassen gemäß nebenstehender Tabelle
+- Bei kombinierten und/oder gruppierten Selektoren erfolgt Aufaddierung der Punkte der zugehörigen Klassen zur Berechnung der Priorität
+- Inline-Styles haben die höchste Priorität (A), der Universalselektor die niedrigste (D)
+
+
 越往下权重越大
 
-|选择器	|权重|
-|--|--|
-|继承 或者 \*选择器  |0，0，0，0|
-|元素选择器（标签选择器） (Type selektor)   |0，0，0，1|
-|类选择器，属性选择器, 伪类选择器 (class selektor， attribute selectors，  pseudo-classes) |0，0，1，0|
-|ID选择器 (Id selektor  )|0，1，0，0|
-|行内样式style=""|1，0，0，0|
-|！important重要的|无穷大， 某个标签加上这个！important， 他会权重会变得无权大|
+| 选择器                                                                      | 权重                                  |
+| ------------------------------------------------------------------------ | ----------------------------------- |
+| 继承 或者 \*选择器                                                              | 0，0，0，0                             |
+| 元素选择器（标签选择器） (Type selektor)                                             | 0，0，0，1                             |
+| 类选择器，属性选择器, 伪类选择器 (class selektor， attribute selectors，  pseudo-classes) | 0，0，1，0                             |
+| ID选择器 (Id selektor  )                                                    | 0，1，0，0                             |
+| 行内样式style=""                                                             | 1，0，0，0                             |
+| ！important重要的                                                            | 无穷大， 某个标签加上这个！important， 他会权重会变得无权大 |
+|                                                                          |                                     |
+
+![](image/Pasted%20image%2020241123133102.png)
 
 注意点: 
 -  我们修改样式，一定要看该标签有没有被选中
@@ -179,12 +213,12 @@ The selector weight categories are listed here in the order of decreasing specif
     - ![](image/Chapter_css特性_继承性_005_继承的行高为0.png)
 
 
-### 4.1.1 ID column
+### 5.1.1 ID column
 
 Includes only ID selectors, such as #example. 
 For each ID in a matching selector, add 1-0-0 to the weight value.
 
-### 4.1.2 CLASS column
+### 5.1.2 CLASS column
 
 Includes
 
@@ -194,7 +228,7 @@ Includes
 
 For each class, attribute selector, or pseudo-class in a matching selector, add 0-1-0 to the weight value.
 
-### 4.1.3 TYPE column
+### 5.1.3 TYPE column
 
 Includes 
 
@@ -219,7 +253,7 @@ Combinators, such as +, >, ~, " ", and ||, may make a selector more specific in 
 The negation pseudo-class, [`:not()`](https://developer.mozilla.org/en-US/docs/Web/CSS/:not), itself has no weight. Neither do the [`:is()`](https://developer.mozilla.org/en-US/docs/Web/CSS/:is) or the [`:has()`](https://developer.mozilla.org/en-US/docs/Web/CSS/:has) pseudo-classes. The parameters in these selectors, however, do. The values of both come from the parameter in the list of parameters that has the highest specificity. The [`:not()`, `:is()` and `:has()` exceptions](https://developer.mozilla.org/en-US/docs/Web/CSS/Specificity?retiredLocale=de#the-is-not-and-has-exceptions) are discussed below.
 
 
-## 4.2 Die Verwendung von !important
+## 5.2 Die Verwendung von !important
 有 die höchstest Wertigkeit 
 
 !important wird i.d.R. nur verwendet, wenn third-party-styles verwendet werden, also fremde styles aus frameworks, die überschrieben werden sollen. Verwendet man nur eigene styles ist die Verwendung von !important unbedingt zu vermeiden.
@@ -244,8 +278,12 @@ ul li {
 
 
 
-## 4.3 权重计算例子
-### 4.3.1 元素选择器和类选择器的权重的比较
+## 5.3 权重计算例子
+
+![](image/Pasted%20image%2020241123133112.png)
+
+
+### 5.3.1 元素选择器和类选择器的权重的比较
 
 ```css
 <head>
@@ -263,7 +301,7 @@ ul li {
 </body>
 ```
 
-### 4.3.2 复合选择器权重的叠加
+### 5.3.2 复合选择器权重的叠加
 
 权重叠加：如果是复合选择器，则会有权重的叠加，需要计算权重， 但是没有进位
 ```css

@@ -9,15 +9,15 @@
 
 # 2 复合选择器总结 
 
-| 选择器   |                             |隔开符号及用法  |作用          | 特征                                           | 使用情况 |                
-| ----- | --------------------------- | ----------- | -------------------------------------------- | ---- | ------------------------ | 
-| 后代选择器 | Descendant combinator / Nachfahrenkombinator  |  符号是空格 `.nav a`    | 用来选择后代元素    | 可以是子孙后代, 只要后代他本身的他的标签名 是与之前得定义的样式的 标签名字的是一样的 | 较多   |          
-| 子代选择器 | Child combinator  / Kindkombinator       | 符号是大于 `.nav>p`  | 选择最近一级元素    | 只能选亲儿子                                       | 较少   |           
-|       | General sibling combinator / Geschwisterkombinator| A ~ B |             |                                              |      |                     
-|       | Adjacent sibling combinator / Nachbarkombinator |A + B    |             |                                              |      |                  
-|       | Column combinator           | A \|\| B    |             |                                              |      |              
-| 并集选择器 | Grouping selectors       | 符号是逗号，`.nav, a， .header`  | 选择某些相同样式的元素 | 可以用于集体声明       
-| 交集选择器 |  compound selector      | 选择器之间没有任何的连接符号 `div#yzh_animation `  选择的是： id为 yzh_animation 的div标签。<br> span.foo 有 `.foo` 类名的 <span> 元素     |   | 交集选择器是并且的意思,即...又...的意思 |   |  
+| 选择器   |                                                                                    | 隔开符号及用法                                                                                                    | 作用          | 特征                                           | 使用情况 |     |
+| ----- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- | ----------- | -------------------------------------------- | ---- | --- |
+| 后代选择器 | Descendant combinator / Nachfahrenkombinator                                       | 符号是空格 `.nav a`                                                                                             | 用来选择后代元素    | 可以是子孙后代, 只要后代他本身的他的标签名 是与之前得定义的样式的 标签名字的是一样的 | 较多   |     |
+| 子代选择器 | Child combinator  / Kindkombinator                                                 | 符号是大于 `.nav>p`                                                                                             | 选择最近一级元素    | 只能选亲儿子                                       | 较少   |     |
+|       | INDIREKTER GESCHWISTERSELEKTOR/ General sibling combinator / Geschwisterkombinator | A ~ B                                                                                                      |             |                                              |      |     |
+|       | DIREKTER GESCHWISTERSELEKTOR/ Adjacent sibling combinator / Nachbarkombinator      | A + B                                                                                                      |             |                                              |      |     |
+|       | Column combinator                                                                  | A \|\| B                                                                                                   |             |                                              |      |     |
+| 并集选择器 | Grouping selectors                                                                 | 符号是逗号，`.nav, a， .header`                                                                                   | 选择某些相同样式的元素 | 可以用于集体声明                                     |      |     |
+| 交集选择器 | compound selector                                                                  | 选择器之间没有任何的连接符号 `div#yzh_animation `  选择的是： id为 yzh_animation 的div标签。<br> span.foo 有 `.foo` 类名的 <span> 元素   |             | 交集选择器是并且的意思,即...又...的意思                      |      |     |
 
 
 **) Kombinationsselektoren**: Ein CSS-Selektor kann mehr als einen einfachen Selektor enthalten. Zwischen den einfachen Selektoren kann ein Kombinator eingefügt werden. Es gibt vier verschiedene Kombinatoren in CSS:
@@ -97,7 +97,7 @@ ul li {
 ![](image/Chapter_css_复杂选择器_后代选择器_003_例子3.png)
 
 
-## 3.2 亲儿子元素选择器 (Child combinator： A>B)
+## 3.2 亲儿子元素选择器 (direkt Child combinator： A>B)
 
 子元素选择器（子选择器）只能选择作为元素作为元素的最近一级子元素。简单理解就是选亲儿子。 跟孙子没有关系, 虽然孙子也用同名的标签
 
@@ -123,7 +123,18 @@ div > p{
   - 比如有 元素1-> 元素2： 则现在这里的元素2的样式会被改变
   - 也有 元素1-> 元素8 -> 元素2， <mark>则现在这里的元素2的样式不会被改变</mark>
 
-## 3.3 General sibling combinator （A ~ B）
+
+## 3.3 DIREKTER GESCHWISTERSELEKTOR (A + B )
+
+![](image/Pasted%20image%2020241123132242.png)
+
+Referenziert eine Sequenz von Geschwistern, das heißt mehrere in einem
+Element eingebettete Kindelemente
+CSS-Deklaration bezieht sich auf das letzte "Geschwisterchen"
+
+## 3.4 General sibling combinator （A ~ B）
+
+向后面看 找B
 
 The general sibling combinator (~) separates two selectors and matches all iterations of the second element, that are following the first element (though not necessarily immediately), and are children of the same parent element.
 
@@ -147,7 +158,7 @@ Syntax
 former_element ~ target_element { style properties }`
 ```
 
-### 3.3.1 例子
+### 3.4.1 例子
 1 
 [General sibling combinator - CSS&colon; Cascading Style Sheets | MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/General_sibling_combinator)
 
@@ -176,19 +187,24 @@ Die folgende Verschachtelung gibt an, dass alle weiteren fett formatierten Texte
 `p ~ b {color: #02d92f;}`
 
 
-## 3.4 并集选择器 (Grouping selectors: A，B)
+## 3.5 群组 选择器 (Grouping selectors: A，B)
 
 如果某些选择器定义的相同样式，就可以利用并集选择器，可以让代码更简洁。
 并集选择器（CSS选择器分组）是各个选择器通过,连接而成的，通常用于集体声明。
+
 并集选择器可以选择多组标签，同时为他们定义相同的样式。通常用于集体声明。
 - 任何形式的选择器（包括标签选择器、class类选择器 id选择器等），都可以作为并集选择器的一部分。
 - 并集选择器通常用于集体声明  ，<mark>逗号</mark>隔开的，所有选择器都会执行后面样式，逗号可以理解为和的意思。<mark>最后一个选择器不需要加逗号</mark>
+
+- Elemente mit gleichen Eigenschaften können zusammengefasst werden
+- Die verschiedenen Selektoren werden hintereinander geschrieben und durch ein Komma voneinander getrennt
+
 
 ```css
 元素1, 元素2 { 样式声明; }
 ```
 
-### 3.4.1 例子
+### 3.5.1 例子
 
 ```css
 1 
@@ -211,7 +227,7 @@ ul,div {
 
 ![](image/Chapter_css_复杂选择器_并集选择器_001.png)
 
-## 3.5 交集选择器 compound selector (两个选择器之间不能有空格)
+## 3.6 交集选择器 compound selector (两个选择器之间不能有空格)
 
 ![](image/Chapter_css_复杂选择器_交集选择器_001.png)
 
@@ -245,12 +261,30 @@ p.hinweis {
 
 
 
-## 3.6 adjacent sibling selector (A+B)
+## 3.7 adjacent sibling selector (A+B)
 
 
 Der direkt benachbarte Geschwisterselektor wird verwendet, um ein Element auszuwählen, das sich direkt nach einem bestimmten anderen Element befindet. Geschwisterelemente müssen dasselbe Elternelement haben, und „benachbart“ bedeutet „direkt folgend“.
 
 ![](image/Pasted%20image%2020241112215326.png)
+
+
+# 4 ALLE SELEKTOREN
+
+
+
+![](image/Pasted%20image%2020241123132509.png)
+
+
+
+![](image/Pasted%20image%2020241123132520.png)
+
+
+![](image/Pasted%20image%2020241123132530.png)
+
+
+
+
 
 
 

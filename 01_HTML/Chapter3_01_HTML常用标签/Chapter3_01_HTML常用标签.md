@@ -102,6 +102,13 @@ span 意思是跨度、跨距。
 
 ## 7.1 `<div>` Block-Element
 div 标签用来布局，但是现在一行只能放一个 div，大盒子。
+
+
+Strukturierung des Textes mit `<div>`-Elementen
+- `<div>` defi niert den eingeschlossenen Inhalt als zusammenhängenden Block, der optisch von nachfolgenden Blöcken durch eine Leerzeile getrennt wird
+- `<div>` hat keinen Einfl uss auf die logische Struktur eines Inhaltes und fügt dem Inhalt keinerlei Semantik hinzu
+- `<div>` dient lediglich der Referenzierung von Inhalten in CSS (und JavaScript) für die Defi nition des Designs dieses Inhalts
+
    
 ```html      
 <div>这是头部</div>123  

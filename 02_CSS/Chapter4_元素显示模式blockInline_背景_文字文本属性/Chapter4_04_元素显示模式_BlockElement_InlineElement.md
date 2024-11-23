@@ -3,6 +3,9 @@
 作用：网页的标签非常多，不同地方使用不同，了解其特点可以更好布局。
 HTML 元素分为<mark>块元素和行内元素</mark>。 也称 <mark>块标签和行内标签</mark>
 
+
+![](image/Pasted%20image%2020241123133551.png)
+
 # 2 元素显示模式总结
 
 | 元素模式  | 元素排列          | 设置样式      | 默认宽度     | 包含           |
@@ -11,10 +14,15 @@ HTML 元素分为<mark>块元素和行内元素</mark>。 也称 <mark>块标签
 | 行内元素  | 一行可以放多个行内元素   | 不可以设置宽度高度 | 标签本身的内容宽度   | 容纳文本或者其他行内元素 |
 | 行内块元素 | 一行可以放置多个行内块元素 | 可以设置高度宽度  | 便签本身的内容宽度   |              |
 
-# 3 块元素/块标签/ block
+# 3 块元素/块标签/ block-ELement
 
 常见的块元素有 `h1-h6`、`p`、`div`、`ul`、`ol`、`li`等。 
 其中`<div>`标签是最典型的块元素。
+
+- Nehmen in der Breite so viel Raum wie möglich und in der
+- Höhe so viel Raum wie erforderlich ein Erzeugen eine neue Zeile im Elementfl uss
+- Nachfolgende Elemente beginnen ebenfalls in einer neuen Reihe
+- Können mit Innen- und Außenabstand versehen werden Breite und Höhe von Block-Elemente kann durch width und height verändert werden
 
 块级元素的特点：
 
@@ -30,7 +38,7 @@ HTML 元素分为<mark>块元素和行内元素</mark>。 也称 <mark>块标签
   - 试了一下`<p>` 中放了`<div>`, 结果没有用
 - 文字类元素有 `p`，`h1-h6`。 它们都是文字类块级标签，里面不能放其他块级元素。尤其不能放 `div` 元素
 
-# 4 行内元素/行内标签/内联元素/inline
+# 4 行内元素/行内标签/内联元素/inline-Element
 
 常见行内元素：`a`、`strong`、`b`、`em`、`i`、`del`、`s`、`ins`、`u`、`span`
 典型行内元素是 `span`
@@ -44,6 +52,13 @@ HTML 元素分为<mark>块元素和行内元素</mark>。 也称 <mark>块标签
 3. inline的默认宽度就是它本身 content 宽度。
    1. 比如 span 中内含文本越多， 则这个 span 标签 就越来越宽 
 4. <mark>行内元素只能容纳文本或其他行内元素。</mark>
+
+- Nehmen sowohl in Breite als auch Höhe nur soviel Raum wie erforderlich ein
+- Mehre Inline-Elemente werden wie Wörter hintereinander aufgereiht
+- Inline-Elemente brechen erst in nächste Zeile um, wenn die verfügbare Breite erreicht ist
+- Können mit Innen- und Außenabstand versehen werden, allerdings nur mit Wirkung in der Horizontalen, nicht in der Vertikalen
+- Breite und Höhe von Inline-Elemente wird allein durch den Inhalt bestimmt, width und height sind wirkungslos
+
 
 **注意**
 
@@ -86,7 +101,19 @@ HTML 元素分为<mark>块元素和行内元素</mark>。 也称 <mark>块标签
  ```
 
 
-# 6 Block元素和inline元素的宽度比较
+# 6 Block元素和inline元素的
+
+## 6.1 BLOCK -, INLINE-, INLINE-BLOCK-ELEMENTE 比较 
+
+![](image/Pasted%20image%2020241123133751.png)
+
+
+![](image/Pasted%20image%2020241123133746.png)
+
+
+
+
+## 6.2 宽度比较
 
 ![](image/Pasted%20image%2020221107152413.png)
 

@@ -7,6 +7,8 @@ Android设备有多种分辨率：480x800, 480x854, 540x960, 720x1280，1080x192
 近年来iPhone的碎片化也加剧了，其设备的主要分辨率有：640x960, 640x1136, 750x1334, 1242x2208等。
 作为开发者无需关注这些分辨率，因为我们常用的尺寸单位是 px 。
 
+![](image/Pasted%20image%2020241123141009.png)
+
 # 2 视口viewport
 
 - 视口（viewport）就是浏览器显示页面内容的屏幕区域。 视口可以分为**布局视口、视觉视口和理想视口**
@@ -15,36 +17,51 @@ Android设备有多种分辨率：480x800, 480x854, 540x960, 720x1280，1080x192
   - 理想视口: ideal viewport
 - 我们只需要关注理想视口
 
-## 2.1 布局视口 layout viewport
+- Ein Viewport repräsentiert die Fläche zur Darstellung einer Webseite
+- Entspricht dem Browser-Fenster oder Tab abzüglich Fensterrahmen, Menüleiste, Adresszeile etc.
+- Viewport-Größe kann auf PCs durch Änderung der Fenstergröße verändert auf mobilen Geräten i.d.R. nicht
+- Ist die darzustellende Webseite größer als der Viewport müssen Scroll-Balken zur vertikalen und/oder horizontalen Navigation eingeblendet werden
+
+# 3 Gerätepixeln
+
+- Pixel ist die kleinste darstellbare Farbeinheit auf einem Monitor oder in einem Bild (mit roten/grünen/blauen Unterpixeln) 
+- Unterscheidung zwischen Geräte-Pixel und CSSPixel
+- Bildschirmaufl ösungen von Smartphones werden in Gerätepixeln angegeben 
+- CSS-Abstände und Längenangaben in px beziehen sich CSS-Pixel 
+- CSS Pixel Ratio beschreibt das Verhältnis zwischen Gerätepixel- und CSS-Pixel-Aufl ösung
+
+
+## 3.1 布局视口 layout viewport
 
 - 一般移动设备的浏览器都默认设置了一个布局视口，用于解决早期的PC端页面在手机上显示的问题。
 - iOS, Android基本都将这个视口分辨率设置为 980px，所以PC上的网页大多都能在手机上呈现，只不过元素看上去很小，一般默认可以通过手动缩放网页。
   ![在这里插入图片描述](https://img-blog.csdnimg.cn/a6b00357d121434a8915238dc232ea0d.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA55Sf5ZG95piv5pyJ5YWJ55qE,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center)
 
-## 2.2 视觉视口 visual viewport
+## 3.2 视觉视口 visual viewport
 
 - 字面意思，它是用户正在看到的网站的区域。**注意：是网站的区域。**
 - 我们可以通过缩放去操作视觉视口，但不会影响布局视口，布局视口仍保持原来的宽度。
 
 ![在这里插入图片描述](https://img-blog.csdnimg.cn/f12230ebf9d3415fbda4e33a1188554f.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA55Sf5ZG95piv5pyJ5YWJ55qE,size_19,color_FFFFFF,t_70,g_se,x_16#pic_center)
 
-## 2.3 理想视口 ideal viewport
+## 3.3 理想视口 ideal viewport
 
 - 为了使网站在移动端有最理想的浏览和阅读宽度而设定
 - 理想视口，对设备来讲，是最理想的视口尺寸
 - 需要手动添写meta视口标签通知浏览器操作
 - meta视口标签的主要目的：布局视口的宽度应该与理想视口的宽度一致，简单理解就是设备有多宽，我们布局的视口就多宽(乔布斯提出的哟)
 
-## 2.4 总结
+## 3.4 总结
 
 - 视口就是浏览器显示页面内容的屏幕区域
 - 视口分为布局视口、视觉视口和理想视口
 - <mark>我们移动端布局想要的是理想视口就是手机屏幕有多宽，我们的布局视口就有多宽</mark>
 - <mark>想要理想视口，我们需要给我们的移动端页面添加 meta视口标签 </mark>
 
-## 2.5 meta视口标签
+## 3.5 meta视口标签
 
 `<meta name="viewport" content="width=device-width, user-scalable=no,initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">`
+加上了上面这句 , 网页就会随着 移动端的界面大小而自动调整 
 
 | 属性            | 解释说明                                          |
 | ------------- | --------------------------------------------- |
@@ -54,7 +71,13 @@ Android设备有多种分辨率：480x800, 480x854, 540x960, 720x1280，1080x192
 | minimum-scale | 最小缩放比，大于0的数字                                  |
 | user-scalable | 用户是否可以缩放，yes或no（1或0）                          |
 
-## 2.6 标准的viewport设置
+- Anpassung der Breite (oder Höhe) des virtuellen Viewport an die Breite (Höhe) des Geräts (basierend auf CSS-Pixeln)
+- Erfolgt mit width=device-width im content-Attribut eines meta-Elements im Head jeder Webseite mit Responsive Design
+- Statt device-width können andere Längenangaben verwendet werden, z.B. 500px
+- Zoom-Level kann mit initial-scale eingestellt wird
+
+
+## 3.6 标准的viewport设置
 
 - 视口宽度和设备保持一致
 - 视口的默认缩放比例1.0
@@ -62,9 +85,9 @@ Android设备有多种分辨率：480x800, 480x854, 540x960, 720x1280，1080x192
 - 最大允许的缩放比例1.0
 - 最小允许的缩放比例1.0
 
-# 3 二倍图
+# 4 二倍图
 
-## 3.1 物理像素和物理像素比
+## 4.1 物理像素和物理像素比
 
 - 物理像素点指的是屏幕显示的最小颗粒，是物理真实存在的。这是厂商在出厂时就设置好了,比如苹果6\7\8 是 750* 1334
 - 我们开发时候的1px 不是一定等于1个物理像素的
@@ -78,7 +101,7 @@ Retina（视网膜屏幕）是一种显示技术，可以将把更多的物理�
 解决办法：我们直接放一个 100 * 100 图片，然后手动的把这个图片缩小为 50 * 50。这样将图放到手机里面，手机自动放大2倍变成 100 * 100，这样就不会造成图片模糊
 我们准备的图片，比我们实际需要的大小大2倍，这种方式就是二倍图
 
-### 3.1.1 背景缩放 background-size
+### 4.1.1 背景缩放 background-size
 
 我们的图片需要进行放大处理，那么我们的背景图片也是需要进行缩放处理。
 
@@ -88,11 +111,11 @@ background-size: 背景图片宽度 背景图片高度;
 - cover把背景图像扩展至足够大，以使背景图像完全覆盖背景区域。
 - contain把图像图像扩展至最大尺寸，以使其宽度和高度完全适应内容区域
 
-### 3.1.2 多倍图切图cutterman
+### 4.1.2 多倍图切图cutterman
 
 ![在这里插入图片描述](https://img-blog.csdnimg.cn/81a160b2e6664fafbe10c0694784a4d2.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA55Sf5ZG95piv5pyJ5YWJ55qE,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center)
 
-## 3.2 移动端开发选择
+## 4.2 移动端开发选择
 
 1. 单独制作移动端页面(主流)，通常情况下，网址域名前面加 m(mobile) 可以打开移动端。
    - m.taobao.com
@@ -101,13 +124,13 @@ background-size: 背景图片宽度 背景图片高度;
    - 通过判断设备，如果是移动设备打开，则跳到移动端页面。
      2. 响应式页面兼容移动端(其次)
 
-## 3.3 移动端浏览器
+## 4.3 移动端浏览器
 
 移动端浏览器基本以 webkit 内核为主，因此我们就考虑webkit兼容性问题。
 我们可以放心使用 H5 标签和 CSS3 样式。
 同时我们浏览器的私有前缀我们只需要考虑添加 webkit 即可
 
-## 3.4 特殊样式
+## 4.4 特殊样式
 
 ```css
 /*CSS3盒子模型*/

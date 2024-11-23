@@ -68,6 +68,14 @@ Einheitliche Notationen dienen folgenden Zwecken:
 ```
 
 
+## 2.1 
+![](Image/Pasted%20image%2020241123130548.png)
+
+![](Image/Pasted%20image%2020241123130558.png)
+
+
+
+
 # 3 selectors 在 Stylesheet 文件中的书写顺序
 - Selektoren mit niedriger Spezifität kommen an den Anfang des Stylesheets und solche mit höchster Spezifität werden am Ende notiert 
     - niedriger Spezifität 写在最上面

@@ -85,6 +85,8 @@ relative Schlüsselworte:
 
 ## 1.4 字体大小单位 (Längenmaße)
 
+![](image/Pasted%20image%2020241123130258.png)
+
 ![](image/Chapter2_css_文字属性_001_字体大小单位.png)
 
 | type                                                         | content                                                                                                                                                                  |
@@ -357,8 +359,10 @@ CSS Text（文本）属性定义文本外观，比如颜色、对齐、装饰、
 ## 2.2 文本颜色 color
 
 [Hexadezimal Farbtabelle](http://www.klickdichschlau.at/contentfiles/html/Farbtabelle.htm)
-
 [VGA-Farbpalette](http://de.selfhtml.org/diverses/anzeige/farbnamen_16.htm)
+
+
+![](image/Pasted%20image%2020241123130356.png)
 
 `color` 属性定义文本颜色。
 

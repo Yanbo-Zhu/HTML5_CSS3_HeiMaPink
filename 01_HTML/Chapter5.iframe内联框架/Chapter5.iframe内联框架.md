@@ -10,7 +10,17 @@ https://www.bilibili.com/video/BV1x4411V75C?p=11&vd_source=55e5cc2f534c16c73bbeb
 
 可以引入其他的html, 或者视频， 等等
 
-![](Image/Pasted%20image%2020241030082402.png)
+![](Image/Pasted%20image%2020241123121221.png)
+
+![](Image/Pasted%20image%2020241123121227.png)
+
+
+- Einbindung von Drittanbieterinhalten in einem Inline Frame (iFrame)
+- Eingebundene Webseite muss via HTTPS geladen werden
+- Drittanbieter kann Einbindung durch spezielle HTTPHeader-Attribute unterbinden
+- Same Origin Policy hindern iFrames daran, Änderungen an der Seite vorzunehmen
+
+
 
 
 # 3 语法
@@ -67,3 +77,12 @@ https://www.bilibili.com/video/BV1x4411V75C?p=11&vd_source=55e5cc2f534c16c73bbeb
     </iframe>
 </body>
 ```
+
+
+
+## 4.5 引入video 
+
+
+
+
+
