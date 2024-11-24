@@ -262,6 +262,7 @@ Der ID-Selektor wählt das Element mit der angegebenen ID aus. Um ein Element mi
 id 选择器可以为标有特定 id 的 HTML 元素指定特定的样式。
 用 `#` 来定义id， 以 id 属性来设置 id 选择器。
 用id 来调用这个样式
+==h1 and h2 两个 不同的 type of element 也不可以 同一个id selector 使用 ==
 
 记忆口诀：样式 **#** 定义，结构 **id** 调用。只能调用一次，别人切勿使用
 
