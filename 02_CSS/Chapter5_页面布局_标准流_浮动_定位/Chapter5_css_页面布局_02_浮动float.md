@@ -14,6 +14,9 @@
 
 ## 1.2 什么是浮动
 
+In CSS, float ist eine Eigenschaft, die ursprünglich verwendet wurde, ==um Elemente aus dem normalen Fluss eines Dokuments zu entfernen== und sie seitlich auszurichten, sodass der nachfolgende Text und Inline-Elemente um sie herum fließen können.
+就是说 nachfolgende Text 还是会自动的包裹在 这个float element 周围.  这是float element 不是直接盖在 text 上面的 , 不是 从而覆盖掉 某些text
+
 元素的浮动是指设置了浮动属性的元素会
 - 脱离标准普通流的控制,不占位置，脱标
 - 移动到指定位置。
@@ -41,16 +44,24 @@
 选择器 { float: 属性值; }
 ```
 
-| 属性值   | 描述          |
-| ----- | ----------- |
-| none  | 元素不浮动 （默认值） |
-| left  | 元素向左浮动      |
-| right | 元素向右浮动      |
+| 属性值     | 描述          |
+| ------- | ----------- |
+| none    | 元素不浮动 （默认值） |
+| left    | 元素向左浮动      |
+| right   | 元素向右浮动      |
+| inherit |             |
 
-left – der Bereich steht links, die nachfolgenden Elemente „fließen“ rechts von ihm
-right – der Bereich steht rechts, die nachfolgenden Elemente „fließen“ links von ihm
-none – bewirkt keinen Umfluss
-
+- left
+    - Das Element wird nach links verschoben und der Text fließt rechts um das Element herum.
+    - der Bereich steht links, die nachfolgenden Elemente „fließen“ rechts von ihm
+- right: 
+    - Das Element wird nach rechts verschoben und der Text fließt links um das Element herum.
+    - der Bereich steht rechts, die nachfolgenden Elemente „fließen“ links von ihm
+- none: 
+    - Das Element wird nicht verschoben und bleibt an seiner normalen Position im Dokumentenfluss.
+    - bewirkt keinen Umfluss
+- inherit: 
+    - Das Element übernimmt den floatWert seines übergeordneten Elements.
 
 ## 1.5 浮动特性（重点）
 
@@ -89,9 +100,186 @@ none – bewirkt keinen Umfluss
    
    1. ![](image/Chapter5_css_浮动_007_浮动不会影响前面的标准流.png)
 
-# 3 清除浮动
 
-## 3.1 为什么需要清除浮动
+# 3 例子
+
+```html
+<html>
+<head>
+<style>
+	#container {
+		background-color: yellow;
+		padding: 10px;
+	}
+	
+	#red {
+
+		
+	}
+	
+	#green {
+
+
+	}
+	
+</style>
+</head>
+<body>
+<p id="container">
+	<img src="img/red.png" id="red">
+	<img src="img/green.png" id="green">
+	Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+</p>
+</body>
+</html>
+
+```
+
+![](image/Pasted%20image%2020241127165821.png)
+
+---
+1 
+```css
+#red {
+}
+	
+#green {
+	display: none;
+}
+
+```
+![](image/Pasted%20image%2020241127165923.png)
+
+
+----
+2  “Fügen Sie dem Bild nun das CSS-Attribut `display: block` hinzu.”
+Das rote Bild wird nun in einer eigenen Zeile oberhalb des Textes angezeigt, da das `display: block` das Bild aus dem Inline-Layout herausnimmt.
+
+```css
+#red {
+	display: block;
+}
+	
+#green {
+	display: none;
+}
+```
+
+![](image/Pasted%20image%2020241127165947.png)
+
+---
+3  “Fügen Sie nun dem roten Bild die CSS-Property `float: left` hinzu.”
+Das rote Bild wird links vom Text ausgerichtet und ragt aus dem Elternelement aus.
+herausragen 突出 
+
+加上了 `float: left` 后 红块 Elemente aus dem normalen Fluss eines Dokuments zu entfernen==
+
+```css
+#red {
+	display: block;
+	float: left;
+}
+	
+#green {
+	display: none;
+}
+```
+
+![](image/Pasted%20image%2020241127170006.png)
+
+
+---
+
+4 Entfernen Sie das display: none des grünen Bilds.
+
+Da das grüne Bild nach dem Roten kommt und noch keine CSS-Properties hat, verursacht optisch das Standardverhalten für beider Bilder.
+
+
+`display: block` ensures that the element has block-level behavior==, but `float: left` overrides the default block-level stacking behavior==. Instead of taking up the full width of the parent container, the element is floated to the left, allowing other content to wrap around it.
+
+- **`display: block;`**:
+    - Makes the element behave like a block-level element.
+    - Block-level elements take up the full width of their parent container by default, forcing a new line before and after the element.
+- **`float: left;`**:
+    - Moves the element to the left within its container.
+    - Other content (text or inline elements) will flow to the right of the floated element unless explicitly cleared.
+
+
+```js
+#red {
+	display: block;
+	float: left;  // 这时候只有 float 起作用了,  the behavior of display: block;  is already overrided 
+}
+	
+#green {
+
+}
+```
+
+![](image/Pasted%20image%2020241127171646.png)
+
+
+
+如果
+```css
+#red {
+    float: right;
+    display: block;
+}
+
+#green {
+}
+```
+
+![](image/Pasted%20image%2020241127184904.png)
+
+---
+
+5 Fügen Sie dem grünen Bild zuerst die CSS-Property float: left und anschließend float: right hinzu.
+
+5.1 
+```css
+#red {
+	display: block;
+	float: left;
+}
+	
+#green {
+	float: left;
+}
+```
+
+![](image/Pasted%20image%2020241127171911.png)
+
+
+
+compare with following 
+
+```css
+#red {
+	display: block;
+	float: left;
+}
+	
+#green {
+	float: right;
+}
+```
+
+![](image/Pasted%20image%2020241127185249.png)
+
+
+
+
+---
+ 
+
+
+
+
+# 4 清除浮动
+
+## 4.1 为什么需要清除浮动
 
 我们前面浮动元素有一个标准流的父元素, 他们有一个共同的特点, 都是有高度的.但是, 所有的父盒子都必须有高度吗? 
 理想中的状态, 让子盒子撑开父亲. 有多少孩子,我父盒子就有多高. 但是不给父盒子高度会有问题吗?..…
@@ -101,7 +289,7 @@ none – bewirkt keinen Umfluss
 - 理想中的状态，让子盒子撑开父亲，有多少孩子，我父盒子就有多高
   ![](image/Chapter5_css_浮动_007_浮动不会影响前面的标准流.png)
 
-## 3.2 清除浮动的本质
+## 4.2 清除浮动的本质
 
 - 由于浮动元素不再占用原文档流的位置，所以它会对后面的元素排版产生影响
 - 清除浮动的本质是清除浮动元素造成的影响
@@ -114,7 +302,7 @@ none – bewirkt keinen Umfluss
   什么时候用清除浮动呢？
 - 父级没高度， 子盒子浮动了， 影响下面布局了，应该清除浮动。
 
-## 3.3 清除浮动语法
+## 4.3 清除浮动语法
 
 语法：
 
@@ -133,7 +321,7 @@ none – bewirkt keinen Umfluss
 - 我们实际工作中，几乎只用`clear:both`
 - 清除浮动的策略是：**闭合浮动**： 只让浮动在父盒子内部影响，不影响父盒子外面的其他盒子。
 
-## 3.4 清除浮动的方法：
+## 4.4 清除浮动的方法：
 
 1. **额外标签法（隔墙法）**，是 W3C 推荐的方法
 2. 父级添加 overflow 属性
@@ -147,7 +335,7 @@ none – bewirkt keinen Umfluss
 | 父级after伪元素         | 结构语义化正确   | 由于IE6-7不支持：after，兼容性问题 |
 | 父级双伪元素             | 结构语义化正确   | 由于IE6-7不支持：after，兼容性问题 |
 
-### 3.4.1 清除浮动 额外标签法
+### 4.4.1 清除浮动 额外标签法
 
 也成为隔墙法，是 W3C 推荐的方法。
 
@@ -164,13 +352,13 @@ none – bewirkt keinen Umfluss
 <div class="clear"></div>
 ```
 
-### 3.4.2 清除浮动 父级添加 overflow
+### 4.4.2 清除浮动 父级添加 overflow
 
 - 可以给父级添加 `overflow` 属性，将其属性设置为 `hidden`、`auto`或`scroll`。 注意是给父元素添加代码
 - 优点：代码简洁
 - 缺点：无法显示溢出部分. 内容增多时候容易造成不会自动换行导致内容被隐藏掉，无法显示需要溢出的元素。
 
-### 3.4.3 清除浮动 :after 伪元素法
+### 4.4.3 清除浮动 :after 伪元素法
 
 实际上也是额外标签法的一种。:after 方式是额外标签法的升级版。也是给父元素添加
 
@@ -192,7 +380,101 @@ none – bewirkt keinen Umfluss
 }
 ```
 
-### 3.4.4 清除浮动 双伪元素法
+
+#### 4.4.3.1 例子
+
+Wie können Sie gewährleisten, dass die beiden Bilder trotz float nicht aus ihrem Elternelement herausragen?
+
+
+**1. `content: ""`**
+- Dies erstellt tatsächlich das `::after` Pseudo-Element. Ohne diese Eigenschaft würde das Pseudo-Element nicht erscheinen.
+- Hier wird es mit einem leeren String (`""`) initialisiert, sodass kein sichtbarer Inhalt eingefügt wird.
+
+**2. `clear: both`**
+- Die `clear` Eigenschaft wird verwendet, um sicherzustellen, dass kein anderes "float"-Element (in diesem Fall die beiden Bilder, die `float: left` und `float: right` haben) neben diesem Pseudo-Element platziert wird.
+- Durch `clear: both` wird der "Fluss" des Dokuments nach den gefloateten Elementen wiederhergestellt. Es zwingt das Pseudo-Element, unter den beiden Bildern positioniert zu werden und nicht neben ihnen.
+- Dies ist notwendig, um das sogenannte "Collapsing" (倒塌 Zusammenbrechen) von Containern zu vermeiden, wenn sie nur gefloatete Inhalte enthalten.
+
+**3. `display: table`**
+- Diese Eigenschaft sorgt dafür, dass das Pseudo-Element wie ein "Block"-Element wirkt, aber auch seine eigenen Layout-Eigenschaften beibehält, ähnlich einer Tabellenzelle.
+
+**Was bewirken diese Eigenschaften zusammen?**
+
+Der Zweck des `::after` Pseudo-Elements in diesem Fall ist es, das Problem zu beheben, das durch gefloatete Elemente entsteht. Wenn man das `::after`-Element hinzufügt und `clear: both` und `display: table` verwendet, verhindert man, dass der Container (hier das `<p>`-Element) „in sich zusammenfällt“, weil seine Kinder (die Bilder) aus dem normalen Dokumentfluss herausgenommen wurden (durch `float`). Dies stellt sicher, dass das `<p>`-Element die richtige Höhe hat und den Inhalt vollständig umschließt.
+
+
+---
+
+![](image/Pasted%20image%2020241127185613.png)
+
+```css
+#red {
+	display: block;
+	float: left;
+}
+	
+#green {
+	float: right;
+}
+
+p::after {
+	content: "AFTER";
+}
+```
+
+
+
+
+---
+
+![](image/Pasted%20image%2020241127185637.png)
+```css
+#red {
+	display: block;
+	float: left;
+}
+	
+#green {
+	float: right;
+}
+
+p::after {
+	content: "AFTER";
+	clear: both;
+	display: table;
+}
+```
+
+
+
+---
+
+![](image/Pasted%20image%2020241127185720.png)
+
+```css
+#red {
+	display: block;
+	float: left;
+}
+	
+#green {
+	float: right;
+}
+
+p::after {
+	content: "";
+	clear: both;
+	display: table;
+}
+```
+
+
+
+
+
+
+
+### 4.4.4 清除浮动 双伪元素法
 
 -也是给父元素添加
 
@@ -214,7 +496,4 @@ none – bewirkt keinen Umfluss
   *zoom: 1;
 }
 ```
-
-
-
 
