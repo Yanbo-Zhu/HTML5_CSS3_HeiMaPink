@@ -89,11 +89,14 @@ Bibliotheken werden von einem Content Delivery Network (CDN) oder von einem Verz
 - Container bilden Grundlage für das Rastersystem
     - Können mehrfach auf einer Webseite verwendet werden, dürfen aber nicht ineinander verschachtelt werden
 - Flexible Container liefern ein festes Raster, welches die Breite in Sprüngen an bestimmten Umbruchstellen (Breakpoints) anpasst und zwischen den Umbruchstellen stabil bleibt 
-    - Definition eines flexiblen Container mit der Klasse .container
+    - Definition eines flexiblen Container mit der Klasse `.container`
+    - 随着  fenster 的宽度变大, `.container` 不是连续变大的, 而是 隔一段距离 跳变一次 
 - Flüssige Container liefern ein Raster, welches sich kontinuierlich an die Breite des Bildschirms anpasst
-    - Definition eines flüssigen Containers mit der Klasse .container-fluid
+    - Definition eines flüssigen Containers mit der Klasse `.container-fluid`
+    - 随着  fenster 的宽度变大, `.container` 是连续变大的,  不是 隔一段距离 跳变一次 
 - Breakpoint-Container sind bis zu einer Umbruchstelle flüssig und behalten darüber hinaus die Breite der definierten Umbruchstelle 
     - Definition mit .container-{sm|md|lg|xl|xxl}
+    -  ==.container-lg:  bis zu dem Umbruchstelle immer  按照`.fluid-container`.的规律变化.  Dann 按照 `.container`的规律变化==
 
 
 ![](image/Pasted%20image%2020241129211137.png)
@@ -111,6 +114,11 @@ ein contianer ins 12 span gezergt
         - a的值 col order offset 
     - `**b**` die Zellenbreite als Anzahl zusammenhängender Spalten angibt
 - Anzahl der verwendeten Spalten innerhalb einer Zeile darf die Maximalanzahl von zwölf nicht überschreiten, sonst wird die Zeile umgebrochen
+
+
+- 可以直接写成 `.col`  , 则 width 会随机分配 
+- 只写成 `.col-6`, 没有 umbruchstelle, 则随机或看上下文决定 啥时候变化 
+- 写成 `.col-lg-6`, 则有 concrete Umbruchstelle
 
 a的值 
 - `col-sm-...`, `col-lg-...`, etc., define responsive breakpoints. Each size class takes effect at its defined minimum width.
@@ -343,7 +351,11 @@ Visualization of Layout Behavior:
 - Ohne `**width**`- und `**height**`-Attribute im `**img**`-Element werden Bilder in der Originalgröße dargestellt
 - Bilder werden durch Hinzufügen der Klasse  
     `**.img-fluid**` im `**img**`-Element "responsive"
-- `**.img-fluid**` wendet auf das `**img**`-Element die CSS-Eigenschaften `**max-width: 100%**`, `**height: auto**` und `**display:block**` an
+- `**.img-fluid**` wendet auf das `**img**`-Element die CSS-Eigenschaften `**max-width: 100%**`, `**height: auto**` und `**display:block**` an. 实际效果是 image 随着窗口的大小 自动化resize image 的大小, 一直保持 全图展示
+- `image-fluid rounded`
+- `image-fluid img-thumbnail`
+- `image-fluid rounded-circle`
+- 
 
 
 ![](image/Pasted%20image%2020241129212033.png)
