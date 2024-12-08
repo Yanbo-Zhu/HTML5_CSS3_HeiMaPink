@@ -188,7 +188,9 @@ Lege wiederholend soviele Spalten an wie in den Container passen, mit einer Mind
   display: grid;
   /*  声明了三列，宽度分别为 200px 100px 200px */
   grid-template-columns: 200px 100px 200px;
+  
   grid-gap: 5px;
+  
   /*  声明了两行，行高分别为 50px 50px  */
   grid-template-rows: 50px 50px;
 }
