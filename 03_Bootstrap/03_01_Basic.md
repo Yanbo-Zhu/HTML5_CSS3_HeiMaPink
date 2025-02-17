@@ -3,8 +3,6 @@
 
 Bootstrap ist ein ein extrem beliebtes **CSS-Framework**, das zur Gestaltung von Websites und Webanwendungen verwendet wird. Es wurde ursprünglich von Twitter entwickelt und vereinfacht die Erstellung responsiver und ansprechender Oberflächen, ohne dass man das Design von Grund auf neu erstellen muss. Bootstrap bietet vorgefertigte CSS- und JavaScript-Komponenten, die dabei helfen, schnell und einheitlich moderne, responsive und benutzerfreundliche Layouts zu gestalten.
 
-1. Das Grid-System von Bootstrap
-2. 
 
 1. Das Grid-System von Bootstrap
     1. Grid-Struktur: Bootstrap basiert auf einem 12-Spalten-Grid-System, das die Layout-Gestaltung vereinfacht. Die Breite eines Elements lässt Sich durch die Anzahl der Spalten steuern, die es einnimmt.
