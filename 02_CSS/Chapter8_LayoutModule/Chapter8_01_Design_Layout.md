@@ -161,8 +161,8 @@ fotter {
 
 ```css
 .row::after {
-  content: '';
-  clear: both;
+  content: '';  # 加入一个content
+  clear: both;  // right-floating,  left-floating 
   display: block;
 }
 
