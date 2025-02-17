@@ -84,6 +84,7 @@ Opacity wirkt sich auf das Element selbst und <mark>alle Kinderelemente</mark> a
 ![](image/Chapter5_页面布局_元素的显示与隐藏_opacity半透明效果.png)
 
 ## 6.2 background 中的 opcatity效果
+
 background 标签中也可以给出 半透明效果
 background 中给出只作用域自己, 不作用与子元素和孙子元素wirkt sich nur auf das Element selbst und <mark> nicht nur auf alle Kinderelemente</mark> aus. 
 

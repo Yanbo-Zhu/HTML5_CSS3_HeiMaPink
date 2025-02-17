@@ -61,6 +61,7 @@ Android设备有多种分辨率：480x800, 480x854, 540x960, 720x1280，1080x192
 ## 3.5 meta视口标签
 
 `<meta name="viewport" content="width=device-width, user-scalable=no,initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">`
+
 加上了上面这句 , 网页就会随着 移动端的界面大小而自动调整 
 
 | 属性            | 解释说明                                          |

@@ -130,23 +130,54 @@ Meta 标签 为面属性标签， 它用来标书我们网站的一些信息
 
 Meta标签一般用来作 SEO 
 
-![](image/Pasted%20image%2020241029164209.png)
+```html
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <title>TU Berlin | Vorlesung Webtechnologien | WS 2023/24</title>
+    <meta charset="UTF-8">
+    <meta name="description" content="Vorlesung Webtechnologien">
+    <meta name="keywords" content="HTML, CSS, JavaScript">
+    <meta name="author" content="Axel Küpper">
+    <style>h1 {color: red;}</style>
+    <script>alert("Hello world!")</script>
+    <link rel="stylesheet" href="style.css" type="text/css">
+  </head>
+  <body>
+    ...
+  </body>
+</html>
+```
 
 Grundaufbau einer Webseite besteht aus den Elementen `<html>, <head> und <body>`
 
-DOCTYPE
-HTML-Standard der Webeseite
-Hat den Wert html für HTML5-Seite
+```html
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    ...
+  </head>
+  <body>
+    ...
+  </body>
+</html>
+```
 
-HEAD
-Steuerelemente einer Webseite
-Interpretation durch den Webbrowser zur korrekten
-Darstellung der Webseite
-Bleiben dem Nutzer verborgen
 
-BODY
-Sichtbare Nutzdaten einer Webseite 
-Werden dem Nutzer angezeigt
+- Grundaufbau einer Webseite besteht aus den Elementen `**<html>**`, `**<head>**` und `**<body>**`
+
+Doctype
+- HTML-Standard der Webeseite
+- Hat den Wert html für HTML5-Seite
+
+Head
+- Steuerelemente einer Webseite
+- Interpretation durch den Webbrowser zur korrekten Darstellung der Webseite
+- Bleiben dem Nutzer verborgen
+
+Body
+- Sichtbare Nutzdaten einer Webseite
+- Werden dem Nutzer angezeigt
 
 ## 5.1 style 
 
@@ -355,6 +386,15 @@ Beziehungen innerhalb der Kopfdaten, stellen eine gute Möglichkeit dar, `<mark>
 - 这些新标签页面中可以使用**多次**
 - 在IE9中，需要把这些元素转换为**块级元素**
 - 其实，移动端更喜欢使用这些标签anonyme Funktion als Wrapper für Funktionsaufrufe
+
+
+
+
+
+
+
+
+
 
 
 

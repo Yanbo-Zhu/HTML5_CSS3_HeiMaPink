@@ -61,7 +61,29 @@ Organizing media queries within a stylesheet
 
 ## 3.2 语法
 
-![](image/Pasted%20image%2020241123140935.png)
+
+Formale Grammatik für Media Queries
+
+```
+Media_Query: [[only | not]? <Medientyp> [ and <Ausdruck> ]*]
+  | <Ausdruck> [ and <Ausdruck> ]* 
+
+Ausdruck: ( <Merkmal> [: <Wert>]? ) 
+
+Medientyp: all | aural | braille | handheld | print | projection
+  | screen | tty | tv | embossed 
+
+Merkmal: width | min-width | max-width | height | min-height
+  | max-height | device-width | min-device-width | max-device-width
+  | device-height | min-device-height | max-device-height
+  | aspect-ratio | min-aspect-ratio | max-aspect-ratio
+  | device-aspect-ratio | min-device-aspect-ratio 
+  | max-device-aspect-ratio | color | min-color | max-color
+  | color-index | min-color-index | max-color-index | monochrome 
+  | min-monochrome | max-monochrome | resolution | min-resolution 
+  | max-resolution | scan | grid 
+```
+
 
 
 ```css
@@ -178,9 +200,17 @@ screen：主要用於彩色電腦螢幕 (包含手機和平版)
 speech：適用於語音合成器 (speech synthesizer)、語音朗讀裝置
 print：適用於 paged material 和在列印預覽模式下在螢幕上查看的文件，例如：用瀏覽器的「列印預覽」模式察看文件 
 
-![](image/Pasted%20image%2020241123140753.png)
-
-
+| Media-Typ        | Vorgesehen für...                                                                                                  |
+| ---------------- | ------------------------------------------------------------------------------------------------------------------ |
+| **`all`**        | Alle Ausgabegeräte (Standard, wenn kein Media-Typ definiert ist)                                                   |
+| **`braille`**    | Braillezahlen, d.h. Ausgabegeräte für Blinde, über die Bildschirminhalte als Braille wiedergegeben werden          |
+| **`embossed`**   | Drucker mit Blindenschrift                                                                                         |
+| **`handheld`**   | "Handgeführte" Geräte, d.h. solche mit kleinem oder monochromen Bildschirmen sowie Geräten mit geringer Bandbreite |
+| **`print`**      | Für den Ausdruck bestimmte Dokumente, aber auch solche die in Druckvorschau angezeigt werden sollen                |
+| **`projection`** | Für die Projektion mittels Beamer                                                                                  |
+| **`screen`**     | Computer-Bildschirme die Inhalte nicht seitenweise, sondern fortlaufend anzeigen                                   |
+| **`speech`**     | Sprachgeneratoren                                                                                                  |
+| `**tv**`         | Fernsehgeräte mit geringer Bildschirmauflösung und ohne Scroll-Fähigkeit                                           |
 
 ```css
 @media print {
@@ -195,11 +225,9 @@ print：適用於 paged material 和在列印預覽模式下在螢幕上查看�
 ```
 
 
-Media Types ermöglichen die Verknüpfung von dedizierten Stylesheets zu bestimmten Gerätetypen
-
-Problem 1: Geräte der gleichen Klasse (Smartphones, Tablets,...) haben heute unterschiedliche Eigenschaften, z.B. Bildschirmaufl ösungen
-
-Problem 2: Für moderne Geräte existieren keine zugehörigen Typen, z.B. Smartphones werden wie Desktop-Rechner mit screen deklariert
+- **_Media Types_** ermöglichen die Verknüpfung von dedizierten Stylesheets zu bestimmten Gerätetypen
+- Problem 1: Geräte der gleichen Klasse (Smartphones, Tablets,...) haben heute unterschiedliche Eigenschaften, z.B. Bildschirmauflösungen
+- Problem 2: Für moderne Geräte existieren keine zugehörigen Typen, z.B. Smartphones werden wie Desktop-Rechner mit screen deklariert
 
 
 ### 3.5.2 媒体类型为print( @media print )
@@ -282,21 +310,55 @@ medien print 中设置, 只是打印机打印出来的时候, 页面长啥样 .
 
 注意他们要加小括号包含。
 
-| 值         | 解释                |
-|---------|-----------------|
-| width     | 定义输出设备中页面可见区域的宽度. the viewport width  |
-| height | the viewport height |
-| min-width | 定义输出设备中页面最小可见区域宽度. 下面块中效果能够生效的最小宽度 <br> 阅览器的窗口通过鼠标扩大, 直到阅览器的 view area 大于这个 设定好的值的时候, 定义的效果就生效了, |
-| max-width | 定义输出设备中页面最大可见区域宽度. 下面块中效果能够生效的最大宽度 <br> 阅览器的窗口通过鼠标扩大, 直到 阅览器的 view area 大于这个 设定好的值的时候, 定义的效果就失效了, 不起作用了 |
-| device-width | the viewport width of the specific device. it will be deprecated in Media Queries Level 4 |
-| device-height | the viewport height of the specific device. it will be deprecated in Media Queries Level 4 |
-| orientation | landscape or portrait orientation of the device. (orientation: landscape) |
-| aspect-ratio | the ration of width to height |
-|prefers-color-scheme||
+| 值                    | 解释                                                                                                      |
+| -------------------- | ------------------------------------------------------------------------------------------------------- |
+| width                | 定义输出设备中页面可见区域的宽度. the viewport width                                                                    |
+| height               | the viewport height                                                                                     |
+| min-width            | 定义输出设备中页面最小可见区域宽度. 下面块中效果能够生效的最小宽度 <br> 阅览器的窗口通过鼠标扩大, 直到阅览器的 view area 大于这个 设定好的值的时候, 定义的效果就生效了,        |
+| max-width            | 定义输出设备中页面最大可见区域宽度. 下面块中效果能够生效的最大宽度 <br> 阅览器的窗口通过鼠标扩大, 直到 阅览器的 view area 大于这个 设定好的值的时候, 定义的效果就失效了, 不起作用了 |
+| device-width         | the viewport width of the specific device. it will be deprecated in Media Queries Level 4               |
+| device-height        | the viewport height of the specific device. it will be deprecated in Media Queries Level 4              |
+| orientation          | landscape or portrait orientation of the device. (orientation: landscape)                               |
+| aspect-ratio         | the ration of width to height                                                                           |
+| prefers-color-scheme |                                                                                                         |
+|                      |                                                                                                         |
+
+| Merkmal             | Beschreibung                                                                                  | Beispiel                                |
+| ------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------- |
+| **`width`**         | Viewport-Breite (der zur Verfügung stehende Platz innerhalb des Browserfensters)              | **`handheld and (min-width: 20em)`**    |
+| **`height`**        | Viewport-Höhe (der zur Verfügung stehende Platz innerhalb des Browserfensters)                | `**screen and (max-height: 700px)**`    |
+| **`device-width`**  | Breite des Mediums (Smartphone-Bildschirm, Monitorgröße, ...)                                 | `**screen and (device-width: 800px)**`  |
+| **`device-height`** | Höhe des Mediums (Smartphone-Bildschirm, Monitorgröße, ...)                                   | `**screen and (device-height: 400px)**` |
+| **`orientation`**   | Beschreibt ob ein Gerät im Querformat (landscape) oder im Hochformat (portrait) gehalten wird | `**all and (orientation:portrait)**`    |
+
+
+Laden unterschiedlicher Stylesheets
+
+```css
+<link rel="stylesheet" type="text/css" href="style.css" media="screen and (min-width: 750px)">
+<link rel="stylesheet" type="text/css" href="iphone.css" media="only screen and (max-device-width: 480px)">
+<link rel="stylesheet" type="text/css" href="portrait.css" media="all and (orientation: portrait)">
+<link rel="stylesheet" type="text/css" href="landscape.css" media="all and (orientation: landscape)">
+```
+
+
+Anwendung unterschiedlicher Eigenschaften
+```css
+<style type="text/css">
+  @media screen and (orientation: portrait) {
+    body {background-color: white;}
+  }
+  @media screen and (orientation: landscape) {
+    body {background-color: black;}
+  }
+</style>
+```
+
+
 
 ### 3.6.1 min-width 和 max-width的比较 
 
-![](image/Pasted%20image%2020241123140834.png)
+
 
 
 - min-width means from this width and larger, so it's for a large(r) screen.  阅览器的 view area 必须大于这个值的时候, 这个设置才生效

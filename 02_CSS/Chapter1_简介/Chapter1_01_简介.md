@@ -159,7 +159,61 @@ h3 {  // h3 后面有个空格
 # 4 css样式表引入方式
 
 
-![](Image/Pasted%20image%2020241123122948.png)
+1 
+Style-Definition in separaten CSS-Dateien
+```html
+<head>
+  <!-- andere Definitionen im HTML-Kopfbereich -->
+  <link rel="stylesheet" type="text/css" href="stylesheet.css">
+  <link rel="stylesheet" type="text/css" href="ie-korrekturen.css">
+</head>
+```
+
+- Einheitliche(s) Stylesheet(s) für alle Seiten einer Website
+- Einbindung in jedes HTML-Dokument möglich
+- Änderungen von CSS-Eigenschaften wirken sich auf alle einbindenden HTML-Dokumente aus
+- Einbindung mehrerer CSS-Dateien
+- Vermischung mit CSS-Definitionen im Kopfbereich oder in style-Attributen möglich
+
+
+2
+Style-Definition im Head-Berteich eines HTML-Dokuments
+```html
+<head>
+  <!-- andere Definitionen im HTML-Kopfbereich -->
+  <style type="text/css">
+    h1{
+      color: #dd9900;
+      font-family: arial, helvetica, sans-serif;
+      font-weight: normal;
+    }
+  </style>
+</head>
+```
+
+- Styles für verschiedene HTML-Elemente einer Webseite werden im Header des Dokuments mit `**<style>**` eingefügt
+- Innerhalb von `**<style>**` erfolgt Definition in CSS-Syntax
+- Bevorzugt wenn Gestaltung von HTML-Elementen per CSS nur in Ausnahmefällen erfolgt oder wenn es von der für eine Website gültigen Definition abweichende Elemente gibt
+
+
+3 
+Style-Definition innerhalb einzelner HTML-Elemente mittels style-Attributen
+```html
+<body>
+  <h1 style="color: red">
+    Die Seite mit dem besonderen Element
+  </h1>
+  <p style="background-color: #808040; color: #d8fd02;">
+    Unser Kopf ist rund, damit das Denken die Richtung wechseln kann.
+  </p>
+</body>
+```
+
+- Formatierung einzelner Elemente innerhalb eines Dokuments mit Hilfe des `**style**`-Attributs
+- Innerhalb des Wertebereichs des `**style**`-Attributs erfolgt Definition in CSS-Syntax
+- Nur in Ausnahmefällen zu bevorzugen - Mischung von HTML und CSS schwer verständlich und lesbar
+
+
 
 
 ---
@@ -288,3 +342,55 @@ Formate zentral für ein Dokument definieren
 /* Dies ist ein Kommentar */
 
 ```
+
+
+# 6 Module
+
+|Modulname|Beschreibung|Link|
+|---|---|---|
+|Animations|- Ermöglicht einfache Animationen ohne JavaScript  <br>- Einführung einer eigenen DOM-Schnittstelle für erweitertes Event-Handling|[https://www.w3.org/TR/css-animations-1/](https://www.w3.org/TR/css-animations-1/)|
+|Background and Borders|- Zuständig für Hintergrund und Rahmen  <br>- Skalieren von Hintergrundbildern  <br>- Definition abgerundeter Ecken  <br>- Grafische Schmuckrahmen|[https://www.w3.org/TR/css-backgrounds-3/](https://www.w3.org/TR/css-backgrounds-3/)|
+|Basic User Interface|- Gestaltung interaktiver Elemente wie Formulare, Hyperlinks oder der Cursor  <br>- Interaktive Hervorhebung von Elementen mit outline  <br>- Optische Unterscheidung gültiger und ungültiger Inhalte|[https://www.w3.org/TR/css-ui-4/](https://www.w3.org/TR/css-ui-4/)|
+|Basic Box Model|- Definition des grundlegenden Boxmodells zur Festlegung von Innen- und Außenabständen, Rahmenstyles und stärken usw.|[https://www.w3.org/TR/css-box-4/](https://www.w3.org/TR/css-box-4/)|
+|Cascading and Inheritance|- Prinzipien von Kaskadierung und Vererbung von CSS-Eigenschaften an Kindelemente|[https://www.w3.org/TR/css-cascade-4/](https://www.w3.org/TR/css-cascade-4/)|
+|Color|- Festlegung von Farb- und Transparenzeigenschaften  <br>- Neue Möglichkeiten der Farbdefinition|[https://www.w3.org/TR/css-color-4/](https://www.w3.org/TR/css-color-4/)|
+|Flexible Box Layout|- Neue Möglichkeiten der Anordnung von Elementen|[https://www.w3.org/TR/css-flexbox-1/](https://www.w3.org/TR/css-flexbox-1/)|
+|Fonts|- Eigenschaften für Schriftarten|[https://www.w3.org/TR/css-fonts-4/](https://www.w3.org/TR/css-fonts-4/)|
+|Generated Content for Paged Media|- Gestaltung von Printlayouts und seitenorientierten Ausgaben  <br>- Laufende Kopf- und Fußzeilen mit automatisiertem Überschriftenbezug  <br>- Seiten- und Kapitelnummerierung, Fußnotenautomatik, usw.|[https://www.w3.org/TR/css-gcpm-3/](https://www.w3.org/TR/css-gcpm-3/)|
+|Generated and Replaced Content|- Dynamische Anpassung von Inhalten  <br>- Verschiebung von Elementen innerhalb eines HTML-Dokuments|[https://www.w3.org/TR/css-gcpm-3/](https://www.w3.org/TR/css-gcpm-3/)|
+
+
+|Modulname|Beschreibung|Link|
+|---|---|---|
+|Grid Positioning|- Erweiterte Konzepte zur rasterbasierten Positionierung von Elementen|[https://www.w3.org/TR/css-grid-2/](https://www.w3.org/TR/css-grid-2/)|
+|Hyperlink and Presentation|- Erweiterung des **`target`**-Attributes von HTML zur neuen Definition von Zielen für externe Verweise|[https://www.w3.org/TR/css3-hyperlinks/](https://www.w3.org/TR/css3-hyperlinks/)|
+|Image Values and Replaced Content|- Erweiterte Spezifikation von Bildformaten, zum Beispiel Auflösung, alternative Farben, etc.  <br>- Anzeige bestimmter Bildausschnitte|[https://www.w3.org/TR/css-images-3/](https://www.w3.org/TR/css-images-3/)|
+|Line Box|- Neue Eigenschaften für die Kontrolle von Eigenschaften einer Zeile  <br>- Berücksichtigung typografischer Basislinien|[https://www.w3.org/TR/css-inline-3/](https://www.w3.org/TR/css-inline-3/)|
+|Lists and Counters|- Listeneigenschaften  <br>- Formatierung von Aufzählungszeichen und Nummerierungszahlen|[https://www.w3.org/TR/css-lists-3/](https://www.w3.org/TR/css-lists-3/)|
+|Marquee|- Definition von animiertem Lauftext|[https://www.w3.org/TR/css3-marquee/](https://www.w3.org/TR/css3-marquee/)|
+|Multi-column Layout|- Mehrspaltiger Textfluss mit automatischem Zeilenumbruch  <br>- Definition von Spalten, Spaltenbreiten, Abständen, Verhaltensweisen, usw.|[https://www.w3.org/TR/css-multicol-1/](https://www.w3.org/TR/css-multicol-1/)|
+|Namespaces|- Definition von Namensräumen analog zu XML|[https://www.w3.org/TR/css-namespaces-3/](https://www.w3.org/TR/css-namespaces-3/)|
+|Paged Media|- Printlayouts und seitenorientierte Ausgabe  <br>- Definition der Seitengröße, Unterscheidung linke Seite rechte Seite  <br>- Seitenumbruchkontrolle|[https://www.w3.org/TR/css-page-3/](https://www.w3.org/TR/css-page-3/)|
+|Presentation Levels|- Laufnummern oder Nummern von Hierarchieebenen für HTML-Elemente  <br>- Benötigt für Gliederungsansicht oder Diashow|[https://www.w3.org/TR/css3-preslev/](https://www.w3.org/TR/css3-preslev/)|
+|Ruby|- Ruby: eine im fernöstlichen Sprachen vorkommende Notation um Schriftzeichen mit zusätzlichen Informationen auszustatten, zur Präzisierung der im Kontext gemeinten Bedeutung  <br>- Positionierung von Ruby-Annotationen mit CSS-Eigenschaften|[https://www.w3.org/TR/css-ruby-1/](https://www.w3.org/TR/css-ruby-1/)|
+|Speech Module|- Eigenschaften zur Steuerung von Sprachsynthesizern|[https://www.w3.org/TR/css-speech-1/](https://www.w3.org/TR/css-speech-1/)|
+
+
+
+|Modulname|Beschreibung|Link|
+|---|---|---|
+|Syntax|- Beschreibt die allgemeine Syntax, Grammatik und das Fachvokabular von CSS|[https://www.w3.org/TR/css-syntax-3/](https://www.w3.org/TR/css-syntax-3/)|
+|Text|- Eigenschaften zur Textkontrolle  <br>- Textumbruchkontrolle  <br>- Grafische Schrifteffekte|[https://www.w3.org/TR/css-text-3/](https://www.w3.org/TR/css-text-3/)|
+|Template Layout|- Definition komplexer Webseitenlayouts  <br>- Unterteilung des Anzeigenbereichs in Regionen|[https://www.w3.org/TR/css-template-3/](https://www.w3.org/TR/css-template-3/)|
+|2D-Transform, 3D-Transform|- 2- und 3-dimensionale Drehung und Dehnung von Texten|[https://www.w3.org/TR/css-transforms-1/](https://www.w3.org/TR/css-transforms-1/)|
+|Transitions|- Definition von Übergängen zwischen verschiedenen Werten einer visuellen CSS-Eigenschaft|[https://www.w3.org/TR/css-transitions-1/](https://www.w3.org/TR/css-transitions-1/)|
+|Values and Units|- Beschreibung der Wertetypen für Eigenschaften und Maßeinheiten|[https://www.w3.org/TR/css-values-3/](https://www.w3.org/TR/css-values-3/)|
+
+
+
+
+
+
+
+
+

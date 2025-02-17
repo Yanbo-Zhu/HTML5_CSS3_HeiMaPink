@@ -8,6 +8,18 @@
 
 # 2 盒子中的属性 width,height,padding,border
 
+
+```css
+div {
+  border: solid;
+  width: 40px;
+  height: 20px;
+  margin: 10px;
+  border-width: 3px;
+  padding: 7px;
+}
+```
+
 - content(内容): 盒子里面的文字和图片等元素是 内容区域
 - border(边框): 盒子的厚度 我们称为为盒子的边框
 - outline
@@ -19,16 +31,56 @@ dem inneren Abstand vom Rand zum Inhalt (padding)
 der Breite des Rahmens (border-width)
 dem Abstand zum äußeren Raum (margin)
 
+
+**Margin**
+- Bestimmt den **_Außenabstand_** und damit den Zwischenraum zu umliegenden Elementen
+- Hintergrundfarben und -grafiken die dem Element selbst zugewiesen wurden sind dort nicht zu sehen
+
+**Border**
+- Rahmen mit seiner Breite und Farbe
+
+**Padding**
+- Umgibt den eigentlichen Inhaltsbereich mit einer eigenen Fläche (**_Innenabstand_**)
+- Hintergrundfarben und Grafiken werden bis zum Rahmen dargestellt
+
+**Width und height**
+- Dimensionen eines Elements ohne **`padding`**, `**border**` und `**margin**`
+
+
+![](image/Pasted%20image%2020250217201021.png)
+
   [![4 3 boxmodell.jpg](https://vfhwebp.eduloop.de/mediawiki/images/vfhwebp.eduloop.de/0/0d/4_3_boxmodell.jpg)](https://vfhwebp.eduloop.de/mediawiki/images/vfhwebp.eduloop.de/0/0d/4_3_boxmodell.jpg)
+
+
   ![](image/Chapter4_css_盒子模型_盒子模型的组成_001.png)
+
+
+
   ![](image/Chapter4_css_盒子模型_盒子模型的组成_002.png)
+
+
+
+
   ![](image/Chapter4_css_盒子模型_边框_01.png)
 
 
 
-# 3 例子 
 
-![](image/Pasted%20image%2020241123125241.png)
+# 3 Kurzschreibweisen 
+
+```css
+div {
+  padding-top: 20px;
+  padding-right: 50px;
+  padding-bottom: 20px;
+  padding-left: 10px;
+}
+```
+
+
+![](image/Pasted%20image%2020250217204039.png)
+
+
 
 
 

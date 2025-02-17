@@ -6,6 +6,33 @@
 
 ![](Chapter3_Image/Chapter3_008_表格相关标签总览.png)
 
+
+- Für eine bündige Anordnung können (vorläufig) Tabellen genutzt werden
+- Eine Tabelle wird mit dem `**<table>**`-Element eröffnet
+- `**<tr>**` eröffnet eine neue Reihe (**_T__able_ _R__ow_**)
+- `**<td>**` eröffnet eine neue Zelle für Daten (**_T__able_ _D__ata_**) innerhalb einer Reihe
+- Felder für die Eingabe von Text (**`type="text"`**) sind die am häufigsten verwendeten Formularfelder
+- Übermittlung durch Key/Value-Pairs: `**name**` spezifiziert die Bezeichnung des Keys für die Übertragung des Wertes
+- - `**size**` ist die Größe des Eingabefeldes
+- `**maxlength**` ist die maximale Länge der Eingabe
+- `**required**` erzwingt eine Eingabe durch den Nutzer
+- Formularfeld mit `**autofocus**`-Attribut erhält den Fokus nach dem Laden der Seite
+
+```html
+<table>
+  <tr><td>Benutzername:<td><input name="username"
+                                  type="text"
+                                  size="20"
+                                  maxlength="20"
+                                  required
+                                  autofocus>
+  <tr><td>Mobiltelefon:<td>... 
+  <tr><td>Mailadresse:<td>... 
+  <tr><td>Wohnort:<td>... 
+</table>
+```
+
+
 ## 1.2 表格属性
 
 只作了解，后期通过 CSS 来设置。 这些属性都要写到 `<table></table>` 标签中
@@ -231,6 +258,27 @@
 | `<dl></dl>` | 自定义列表 | 里面只能包含dt和dd，dt和dd里面可以放任何标签 |
 
 `<li>与</li>`之间相当于一个容器，可以容纳所有元素
+
+
+- Jedes Formularfelder wird durch ein `**<input>**`-Element zusammen mit spezifizierenden Attributen repräsentiert
+- Alle Formularfelder sind in einem `**<form>**` eingeschlossen
+- Ein Button bildet meistens das letzte Formularfeld eines Formulars
+- Im Beispiel ist das Formular mit Hilfe einer Liste strukturiert
+- `**<ol>**` eröffnet eine geordnete Liste (**_O__rder_ _L__ist_**), d.h. die Liste wird nummeriert
+- `**<ul>**` eröffnet eine ungeordnete Liste (**_U__nordered_ _L__ist_**) mit Aufzählungspunkten (Bullet Points)
+- `**<li>**` eröffnet ein neues Element der Liste (**_L__ist_ _E__lement_**)
+
+```html
+<form action="zielseite.html" method="post" name="mein-formular">
+  <ol>
+    <li>Registriere Dich bei YASN
+    <li>Lade Deine FReunde ein (Mailadresse angeben).
+    <li>Vervollständige Dein Profil
+    <li>Persönliche Einstellungen
+  </ol>
+  <input type="submit" value="Absenden">
+</form>
+```
 
 ## 2.1 无序列表 unorder list `<ul>` 
 

@@ -75,7 +75,14 @@ Bibliotheken werden von einem Content Delivery Network (CDN) oder von einem Verz
 
 # 3 EINFACHE BEISPIELE
 
-![](image/Pasted%20image%2020241129210553.png)
+![](image/Pasted%20image%2020250217210414.png)
+
+- Bootstrap beinhaltet Styles für alle HTML-Elemente mit dem Ziel ihrer einheitlichen Darstellung in allen Web-Browsern und auf allen Plattformen
+- Erscheinung von Elementen können über CSS-Deklarationen angepasst werden
+- Beispiel: durch `**class**`-Selektoren `**alert**` und `**alert-info**` werden HTML-Inhalte entsprechenden CSS-Deklarationen zugewiesen 
+- Bootstrap-Gestaltungsvorlagen können mittels SASS maßgeschneidert und durch Kompilierung in CSS in eigene Webseiten eingebunden werden
+
+
 
 
 ![](image/Pasted%20image%2020241129210615.png)
@@ -101,6 +108,14 @@ Bibliotheken werden von einem Content Delivery Network (CDN) oder von einem Verz
 
 
 ## 4.1 Rastersystem (Grid System) (class in div Element)
+
+- Bootstrap verfügt über sechs vorgefertigte Media Queries für sechs verschiedene Geräteklassen
+- Raster können für jede Geräteklasse aufgebaut werden 
+- Innerhalb einer Geräteklasse werden Zellen in die nächste Zeile umgebrochen, wenn der Viewport die untere Grenze der für diese Geräteklasse festgelegten Bildschirmbreite unterschreitet
+- Ist der Viewport größer als die für eine Geräteklasse festgelegte Bildschirmbreite, wird in flexiblen Containern die Breite des Rasters schrittweise an die Breite der jeweiligen Geräteklasse angepasst und in flüssigen Containern an die Breite des Viewport angepasst 
+- Umbruchbreite (Container-Breite) basiert auf Minimum-MediaQueries, d.h. **sie beziehen sich auf den definierten Umbruchpunkt und alle darüber**
+
+
 
 ein contianer ins 12 span gezergt 
 
@@ -353,7 +368,7 @@ Visualization of Layout Behavior:
 - `image-fluid rounded`
 - `image-fluid img-thumbnail`
 - `image-fluid rounded-circle`
-- 
+
 
 
 ![](image/Pasted%20image%2020241129212033.png)
@@ -364,6 +379,40 @@ Visualization of Layout Behavior:
 
 ![](image/Pasted%20image%2020241129212104.png)
 
+```css
+<div class="row">
+  <div class="col-6">
+    <h4>Berlin</h4>
+    <img
+         src="https://tubcloud.tu-berlin.de/s/wraeT3mJ8PApYEX/preview"
+         class="img-fluid"
+    >
+  </div>
+  <div class="col-6">
+    <h4>Oxford</h4>
+    <img
+         src="https://tubcloud.tu-berlin.de/s/RdYp5mmMeBT6oeH/preview"
+         class="img-fluid rounded"
+    >
+  </div>
+</div>
+<div class="row">
+  <div class="col-6">
+    <h4>Hongkong</h4>
+    <img
+         src="https://tubcloud.tu-berlin.de/s/KcEPi3yddpBpiz9/preview"
+         class="img-fluid img-thumbnail"
+    >
+    </div>
+    <div class="col-6">
+      <h4>Wien</h4>
+      <img
+           src="https://tubcloud.tu-berlin.de/s/rcQT3FZaTb3jnk3/preview"
+           class="img-fluid rounded-circle"
+      >
+  </div>
+</div>
+```
 
 ----
 

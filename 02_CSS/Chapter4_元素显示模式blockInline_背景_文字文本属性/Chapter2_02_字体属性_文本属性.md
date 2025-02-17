@@ -89,13 +89,13 @@ relative Schlüsselworte:
 
 ![](image/Chapter2_css_文字属性_001_字体大小单位.png)
 
-| type                                                         | content                                                                                                                                                                  |
-| ------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| absolut                                                      | px: vermeiden! Wenn, dann für kleine Werte, min- oder max - Angaben <br>pt                                                                                               |
-| relativ: zum parent                                          | em: 1em 等于当前的字体尺寸。 2em 等于当前字体尺寸的两倍。 例如，如果某元素以 12pt 显示，那么 2em 是24pt。 在 CSS 中，em 是非常有用的单位，因为它可以自动适应用户所使用的字体。 <br> ex: 一个 ex 是一个字体的 x-height。 (x-height 通常是字体尺寸的一半。) <br> % |
-| relativ: zum html also zum root-Element                      | rem: rem表示“Root EM”,字面上指的是根元素的em大小。    <br/>在Web文档的上下文中，根元素就是你的html元素。 如果没有重置，html默认font-size:16px。 |                                                                                                                                                                          |
-| relativ: im grid                                             | fr                                      |
-| relativ: zum viewport. Sie sind von der Bildschirmgröße abhängig.  | vw(viewport width), vh (viewport height), vmin, vmax    |
+| type                                                              | content                                                                                                                                                                  |     |
+| ----------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | --- |
+| absolut                                                           | px: vermeiden! Wenn, dann für kleine Werte, min- oder max - Angaben <br>pt                                                                                               |     |
+| relativ: zum parent                                               | em: 1em 等于当前的字体尺寸。 2em 等于当前字体尺寸的两倍。 例如，如果某元素以 12pt 显示，那么 2em 是24pt。 在 CSS 中，em 是非常有用的单位，因为它可以自动适应用户所使用的字体。 <br> ex: 一个 ex 是一个字体的 x-height。 (x-height 通常是字体尺寸的一半。) <br> % |     |
+| relativ: zum html also zum root-Element                           | rem: rem表示“Root EM”,字面上指的是根元素的em大小。    <br/>在Web文档的上下文中，根元素就是你的html元素。 如果没有重置，html默认font-size:16px。                                                                      |     |
+| relativ: im grid                                                  | fr                                                                                                                                                                       |     |
+| relativ: zum viewport. Sie sind von der Bildschirmgröße abhängig. | vw(viewport width), vh (viewport height), vmin, vmax                                                                                                                     |     |
 
 ### 1.4.1 Absolute und relative Einheiten
 Absolute Einheiten sind solche, die eine immer feststehende Angabe bezeichnen, relative Einheiten werden immer im Verhältnis zu anderen Elementen angegeben.
@@ -123,6 +123,21 @@ line-height: 120%;
 |vw (Viewport Breite)||x|width: 40vw; height: 80vh;|die Breite wird in Relation zur jeweils aktuellen Größe des Browserfensters definiert.|
 |vmax (Viewport maximale Größe)||x|height: 2vmax;|die Größe des Elements wird in Relation zu Breite oder Höhe gesetzt, je nachdem welche Angabe größer ist.|
 |vmin (Viewport maximale Größe)||x|height: 2vmin;|die Größe des Elements wird in Relation zu Breite oder Höhe gesetzt, je nachdem welche Angabe kleiner ist.|
+
+
+
+
+| Abkürzung | Typ             | Bedeutung                                                                                                                                                                                                                                 | Beispiel                   |
+| --------- | --------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------- |
+| %         | relativ         | Prozent. Je nach CSS-Eigenschaft relativ zur elementeigenen Größe oder zu der des Elternelements oder zu einem allgemeinen Kontext. Bei nebenstehendem Beispiel ist die Angabe zur Zeilenhöhe relativ zur Schriftgröße zu interpretieren. | **`line-height: 120%;`**   |
+| cm        | absolut         | Zentimeter. Allgemeines Längenmaß. 100. Teil des Urmeters.                                                                                                                                                                                | **`top: 2.54cm;`**         |
+| em        | relativ         | Breite des M der definierten Schrift. Ausnahme: Wenn die font-size-Eigenschaft mit dieser Maßangabe versehen wird, steht diese bezogen auf die Breite des Großbuchstabens M im Elternelement.                                             | `**font-size: 1.2em;**`    |
+| ex        | relativ         | Höhe des x der definierten Schrift. Ausnahme: Wenn die font-size-Eigenschaft mit dieser Maßangabe versehen wird, steht diese bezogen auf die Höhe des Kleinbuchstabens x im Elternelement.                                                | `**font-size: 1.3ex;**`    |
+| in        | absolut         | Inch. Allgemeines Längenmaß im angelsächsischen Raum. 1 Inch (Zoll) entspricht 2,54 Zentimetern.                                                                                                                                          | **`border-width: 0.1in;`** |
+| mm        | absolut         | Millimeter. Allgemeines Längenmaß. 1000. Teil des Urmeters.                                                                                                                                                                               | `**margin-bottom: 10mm;**` |
+| pc        | absolut         | Pica. Typografische Maßeinheit. 1 Pica entspricht 12 Punkt.                                                                                                                                                                               | `**line-height: 1.2pc;**`  |
+| pt        | absolut         | Punkt. Typografische Maßeinheit. 1 Punkt entspricht 1/72 Inches (Zoll).                                                                                                                                                                   | `**font-size: 12pt;**`     |
+| px        | absolut/relativ | Pixel. Abhängig von der Pixeldichte des Ausgabegerätes, relativ also von Ausgabegerät zu Ausgabegerät, absolut dagegen auf ein und dasselbe Ausgabegerät bezogen.                                                                         | `**border-width: 2px;**`   |
 
 
 
@@ -368,9 +383,9 @@ CSS Text（文本）属性定义文本外观，比如颜色、对齐、装饰、
 
 ```css
 div {
-color: red;
-color: #FF0000;
-color: rgb(255，0，0);
+    color: red;
+    color: #FF0000;
+    color: rgb(255，0，0);
 }
 ```
 
@@ -383,17 +398,17 @@ color: rgb(255，0，0);
 | RGB代码   | rgb(255，0，) 或rgb(100%，0%，0%) |
 |HSL| hsl(0, 100%, 50%) |
 
-|Notation|Erklärung|
-|--|--|
-|`#RRGGBB`|hexadezimale Paarwert-Notation; jedes Farbenpaar besteht aus Hexadezimalwerten die von 00 bis FF reichen|
-|`#RGB`|Kurzschreibweise der oben genannten Paarwert-Notation; jede Stelle wird hierbei verdoppelt um einen sechsstelligen Wert zu erhalten; weniger Individualität in der Farbenwahl|
-|`#RRGGBBAA`|hexadezimale Paarwert-Notation; jedes Farbenpaar besteht aus Hexadezimalwerten die von 00 bis FF reichen. AA gibt die Deckkraft des Alphakanals an. 00 steht für transparent und FF für volle Deckkraft.|
-|rgb(rrr.rr%,ggg.gg%,bbb.bb%)|Angabe von RGB-Werten von 0% bis 100%; Dezimalwerte sind erlaubt|
-|rgb(rrr,ggg,bbb)|RGB-Werte innerhalb einer Spanne von 0 bis 255; Gegenstück zum hexadezimalen 00 bis FF|
-|rgba(rrr,ggg,bbb,aaa)|Seit CSS 3 eine Erweiterung der RGB-Farbangaben um den Alpha-Kanal, der die Opazität einer Farbe als Dezimalwert zwischen 0 und 1 angibt.|
-|hsl(hue, saturation, lightness)|Mehr intuitive Farbangabe durch: Farbton auf dem Farbkreis (0 bis 360), Sättigung (0 bis 100%) und Helligkeit (0 bis 100%).|
-|hsla(hue, saturation, lightness, aaa)|Erweitert um den Alpha-Kananal.|
-|Schlüsselwörter|16 offizielle Schlüsselwörter; basierend auf VGA-Farben; wurde durch CSS 2.1 um orange ergänzt|
+| Notation                              | Erklärung                                                                                                                                                                                                |
+| ------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `#RRGGBB`                             | hexadezimale Paarwert-Notation; jedes Farbenpaar besteht aus Hexadezimalwerten die von 00 bis FF reichen                                                                                                 |
+| `#RGB`                                | Kurzschreibweise der oben genannten Paarwert-Notation; jede Stelle wird hierbei verdoppelt um einen sechsstelligen Wert zu erhalten; weniger Individualität in der Farbenwahl                            |
+| `#RRGGBBAA`                           | hexadezimale Paarwert-Notation; jedes Farbenpaar besteht aus Hexadezimalwerten die von 00 bis FF reichen. AA gibt die Deckkraft des Alphakanals an. 00 steht für transparent und FF für volle Deckkraft. |
+| rgb(rrr.rr%,ggg.gg%,bbb.bb%)          | Angabe von RGB-Werten von 0% bis 100%; Dezimalwerte sind erlaubt                                                                                                                                         |
+| rgb(rrr,ggg,bbb)                      | RGB-Werte innerhalb einer Spanne von 0 bis 255; Gegenstück zum hexadezimalen 00 bis FF                                                                                                                   |
+| rgba(rrr,ggg,bbb,aaa)                 | Seit CSS 3 eine Erweiterung der RGB-Farbangaben um den Alpha-Kanal, der die Opazität einer Farbe als Dezimalwert zwischen 0 und 1 angibt.                                                                |
+| hsl(hue, saturation, lightness)       | Mehr intuitive Farbangabe durch: Farbton auf dem Farbkreis (0 bis 360), Sättigung (0 bis 100%) und Helligkeit (0 bis 100%).                                                                              |
+| hsla(hue, saturation, lightness, aaa) | Erweitert um den Alpha-Kananal.                                                                                                                                                                          |
+| Schlüsselwörter                       | 16 offizielle Schlüsselwörter; basierend auf VGA-Farben; wurde durch CSS 2.1 um orange ergänzt                                                                                                           |
 
 ## 2.3 Wort- und Zeichenabstand (word-spacing, letter-spacing)
 Wie der Name schon sagt bestimmen diese Eigenschaften den Abstand zwischen den Wörtern oder zwischen den Zeichen eines Textes. Sie werden durch numerische Angaben festgelegt, können jedoch keine Prozentangaben beinhalten.

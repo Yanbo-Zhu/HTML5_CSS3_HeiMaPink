@@ -5,6 +5,24 @@ CSS 有三个非常重要的特性：层叠性、继承性、优先级。
 
 Autoren-Stylesheet, Nutzer-Stylesheet, Brower-stylesheet 的优先级 
 
+Kaskaden
+- **_Kaskade_**: Hintereinanderschaltung oder Verkettung verschiedener Stylesheets
+
+Browser-Stylesheets
+- Browser-internes CSS zur Verwendung wenn Webseite kein CSS definiert
+- Definition der Grundeigenschaften aller Elemente
+
+Nutzer-Stylesheets
+- Persönliches Stylesheet eines Nutzers
+- Ermöglicht die Anpassung der Darstellung einer Website an persönliche Bedürfnisse
+- Einbindung über die Einstellungen des Browsers
+
+
+Autoren-Stylesheets
+- CSS welches über HTML eingebunden wird
+- Stylesheets des Entwicklers der Website
+
+
 ![](image/Pasted%20image%2020241123132829.png)
 
 ![](image/Pasted%20image%2020241123132958.png)
@@ -202,7 +220,33 @@ The selector weight categories are listed here in the order of decreasing specif
 | ！important重要的                                                            | 无穷大， 某个标签加上这个！important， 他会权重会变得无权大 |
 |                                                                          |                                     |
 
-![](image/Pasted%20image%2020241123133102.png)
+
+
+
+|Selektor|Beispiel|A|B|C|D|
+|---|---|---|---|---|---|
+|Universal|`*****`||||0|
+|Element|`**h1**`||||1|
+|Pseudoelement|`**::first-line**`||||1|
+|Pseudoklasse|`**:hover**`|||1||
+|Klassenselektor|`**.hinweis**`|||1||
+|ID-Selektor|`**#inhalt**`||1|||
+|Inline-Style|`**<p style="color: red;>**`|1||||
+
+![](image/Pasted%20image%2020250217204405.png)
+
+- Prioritätsregeln nicht nur zwischen Browser-, Autoren- und Nutzer-Styles, sondern auch zwischen Selektoren
+- Berechnung der Priorität anhand der **_Spezifität_** der Selektoren
+- Eingruppierung der Selektoren in verschiedene Prioritätsklassen gemäß nebenstehender Tabelle
+- Bei kombinierten und/oder gruppierten Selektoren erfolgt Aufaddierung der Punkte der zugehörigen Klassen zur Berechnung der Priorität
+- Inline-Styles haben die höchste Priorität (A), der Universalselektor die niedrigste (D)
+
+Faustregel
+- Niemand berechnet Spezifitäten ;-)
+- `**id**` ist immer stärker als `**class**`
+- `**class**` ist immer stärker als ein einfacher Elementselektor
+
+
 
 注意点: 
 -  我们修改样式，一定要看该标签有没有被选中

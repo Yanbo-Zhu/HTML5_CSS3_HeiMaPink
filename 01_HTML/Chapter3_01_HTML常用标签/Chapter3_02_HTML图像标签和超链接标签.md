@@ -1,3 +1,4 @@
+
 # 1 图像标签 `<img />`, 单标签
 
 在 HTML 标签中，`<img />` 标签用于定义 HTML 标签页面中的图像。为单标签
@@ -78,7 +79,7 @@ Von Grafiken können auch Links ausgehen, also Verweise auf eine andere Seite od
 # 4 链接标签
 
 ## 4.1 `<a> 和 <link>`的比较
-![](image/Pasted%20image%2020241029165514.png)
+![](../Chapter2_HTML语法规范和基本结构标签/image/Pasted%20image%2020241029165514.png)
 
 HTML stellt zwei Möglichkeiten bereit, Beziehungen zwischen Dokumenten zu beschreiben:
 - `<a>`-Element (Anchor) im Body eines HTML-Dokuments führt einen klickbaren Verweis im Dokument ein

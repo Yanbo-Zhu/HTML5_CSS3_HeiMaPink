@@ -273,7 +273,60 @@ Der direkt benachbarte Geschwisterselektor wird verwendet, um ein Element auszuw
 
 
 
-![](image/Pasted%20image%2020241123132509.png)
+|Selektor|Selektortyp|Beschreibung|
+|---|---|---|
+|*|Universalselektor|Steuert alle Elemente auf einer Webseite|
+|E|Einfachselektor|Steuert alle Elemente vom Typ E|
+|#meine-id|Einfachselektor|Steuert das Element mit dem id-Attribut "meine-id"|
+|.meine-klasse|Einfachselektor|Steuert alle Elemente mit dem class-Attribut "meine-klasse"|
+|E F|Kombinationsselektor|Steuert alle Elemente vom Typ F, die in einem Element vom Typ E vorkommen|
+|E > F|Kombinationsselektor|Steuert Elemente vom Typ F, die direkt unterhalb eines Elements vom Typ E vorkommen (nicht solche, die in der Struktur weiter unten kommen)|
+|E+F|Kombinationsselektor|Steuert Elemente vom Typ F, die direkt hinter einem Element vom Typ E stehen (nur das direkte Geschwisterelement)|
+|E ~ F|Kombinationsselektor|Steuert alle Elemente vom Typ F, die hinter einem Element vom Typ E stehen (alle Geschwisterelemente)|
+|E[attr]|Attributselektor|Steuert alle Elemente mit dem angegebenen Attribut. Dabei spielt es keine Rolle, ob oder welchen Wert dieses hat|
+|E[attr="value"]|Attributselektor|Steuert Elemente deren Attribute genau und ausschließlich den angegebenen Wert haben.|
+|E[attr~="value"]|Attributselektor|Steuert Elemente deren Attribut den angegeben Wert besitzt, auch wenn mehrere Werte für das Attribut gesetzt sind|
+|E[attr^="value"]|Attributselektor|Steuert Elemente deren Attributwerte mit der Zeichenkette des angegebenen Wertes anfangen|
+|E[attr$="value"]|Atttributselektor|Steuert Elemente deren Attributwerte mit der Zeichenkette des angegebenen Wertes enden|
+|E[attr*="value"]|Attributselektor|Steuert Elemente bei denen die Zeichenkette des angegebenen Wertes im Attributwert vorkommt|
+|E[attr\|="value"]|Attributselektor|Steuert Elemente deren Werte des Attributs eine Reihe von mit Minuszeichen getrennten Segmenten haben, wovon das erste Segment "value" ist. Beispiel: Der Selektor [lang="de"] würde jedes HTML-Element finden, das lang="de" aber auch lang="de-ch" beinhaltet.|
+|E:link|Pseudoklasse|Steuert Links die noch nicht angeklickt wurden|
+|E:visited|Pseudoklasse|Steuert Links die bereits angeklickt wurden und damit in der Historie des Browsers zu finden sind|
+
+|Selektor|Selektortyp|Beschreibung|
+|---|---|---|
+|E:active|Pseudoklasse|Steuert den Link in dem Moment, wenn er durch den Benutzer angeklickt wird|
+|E:hover|Pseudoklasse|Steuert das Element, welches der Benutzer mit der Maus überfährt.|
+|E:focus|Pseudoklasse|Steuert das Element an dessen Position sich der Nutzer beim "Tabben" befindet|
+|E:target|Target-Pseudoklasse|Steuert eine Sprungmarke in dem Moment wenn sie angesprungen wird|
+|E:lang(de)|Sprach-Pseudoklasse|Steuert alle Elemente mit der Sprachauszeichnung "de". Greift auch, wenn die lang-Eigenschaft geerbt wurde|
+|E:enabled|UserInterface-Pseudoklasse|Steuert Formularfelder, in die Werte eingegeben werden können bzw. deren Bedienung möglich ist|
+|E:disabled|UserInterface-Pseudoklasse|Steuert Formularfelder die über das Attribut disabled für die Eingabe gesperrt sind bzw. deren Bedienung nicht möglich ist|
+|E:checked|UserInterface-Pseudoklasse|Steuert aktivierte Checkboxen oder Radioboxen|
+|E:root|Strukturpseudoklasse|Wurzelelement eines Dokuments, in HTML immer das html-Tag|
+|E:nth-child(n)|Strukturpseudoklasse|Steuert jedes n-te Element innerhalb eines Elternelements E|
+|E:nth-last-child(n)|Strukturpseudoklasse|Steuert jedes n-te Kindelement in einem Element, dabei werden die Kindelemente von hinten durchlaufen|
+|E:nth-of-type(n)|Strukturpseudoklasse|Steuert jedes n-te Element vom gleichen HTML-Typ auf gleicher Ebene (Geschwisterelemente)|
+|E:nth-last-of-Type(n)|Strukturpseudoklasse|Steuert jedes n-te Element auf gleicher Ebene (Geschwisterelemente), dabei werden die Elemente von hinten durchlaufen|
+|E:first-child|Strukturpseudoklasse|Steuert das erste Kindelement innerhalb eines Elements|
+|E:last-child|Strukturpseudoklasse|Steuert das letzte Kindelement innerhalb eines Elements|
+|E:first-of-type|Strukturpseudoklasse|Steuert das erste Element des gleichen HTML-Elementtyps innerhalb eines Elternelements|
+|E:last-of-type|Strukturpseudoklasse|Steuert das letzte Element des gleichen HTML-Elementtyps innerhalb eines Elternelements|
+
+
+|Selektor|Selektortyp|Beschreibung|
+|---|---|---|
+|E:only-child|Strukturpseudoklasse|Steuert ein Element, das keine Geschwisterlemente hat und damit das einzige Kindelement im übergeordneten Element ist|
+|E:only-of-type|Strukturpseudoklasse|Steuert ein Element, das keine Geschwisterelemente vom gleichen HTML-Typ hat und damit das einzige Kindelement dieser Sorte im übergeordneten Element ist|
+|E:empty|Strukturpseudoklasse|Steuert leere Elemente|
+|E:not(element)|Pseudoklasse|Steuert alle Elemente außer dem Element, welches in der Klammer angegeben ist|
+|E::first-line|Pseudoelement|Steuert die erste Zeile in dem Element E|
+|E::first-letter|Pseudoelement|Steuert den ersten Buchstaben in dem Element E|
+|E::before|Pseudoelement|Steuert die Inhalte vor dem Element E|
+|E::after|Pseudoelement|Steuert die Inhalte nach dem Element E|
+
+
+
 
 
 

@@ -5,9 +5,14 @@ HTML 标签是由尖括号包围的关键词，例如`<html>`。
 ![](image/Pasted%20image%2020241029163550.png)
 
 
-Ein HTML-Tag ist eine Auszeichnung, z.B. `<h1>`.
-Ein HTML-Element besteht aus dem Start-Tag, dem Inhalt und dem End-Tag `<h1>hallo</h1>`
-Ein HTML-Attribut ist eine Ergänzung des Tags um eine weitergehende Anweisung vorzunehmen z.B. `<h1 class=“MeineBezeichnung“>`  Zu jedem Attribut gehört eine Bezeichnung und ein oder mehrere Werte. Die Reihenfolge der Attribute innerhalb eines Tags ist unwichtig für die Ausführung. Alle Attribute gehören in das öffnende Tag.
+- Die meisten _**HTML-Elemente**_ bestehen aus
+    - Start Tag oder Opening Tag (optional mit Attributen)
+    - Inhalt
+    - End Tag oder Closing Tag
+- _**Case-insensitive**_, d.h. für Elementnamen, Attributnamen und Attributwerte können Groß- und Kleinbuchstaben verwendet werden
+
+- **_Start Tag_** beginnt mit einer öffnenden Klammer, gefolgt vom HTML-Elementnamen, den (optionalen) Attributnamen und -werten und einer schließenden Klammer
+- **_End Tag_** beginnt mit einer öffnenden Klammer, einem Schrägstrich (der ihn als Endtag kennzeichnet), dem Elementnamen und einer schließenden Klammer
 
 
 
@@ -66,23 +71,43 @@ Universalattribute sind solche Attribute, die in allen HTML-Tags erlaubt sind. S
 
 # 3 Zeichencodierung 
 
+## 3.1 Sonderzeichen
+
+|Zeichen|HTML Entity Name|Unicode Entity Number|Beschreibung|
+|---|---|---|---|
+|ä|`**&auml;**`|`**&#228;**`|a-Umlaut|
+|Ä|`**&Auml;**`|`**&#196;**`|A-Umlaut|
+|ö|`**&ouml;**`|`**&#246;**`|o-Umlaut|
+|Ö|`**&Ouml;**`|`**&#214;**`|O-Umlaut|
+|ü|`**&uuml;**`|`**&#252;**`|u-Umlaut|
+|Ü|`**&Uuml;**`|`**&#220;**`|U-Umlaut|
+|ß|`**&szlig;**`|`**&#223;**`|Eszett|
+|€|`**&euro;**`|`**&#8364;**`|Euro|
+|©|`**&copy;**`|`**&#169;**`|Copyright|
+||`**&nbsp;**`|`**&#160;**`|Leerzeichen (non-breaking space)|
+|§|`**&sect;**`|`**&#167;**`|Paragrafenzeichen (section)|
 
 
-![](image/Pasted%20image%2020241123115112.png)
-
-- Zeichencodierung ordnet Zeichen eines Zeichensatzes einer Codierung zu, z.B. einer 8-Bit-Ganzzahl
-- ASCII (American Standard Code for Information Interchange): Alte amerikanische Zeichencodierung basierend auf 7 Bits
-- UTF-8 (8-Bit Universal Coded Character Set (UCS) Tranfsformation Format): Deckungsgleich mit ASCII in den ersten 128 Zeichen
+- _**Zeichencodierung**_ ordnet Zeichen eines Zeichensatzes einer Codierung zu, z.B. einer 8-Bit-Ganzzahl
+- _**ASCII**_ (_**American Standard Code for Information Interchange**_): Alte amerikanische Zeichencodierung basierend auf 7 Bits
+- _**UTF-8**_ (_**8-Bit Universal Coded Character Set (UCS) Tranfsformation Format**_): Deckungsgleich mit ASCII in den ersten 128 Zeichen
 - 98,8% der Top-1000-Webseiten verwenden UTF-8
 - Bei Verwendung von UTF-8 können nebenstehende Zeichen in Plain Text angegeben werden
 - Bei Verwendung von anderen Zeichencodierungen (z.B. ISO 8859-1) muss der HTML Entity Name verwendet werden
 
+
+## 3.2 Steuerzeichen
+
+|Zeichen|HTML Entity Name|Unicode Entity Number|Beschreibung|
+|---|---|---|---|
+|<|`**&lt;**`|`**&#60;**`|Öffnende spitze Klasmmer|
+|>|`**&gt;**`|`**&#62;**`|Schließende spitze Klammer|
+|"|`**&quot;**`|`**&#34;**`|Doppeltes Anführungszeichen|
+|'|`**&apos;**`|`**&#39;**`|Einfaches Anführungszeichen|
+|&|`**&amp;**`|`**&#38;**`|Kaufmännisches Und|
+
 HTML-Syntax benötigt einige Zeichen als Steuerzeichen (<, >, ', ", &)
 Sollen Steuerzeichen als Inhalt dargestellt werden, müssen sie als HTML Entity Name oder Unicode Entity Number geschrieben werden
-
-
-
-
 
 
 

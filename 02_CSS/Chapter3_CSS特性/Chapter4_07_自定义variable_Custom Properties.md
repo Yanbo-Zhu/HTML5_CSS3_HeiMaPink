@@ -1,4 +1,6 @@
 # 1 自定义variable/ Custom Properties
+
+
 CSS Variablen heißen Custom Properties.
 - Sie werden wie folgt vereinbart： `--variablen-bezeichner: wert`
 - Der Aufruf erfolgt über eine Funktion.: `var(--variablen-bezeichner)`

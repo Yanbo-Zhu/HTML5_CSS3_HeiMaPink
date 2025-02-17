@@ -1,18 +1,18 @@
-# 2 常见布局技巧
+# 1 常见布局技巧
 
-## 2.1 margin负值的运用
+## 1.1 margin负值的运用
 
 1. 解决并排盒子之间的边框宽度加倍问题。 原理：让每个盒子压住前面的盒子，边框叠加。
 2. 鼠标移动边框颜色变化效果。
 
-### 2.1.1 有两个盒子
+### 1.1.1 有两个盒子
 
 - 两个盒子加边框1px，浮动，贴紧会出现 1 + 1 = 2px
 - 给右边盒子添加`margin-left: -1px`
 - 正数向右边走，负数向左边走
   ![在这里插入图片描述](https://img-blog.csdnimg.cn/49161c07333346c990eab8dca70b4425.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0F1Z2Vuc3Rlcm5fUVhM,size_16,color_FFFFFF,t_70#pic_center)
 
-### 2.1.2 有多个盒子
+### 1.1.2 有多个盒子
 
 https://blog.csdn.net/Augenstern_QXL/article/details/119172527
 
@@ -68,7 +68,7 @@ ul li {
 </body>
 ```
 
-## 2.2 文字围绕浮动元素巧妙运用
+## 1.2 文字围绕浮动元素巧妙运用
 
 原理：浮动元素不会遮住文字。
 
@@ -80,7 +80,7 @@ div {
 
 ![在这里插入图片描述](https://img-blog.csdnimg.cn/71377b1f43f34ff1aaf153cf1dceb0b6.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0F1Z2Vuc3Rlcm5fUVhM,size_16,color_FFFFFF,t_70#pic_center)
 
-## 2.3 行内块元素巧妙运用
+## 1.3 行内块元素巧妙运用
 
 ![在这里插入图片描述](https://img-blog.csdnimg.cn/7d1aaaf6a6d549e7b1a90c25447fb370.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0F1Z2Vuc3Rlcm5fUVhM,size_16,color_FFFFFF,t_70#pic_center)
 

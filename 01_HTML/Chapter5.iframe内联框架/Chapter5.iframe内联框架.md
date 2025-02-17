@@ -4,23 +4,34 @@ https://www.bilibili.com/video/BV1x4411V75C?p=11&vd_source=55e5cc2f534c16c73bbeb
 
 [HTML页面引入另一个HTML页面，比如各个页面引入通用的网站头部、尾部、导航栏_原来的1024的博客-CSDN博客_html 引入头部](https://blog.csdn.net/yldmkx/article/details/115313765)
 
+
+
 # 2 iframe内联框架的基本原理
 
 就是在一个网页里嵌套另一个网页
 
 可以引入其他的html, 或者视频， 等等
 
-![](Image/Pasted%20image%2020241123121221.png)
+```html
+<iframe src="https://html.spec.whatwg.org/dev/tables.html" height="400" width="600"></iframe>
+<iframe src="https://eloquentjavascript.net/01_values.html" height="400" width="600"></iframe>
+```
 
-![](Image/Pasted%20image%2020241123121227.png)
+|Attribut|Funktion|
+|---|---|
+|allowFullscreen|Erlaubt dem iFrame die Aktivierung des Vollbildmodus.|
+|height|Höhe des iFrame in Pixeln. Standardwert ist 150 Pixels.|
+|loading|Legt fest ob iFrame unmittelbar oder basierend auf bestimmten Bedingungen geladen wird.|
+|referrerPolicy|Legt fest, welche Informationen beim Laden der Seite an den Drittanbieter gesendet werden.|
+|src|Quelle (URL) des Drittanbieterinhalts|
+|width|Breite des iFrame in Pixeln. Standardwert ist 300 Pixels.|
+|name|Name des iFrame|
 
 
-- Einbindung von Drittanbieterinhalten in einem Inline Frame (iFrame)
+- Einbindung von Drittanbieterinhalten in einem _**Inline Frame**_ (_**iFrame**_)
 - Eingebundene Webseite muss via HTTPS geladen werden
-- Drittanbieter kann Einbindung durch spezielle HTTPHeader-Attribute unterbinden
+- Drittanbieter kann Einbindung durch spezielle HTTP-Header-Attribute unterbinden
 - Same Origin Policy hindern iFrames daran, Änderungen an der Seite vorzunehmen
-
-
 
 
 # 3 语法
@@ -82,7 +93,30 @@ https://www.bilibili.com/video/BV1x4411V75C?p=11&vd_source=55e5cc2f534c16c73bbeb
 
 ## 4.5 引入video 
 
+```html
+<video controls preload poster="img/universal.jpg">
+  <source src="media/jurassicpark.mp4" type="video/mp4">
+  <source src="media/jurassicpark.mp4" type=video/ogg">
+  <p>
+    Ihr Browser unterstützt die direkte Anzeige von Videos nicht.<br>
+    Das Video zum Download: <a href="media/jurassicpark.mp4">Jurassic Park</a>
+  </p>                                                    
+</video>
+```
 
 
+- HTML5 ermöglicht Einbindung von Audio- und Videoinhalten ohne Plug-Ins mittels `**<audio>**`- und `**<video>**`-Elementen
+- Einbindung von Videos unterschiedlicher Kodierungen mit vielen Konfigurationsmöglichkeiten 
+- Browser wählt eine kompatible Kodierung
+- Wenn Browser Kodierungen nicht unterstützt, erfolgt ein Hinweis zusammen mit einem Link zum Download
+
+| Attribut             | Funktion                                                                                                                                                         |
+| -------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `controls`           | Ergänzt Video um eine Bedienleiste, deren Layout über CSS und JavaScript angepasst werden kann angepasst                                                         |
+| `autoplay`           | Startet das Video automatisch beim Laden der Seite                                                                                                               |
+| `loop`               | Spielt das Video in einer Endlosschleife                                                                                                                         |
+| `poster`             | Referenziert eine Grafik die gezeigt wird wenn das Video nicht abgespielt wird                                                                                   |
+| `width` und `height` | Breiten- und Höhenangaben für das Video                                                                                                                          |
+| `preload`            | Steuert ob die Videodatei beim Laden der Seite vorgeladen wird oder nicht, beziehungsweise ob nur Metadaten geladen werden (möglich Werte: auto, metadata, none) |
 
 
