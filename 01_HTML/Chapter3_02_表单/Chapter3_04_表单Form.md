@@ -80,6 +80,53 @@ Formular nicht  leeren, wenn alle Felder nicht richtig ausgefüllt sind.
 
 ![](image/Pasted%20image%2020241030082023.png)
 
+GET-METHODE
+- Formulareingabe Wird mittels einer HTTP-GET-Methode gesendet, d.h. die Daten werden an die URL angehängt, die in action angegeben ist
+- Nach dem Absenden des Formulars sind die Formulareingaben in der Browserzeile sichtbar
+- HTTP empfiehlt eine Maximalgröße von 255 Bytes für URLs, daher nur für kleine Formulare geeignet
+
+POST-METHODE
+- Übertragung der Daten im Nutzdatenteil einer Nachricht, die mit der HTTP-POST-Methode versendet Wird Übertragung der Daten ist für den Nutzer nicht sichtbar
+- Je nach Konfiguration des Webservers kann die maximale Dateigröße beschränkt sein, z.B. 8 MB
+
+
+
+**Wann sollte `GET` verwendet werden?**
+- Wenn das Formular **keine sensiblen Daten** enthält (z. B. Suchanfragen).
+- Wenn die Daten in der **URL sichtbar** sein dürfen.
+- Wenn die Anfrage **wiederholbar** und **cachbar** sein soll.
+🔹 Hier würde die URL nach Absenden so aussehen:  `zielseite.html?mail=test@example.com&pw=1234` (⚠️ **Unsicher für Passwörter!**)
+```html
+<form action="zielseite.html" method="GET">
+    <label for="mail"> E-Mail </label>
+    <input id="mail" type="email" name="mail" required autofocus>
+    <br> 
+    <label for="password">Passwort</label>
+    <input id="password" type="password" name="pw" required>
+    <br>
+    <button type="submit">Absenden</button>
+</form>
+
+```
+
+
+**Wann sollte `POST` verwendet werden?**
+- Wenn **sensible oder private Daten** (z. B. Passwörter) übermittelt werden.
+- Wenn die Daten **nicht in der URL sichtbar** sein sollen.
+- Wenn die Daten eine **Datenbank verändern** (z. B. Registrierung, Login).
+🔹 Hier werden die Daten im HTTP-Body gesendet, nicht in der URL sichtbar.
+```html
+<form action="zielseite.html" method="POST">
+    <label for="mail"> E-Mail </label>
+    <input id="mail" type="email" name="mail" required autofocus>
+    <br> 
+    <label for="password">Passwort</label>
+    <input id="password" type="password" name="pw" required>
+    <br>
+    <button type="submit">Absenden</button>
+</form>
+
+```
 
 ## 2.2 Formulardaten absenden
 
